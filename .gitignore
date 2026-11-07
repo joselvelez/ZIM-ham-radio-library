@@ -1,0 +1,18 @@
+# Build artifacts
+*.zim
+
+# OS / editor
+.DS_Store
+*.swp
+*~
+
+# Conversion intermediates (keep structure, ignore bulk)
+source/pdfs/*
+!source/pdfs/.gitkeep
+source/notes/*
+!source/notes/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
