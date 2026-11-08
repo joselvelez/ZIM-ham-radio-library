@@ -31,10 +31,10 @@ def is_rule(region: fitz.Rect) -> bool:
 
 
 def is_barcode(region: fitz.Rect, page: fitz.Page) -> bool:
-    """A barcode: many thin vertical bars of similar height, regularly spaced.
+    """A barcode: many thin vertical bars that each span most of the region height.
 
-    Counts vertical drawing items inside the region. A barcode has far more
-    vertical bars than any diagram of the same size.
+    Panel drawings and wiring have thin lines of varying height. A barcode's
+    bars are all roughly the full height of the region.
     """
     try:
         items = page.get_drawings()
@@ -48,8 +48,8 @@ def is_barcode(region: fitz.Rect, page: fitz.Page) -> bool:
         r = fitz.Rect(rect)
         if (region & r).is_empty:
             continue
-        # thin vertical bar: much taller than wide
-        if r.height > r.width * 4 and r.width < 4:
+        # thin, and spans most of the region height
+        if r.width < 4 and r.height > region.height * 0.7:
             bars += 1
     return bars >= 8
 
