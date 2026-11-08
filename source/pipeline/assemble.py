@@ -15,7 +15,7 @@ def _title_from_content(extracted: Dict[str, Any], fallback: str) -> str:
 
 def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_path: str | None = None) -> str:
     title = _title_from_content(extracted, record.get("id", "Untitled"))
-    category = record.get("category", "reference")
+    category = record["category"]  # required; no silent default
     source_pdf = record.get("path", "unknown")
     sha = record.get("sha256", "")[:12]
 
@@ -42,7 +42,7 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_pat
         figure_html = f'''
 <figure>
   <object type="image/svg+xml" data="{Path(svg_path).name}" width="100%"></object>
-  <figcaption>Band plan diagram (native vectors extracted as SVG).</figcaption>
+  <figcaption>Figure (native vectors).</figcaption>
 </figure>
 '''
     elif extracted.get("pages") and extracted["pages"][0].get("has_native_vectors"):
@@ -88,7 +88,7 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_pat
     return html_doc
 
 def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: Path, svg_path: str | None = None) -> Path:
-    category = record.get("category", "reference")
+    category = record["category"]  # required; no silent default
     art_dir = html_root / "articles" / category
     art_dir.mkdir(parents=True, exist_ok=True)
     slug = record["id"].split("-")[0]  # simple

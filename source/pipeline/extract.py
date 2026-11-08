@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Dict, Any, List
 import html as html_lib
 
-from .figures import figure_regions, is_label
+from .figures import figure_regions, is_label, is_diagram
 
 def extract_page(page: fitz.Page) -> Dict[str, Any]:
     regions = figure_regions(page)
@@ -49,12 +49,21 @@ def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:
     return {"path": str(pdf_path), "page_count": total, "pages_extracted": limit, "pages": pages}
 
 def extract_diagram_svg(page: fitz.Page, out_path: Path) -> str | None:
-    """SVG of the main figure region via MuPDF (clip + get_svg_image). Fast even on complex pages."""
+    """SVG of the main figure region via MuPDF (clip + get_svg_image).
+    Uses is_diagram() so title/logo art is skipped by the same rule for every page.
+    """
     regions = figure_regions(page)
     if not regions:
         return None
-    # largest region is the diagram we emit
-    region = max(regions, key=lambda r: r.get_area())
+    # text blocks for the overlap test
+    raw = page.get_text("blocks")
+    text_blocks = [{"bbox": b[:4]} for b in raw if b[6] == 0]
+    # candidates that pass the diagram test, largest first
+    diagrams = [r for r in regions if is_diagram(r, text_blocks)]
+    if not diagrams:
+        print("  no diagram region (clusters are title/logo art); skipping figure")
+        return None
+    region = max(diagrams, key=lambda r: r.get_area())
     # expand slightly for labels
     clip = fitz.Rect(region.x0 - 4, region.y0 - 16, region.x1 + 4, region.y1 + 4) & page.rect
 

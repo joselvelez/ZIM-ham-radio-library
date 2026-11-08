@@ -29,3 +29,20 @@ def is_label(bbox: fitz.Rect, regions: List[fitz.Rect]) -> bool:
         if bbox.intersects(expanded):
             return True
     return False
+
+def is_diagram(region: fitz.Rect, text_blocks: list) -> bool:
+    """A region is a diagram when vector area substantially exceeds overlapping text.
+    Title/logo art is mostly text (or text-sized); real diagrams are not.
+    Single rule, no page-specific thresholds.
+    """
+    text_area = 0.0
+    for b in text_blocks:
+        bb = fitz.Rect(b["bbox"]) if isinstance(b, dict) else fitz.Rect(b[:4])
+        inter = region & bb
+        if not inter.is_empty:
+            text_area += inter.get_area()
+    region_area = region.get_area()
+    if region_area <= 0:
+        return False
+    # diagram if drawings dominate the region (text covers less than half)
+    return (text_area / region_area) < 0.5
