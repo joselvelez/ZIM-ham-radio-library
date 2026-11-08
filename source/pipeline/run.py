@@ -12,7 +12,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from source.pipeline.ingest import ingest_pdf
-from source.pipeline.extract import extract_pdf, extract_diagram_svg
+from source.pipeline.extract import extract_pdf, extract_diagram_svgs
 from source.pipeline.figures import figure_regions
 from source.pipeline.assemble import write_article
 from source.pipeline.quality import score_document, enqueue_if_low
@@ -47,13 +47,11 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int) -> No
         regions = figure_regions(doc[i])
         if not regions:
             continue
-        svg_out = notes / f"{record['id']}-page{i}.svg"
-        result = extract_diagram_svg(doc[i], svg_out)
-        if result:
-            svg_paths.append(Path(result))
-            print(f"  diagram on page {i + 1}: {result}")
-        elif svg_out.exists():
-            svg_out.unlink()
+        results = extract_diagram_svgs(doc[i], notes, f"{record['id']}-page{i}")
+        if results:
+            for r in results:
+                svg_paths.append(Path(r))
+                print(f"  diagram on page {i + 1}: {r}")
     doc.close()
     print(f"Diagrams: {len(svg_paths)}")
 

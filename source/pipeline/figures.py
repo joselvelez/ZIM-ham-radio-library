@@ -25,8 +25,33 @@ CAPTION_RE = re.compile(r"\b(fig(?:ure)?\.?|diagram|chart)\b", re.I)
 PARAGRAPH_CHARS = 80
 # An exported SVG with more prose than this is a text page, not a diagram.
 MAX_SVG_TEXT_CHARS = 200
-# Bytes of SVG per square point; outlined text is far above this.
-MAX_SVG_BYTES_PER_POINT = 80
+def is_rule(region: fitz.Rect) -> bool:
+    """A header or footer rule: spans most of the page and is only a few points tall."""
+    return region.height < 6 and region.width > 200
+
+
+def is_barcode(region: fitz.Rect, page: fitz.Page) -> bool:
+    """A barcode: many thin vertical bars of similar height, regularly spaced.
+
+    Counts vertical drawing items inside the region. A barcode has far more
+    vertical bars than any diagram of the same size.
+    """
+    try:
+        items = page.get_drawings()
+    except Exception:
+        return False
+    bars = 0
+    for d in items:
+        rect = d.get("rect")
+        if not rect:
+            continue
+        r = fitz.Rect(rect)
+        if (region & r).is_empty:
+            continue
+        # thin vertical bar: much taller than wide
+        if r.height > r.width * 4 and r.width < 4:
+            bars += 1
+    return bars >= 8
 
 
 def figure_regions(page: fitz.Page) -> List[fitz.Rect]:
@@ -93,18 +118,6 @@ def is_diagram(region: fitz.Rect, text_blocks: list) -> bool:
     if has_caption:
         return True
     return (text_area / region_area) < TEXT_DOMINANCE
-
-
-def is_path_heavy(svg: str, region: fitz.Rect) -> bool:
-    """True when the SVG is text outlined as vectors (logo art).
-
-    Real diagrams produce modest SVG for their area. Outlined text produces
-    huge path data for a small region. Same cutoff for every page.
-    """
-    area = region.get_area()
-    if area <= 0:
-        return True
-    return (len(svg) / area) > MAX_SVG_BYTES_PER_POINT
 
 
 def is_prose_svg(svg: str) -> bool:

@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Dict, Any, List
 import html as html_lib
 
-from .figures import figure_regions, is_label, is_diagram, is_path_heavy, is_prose_svg
+from .figures import figure_regions, is_label, is_diagram, is_prose_svg, is_rule, is_barcode
 
 
 def extract_page(page: fitz.Page) -> Dict[str, Any]:
@@ -51,37 +51,33 @@ def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:
     return {"path": str(pdf_path), "page_count": total, "pages_extracted": limit, "pages": pages}
 
 
-def extract_diagram_svg(page: fitz.Page, out_path: Path) -> str | None:
-    """SVG of the main figure region via MuPDF (clip + get_svg_image).
+def extract_diagram_svgs(page: fitz.Page, out_dir: Path, stem: str) -> list[str]:
+    """SVG of every diagram region on the page.
 
-    Uses is_diagram() so title/logo art is skipped by the same rule for every page.
-    Also rejects path-heavy SVGs (text outlined as vectors) via is_path_heavy().
+    Rejects rules (thin, page-wide), barcodes (regular vertical bars), and
+    body text. One file per remaining region.
     """
     regions = figure_regions(page)
     if not regions:
-        return None
+        return []
     raw = page.get_text("blocks")
     text_blocks = [{"bbox": b[:4], "text": (b[4] or "").strip()}
                    for b in raw if b[6] == 0]
-    diagrams = [r for r in regions if is_diagram(r, text_blocks)]
+    diagrams = [r for r in regions
+                if not is_rule(r) and not is_barcode(r, page) and is_diagram(r, text_blocks)]
     if not diagrams:
-        print("  no diagram region (clusters are title/logo art); skipping figure")
-        return None
-    region = max(diagrams, key=lambda r: r.get_area())
-    clip = fitz.Rect(region.x0 - 4, region.y0 - 16, region.x1 + 4, region.y1 + 4) & page.rect
-
-    tmp = fitz.open()
-    tp = tmp.new_page(width=clip.width, height=clip.height)
-    tp.show_pdf_page(tp.rect, page.parent, page.number, clip=clip)
-    svg = tp.get_svg_image(text_as_path=False)
-    tmp.close()
-
-    if is_path_heavy(svg, region):
-        print("  cluster is path-heavy (outlined text / logo); skipping figure")
-        return None
-    if is_prose_svg(svg):
-        print("  cluster is body text, not a diagram; skipping figure")
-        return None
-
-    out_path.write_text(svg)
-    return str(out_path)
+        return []
+    written: list[str] = []
+    for n, region in enumerate(sorted(diagrams, key=lambda r: (r.y0, r.x0))):
+        clip = fitz.Rect(region.x0 - 4, region.y0 - 16, region.x1 + 4, region.y1 + 4) & page.rect
+        tmp = fitz.open()
+        tp = tmp.new_page(width=clip.width, height=clip.height)
+        tp.show_pdf_page(tp.rect, page.parent, page.number, clip=clip)
+        svg = tp.get_svg_image(text_as_path=False)
+        tmp.close()
+        if is_prose_svg(svg):
+            continue
+        out = out_dir / f"{stem}-{n}.svg"
+        out.write_text(svg)
+        written.append(str(out))
+    return written
