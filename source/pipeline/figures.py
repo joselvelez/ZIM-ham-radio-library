@@ -69,22 +69,25 @@ def _nearby_text(region: fitz.Rect, text_blocks: list) -> tuple[float, bool]:
 
 
 def is_diagram(region: fitz.Rect, text_blocks: list) -> bool:
-    """True when the region is a diagram, not body text or cover art.
+    """True when the region is a diagram, not a block of body text.
 
-    A diagram has short labels. A region that contains a paragraph (body text)
-    is not a diagram. Same rule for every page and every PDF.
+    A paragraph that merely sits next to a diagram does not disqualify it.
+    The region is body text only when paragraph text covers most of it.
     """
     region_area = region.get_area()
     if region_area <= 0:
         return False
+    paragraph_area = 0.0
     for b in text_blocks:
         text = (b.get("text", "") if isinstance(b, dict) else "").strip()
         if len(text) < PARAGRAPH_CHARS:
             continue
         bb = fitz.Rect(b["bbox"]) if isinstance(b, dict) else fitz.Rect(b[:4])
-        if (region & bb).is_empty:
-            continue
-        # paragraph intersects the region → body text, not a diagram
+        inter = region & bb
+        if not inter.is_empty:
+            paragraph_area += inter.get_area()
+    # mostly covered by paragraphs → body text, not a diagram
+    if paragraph_area / region_area > 0.5:
         return False
     text_area, has_caption = _nearby_text(region, text_blocks)
     if has_caption:

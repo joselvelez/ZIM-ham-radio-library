@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from source.pipeline.ingest import ingest_pdf
 from source.pipeline.extract import extract_pdf, extract_diagram_svg
+from source.pipeline.figures import figure_regions
 from source.pipeline.assemble import write_article
 from source.pipeline.quality import score_document, enqueue_if_low
 from source.pipeline.index import rebuild_index
@@ -39,19 +40,20 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int) -> No
     notes.mkdir(parents=True, exist_ok=True)
     svg_paths: list[Path] = []
     doc = fitz.open(pdf)
-    for i, page in enumerate(pages):
-        if not page.get("has_native_vectors"):
+    # Figures are scanned across the whole document. cluster_drawings is fast;
+    # text extraction stays limited by --pages.
+    print(f"Scanning {doc.page_count} pages for diagrams...")
+    for i in range(doc.page_count):
+        regions = figure_regions(doc[i])
+        if not regions:
             continue
         svg_out = notes / f"{record['id']}-page{i}.svg"
-        print(f"Building diagram SVG for page {i + 1}...")
         result = extract_diagram_svg(doc[i], svg_out)
         if result:
             svg_paths.append(Path(result))
-            print(f"  SVG: {result}")
-        else:
-            if svg_out.exists():
-                svg_out.unlink()
-            print(f"  no diagram on page {i + 1}")
+            print(f"  diagram on page {i + 1}: {result}")
+        elif svg_out.exists():
+            svg_out.unlink()
     doc.close()
     print(f"Diagrams: {len(svg_paths)}")
 

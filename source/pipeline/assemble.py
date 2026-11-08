@@ -91,7 +91,7 @@ def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: 
     category = record["category"]  # required; no silent default
     art_dir = html_root / "articles" / category
     art_dir.mkdir(parents=True, exist_ok=True)
-    slug = record["id"].split("-")[0]  # simple
+    slug = record["id"]  # full document id, unique across the library
     out = art_dir / f"{slug}.html"
     paths = [Path(p) for p in (svg_paths or []) if Path(p).exists()]
     content = make_article_html(record, extracted, paths)
@@ -105,7 +105,10 @@ def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: 
     for leftover in art_dir.glob(f"{record['id']}*.svg"):
         if leftover.name not in kept:
             leftover.unlink()
-    _retire_previous(record, html_root)
+    # remove a leftover short-slug file from the old naming scheme
+    old_short = art_dir / f"{record['id'].split('-')[0]}.html"
+    if old_short.exists() and old_short != out:
+        old_short.unlink()
     return out
 
 
@@ -122,7 +125,7 @@ def _retire_previous(record: Dict[str, Any], html_root: Path) -> None:
     old_dir = html_root / "articles" / previous
     if not old_dir.is_dir():
         return
-    slug = record["id"].split("-")[0]
+    slug = record["id"]
     doc_id = record["id"]
     for path in list(old_dir.iterdir()):
         if path.name == f"{slug}.html" or path.name.startswith(doc_id):
