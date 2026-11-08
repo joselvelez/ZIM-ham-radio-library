@@ -42,3 +42,5 @@ python3 source/pipeline/run.py source/pdfs/public/basic/ --category band-plans
 ```
 
 `.venv/` is gitignored. Re-run `./source/setup.sh` after pulling if `source/requirements.txt` changes.
+
+See CONVERSION.md for the public source list (`html/sources.html`).

@@ -141,3 +141,21 @@ For large manuals, limit pages during prototype runs:
 python3 source/pipeline/run.py source/pdfs/public/basic/ --category manuals --pages 5
 ```
 Default is 5 pages. Omit `--pages` only when you want the full document.
+
+## Public source list
+
+`html/sources.html` is a searchable list of every ingested source, generated from the manifest and packaged into the ZIM. It is the public view of what the library contains.
+
+Columns:
+
+- **Title** — document title (from the record, or filename stem)
+- **Filename** — original PDF name
+- **SHA-256** — exact file identity; click to copy
+- **Location** — drop zone: `basic`, `extensive`, or `paid`
+- **Size** — file size
+- **Category** — topic taxonomy (`manuals`, `band-plans`, etc.)
+
+A search box filters the table by any of those fields. The page is regenerated at the end of every pipeline run; do not edit it by hand.
+
+![Source list mockup](docs/sources-list-mockup.svg)
+
