@@ -91,14 +91,39 @@ def extract_diagram_svg(page: fitz.Page, out_path: Path) -> str | None:
                 x2, y2 = (p2.x - u.x0) * scale, (p2.y - u.y0) * scale
                 parts.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="{stroke}" stroke-width="1"/>')
 
-    # Labels: words that the shared rule classifies as labels
+    # Labels: words that the shared rule classifies as labels.
+    # Text color chosen for contrast against the fill under the word.
+    def _luma(c):
+        if not c or len(c) < 3:
+            return 0.5
+        r, g, b = c[:3]
+        return 0.2126*r + 0.7152*g + 0.0722*b
+
+    # Map each label word to the fill of the rect it sits on (if any)
+    rect_fills = []
+    for d in page.get_drawings():
+        fill = d.get("fill")
+        for item in d.get("items", []):
+            if item[0] == "re":
+                rect_fills.append((fitz.Rect(item[1]), fill))
+
     for w in page.get_text("words"):
         wr = fitz.Rect(w[:4])
         if not is_label(wr, regions):
             continue
+        # find the smallest rect that contains the word center
+        cx, cy = (wr.x0 + wr.x1) / 2, (wr.y0 + wr.y1) / 2
+        pt = fitz.Point(cx, cy)
+        best = None
+        for r, fill in rect_fills:
+            if r.contains(pt):
+                if best is None or r.get_area() < best[0].get_area():
+                    best = (r, fill)
+        luma = _luma(best[1]) if best else 0.5
+        color = "#111" if luma > 0.5 else "#eee"
         x = (wr.x0 - u.x0) * scale + 2
         y = (wr.y1 - u.y0) * scale - 1
-        parts.append(f'<text x="{x:.1f}" y="{y:.1f}" fill="#eee" font-size="11">{html_lib.escape(w[4])}</text>')
+        parts.append(f'<text x="{x:.1f}" y="{y:.1f}" fill="{color}" font-size="11">{html_lib.escape(w[4])}</text>')
 
     parts.append("</svg>")
     out_path.write_text("\n".join(parts))

@@ -4,8 +4,17 @@ from typing import Dict, Any
 import html
 from datetime import datetime
 
+def _title_from_content(extracted: Dict[str, Any], fallback: str) -> str:
+    """First substantial body paragraph becomes the title. No hash, no ID munging."""
+    for page in extracted.get("pages", []):
+        for blk in page.get("text_blocks", []):
+            t = blk["text"].strip().splitlines()[0].strip()
+            if len(t) > 8 and not t.lower().startswith("prototype"):
+                return t
+    return fallback
+
 def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_path: str | None = None) -> str:
-    title = record.get("id", "Untitled").replace("-", " ").title()
+    title = _title_from_content(extracted, record.get("id", "Untitled"))
     category = record.get("category", "reference")
     source_pdf = record.get("path", "unknown")
     sha = record.get("sha256", "")[:12]
