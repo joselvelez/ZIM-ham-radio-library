@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Dict, Any, List
 import html as html_lib
 
-from .figures import figure_regions, is_label, is_diagram, is_path_heavy
+from .figures import figure_regions, is_label, is_diagram, is_path_heavy, is_prose_svg
 
 
 def extract_page(page: fitz.Page) -> Dict[str, Any]:
@@ -78,6 +78,9 @@ def extract_diagram_svg(page: fitz.Page, out_path: Path) -> str | None:
 
     if is_path_heavy(svg, region):
         print("  cluster is path-heavy (outlined text / logo); skipping figure")
+        return None
+    if is_prose_svg(svg):
+        print("  cluster is body text, not a diagram; skipping figure")
         return None
 
     out_path.write_text(svg)

@@ -21,8 +21,11 @@ NEAR_MARGIN = 36
 TEXT_DOMINANCE = 0.25
 # Caption-like text near a region is a positive diagram signal.
 CAPTION_RE = re.compile(r"\b(fig(?:ure)?\.?|diagram|chart)\b", re.I)
-# Path-heavy SVGs (text outlined as vectors) are logo art, not diagrams.
-# Bytes of SVG per square point of the region; real diagrams are far below this.
+# A text block longer than this is a paragraph, not a diagram label.
+PARAGRAPH_CHARS = 80
+# An exported SVG with more prose than this is a text page, not a diagram.
+MAX_SVG_TEXT_CHARS = 200
+# Bytes of SVG per square point; outlined text is far above this.
 MAX_SVG_BYTES_PER_POINT = 80
 
 
@@ -66,14 +69,22 @@ def _nearby_text(region: fitz.Rect, text_blocks: list) -> tuple[float, bool]:
 
 
 def is_diagram(region: fitz.Rect, text_blocks: list) -> bool:
-    """True when the region is a diagram, not cover/header art.
+    """True when the region is a diagram, not body text or cover art.
 
-    Cover logos and title art have substantial title or address text beside them.
-    Real diagrams do not. A nearby caption is a positive signal and overrides
-    moderate text overlap (labeled diagrams).
+    A diagram has short labels. A region that contains a paragraph (body text)
+    is not a diagram. Same rule for every page and every PDF.
     """
     region_area = region.get_area()
     if region_area <= 0:
+        return False
+    for b in text_blocks:
+        text = (b.get("text", "") if isinstance(b, dict) else "").strip()
+        if len(text) < PARAGRAPH_CHARS:
+            continue
+        bb = fitz.Rect(b["bbox"]) if isinstance(b, dict) else fitz.Rect(b[:4])
+        if (region & bb).is_empty:
+            continue
+        # paragraph intersects the region → body text, not a diagram
         return False
     text_area, has_caption = _nearby_text(region, text_blocks)
     if has_caption:
@@ -91,3 +102,15 @@ def is_path_heavy(svg: str, region: fitz.Rect) -> bool:
     if area <= 0:
         return True
     return (len(svg) / area) > MAX_SVG_BYTES_PER_POINT
+
+
+def is_prose_svg(svg: str) -> bool:
+    """True when the SVG is mostly body text, not a diagram.
+
+    Counts characters inside text elements. Diagrams have short labels.
+    A page of prose dumped into an SVG is not a figure.
+    """
+    import re
+    chunks = re.findall(r"<tspan[^>]*>([^<]*)</tspan>", svg)
+    text = "".join(chunks)
+    return len(text) > MAX_SVG_TEXT_CHARS
