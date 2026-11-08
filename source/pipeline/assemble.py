@@ -10,11 +10,11 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_pat
     source_pdf = record.get("path", "unknown")
     sha = record.get("sha256", "")[:12]
 
-    # Collect text
+    # Body text only (labels already classified out by geometry in extract)
     body_paras = []
     for p in extracted.get("pages", []):
         for blk in p.get("text_blocks", []):
-            t = blk["text"]
+            t = blk["text"].strip()
             if t:
                 body_paras.append(f"<p>{html.escape(t)}</p>")
 

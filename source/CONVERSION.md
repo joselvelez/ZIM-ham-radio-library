@@ -119,3 +119,14 @@ Outputs:
 - index.html updated with link
 
 Next increments: better reading-order / column handling, real AI vectorization call (or local model), confidence scoring, review queue, multi-page, dedup refinement.
+
+## Figure extraction rule (locked)
+
+Single source of truth in `source/pipeline/figures.py`:
+
+- A figure region is the tight union of native vector drawing items.
+- Text whose bounding box intersects that region (plus a small margin) is a figure label.
+- Everything else is body text.
+- The diagram SVG contains only the vector items inside the region plus those labels.
+- The same classification is used for both HTML body text and SVG content. No second filter, no content-specific word lists.
+

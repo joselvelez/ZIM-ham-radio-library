@@ -12,7 +12,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from source.pipeline.ingest import ingest_pdf
-from source.pipeline.extract import extract_pdf, extract_native_svg_stub
+from source.pipeline.extract import extract_pdf, extract_diagram_svg
 from source.pipeline.assemble import write_article
 import pymupdf as fitz
 
@@ -51,7 +51,7 @@ def main():
         svg_out = Path("source/notes") / f"{record['id']}-page0.svg"
         svg_out.parent.mkdir(exist_ok=True)
         doc = fitz.open(pdf)
-        svg_path = extract_native_svg_stub(doc[0], svg_out)
+        svg_path = extract_diagram_svg(doc[0], svg_out)
         doc.close()
         print(f"SVG: {svg_path}")
 
