@@ -66,7 +66,7 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int) -> No
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("path", type=Path, help="PDF file or directory of PDFs")
-    ap.add_argument("--category", default=None, help="Override category for every file (default: parent folder name)")
+    ap.add_argument("--category", default=None, help="Triage: set category for files that do not have one yet")
     ap.add_argument("--html-root", type=Path, default=Path("html"))
     ap.add_argument("--pages", type=int, default=5, help="Max pages to extract per PDF (default 5 for prototype)")
     args = ap.parse_args()
@@ -82,9 +82,9 @@ def main():
         sys.exit(1)
 
     for pdf in pdfs:
-        # category = override or the parent directory name
-        category = args.category or pdf.parent.name
-        process_one(pdf, category, args.html_root, args.pages)
+        # Category comes from the manifest if already set.
+        # --category is only the triage assignment for files that lack one.
+        process_one(pdf, args.category, args.html_root, args.pages)
 
     rebuild_index(args.html_root)
     src = write_sources_page(args.html_root, Path("source/manifest.json"))

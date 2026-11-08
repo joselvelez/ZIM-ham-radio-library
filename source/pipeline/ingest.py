@@ -46,7 +46,7 @@ def save_manifest(data: Dict[str, Any]):
     with open(MANIFEST_PATH, "w") as f:
         json.dump(data, f, indent=2)
 
-def ingest_pdf(pdf_path: Path, category: str) -> Dict[str, Any]:
+def ingest_pdf(pdf_path: Path, category: str | None = None) -> Dict[str, Any]:
     """Ingest a single PDF, update manifest, return record."""
     pdf_path = Path(pdf_path).resolve()
     sha = sha256_file(pdf_path)
@@ -59,17 +59,19 @@ def ingest_pdf(pdf_path: Path, category: str) -> Dict[str, Any]:
     # Dedup check
     for doc_id, rec in docs.items():
         if rec.get("sha256") == sha:
-            # Same file. Honor a new category if the caller passed one.
+            # Already known. Update category only if triage supplied a new one.
             if category and rec.get("category") != category:
                 rec["category"] = category
                 save_manifest(manifest)
-                print(f"Exact duplicate of {doc_id}; category updated to {category}")
+                print(f"Exact duplicate of {doc_id}; category set to {category}")
             else:
-                print(f"Exact duplicate of {doc_id}")
+                print(f"Exact duplicate of {doc_id} (category={rec.get('category')})")
             return rec
         if rec.get("fingerprint") == fp:
             print(f"Near-duplicate fingerprint of {doc_id}")
 
+    if not category:
+        raise SystemExit(f"No category for new file {pdf_path.name}. Re-run with --category to triage it.")
     doc_id = f"{pdf_path.stem}-{sha[:8]}"
     record = {
         "id": doc_id,
