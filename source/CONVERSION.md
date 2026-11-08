@@ -96,3 +96,26 @@ Visible in article header for Kiwix; machine-readable via meta tags or structure
 Quality over speed on figures. Accuracy is the hard requirement; automation and scores protect throughput.  
 Manifest is the single source of truth for dedup, canonical choice, metadata, and processing history.  
 Next concrete step: prototype the ingest → extract → one AI vectorization → HTML path on a small set of representative PDFs (clean manual + diagram-heavy page + scanned page) and validate both visual fidelity and RAG chunk quality.
+
+## Prototype status (2026-11-08)
+
+Minimal working slice under `source/pipeline/`:
+
+- `ingest.py` — SHA-256 + simple fingerprint, manifest.json update, exact/near-dup check.
+- `extract.py` — PyMuPDF text blocks (reading-order sorted), native vector detection, SVG export via `get_svg_image()`, page render for AI path.
+- `assemble.py` — semantic HTML with metadata (`<meta name="category">` etc.), figure embedding, written to `html/articles/<category>/`.
+- `run.py` — end-to-end entrypoint. Also stubs the AI raster→SVG path.
+
+Sample: `source/pdfs/public/basic/sample-band-plan.pdf` (tiny band-plan with native vector diagram).
+
+Run:
+```bash
+python3 source/pipeline/run.py source/pdfs/public/basic/sample-band-plan.pdf --category band-plans
+```
+
+Outputs:
+- `source/manifest.json`
+- `html/articles/band-plans/sample.html` + co-located SVG
+- index.html updated with link
+
+Next increments: better reading-order / column handling, real AI vectorization call (or local model), confidence scoring, review queue, multi-page, dedup refinement.

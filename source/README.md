@@ -20,3 +20,8 @@ Original PDFs and conversion work live here.
 
 GitHub rejects files > 100 MB. The 95 MB cutoff stays just under that hard limit so basic content can be committed with ordinary git.  
 Extensive and paid sources are local-only inputs; the rest of the pipeline does not distinguish them.
+
+## Prototype pipeline
+
+See `pipeline/` and the "Prototype status" section in `CONVERSION.md`.
+A minimal end-to-end slice (ingest → extract → SVG → HTML) is available for validation.

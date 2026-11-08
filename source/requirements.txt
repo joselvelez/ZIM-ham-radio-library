@@ -1,0 +1,2 @@
+pymupdf>=1.23.0
+# Optional for future: pillow, opencv-python-headless, etc. for fingerprints
