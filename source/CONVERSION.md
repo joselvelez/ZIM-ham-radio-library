@@ -231,3 +231,4 @@ Output: `source/pipeline/graphify-out/graph.json`.
 - `extract.py` — full-document extraction by default; uses `column_order`; optimizes SVGs; returns figure metadata (path, page, bbox, labels).
 - `assemble.py` — per-page ordered sequence of text and figures; semantic captions.
 - `run.py` — `--pages` is debug-only and requires `--debug`.
+- `structure.py` — font-size headings (h2/h3), page-chrome removal, dehyphenation, button-cluster caption filter. Fail Fast if body font cannot be determined.

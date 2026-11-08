@@ -5,10 +5,17 @@ import html
 from datetime import datetime
 
 from .layout import column_order, UnclassifiableLayout
+from .structure import clean_caption_labels
 
 
 def _title_from_content(extracted: Dict[str, Any], fallback: str) -> str:
-    """First substantial body paragraph becomes the title. No hash, no ID munging."""
+    """First real heading becomes the title. Falls back to first body line."""
+    for page in extracted.get("pages", []):
+        for blk in page.get("text_blocks", []):
+            if blk.get("role") in ("h2", "h3"):
+                t = blk["text"].strip().splitlines()[0].strip()
+                if len(t) > 3:
+                    return t
     for page in extracted.get("pages", []):
         for blk in page.get("text_blocks", []):
             t = blk["text"].strip().splitlines()[0].strip()
@@ -27,16 +34,7 @@ def _caption(page_no: int, labels: List[str]) -> str:
     if page_no is None:
         raise ValueError("figure missing page association")
     base = f"Figure from page {page_no + 1}"
-    clean = []
-    for lbl in labels:
-        if not lbl:
-            continue
-        text = " ".join(lbl.split())
-        if not text or len(text) > 40:
-            continue
-        clean.append(text)
-        if len(clean) == 2:
-            break
+    clean = clean_caption_labels(labels)
     if clean:
         return f"{base}. {' '.join(clean)}"
     return base
@@ -50,7 +48,12 @@ def _ordered_page_elements(text_blocks: List[dict], figures: List[dict], page_wi
     """
     mixed = []
     for blk in text_blocks:
-        mixed.append({"kind": "text", "bbox": blk["bbox"], "text": blk["text"]})
+        mixed.append({
+            "kind": "text",
+            "bbox": blk["bbox"],
+            "text": blk["text"],
+            "role": blk.get("role", "body"),
+        })
     for fig in figures:
         mixed.append({"kind": "figure", "bbox": fig["bbox"], "figure": fig})
     try:
@@ -87,13 +90,15 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
                 t = el["text"].strip()
                 if not t:
                     continue
+                role = el.get("role", "body")
+                tag = {"h2": "h2", "h3": "h3"}.get(role, "p")
                 if not title_used and t.splitlines()[0].strip() == title:
                     title_used = True
                     rest = "\n".join(t.splitlines()[1:]).strip()
                     if rest:
-                        body_parts.append(f"<p>{html.escape(rest)}</p>")
+                        body_parts.append(f"<{tag}>{html.escape(rest)}</{tag}>")
                     continue
-                body_parts.append(f"<p>{html.escape(t)}</p>")
+                body_parts.append(f"<{tag}>{html.escape(t)}</{tag}>")
             else:
                 fig = el["figure"]
                 rel = f"{slug}/{Path(fig['path']).name}"
@@ -122,6 +127,8 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
   <style>
     body {{ font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; background: #0c121c; color: #e8eef5; line-height: 1.5; }}
     h1 {{ color: #ffdc50; }}
+    h2 {{ color: #ffdc50; font-size: 1.4rem; margin-top: 2rem; }}
+    h3 {{ color: #c8d8e8; font-size: 1.15rem; margin-top: 1.5rem; }}
     a {{ color: #64b4ff; }}
     figure {{ margin: 1.5rem 0; background: #1a2230; padding: 1rem; border-radius: 6px; }}
     figcaption {{ font-size: 0.85rem; color: #8aa; margin-top: 0.5rem; }}

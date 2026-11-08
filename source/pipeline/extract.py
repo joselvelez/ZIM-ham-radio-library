@@ -3,33 +3,64 @@ from __future__ import annotations
 import pymupdf as fitz
 from pathlib import Path
 from typing import Dict, Any, List
-import html as html_lib
+from collections import Counter
 
 from .figures import figure_regions, is_label, is_diagram, is_rule, is_barcode, is_path_art
 from .layout import column_order, UnclassifiableLayout
 from .svg_optimize import optimize_svg, BadSVG
+from .structure import body_font_size, role_for_size, is_page_chrome, dehyphenate, NoBodyFont
 
 
-def extract_page(page: fitz.Page) -> Dict[str, Any]:
+def _span_blocks(page: fitz.Page) -> List[dict]:
+    """Text blocks with dominant font size, from get_text('dict')."""
+    raw = page.get_text("dict")
+    out = []
+    for b in raw.get("blocks", []):
+        if b.get("type") != 0:
+            continue
+        sizes: Counter = Counter()
+        parts = []
+        for line in b.get("lines", []):
+            line_text = []
+            for s in line.get("spans", []):
+                t = s.get("text") or ""
+                if t:
+                    sizes[round(s.get("size", 0), 1)] += len(t)
+                    line_text.append(t)
+            if line_text:
+                parts.append("".join(line_text))
+        text = "\n".join(parts).strip()
+        if not text:
+            continue
+        size = sizes.most_common(1)[0][0] if sizes else 0
+        bb = b.get("bbox") or (0, 0, 0, 0)
+        out.append({
+            "bbox": [bb[0], bb[1], bb[2], bb[3]],
+            "text": text,
+            "size": size,
+        })
+    return out
+
+
+def extract_page(page: fitz.Page, body_size: float) -> Dict[str, Any]:
     regions = figure_regions(page)
-    blocks = page.get_text("blocks")
+    blocks = _span_blocks(page)
 
     body: List[dict] = []
     labels: List[dict] = []
+    height = page.rect.height
     for b in blocks:
-        if b[6] != 0:
+        text = dehyphenate(b["text"])
+        bbox = fitz.Rect(b["bbox"])
+        if is_page_chrome(text, b["size"], bbox.y0, bbox.y1, height, body_size):
             continue
-        text = b[4].strip()
-        if not text:
-            continue
-        bbox = fitz.Rect(b[:4])
-        entry = {"bbox": [bbox.x0, bbox.y0, bbox.x1, bbox.y1], "text": text}
+        role = role_for_size(b["size"], body_size)
+        entry = {"bbox": b["bbox"], "text": text, "role": role, "size": b["size"]}
         if is_label(bbox, regions):
             labels.append(entry)
         else:
             body.append(entry)
 
-    # Reading order: left column fully, then right. Fail Fast on unclassifiable overlaps.
     try:
         body = column_order(body, page.rect.width)
     except UnclassifiableLayout as exc:
@@ -41,7 +72,7 @@ def extract_page(page: fitz.Page) -> Dict[str, Any]:
         "has_native_vectors": bool(regions),
         "drawing_count": len(regions),
         "width": page.rect.width,
-        "height": page.rect.height,
+        "height": height,
     }
 
 
@@ -60,13 +91,26 @@ def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:
     limit = total if max_pages is None else min(max_pages, total)
     if max_pages is not None and limit < total:
         print(f"  [debug] limiting extraction to {limit} of {total} pages")
+
+    # Body font from a sample of pages. Fail Fast if it cannot be determined.
+    sample_sizes = []
+    for i in range(min(limit, 20)):
+        for b in _span_blocks(doc[i]):
+            sample_sizes.extend([b["size"]] * max(1, len(b["text"]) // 10))
+    try:
+        body_size = body_font_size(sample_sizes)
+    except NoBodyFont as exc:
+        doc.close()
+        raise SystemExit(f"Cannot determine body font: {exc}") from exc
+    print(f"  body font: {body_size}pt")
+
     pages = []
     for i in range(limit):
         if i == 0 or (i + 1) % 10 == 0 or i == limit - 1:
             print(f"  extracting page {i + 1}/{limit} (of {total})")
-        pages.append(extract_page(doc[i]))
+        pages.append(extract_page(doc[i], body_size))
     doc.close()
-    return {"path": str(pdf_path), "page_count": total, "pages_extracted": limit, "pages": pages}
+    return {"path": str(pdf_path), "page_count": total, "pages_extracted": limit, "pages": pages, "body_font": body_size}
 
 
 def extract_diagram_svgs(page: fitz.Page, out_dir: Path, stem: str) -> list[dict]:
@@ -107,7 +151,6 @@ def extract_diagram_svgs(page: fitz.Page, out_dir: Path, stem: str) -> list[dict
             raise SystemExit(f"SVG optimization failed for {stem}-{n}: {exc}") from exc
         out = out_dir / f"{stem}-{n}.svg"
         out.write_text(svg)
-        # Labels that intersect this region (already classified by is_label logic)
         labels = []
         for tb in text_blocks:
             bb = fitz.Rect(tb["bbox"])
