@@ -14,6 +14,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from source.pipeline.ingest import ingest_pdf
 from source.pipeline.extract import extract_pdf, extract_diagram_svg
 from source.pipeline.assemble import write_article
+from source.pipeline.quality import score_document, enqueue_if_low
 import pymupdf as fitz
 
 def ai_vectorize_stub(rendered_path: Path) -> str:
@@ -65,7 +66,15 @@ def main():
     doc.close()
     ai_vectorize_stub(render_path)
 
-    print("=== 4. Assemble HTML ===")
+    print("=== 4. Quality ===")
+    svg_ok = bool(svg_path and Path(svg_path).exists())
+    quality = score_document(extracted, svg_ok)
+    print(f"Score: {quality['score']} (text={quality['text_score']}, figure={quality['figure_score']})")
+    review = enqueue_if_low(record, quality)
+    if review:
+        print(f"Queued for review: {review}")
+
+    print("=== 5. Assemble HTML ===")
     article = write_article(record, extracted, args.html_root, svg_path if svg_path and Path(svg_path).exists() else None)
     print(f"Wrote article: {article}")
 

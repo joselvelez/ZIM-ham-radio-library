@@ -19,13 +19,22 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_pat
     source_pdf = record.get("path", "unknown")
     sha = record.get("sha256", "")[:12]
 
-    # Body text only (labels already classified out by geometry in extract)
+    # Body text only. Skip the first block if it is exactly the title we already used.
     body_paras = []
+    title_used = False
     for p in extracted.get("pages", []):
         for blk in p.get("text_blocks", []):
             t = blk["text"].strip()
-            if t:
-                body_paras.append(f"<p>{html.escape(t)}</p>")
+            if not t:
+                continue
+            if not title_used and t.splitlines()[0].strip() == title:
+                title_used = True
+                # keep any remaining lines of that block after the title line
+                rest = "\n".join(t.splitlines()[1:]).strip()
+                if rest:
+                    body_paras.append(f"<p>{html.escape(rest)}</p>")
+                continue
+            body_paras.append(f"<p>{html.escape(t)}</p>")
 
     figure_html = ""
     if svg_path and Path(svg_path).exists():
