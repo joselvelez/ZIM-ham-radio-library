@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Dict, Any, List
 import html as html_lib
 
-from .figures import figure_regions, is_label, is_diagram, is_rule, is_barcode
+from .figures import figure_regions, is_label, is_diagram, is_rule, is_barcode, is_path_art
 
 
 def extract_page(page: fitz.Page) -> Dict[str, Any]:
@@ -54,8 +54,9 @@ def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:
 def extract_diagram_svgs(page: fitz.Page, out_dir: Path, stem: str) -> list[str]:
     """SVG of every diagram region on the page.
 
-    Rejects rules (thin, page-wide), barcodes (regular vertical bars), and
-    body text. One file per remaining region.
+    Rejects rules (thin, page-wide), barcodes (regular vertical bars),
+    path-art (outlined logos and titles), and body text.
+    One file per remaining region.
     """
     regions = figure_regions(page)
     if not regions:
@@ -64,7 +65,10 @@ def extract_diagram_svgs(page: fitz.Page, out_dir: Path, stem: str) -> list[str]
     text_blocks = [{"bbox": b[:4], "text": (b[4] or "").strip()}
                    for b in raw if b[6] == 0]
     diagrams = [r for r in regions
-                if not is_rule(r) and not is_barcode(r, page) and is_diagram(r, text_blocks)]
+                if not is_rule(r)
+                and not is_barcode(r, page)
+                and not is_path_art(r, page)
+                and is_diagram(r, text_blocks)]
     if not diagrams:
         return []
     written: list[str] = []

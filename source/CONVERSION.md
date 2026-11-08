@@ -39,6 +39,18 @@ Hybrid topic-based, shallow:
 Optional second level only when a category grows large or a clear subgroup appears.  
 Filenames stable and descriptive. Index (and future category pages) provide navigation; internal links use relative paths.
 
+**Per-document assets.** Figures for a document live in a sibling directory named after the document id, not next to the HTML:
+
+```
+html/articles/manuals/
+  {slug}.html
+  {slug}/
+    {slug}-page0-0.svg
+    {slug}-page12-1.svg
+```
+
+The HTML references them as `{slug}/filename.svg`. This keeps the category folder flat (one HTML per source) and scales to thousands of documents × dozens of figures. On a category change the article and its asset directory move together; the old directory is removed only when empty.
+
 ### Deduplication
 Early, before expensive stages.  
 - Exact: SHA-256 of raw PDF bytes.  

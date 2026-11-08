@@ -37,16 +37,22 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_pat
             body_paras.append(f"<p>{html.escape(t)}</p>")
 
     figures = []
+    slug = record["id"]
     for svg in svg_paths or []:
         path = Path(svg)
         if not path.exists():
             continue
-        # page number from "...-pageN.svg"
-        page_no = path.stem.rsplit("-page", 1)[-1] if "-page" in path.stem else "?"
+        # stem is "{slug}-page{N}-{k}"; extract the page number
+        page_no = "?"
+        if "-page" in path.stem:
+            after = path.stem.split("-page", 1)[1]
+            page_no = after.split("-", 1)[0]
+        caption_page = str(int(page_no) + 1) if page_no.isdigit() else page_no
+        rel = f"{slug}/{path.name}"
         figures.append(f'''
 <figure>
-  <object type="image/svg+xml" data="{path.name}" width="100%"></object>
-  <figcaption>Figure from page {html.escape(str(int(page_no) + 1)) if page_no.isdigit() else page_no} (native vectors).</figcaption>
+  <object type="image/svg+xml" data="{html.escape(rel)}" width="100%"></object>
+  <figcaption>Figure from page {html.escape(caption_page)} (native vectors).</figcaption>
 </figure>
 ''')
     figure_html = "".join(figures)
@@ -93,26 +99,36 @@ def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: 
     art_dir.mkdir(parents=True, exist_ok=True)
     slug = record["id"]  # full document id, unique across the library
     out = art_dir / f"{slug}.html"
+    # Per-document asset directory. Keeps the category folder flat and scalable.
+    asset_dir = art_dir / slug
+    asset_dir.mkdir(parents=True, exist_ok=True)
     paths = [Path(p) for p in (svg_paths or []) if Path(p).exists()]
     content = make_article_html(record, extracted, paths)
     out.write_text(content)
     kept = set()
     for path in paths:
-        dest = art_dir / path.name
+        dest = asset_dir / path.name
         shutil.copy(path, dest)
         kept.add(dest.name)
     # remove leftover SVGs for this document that this run did not produce
-    for leftover in art_dir.glob(f"{record['id']}*.svg"):
+    for leftover in asset_dir.glob("*.svg"):
         if leftover.name not in kept:
             leftover.unlink()
+    # remove old flat SVGs from previous layout (sibling of the HTML)
+    for leftover in art_dir.glob(f"{slug}*.svg"):
+        leftover.unlink()
     # remove a leftover short-slug file from the old naming scheme
-    old_short = art_dir / f"{record['id'].split('-')[0]}.html"
+    old_short = art_dir / f"{slug.split('-')[0]}.html"
     if old_short.exists() and old_short != out:
         old_short.unlink()
+    # drop empty asset dir if nothing was written
+    if not any(asset_dir.iterdir()):
+        asset_dir.rmdir()
     return out
 
 
 def _retire_previous(record: Dict[str, Any], html_root: Path) -> None:
+    import shutil
     """Remove this document's files from its previous category.
 
     Deletes only this document's article and co-located SVG. Removes the old
@@ -129,7 +145,10 @@ def _retire_previous(record: Dict[str, Any], html_root: Path) -> None:
     doc_id = record["id"]
     for path in list(old_dir.iterdir()):
         if path.name == f"{slug}.html" or path.name.startswith(doc_id):
-            path.unlink()
+            if path.is_dir():
+                shutil.rmtree(path)
+            else:
+                path.unlink()
             print(f"  retired {path}")
     if not any(old_dir.iterdir()):
         old_dir.rmdir()

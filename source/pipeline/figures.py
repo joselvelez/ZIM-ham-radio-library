@@ -5,9 +5,13 @@ Text whose bbox intersects a region (+ margin) is a label; everything else is bo
 SVG is produced by clipping to the region and calling get_svg_image (also C-side).
 No Python reconstruction of individual paths.
 
-A region is a diagram only when nearby text does not dominate it. Cover logos and
-header art sit next to titles and addresses; real diagrams do not. One rule for
-every page and every PDF.
+Classification is structural:
+- is_rule: thin page-wide lines
+- is_barcode: many full-height thin vertical bars
+- is_path_art: few drawing primitives that are almost all fills (outlined logos, title art)
+- is_diagram: not dominated by paragraph text
+
+Everything else that is a vector cluster is a diagram.
 """
 from __future__ import annotations
 import re
@@ -52,6 +56,36 @@ def is_barcode(region: fitz.Rect, page: fitz.Page) -> bool:
         if r.width < 4 and r.height > region.height * 0.7:
             bars += 1
     return bars >= 8
+
+
+def is_path_art(region: fitz.Rect, page: fitz.Page) -> bool:
+    """Decorative path-art: logos and titles outlined as vectors.
+
+    Real diagrams are built from many separate stroke and fill primitives.
+    Cover logos and title art are one or a few complex filled paths.
+    Reject when the intersecting drawings are few and almost all fills.
+    """
+    try:
+        drawings = page.get_drawings()
+    except Exception:
+        return False
+    items = []
+    for d in drawings:
+        rect = d.get("rect")
+        if not rect:
+            continue
+        r = fitz.Rect(rect)
+        if (region & r).is_empty:
+            continue
+        items.append(d)
+    # Real line drawings have dozens or hundreds of primitives.
+    if not items or len(items) > 12:
+        return False
+    types = [d.get("type", "") for d in items]
+    strokes = sum(1 for t in types if t in ("s", "fs"))
+    fills = sum(1 for t in types if t == "f")
+    # Almost pure fills, almost no strokes → outlined path art, not a diagram.
+    return strokes <= 1 and fills >= len(items) * 0.75
 
 
 def figure_regions(page: fitz.Page) -> List[fitz.Rect]:
