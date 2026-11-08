@@ -1,14 +1,93 @@
 # PDF → HTML + SVG conversion
 
-Document the pipeline here.
+Document the pipeline here. All major design decisions below are locked.
 
 ## Requirements
 
 - Output must be clean, self-contained HTML.
-- Figures must be accurate. Prefer **SVG / vector** over scanned raster.
-- Finished articles go into `html/articles/` and are linked from `html/index.html`.
+- Figures must be accurate. **Strict SVG / vector preference**: native vectors extracted as SVG; raster diagrams recreated as accurate SVG via AI (iterate until fidelity is met). Photos may remain high-quality raster only when vectorization adds no value.
+- Finished articles go into `html/articles/` (hybrid topic taxonomy) and are linked from `html/index.html`.
 - Only the finished HTML is packaged into the ZIM.
+- Mostly automated batch processing with confidence scores and a review queue.
+- Early content-based deduplication.
+- Structured handling of multi-column layouts, footnotes, tables, and rotated pages.
+- Metadata embedded in HTML + central manifest so RAG chunks retain source, page, figure, category, and topic context.
+
+## Locked decisions
+
+### Vectorization
+Native vectors → extract as clean SVG.  
+Raster diagrams / schematics / band plans / patterns / wiring → AI vectorization / recreation as accurate SVG. Iterate (prompt, model, or cleanup) until the result does not lose, misplace, or degrade information.  
+Equipment photos may stay optimized raster when pure vector adds no value.
+
+### Processing model
+Default path is unattended batch: extract → (OCR if needed) → AI vectorize figures → assemble semantic HTML → quality checks.  
+Emit confidence / quality scores at figure and document level.  
+Items below threshold or explicitly flagged high-value go to a review queue for approve / reject / targeted re-run.
+
+### Directory taxonomy (`html/articles/`)
+Hybrid topic-based, shallow:
+
+- `manuals/`
+- `band-plans/`
+- `operating/`
+- `antennas/`
+- `digital/`
+- `reference/`
+- `emergency/`
+
+Optional second level only when a category grows large or a clear subgroup appears.  
+Filenames stable and descriptive. Index (and future category pages) provide navigation; internal links use relative paths.
+
+### Deduplication
+Early, before expensive stages.  
+- Exact: SHA-256 of raw PDF bytes.  
+- Near-duplicates: text-layer fingerprint (MinHash / SimHash / embedding) + visual/perceptual hash for diagram-heavy or low-text PDFs.  
+Prefer higher-quality canonical source (more text, higher resolution, native vectors, later date, etc.).  
+Record relationships in a manifest (JSON or SQLite). Only the canonical version proceeds. Review queue can override.
+
+### Layout, tables, footnotes, rotation
+Detect via PDF library layout analysis (PyMuPDF or equivalent): columns, blocks, tables, rotation.  
+- Reading order: visual sort (top-to-bottom, left column fully before right).  
+- Footnotes: extract separately; prefer inline HTML footnotes with anchors.  
+- Tables: structured HTML `<table>` when possible; high-quality image + text fallback + review flag otherwise.  
+- Rotation: auto-normalize text extraction and figure rendering before vectorization.  
+Quality checks for column-order sanity, table presence, footnote resolution. Low-confidence pages to review queue.
+
+### Metadata
+Central manifest (same store as dedup) + embedded in HTML:
+
+- Document: title, source/manual name, equipment/entity, version/date if known, canonical ID.  
+- Category: primary from directory (`manuals`, `band-plans`, etc.).  
+- Topics / tags: secondary multi-value list (e.g. `hf`, `transceiver`, `icom`, `region-2`).  
+- Section / page / figure: heading hierarchy, original page numbers where useful, figure number + caption + “SVG recreation” note.  
+- Processing (optional): confidence, OCR used, AI vectorization used.
+
+Visible in article header for Kiwix; machine-readable via meta tags or structured block for the extractor. Supports coherent RAG chunks (“from the IC-7300 service manual, section 5.2, original page 37, figure 5-4”).
+
+## Pipeline stages (sketch)
+
+1. **Ingest / staging** — Drop PDF into `source/pdfs/` (or staging). Immediate hash + fingerprint. Update manifest. Skip or flag exact/near-duplicates.
+2. **Triage** — Detect text layer vs. scanned, page count, vector presence, complexity, rotation. Assign initial category/topic hints if possible.
+3. **Extract** — Text + structure (blocks, reading order), images, native vector paths → SVG. Table detection. Footnote regions.
+4. **OCR** (conditional) — For pages with no usable text layer.
+5. **Figure handling / vectorization** — Native SVG kept. Raster diagrams → AI vectorization to accurate SVG. Iterate to quality. Photos optional raster.
+6. **HTML assembly + cleanup** — Semantic structure (headings, paragraphs, lists, tables, figures with captions). Embed metadata. Consistent styling. Self-contained where practical. Relative links.
+7. **Quality gates** — Automated checks (text length, figure presence/accuracy signals, layout sanity, metadata completeness). Low scores or flags → review queue.
+8. **Publish** — Write canonical HTML under the appropriate `html/articles/<category>/…`. Update `html/index.html` (or category indexes). Record final paths and metadata in manifest.
+9. **Build & verify** — `./install.sh` packages only `html/`. Confirm Kiwix browsing and non-trivial RAG chunk count after NOMAD ingest.
+
+## Tools (starting point, subject to refinement)
+
+- Core PDF: PyMuPDF (fitz) for extraction, layout, vectors, rendering.
+- Fallback / cross-check: Poppler (`pdftohtml`, `pdftocairo`).
+- OCR: Tesseract or modern model-based (Docling / equivalent) as needed.
+- Vectorization: AI image-generation / vector models for raster-to-SVG recreation; classical vectorizers only as assist.
+- Manifest: JSON or SQLite.
+- HTML: direct generation + light cleanup (no absolute-positioned dumps).
 
 ## Notes
 
-(Add tool choices, quality checks, and batch process details as the pipeline is built.)
+Quality over speed on figures. Accuracy is the hard requirement; automation and scores protect throughput.  
+Manifest is the single source of truth for dedup, canonical choice, metadata, and processing history.  
+Next concrete step: prototype the ingest → extract → one AI vectorization → HTML path on a small set of representative PDFs (clean manual + diagram-heavy page + scanned page) and validate both visual fidelity and RAG chunk quality.
