@@ -5,7 +5,8 @@ from pathlib import Path
 from typing import Dict, Any, List
 import html as html_lib
 
-from .figures import figure_regions, is_label, is_diagram
+from .figures import figure_regions, is_label, is_diagram, is_path_heavy
+
 
 def extract_page(page: fitz.Page) -> Dict[str, Any]:
     regions = figure_regions(page)
@@ -35,6 +36,7 @@ def extract_page(page: fitz.Page) -> Dict[str, Any]:
         "height": page.rect.height,
     }
 
+
 def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:
     """Extract pages. max_pages limits work for large manuals during prototype runs."""
     doc = fitz.open(pdf_path)
@@ -48,23 +50,24 @@ def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:
     doc.close()
     return {"path": str(pdf_path), "page_count": total, "pages_extracted": limit, "pages": pages}
 
+
 def extract_diagram_svg(page: fitz.Page, out_path: Path) -> str | None:
     """SVG of the main figure region via MuPDF (clip + get_svg_image).
+
     Uses is_diagram() so title/logo art is skipped by the same rule for every page.
+    Also rejects path-heavy SVGs (text outlined as vectors) via is_path_heavy().
     """
     regions = figure_regions(page)
     if not regions:
         return None
-    # text blocks for the overlap test
     raw = page.get_text("blocks")
-    text_blocks = [{"bbox": b[:4]} for b in raw if b[6] == 0]
-    # candidates that pass the diagram test, largest first
+    text_blocks = [{"bbox": b[:4], "text": (b[4] or "").strip()}
+                   for b in raw if b[6] == 0]
     diagrams = [r for r in regions if is_diagram(r, text_blocks)]
     if not diagrams:
         print("  no diagram region (clusters are title/logo art); skipping figure")
         return None
     region = max(diagrams, key=lambda r: r.get_area())
-    # expand slightly for labels
     clip = fitz.Rect(region.x0 - 4, region.y0 - 16, region.x1 + 4, region.y1 + 4) & page.rect
 
     tmp = fitz.open()
@@ -72,5 +75,10 @@ def extract_diagram_svg(page: fitz.Page, out_path: Path) -> str | None:
     tp.show_pdf_page(tp.rect, page.parent, page.number, clip=clip)
     svg = tp.get_svg_image(text_as_path=False)
     tmp.close()
+
+    if is_path_heavy(svg, region):
+        print("  cluster is path-heavy (outlined text / logo); skipping figure")
+        return None
+
     out_path.write_text(svg)
     return str(out_path)
