@@ -101,6 +101,19 @@ chmod +x install.sh
   --container=nomad_kiwix_server
 ```
 
+## Pipeline setup (for conversion work)
+
+The ZIM build (`./install.sh`) only needs `zim-tools` and `python3`.  
+The PDF → HTML pipeline under `source/` needs a virtualenv:
+
+```bash
+./source/setup.sh
+source .venv/bin/activate
+python3 source/pipeline/run.py source/pdfs/public/basic/ --category band-plans
+```
+
+See `source/README.md` and `source/CONVERSION.md` for details.
+
 After deploy the ZIM is on disk, but it is **not yet usable by the LLM** until you ingest it:
 
 1. In NOMAD, go to Content Manager / Knowledge Base.

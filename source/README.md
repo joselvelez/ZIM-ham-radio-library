@@ -25,3 +25,20 @@ Extensive and paid sources are local-only inputs; the rest of the pipeline does 
 
 See `pipeline/` and the "Prototype status" section in `CONVERSION.md`.
 A minimal end-to-end slice (ingest → extract → SVG → HTML) is available for validation.
+
+## Setup (required after clone)
+
+The pipeline needs a virtualenv and PyMuPDF. From the repo root:
+
+```bash
+./source/setup.sh
+source .venv/bin/activate
+```
+
+Then process PDFs:
+
+```bash
+python3 source/pipeline/run.py source/pdfs/public/basic/ --category band-plans
+```
+
+`.venv/` is gitignored. Re-run `./source/setup.sh` after pulling if `source/requirements.txt` changes.

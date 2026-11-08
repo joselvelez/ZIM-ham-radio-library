@@ -108,9 +108,15 @@ Minimal working slice under `source/pipeline/`:
 
 Sample: `source/pdfs/public/basic/sample-band-plan.pdf` (tiny band-plan with native vector diagram).
 
-Run:
+Setup (once per clone):
 ```bash
-python3 source/pipeline/run.py source/pdfs/public/basic/sample-band-plan.pdf --category band-plans
+./source/setup.sh
+source .venv/bin/activate
+```
+
+Run (single file or directory):
+```bash
+python3 source/pipeline/run.py source/pdfs/public/basic/ --category band-plans
 ```
 
 Outputs:

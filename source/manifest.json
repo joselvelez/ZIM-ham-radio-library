@@ -9,6 +9,16 @@
       "category": "band-plans",
       "status": "ingested",
       "canonical": true
+    },
+    "nav-comms_P2_ft-857-operators-manual-b7662b7f": {
+      "id": "nav-comms_P2_ft-857-operators-manual-b7662b7f",
+      "path": "pdfs/public/basic/nav-comms_P2_ft-857-operators-manual.pdf",
+      "sha256": "b7662b7f8480fe1f954c759dfa1173005a7717367498f5a2bd496f7e10e8d1ce",
+      "fingerprint": "sz3395271-h0d41b325fe0100cf",
+      "size": 3395271,
+      "category": "band-plans",
+      "status": "ingested",
+      "canonical": true
     }
   },
   "version": 1
