@@ -1,64 +1,47 @@
 #!/usr/bin/env python3
-"""Minimal prototype pipeline: ingest → extract → (vector stub) → HTML article.
+"""Pipeline: ingest → extract → (vector stub) → quality → HTML → stable index.
 
 Usage:
-  python3 -m source.pipeline.run path/to/sample.pdf --category band-plans
+  python3 source/pipeline/run.py path/to/file.pdf --category band-plans
+  python3 source/pipeline/run.py source/pdfs/public/basic/ --category band-plans
 """
 import argparse
 import sys
 from pathlib import Path
 
-# Allow running as script from repo root
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from source.pipeline.ingest import ingest_pdf
 from source.pipeline.extract import extract_pdf, extract_diagram_svg
 from source.pipeline.assemble import write_article
 from source.pipeline.quality import score_document, enqueue_if_low
+from source.pipeline.index import rebuild_index
 import pymupdf as fitz
 
-def ai_vectorize_stub(rendered_path: Path) -> str:
-    """Placeholder for AI raster → accurate SVG recreation.
-    In the real pipeline this would call an image-to-SVG model, iterate on fidelity,
-    and return the SVG path. For the prototype we just note the path.
-    """
+def ai_vectorize_stub(rendered_path: Path) -> str | None:
+    """Placeholder for AI raster → accurate SVG recreation."""
     print(f"[AI vectorization stub] Would recreate diagram from {rendered_path}")
-    return None  # no output for stub
+    return None
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("pdf", type=Path, help="PDF to process")
-    ap.add_argument("--category", default="band-plans")
-    ap.add_argument("--html-root", type=Path, default=Path("html"))
-    args = ap.parse_args()
+def process_one(pdf: Path, category: str, html_root: Path) -> None:
+    print(f"\n=== Processing {pdf.name} ===")
+    record = ingest_pdf(pdf, category=category)
 
-    pdf = args.pdf.resolve()
-    if not pdf.exists():
-        print(f"PDF not found: {pdf}")
-        sys.exit(1)
-
-    print("=== 1. Ingest ===")
-    record = ingest_pdf(pdf, category=args.category)
-
-    print("=== 2. Extract ===")
     extracted = extract_pdf(pdf)
-    print(f"Pages: {extracted['page_count']}, first page blocks: {len(extracted['pages'][0]['text_blocks']) if extracted['pages'] else 0}")
-    print(f"Native vectors on page 0: {extracted['pages'][0].get('has_native_vectors')}")
+    pages = extracted.get("pages", [])
+    print(f"Pages: {extracted['page_count']}, body blocks on p0: {len(pages[0]['text_blocks']) if pages else 0}")
+    print(f"Native vectors on p0: {pages[0].get('has_native_vectors') if pages else False}")
 
     svg_path = None
-    # Native vector path
-    if extracted["pages"] and extracted["pages"][0].get("has_native_vectors"):
-        print("=== 3. Native SVG export ===")
+    if pages and pages[0].get("has_native_vectors"):
         svg_out = Path("source/notes") / f"{record['id']}-page0.svg"
-        svg_out.parent.mkdir(exist_ok=True)
+        svg_out.parent.mkdir(parents=True, exist_ok=True)
         doc = fitz.open(pdf)
         svg_path = extract_diagram_svg(doc[0], svg_out)
         doc.close()
         print(f"SVG: {svg_path}")
 
-    # Example AI path (even if we have native, show the stub)
-    print("=== 3b. AI vectorization example path (stub) ===")
-    # Render a page image for the AI path
+    # AI path stub (always noted; real call replaces this)
     doc = fitz.open(pdf)
     pix = doc[0].get_pixmap(dpi=120)
     render_path = Path("source/notes") / f"{record['id']}-page0.png"
@@ -66,31 +49,39 @@ def main():
     doc.close()
     ai_vectorize_stub(render_path)
 
-    print("=== 4. Quality ===")
     svg_ok = bool(svg_path and Path(svg_path).exists())
     quality = score_document(extracted, svg_ok)
-    print(f"Score: {quality['score']} (text={quality['text_score']}, figure={quality['figure_score']})")
+    print(f"Score: {quality['score']} (text={quality['text_score']}, figure={quality['figure_score']}, cpp={quality['chars_per_page']})")
     review = enqueue_if_low(record, quality)
     if review:
         print(f"Queued for review: {review}")
 
-    print("=== 5. Assemble HTML ===")
-    article = write_article(record, extracted, args.html_root, svg_path if svg_path and Path(svg_path).exists() else None)
-    print(f"Wrote article: {article}")
+    article = write_article(record, extracted, html_root, svg_path if svg_ok else None)
+    print(f"Article: {article}")
 
-    # Update index (simple append)
-    index = args.html_root / "index.html"
-    if index.exists():
-        content = index.read_text()
-        link = f'<li><a href="articles/{args.category}/{article.name}">{article.stem.replace("-", " ").title()}</a></li>'
-        if article.name not in content:
-            # naive insert before </ul>
-            content = content.replace("</ul>", f"    {link}\n  </ul>", 1)
-            index.write_text(content)
-            print("Updated index.html")
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("path", type=Path, help="PDF file or directory of PDFs")
+    ap.add_argument("--category", default="band-plans")
+    ap.add_argument("--html-root", type=Path, default=Path("html"))
+    args = ap.parse_args()
 
-    print("Done. Prototype slice complete.")
-    print("Next: open the HTML, check visual fidelity, and consider what a RAG chunk would see (text + figure caption/context).")
+    target = args.path.resolve()
+    if not target.exists():
+        print(f"Not found: {target}")
+        sys.exit(1)
+
+    pdfs = sorted(target.glob("*.pdf")) if target.is_dir() else [target]
+    if not pdfs:
+        print(f"No PDFs in {target}")
+        sys.exit(1)
+
+    for pdf in pdfs:
+        process_one(pdf, args.category, args.html_root)
+
+    rebuild_index(args.html_root)
+    print("\nIndex rebuilt.")
+    print("Done.")
 
 if __name__ == "__main__":
     main()
