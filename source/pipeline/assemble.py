@@ -38,17 +38,10 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_pat
 
     figure_html = ""
     if svg_path and Path(svg_path).exists():
-        # Embed or link SVG. For self-contained, we could inline, but keep linked for now.
         figure_html = f'''
 <figure>
   <object type="image/svg+xml" data="{Path(svg_path).name}" width="100%"></object>
   <figcaption>Figure (native vectors).</figcaption>
-</figure>
-'''
-    elif extracted.get("pages") and extracted["pages"][0].get("has_native_vectors"):
-        figure_html = '''
-<figure>
-  <figcaption>Native vector diagram detected (SVG export path available).</figcaption>
 </figure>
 '''
 
@@ -99,6 +92,10 @@ def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: 
     if svg_path and Path(svg_path).exists():
         import shutil
         shutil.copy(svg_path, art_dir / Path(svg_path).name)
+    else:
+        # no figure this run — remove a leftover SVG from an earlier run
+        for leftover in art_dir.glob(f"{record['id']}*.svg"):
+            leftover.unlink()
     _retire_previous(record, html_root)
     return out
 

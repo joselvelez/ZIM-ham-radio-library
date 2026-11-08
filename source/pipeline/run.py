@@ -44,6 +44,8 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int) -> No
         doc = fitz.open(pdf)
         svg_path = extract_diagram_svg(doc[0], svg_out)
         doc.close()
+        if not svg_path and svg_out.exists():
+            svg_out.unlink()
         print(f"SVG: {svg_path}")
 
     # AI path stub (always noted; real call replaces this)
