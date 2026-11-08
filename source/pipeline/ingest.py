@@ -61,8 +61,11 @@ def ingest_pdf(pdf_path: Path, category: str | None = None) -> Dict[str, Any]:
         if rec.get("sha256") == sha:
             # Already known. Update category only if triage supplied a new one.
             if category and rec.get("category") != category:
+                previous = rec.get("category")
                 rec["category"] = category
                 save_manifest(manifest)
+                # Transient; not written to the manifest. assemble uses it to retire the old article.
+                rec["_previous_category"] = previous
                 print(f"Exact duplicate of {doc_id}; category set to {category}")
             else:
                 print(f"Exact duplicate of {doc_id} (category={rec.get('category')})")

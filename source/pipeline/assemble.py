@@ -99,4 +99,29 @@ def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: 
     if svg_path and Path(svg_path).exists():
         import shutil
         shutil.copy(svg_path, art_dir / Path(svg_path).name)
+    _retire_previous(record, html_root)
     return out
+
+
+def _retire_previous(record: Dict[str, Any], html_root: Path) -> None:
+    """Remove this document's files from its previous category.
+
+    Deletes only this document's article and co-located SVG. Removes the old
+    category directory only when it is empty afterward. Never touches other files.
+    """
+    previous = record.pop("_previous_category", None)
+    current = record.get("category")
+    if not previous or previous == current:
+        return
+    old_dir = html_root / "articles" / previous
+    if not old_dir.is_dir():
+        return
+    slug = record["id"].split("-")[0]
+    doc_id = record["id"]
+    for path in list(old_dir.iterdir()):
+        if path.name == f"{slug}.html" or path.name.startswith(doc_id):
+            path.unlink()
+            print(f"  retired {path}")
+    if not any(old_dir.iterdir()):
+        old_dir.rmdir()
+        print(f"  removed empty category dir {old_dir}")

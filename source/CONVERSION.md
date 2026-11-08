@@ -151,6 +151,9 @@ python3 source/pipeline/run.py source/pdfs/public/basic/
 # first time you see a file: set its category once (triage)
 python3 source/pipeline/run.py source/pdfs/public/basic/some-manual.pdf --category manuals
 
+# move an existing file; old files are removed automatically, empty dir is removed
+python3 source/pipeline/run.py source/pdfs/public/basic/some-manual.pdf --category operating
+
 # prototype limit: only the first 5 pages
 python3 source/pipeline/run.py source/pdfs/public/basic/ --pages 5
 ```
@@ -158,7 +161,7 @@ python3 source/pipeline/run.py source/pdfs/public/basic/ --pages 5
 ### Flags
 
 - **positional `<path>`** — a PDF file, or a drop zone (`source/pdfs/public/basic/`, `.../extensive/`, or `source/pdfs/paid/`). Drop PDFs flat in one of those three. Do not create category subdirectories.
-- **`--category NAME`** — triage only. Sets the topic for files that do not have one yet, and stores it in the manifest. Already-triaged files ignore it unless you pass it again to change the stored value. Valid names are the topic taxonomy: `manuals`, `band-plans`, `operating`, `antennas`, `digital`, `reference`, `emergency`. There is no default. A new file with no category stops and asks you to re-run with this flag.
+- **`--category NAME`** — sets or changes the topic and stores it in the manifest. Use it the first time you see a file, or again to move a file. On a move, the pipeline removes that document's files from the old category and deletes the old directory only if it is empty. Valid names: `manuals`, `band-plans`, `operating`, `antennas`, `digital`, `reference`, `emergency`. There is no default. A new file with no category stops and asks you to re-run with this flag.
 - **`--pages N`** — max pages to extract per PDF. Default is 5 (prototype). Omit only when you want the full document.
 - **`--html-root DIR`** — where finished HTML is written. Default is `html/`.
 
