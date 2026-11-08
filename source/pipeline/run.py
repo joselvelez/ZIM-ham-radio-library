@@ -35,6 +35,7 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int) -> No
 
     svg_path = None
     if pages and pages[0].get("has_native_vectors"):
+        print("Building diagram SVG...")
         svg_out = Path("source/notes") / f"{record['id']}-page0.svg"
         svg_out.parent.mkdir(parents=True, exist_ok=True)
         doc = fitz.open(pdf)
