@@ -33,38 +33,36 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int) -> No
     print(f"Extracting (max {max_pages} pages)...")
     extracted = extract_pdf(pdf, max_pages=max_pages)
     pages = extracted.get("pages", [])
-    print(f"Pages: {extracted['page_count']}, body blocks on p0: {len(pages[0]['text_blocks']) if pages else 0}")
-    print(f"Native vectors on p0: {pages[0].get('has_native_vectors') if pages else False}")
+    print(f"Pages: {extracted['page_count']}, extracted: {len(pages)}")
 
-    svg_path = None
-    if pages and pages[0].get("has_native_vectors"):
-        print("Building diagram SVG...")
-        svg_out = Path("source/notes") / f"{record['id']}-page0.svg"
-        svg_out.parent.mkdir(parents=True, exist_ok=True)
-        doc = fitz.open(pdf)
-        svg_path = extract_diagram_svg(doc[0], svg_out)
-        doc.close()
-        if not svg_path and svg_out.exists():
-            svg_out.unlink()
-        print(f"SVG: {svg_path}")
-
-    # AI path stub (always noted; real call replaces this)
-    print("Rendering page 0 for AI stub...")
+    notes = Path("source/notes")
+    notes.mkdir(parents=True, exist_ok=True)
+    svg_paths: list[Path] = []
     doc = fitz.open(pdf)
-    pix = doc[0].get_pixmap(dpi=72)
-    render_path = Path("source/notes") / f"{record['id']}-page0.png"
-    pix.save(str(render_path))
+    for i, page in enumerate(pages):
+        if not page.get("has_native_vectors"):
+            continue
+        svg_out = notes / f"{record['id']}-page{i}.svg"
+        print(f"Building diagram SVG for page {i + 1}...")
+        result = extract_diagram_svg(doc[i], svg_out)
+        if result:
+            svg_paths.append(Path(result))
+            print(f"  SVG: {result}")
+        else:
+            if svg_out.exists():
+                svg_out.unlink()
+            print(f"  no diagram on page {i + 1}")
     doc.close()
-    ai_vectorize_stub(render_path)
+    print(f"Diagrams: {len(svg_paths)}")
 
-    svg_ok = bool(svg_path and Path(svg_path).exists())
+    svg_ok = bool(svg_paths)
     quality = score_document(extracted, svg_ok)
     print(f"Score: {quality['score']} (text={quality['text_score']}, figure={quality['figure_score']}, cpp={quality['chars_per_page']})")
     review = enqueue_if_low(record, quality)
     if review:
         print(f"Queued for review: {review}")
 
-    article = write_article(record, extracted, html_root, svg_path if svg_ok else None)
+    article = write_article(record, extracted, html_root, svg_paths)
     print(f"Article: {article}")
 
 def main():

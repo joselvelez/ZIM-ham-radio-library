@@ -13,7 +13,7 @@ def _title_from_content(extracted: Dict[str, Any], fallback: str) -> str:
                 return t
     return fallback
 
-def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_path: str | None = None) -> str:
+def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_paths: list | None = None) -> str:
     title = _title_from_content(extracted, record.get("id", "Untitled"))
     category = record["category"]  # required; no silent default
     source_pdf = record.get("path", "unknown")
@@ -36,14 +36,20 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_pat
                 continue
             body_paras.append(f"<p>{html.escape(t)}</p>")
 
-    figure_html = ""
-    if svg_path and Path(svg_path).exists():
-        figure_html = f'''
+    figures = []
+    for svg in svg_paths or []:
+        path = Path(svg)
+        if not path.exists():
+            continue
+        # page number from "...-pageN.svg"
+        page_no = path.stem.rsplit("-page", 1)[-1] if "-page" in path.stem else "?"
+        figures.append(f'''
 <figure>
-  <object type="image/svg+xml" data="{Path(svg_path).name}" width="100%"></object>
-  <figcaption>Figure (native vectors).</figcaption>
+  <object type="image/svg+xml" data="{path.name}" width="100%"></object>
+  <figcaption>Figure from page {html.escape(str(int(page_no) + 1)) if page_no.isdigit() else page_no} (native vectors).</figcaption>
 </figure>
-'''
+''')
+    figure_html = "".join(figures)
 
     meta = f'''
 <meta name="category" content="{html.escape(category)}">
@@ -80,21 +86,24 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_pat
 '''
     return html_doc
 
-def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: Path, svg_path: str | None = None) -> Path:
+def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: Path, svg_paths: list | None = None) -> Path:
+    import shutil
     category = record["category"]  # required; no silent default
     art_dir = html_root / "articles" / category
     art_dir.mkdir(parents=True, exist_ok=True)
     slug = record["id"].split("-")[0]  # simple
     out = art_dir / f"{slug}.html"
-    content = make_article_html(record, extracted, svg_path)
+    paths = [Path(p) for p in (svg_paths or []) if Path(p).exists()]
+    content = make_article_html(record, extracted, paths)
     out.write_text(content)
-    # Copy SVG next to it if present
-    if svg_path and Path(svg_path).exists():
-        import shutil
-        shutil.copy(svg_path, art_dir / Path(svg_path).name)
-    else:
-        # no figure this run — remove a leftover SVG from an earlier run
-        for leftover in art_dir.glob(f"{record['id']}*.svg"):
+    kept = set()
+    for path in paths:
+        dest = art_dir / path.name
+        shutil.copy(path, dest)
+        kept.add(dest.name)
+    # remove leftover SVGs for this document that this run did not produce
+    for leftover in art_dir.glob(f"{record['id']}*.svg"):
+        if leftover.name not in kept:
             leftover.unlink()
     _retire_previous(record, html_root)
     return out
