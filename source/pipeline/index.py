@@ -32,4 +32,11 @@ def rebuild_index(html_root: Path) -> None:
     else:
         # fallback: append before </body>
         content = content.replace("</body>", new_ul + "\n</body>", 1)
+    # ensure a link to the public source list
+    if 'href="sources.html"' not in content:
+        content = content.replace(
+            "</ul>",
+            '</ul>\n  <p><a href="sources.html">Source list (with hashes)</a></p>',
+            1,
+        )
     index.write_text(content)

@@ -16,6 +16,7 @@ from source.pipeline.extract import extract_pdf, extract_diagram_svg
 from source.pipeline.assemble import write_article
 from source.pipeline.quality import score_document, enqueue_if_low
 from source.pipeline.index import rebuild_index
+from source.pipeline.sources import write_sources_page
 import pymupdf as fitz
 
 def ai_vectorize_stub(rendered_path: Path) -> str | None:
@@ -65,7 +66,7 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int) -> No
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("path", type=Path, help="PDF file or directory of PDFs")
-    ap.add_argument("--category", default="band-plans")
+    ap.add_argument("--category", default=None, help="Override category for every file (default: parent folder name)")
     ap.add_argument("--html-root", type=Path, default=Path("html"))
     ap.add_argument("--pages", type=int, default=5, help="Max pages to extract per PDF (default 5 for prototype)")
     args = ap.parse_args()
@@ -75,16 +76,19 @@ def main():
         print(f"Not found: {target}")
         sys.exit(1)
 
-    pdfs = sorted(target.glob("*.pdf")) if target.is_dir() else [target]
+    pdfs = sorted(target.rglob("*.pdf")) if target.is_dir() else [target]
     if not pdfs:
         print(f"No PDFs in {target}")
         sys.exit(1)
 
     for pdf in pdfs:
-        process_one(pdf, args.category, args.html_root, args.pages)
+        # category = override or the parent directory name
+        category = args.category or pdf.parent.name
+        process_one(pdf, category, args.html_root, args.pages)
 
     rebuild_index(args.html_root)
-    print("\nIndex rebuilt.")
+    src = write_sources_page(args.html_root, Path("source/manifest.json"))
+    print(f"\nIndex rebuilt. Sources page: {src}")
     print("Done.")
 
 if __name__ == "__main__":

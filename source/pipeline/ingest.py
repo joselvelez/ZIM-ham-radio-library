@@ -6,6 +6,17 @@ from typing import Dict, Any
 
 MANIFEST_PATH = Path(__file__).parent.parent / "manifest.json"
 
+
+def _location_tier(path: str) -> str:
+    p = path.replace("\\", "/")
+    if "/paid/" in p:
+        return "paid"
+    if "/extensive/" in p:
+        return "extensive"
+    if "/basic/" in p:
+        return "basic"
+    return "unknown"
+
 def sha256_file(path: Path) -> str:
     h = hashlib.sha256()
     with open(path, "rb") as f:
@@ -35,7 +46,7 @@ def save_manifest(data: Dict[str, Any]):
     with open(MANIFEST_PATH, "w") as f:
         json.dump(data, f, indent=2)
 
-def ingest_pdf(pdf_path: Path, category: str = "band-plans") -> Dict[str, Any]:
+def ingest_pdf(pdf_path: Path, category: str) -> Dict[str, Any]:
     """Ingest a single PDF, update manifest, return record."""
     pdf_path = Path(pdf_path).resolve()
     sha = sha256_file(pdf_path)
@@ -48,7 +59,13 @@ def ingest_pdf(pdf_path: Path, category: str = "band-plans") -> Dict[str, Any]:
     # Dedup check
     for doc_id, rec in docs.items():
         if rec.get("sha256") == sha:
-            print(f"Exact duplicate of {doc_id}")
+            # Same file. Honor a new category if the caller passed one.
+            if category and rec.get("category") != category:
+                rec["category"] = category
+                save_manifest(manifest)
+                print(f"Exact duplicate of {doc_id}; category updated to {category}")
+            else:
+                print(f"Exact duplicate of {doc_id}")
             return rec
         if rec.get("fingerprint") == fp:
             print(f"Near-duplicate fingerprint of {doc_id}")
@@ -61,6 +78,8 @@ def ingest_pdf(pdf_path: Path, category: str = "band-plans") -> Dict[str, Any]:
         "fingerprint": fp,
         "size": pdf_path.stat().st_size,
         "category": category,
+        "location": _location_tier(str(pdf_path)),
+        "title": pdf_path.stem,
         "status": "ingested",
         "canonical": True,
     }
