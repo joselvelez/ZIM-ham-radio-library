@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Dict, Any, List
 import html as html_lib
 
-from .figures import figure_regions, is_label, is_diagram, is_prose_svg, is_rule, is_barcode
+from .figures import figure_regions, is_label, is_diagram, is_rule, is_barcode
 
 
 def extract_page(page: fitz.Page) -> Dict[str, Any]:
@@ -69,14 +69,12 @@ def extract_diagram_svgs(page: fitz.Page, out_dir: Path, stem: str) -> list[str]
         return []
     written: list[str] = []
     for n, region in enumerate(sorted(diagrams, key=lambda r: (r.y0, r.x0))):
-        clip = fitz.Rect(region.x0 - 4, region.y0 - 16, region.x1 + 4, region.y1 + 4) & page.rect
+        clip = fitz.Rect(region.x0 - 4, region.y0 - 4, region.x1 + 4, region.y1 + 4) & page.rect
         tmp = fitz.open()
         tp = tmp.new_page(width=clip.width, height=clip.height)
         tp.show_pdf_page(tp.rect, page.parent, page.number, clip=clip)
         svg = tp.get_svg_image(text_as_path=False)
         tmp.close()
-        if is_prose_svg(svg):
-            continue
         out = out_dir / f"{stem}-{n}.svg"
         out.write_text(svg)
         written.append(str(out))
