@@ -207,7 +207,7 @@ Default is the entire document. `--pages N` is an explicit debug-only limit and 
 
 ### Reading order
 Single source of truth: `source/pipeline/layout.py` (`column_order`).  
-Based on the official PyMuPDF `column_boxes` algorithm. Text blocks are grouped into columns by x-range overlap, then emitted left-column-first, top-to-bottom within each column. Overlapping blocks that cannot be uniquely classified raise `UnclassifiableLayout` (Fail Fast). The same function is used for body text and for interleaving figures.
+Gap-based column detection: the vertical gap between columns is found first, then each block is assigned by its center. Left column is emitted fully, then the right. This handles TOC pages where block bboxes are wide (leader dots) but centers still fall into columns. A block center that falls in the gap raises `UnclassifiableLayout` (Fail Fast). The same function is used for body text and for interleaving figures.
 
 ### Figure placement
 Figures are first-class elements in a per-page ordered sequence. `assemble.py` builds a mixed list of text blocks and figures for each page and sorts it with `column_order`. Figures appear after the text that precedes them on the page in reading order, not at the end of the article.
@@ -216,7 +216,7 @@ Figures are first-class elements in a per-page ordered sequence. `assemble.py` b
 Conservative pure-Python optimizer in `source/pipeline/svg_optimize.py`. Implements the safe subset of SVGO (remove metadata, comments, empty groups, editor namespaces; round decimals to 2; preserve `viewBox` and `clipPath`). No new runtime. Malformed SVG raises `BadSVG` (Fail Fast). The function is the single place for SVG cleanup.
 
 ### Captions
-`_caption` in `assemble.py` produces "Figure from page N" plus any label text that intersects the region (already extracted as labels). Page number is required; missing page association is a hard failure.
+`_caption` in `assemble.py` produces "Figure from page N" plus at most two short labels (each ≤ 40 characters) that intersect the region. Longer dumps (button clusters, body text) are dropped. Page number is always present; missing page association is a hard failure.
 
 ### Code knowledge graph (Graphify)
 Graphify (`graphifyy` on PyPI) is part of the pipeline setup. It builds a local AST knowledge graph of `source/pipeline/` with no LLM required for code.  

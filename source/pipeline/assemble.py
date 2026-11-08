@@ -18,14 +18,25 @@ def _title_from_content(extracted: Dict[str, Any], fallback: str) -> str:
 
 
 def _caption(page_no: int, labels: List[str]) -> str:
-    """Semantic caption: page number plus any intersecting label text.
+    """Semantic caption: page number plus short intersecting labels.
 
+    Keeps at most two labels, each ≤ 40 characters. Drops button-cluster
+    dumps and long body text. Page number is always present.
     Fail Fast if page_no is missing.
     """
     if page_no is None:
         raise ValueError("figure missing page association")
     base = f"Figure from page {page_no + 1}"
-    clean = [lbl.strip() for lbl in labels if lbl and lbl.strip()]
+    clean = []
+    for lbl in labels:
+        if not lbl:
+            continue
+        text = " ".join(lbl.split())
+        if not text or len(text) > 40:
+            continue
+        clean.append(text)
+        if len(clean) == 2:
+            break
     if clean:
         return f"{base}. {' '.join(clean)}"
     return base
