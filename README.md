@@ -35,7 +35,7 @@ It is intended to be the single best offline source of practical and technical i
 - Troubleshooting and safety
 - History, organizations, and supporting reference material
 
-Only public-domain or properly licensed material is included. Every article is written or cleaned as self-contained HTML with accurate figures (prefer SVG/vector) so it indexes cleanly for RAG and remains usable for visual reference in Kiwix.
+Every article is written or cleaned as self-contained HTML with accurate figures (prefer SVG/vector) so it indexes cleanly for RAG and remains usable for visual reference in Kiwix.
 
 ## Separation of concerns
 
@@ -138,7 +138,7 @@ The same HTML articles serve both consumers. Kiwix uses them for the human inter
 
 ## Next steps
 
-- [ ] Gather public-domain / freely licensed source material (target: thousands of PDFs) into `source/pdfs/`
+- [ ] Gather source material (target: thousands of PDFs, including personal/paid backups) into `source/pdfs/`
 - [ ] Define and implement a scalable PDF → clean HTML conversion pipeline that preserves figure accuracy (prefer SVG/vector) under `source/`
 - [ ] Convert first real articles (manuals, band plans, Q-codes, basic operating procedures, etc.) into `html/articles/` and verify chunk production
 - [ ] Improve the index UI (categories, search) for Kiwix browsing
@@ -147,6 +147,5 @@ The same HTML articles serve both consumers. Kiwix uses them for the human inter
 
 ## Notes
 
-- Only public-domain or properly licensed material.
 - Keep articles clean and self-contained so they index well.
 - The `install.sh` is intentionally simple for now; it can be extended later.

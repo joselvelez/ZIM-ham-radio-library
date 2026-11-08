@@ -41,4 +41,3 @@ Kiwix can browse the same HTML as soon as the ZIM is served.
 
 - Articles must be clean, self-contained HTML.
 - Pictures and diagrams must be accurate (prefer SVG/vector over scanned raster).
-- Only public-domain or properly licensed material.
