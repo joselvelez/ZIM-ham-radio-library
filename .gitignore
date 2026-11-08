@@ -7,8 +7,12 @@
 *~
 
 # Conversion intermediates (keep structure, ignore bulk)
-source/pdfs/*
-!source/pdfs/.gitkeep
+# public/basic/  = PDFs ≤ 95 MB, tracked in ordinary git (“batteries included”)
+# public/extensive/ and paid/ = never committed; user supplies locally and runs conversion
+source/pdfs/public/extensive/*
+!source/pdfs/public/extensive/.gitkeep
+source/pdfs/paid/*
+!source/pdfs/paid/.gitkeep
 source/notes/*
 !source/notes/.gitkeep
 

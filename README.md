@@ -71,7 +71,11 @@ Finished articles are written into `html/articles/` (and linked from the index) 
 ├── source/                 # Original PDFs + conversion work (NOT part of the add-on install)
 │   ├── README.md
 │   ├── CONVERSION.md       # How to turn PDFs into HTML + SVG figures
-│   ├── pdfs/               # Drop original PDFs here
+│   ├── pdfs/               # Original PDFs
+│   │   ├── public/
+│   │   │   ├── basic/      # ≤ 95 MB public PDFs, tracked in git (“batteries included”)
+│   │   │   └── extensive/  # > 95 MB public PDFs; user supplies locally and converts
+│   │   └── paid/           # Paid/DRM PDFs (any size); user supplies locally and converts
 │   └── notes/              # Intermediate files / conversion notes
 ├── html/
 │   ├── index.html          # Main browseable interface
@@ -124,7 +128,10 @@ This is why the project is HTML-first and why figures must be accurate inside th
 
 Everything stays in this repo. Conversion work lives under `source/` and is never part of the NOMAD add-on install:
 
-1. Place original PDFs in `source/pdfs/` (or organize by category/subfolder).
+1. Place original PDFs in the correct location:  
+   - `source/pdfs/public/basic/` (≤ 95 MB, tracked)  
+   - `source/pdfs/public/extensive/` (> 95 MB; user supplies and converts)  
+   - `source/pdfs/paid/` (any size; user supplies and converts)
 2. Convert them (via the pipeline documented in `source/CONVERSION.md`) to clean, self-contained HTML with accurate figures (prefer SVG/vector).
 3. Save finished articles under `html/articles/` (preserve useful structure/categories).
 4. Link them from `html/index.html` so the library is browsable in Kiwix.
@@ -138,7 +145,7 @@ The same HTML articles serve both consumers. Kiwix uses them for the human inter
 
 ## Next steps
 
-- [ ] Gather source material (target: thousands of PDFs, including personal/paid backups) into `source/pdfs/`
+- [ ] Gather source material into `source/pdfs/public/basic/` (≤ 95 MB), `source/pdfs/public/extensive/` (> 95 MB), or `source/pdfs/paid/`
 - [ ] Define and implement a scalable PDF → clean HTML conversion pipeline that preserves figure accuracy (prefer SVG/vector) under `source/`
 - [ ] Convert first real articles (manuals, band plans, Q-codes, basic operating procedures, etc.) into `html/articles/` and verify chunk production
 - [ ] Improve the index UI (categories, search) for Kiwix browsing

@@ -67,7 +67,12 @@ Visible in article header for Kiwix; machine-readable via meta tags or structure
 
 ## Pipeline stages (sketch)
 
-1. **Ingest / staging** — Drop PDF into `source/pdfs/` (or staging). Immediate hash + fingerprint. Update manifest. Skip or flag exact/near-duplicates.
+1. **Ingest / staging** — Place the PDF in the correct directory:  
+   - `source/pdfs/public/basic/` (≤ 95 MB, tracked)  
+   - `source/pdfs/public/extensive/` (> 95 MB, local only)  
+   - `source/pdfs/paid/` (any size, local only)  
+   Compute hash + fingerprint immediately. Update the manifest. Skip or flag exact/near-duplicates.  
+   Extensive and paid files are supplied by the user and ingested the same way; they are simply never committed.
 2. **Triage** — Detect text layer vs. scanned, page count, vector presence, complexity, rotation. Assign initial category/topic hints if possible.
 3. **Extract** — Text + structure (blocks, reading order), images, native vector paths → SVG. Table detection. Footnote regions.
 4. **OCR** (conditional) — For pages with no usable text layer.
