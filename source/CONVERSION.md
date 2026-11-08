@@ -136,11 +136,34 @@ Single source of truth in `source/pipeline/figures.py`:
 - The diagram SVG contains only the vector items inside the region plus those labels.
 - The same classification is used for both HTML body text and SVG content. No second filter, no content-specific word lists.
 
-For large manuals, limit pages during prototype runs:
+## Running the pipeline
+
 ```bash
-python3 source/pipeline/run.py source/pdfs/public/basic/ --category manuals --pages 5
+python3 source/pipeline/run.py <path> [--category NAME] [--pages N] [--html-root DIR]
 ```
-Default is 5 pages. Omit `--pages` only when you want the full document.
+
+`<path>` is a single PDF or a drop-zone directory. A directory processes every PDF in it (flat; no category subfolders).
+
+```bash
+# every PDF already in basic/, using each file's stored category
+python3 source/pipeline/run.py source/pdfs/public/basic/
+
+# first time you see a file: set its category once (triage)
+python3 source/pipeline/run.py source/pdfs/public/basic/some-manual.pdf --category manuals
+
+# prototype limit: only the first 5 pages
+python3 source/pipeline/run.py source/pdfs/public/basic/ --pages 5
+```
+
+### Flags
+
+- **positional `<path>`** — a PDF file, or a drop zone (`source/pdfs/public/basic/`, `.../extensive/`, or `source/pdfs/paid/`). Drop PDFs flat in one of those three. Do not create category subdirectories.
+- **`--category NAME`** — triage only. Sets the topic for files that do not have one yet, and stores it in the manifest. Already-triaged files ignore it unless you pass it again to change the stored value. Valid names are the topic taxonomy: `manuals`, `band-plans`, `operating`, `antennas`, `digital`, `reference`, `emergency`. There is no default. A new file with no category stops and asks you to re-run with this flag.
+- **`--pages N`** — max pages to extract per PDF. Default is 5 (prototype). Omit only when you want the full document.
+- **`--html-root DIR`** — where finished HTML is written. Default is `html/`.
+
+Category is not a folder and not a flag you pass every time. It lives in the manifest. `--category` is how you set it the first time.
+
 
 ## Public source list
 
