@@ -232,3 +232,9 @@ Output: `source/pipeline/graphify-out/graph.json`.
 - `assemble.py` — per-page ordered sequence of text and figures; semantic captions.
 - `run.py` — `--pages` is debug-only and requires `--debug`.
 - `structure.py` — font-size headings (h2/h3), page-chrome removal, dehyphenation, button-cluster caption filter. Fail Fast if body font cannot be determined.
+
+## Body extraction (2026-11-08)
+
+Body text, headings, reading order, and tables come from `pymupdf4llm.to_markdown` with page margins to drop chrome. Markdown is converted to HTML with the standard `markdown` library. We do not hand-roll heading or reading-order logic.
+
+Figures are high-DPI PNG of each diagram region (`page.get_pixmap(clip=…, dpi=200)`). Clipped SVG from `get_svg_image` is incomplete; a pixmap of the region is the usable output. Region filters (rule, barcode, path-art, body text) are unchanged.

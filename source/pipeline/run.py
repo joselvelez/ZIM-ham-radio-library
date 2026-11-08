@@ -18,7 +18,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from source.pipeline.ingest import ingest_pdf
-from source.pipeline.extract import extract_pdf, extract_diagram_svgs
+from source.pipeline.extract import extract_pdf, extract_diagram_pngs
 from source.pipeline.figures import figure_regions
 from source.pipeline.assemble import write_article
 from source.pipeline.quality import score_document, enqueue_if_low
@@ -44,8 +44,8 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
     else:
         print(f"Extracting (debug limit: {max_pages} pages)...")
     extracted = extract_pdf(pdf, max_pages=max_pages)
-    pages = extracted.get("pages", [])
-    print(f"Pages: {extracted['page_count']}, extracted: {len(pages)}")
+    chunks = extracted.get("chunks") or []
+    print(f"Pages: {extracted['page_count']}, extracted: {len(chunks)}")
 
     notes = Path("source/notes")
     notes.mkdir(parents=True, exist_ok=True)
@@ -57,7 +57,7 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
         regions = figure_regions(doc[i])
         if not regions:
             continue
-        results = extract_diagram_svgs(doc[i], notes, f"{record['id']}-page{i}")
+        results = extract_diagram_pngs(doc[i], notes, f"{record['id']}-page{i}")
         if results:
             for r in results:
                 figures.append(r)

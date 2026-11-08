@@ -1,36 +1,31 @@
-"""Assemble clean semantic HTML article with metadata."""
+"""Assemble semantic HTML from pymupdf4llm markdown and PNG figures.
+
+Markdown is converted with the standard `markdown` library. Figures for a
+page are placed after that page's HTML. No custom heading or reading-order
+logic lives here.
+"""
 from pathlib import Path
 from typing import Dict, Any, List
 import html
+import re
 from datetime import datetime
 
-from .layout import column_order, UnclassifiableLayout
+import markdown as md_lib
+
 from .structure import clean_caption_labels
 
 
-def _title_from_content(extracted: Dict[str, Any], fallback: str) -> str:
-    """First real heading becomes the title. Falls back to first body line."""
-    for page in extracted.get("pages", []):
-        for blk in page.get("text_blocks", []):
-            if blk.get("role") in ("h2", "h3"):
-                t = blk["text"].strip().splitlines()[0].strip()
-                if len(t) > 3:
-                    return t
-    for page in extracted.get("pages", []):
-        for blk in page.get("text_blocks", []):
-            t = blk["text"].strip().splitlines()[0].strip()
-            if len(t) > 8 and not t.lower().startswith("prototype"):
-                return t
+def _title_from_markdown(chunks: List[dict], fallback: str) -> str:
+    """First markdown heading becomes the title."""
+    for chunk in chunks:
+        for line in chunk.get("text", "").splitlines():
+            m = re.match(r"^#{1,6}\s+\**(.+?)\**\s*$", line.strip())
+            if m and len(m.group(1)) > 3:
+                return m.group(1).strip("* ")
     return fallback
 
 
 def _caption(page_no: int, labels: List[str]) -> str:
-    """Semantic caption: page number plus short intersecting labels.
-
-    Keeps at most two labels, each ≤ 40 characters. Drops button-cluster
-    dumps and long body text. Page number is always present.
-    Fail Fast if page_no is missing.
-    """
     if page_no is None:
         raise ValueError("figure missing page association")
     base = f"Figure from page {page_no + 1}"
@@ -40,99 +35,60 @@ def _caption(page_no: int, labels: List[str]) -> str:
     return base
 
 
-def _ordered_page_elements(text_blocks: List[dict], figures: List[dict], page_width: float) -> List[dict]:
-    """Interleave text blocks and figures for one page in reading order.
-
-    Uses the same column_order function as text extraction. Figures are
-    treated as blocks for ordering purposes, then emitted as <figure>.
-    """
-    mixed = []
-    for blk in text_blocks:
-        mixed.append({
-            "kind": "text",
-            "bbox": blk["bbox"],
-            "text": blk["text"],
-            "role": blk.get("role", "body"),
-        })
-    for fig in figures:
-        mixed.append({"kind": "figure", "bbox": fig["bbox"], "figure": fig})
-    try:
-        ordered = column_order(mixed, page_width)
-    except UnclassifiableLayout:
-        # Fall back to y-then-x if the mixed set is unclassifiable, but do not
-        # silently drop the error for pure text (that already failed in extract).
-        ordered = sorted(mixed, key=lambda e: (e["bbox"][1], e["bbox"][0]))
-    return ordered
-
-
 def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures: list | None = None) -> str:
-    title = _title_from_content(extracted, record.get("id", "Untitled"))
-    category = record["category"]  # required; no silent default
+    chunks = extracted.get("chunks") or []
+    title = _title_from_markdown(chunks, record.get("id", "Untitled"))
+    category = record["category"]
     source_pdf = record.get("path", "unknown")
     sha = record.get("sha256", "")[:12]
     slug = record["id"]
 
-    # Group figures by page index
     by_page: Dict[int, List[dict]] = {}
     for fig in figures or []:
-        if not Path(fig["path"]).exists():
-            continue
-        by_page.setdefault(fig["page"], []).append(fig)
+        if Path(fig["path"]).exists():
+            by_page.setdefault(fig["page"], []).append(fig)
 
     body_parts = []
-    title_used = False
-    for page_idx, page in enumerate(extracted.get("pages", [])):
-        page_figs = by_page.get(page_idx, [])
-        width = page.get("width") or 600
-        elements = _ordered_page_elements(page.get("text_blocks", []), page_figs, width)
-        for el in elements:
-            if el["kind"] == "text":
-                t = el["text"].strip()
-                if not t:
-                    continue
-                role = el.get("role", "body")
-                tag = {"h2": "h2", "h3": "h3"}.get(role, "p")
-                if not title_used and t.splitlines()[0].strip() == title:
-                    title_used = True
-                    rest = "\n".join(t.splitlines()[1:]).strip()
-                    if rest:
-                        body_parts.append(f"<{tag}>{html.escape(rest)}</{tag}>")
-                    continue
-                body_parts.append(f"<{tag}>{html.escape(t)}</{tag}>")
-            else:
-                fig = el["figure"]
+    for chunk in chunks:
+        page_no = (chunk.get("metadata") or {}).get("page")
+        # pymupdf4llm page is 1-based
+        page_idx = (page_no - 1) if isinstance(page_no, int) else None
+        text = chunk.get("text", "").strip()
+        if text:
+            body_parts.append(md_lib.markdown(text, extensions=["extra", "sane_lists"]))
+        if page_idx is not None:
+            for fig in by_page.get(page_idx, []):
                 rel = f"{slug}/{Path(fig['path']).name}"
                 cap = _caption(fig["page"], fig.get("labels") or [])
-                body_parts.append(f'''
-<figure>
-  <object type="image/svg+xml" data="{html.escape(rel)}" width="100%"></object>
-  <figcaption>{html.escape(cap)}</figcaption>
-</figure>
-''')
+                body_parts.append(
+                    f'<figure><img src="{html.escape(rel)}" alt="{html.escape(cap)}">'
+                    f"<figcaption>{html.escape(cap)}</figcaption></figure>"
+                )
 
-    meta = f'''
-<meta name="category" content="{html.escape(category)}">
-<meta name="source" content="{html.escape(source_pdf)}">
-<meta name="sha256" content="{sha}">
-<meta name="pipeline" content="prototype-v0">
-<meta name="generated" content="{datetime.utcnow().isoformat()}Z">
-'''
+    meta = (
+        f'<meta name="category" content="{html.escape(category)}">\n'
+        f'<meta name="source" content="{html.escape(source_pdf)}">\n'
+        f'<meta name="sha256" content="{sha}">\n'
+        f'<meta name="pipeline" content="pymupdf4llm">\n'
+        f'<meta name="generated" content="{datetime.utcnow().isoformat()}Z">'
+    )
 
-    html_doc = f'''<!DOCTYPE html>
+    return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>{html.escape(title)}</title>
   {meta}
   <style>
-    body {{ font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; background: #0c121c; color: #e8eef5; line-height: 1.5; }}
-    h1 {{ color: #ffdc50; }}
-    h2 {{ color: #ffdc50; font-size: 1.4rem; margin-top: 2rem; }}
-    h3 {{ color: #c8d8e8; font-size: 1.15rem; margin-top: 1.5rem; }}
+    body {{ font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; background: #0c121c; color: #e8eef5; line-height: 1.55; }}
+    h1, h2, h3, h4, h5, h6 {{ color: #ffdc50; margin-top: 1.6rem; }}
     a {{ color: #64b4ff; }}
     figure {{ margin: 1.5rem 0; background: #1a2230; padding: 1rem; border-radius: 6px; }}
+    figure img {{ max-width: 100%; height: auto; background: #fff; }}
     figcaption {{ font-size: 0.85rem; color: #8aa; margin-top: 0.5rem; }}
     .meta {{ font-size: 0.8rem; color: #6a7; }}
+    table {{ border-collapse: collapse; width: 100%; margin: 1rem 0; }}
+    th, td {{ border: 1px solid #334; padding: 0.4rem 0.6rem; }}
   </style>
 </head>
 <body>
@@ -140,72 +96,33 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
   <h1>{html.escape(title)}</h1>
   <p class="meta">Category: {html.escape(category)} · Source: {html.escape(source_pdf)} · SHA: {sha}</p>
   {"".join(body_parts)}
-  <p class="meta">Prototype article generated by the minimal pipeline. Figures prefer accurate SVG.</p>
 </body>
 </html>
 '''
-    return html_doc
 
 
 def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: Path, figures: list | None = None) -> Path:
     import shutil
-    category = record["category"]  # required; no silent default
+    category = record["category"]
     art_dir = html_root / "articles" / category
     art_dir.mkdir(parents=True, exist_ok=True)
-    slug = record["id"]  # full document id, unique across the library
+    slug = record["id"]
     out = art_dir / f"{slug}.html"
-    # Per-document asset directory. Keeps the category folder flat and scalable.
     asset_dir = art_dir / slug
     asset_dir.mkdir(parents=True, exist_ok=True)
     figs = [f for f in (figures or []) if Path(f["path"]).exists()]
-    content = make_article_html(record, extracted, figs)
-    out.write_text(content)
+    out.write_text(make_article_html(record, extracted, figs))
     kept = set()
     for fig in figs:
         path = Path(fig["path"])
         dest = asset_dir / path.name
         shutil.copy(path, dest)
         kept.add(dest.name)
-    # remove leftover SVGs for this document that this run did not produce
-    for leftover in asset_dir.glob("*.svg"):
+    for leftover in list(asset_dir.glob("*.svg")) + list(asset_dir.glob("*.png")):
         if leftover.name not in kept:
             leftover.unlink()
-    # remove old flat SVGs from previous layout (sibling of the HTML)
     for leftover in art_dir.glob(f"{slug}*.svg"):
         leftover.unlink()
-    # remove a leftover short-slug file from the old naming scheme
-    old_short = art_dir / f"{slug.split('-')[0]}.html"
-    if old_short.exists() and old_short != out:
-        old_short.unlink()
-    # drop empty asset dir if nothing was written
     if not any(asset_dir.iterdir()):
         asset_dir.rmdir()
     return out
-
-
-def _retire_previous(record: Dict[str, Any], html_root: Path) -> None:
-    import shutil
-    """Remove this document's files from its previous category.
-
-    Deletes only this document's article and co-located SVG. Removes the old
-    category directory only when it is empty afterward. Never touches other files.
-    """
-    previous = record.pop("_previous_category", None)
-    current = record.get("category")
-    if not previous or previous == current:
-        return
-    old_dir = html_root / "articles" / previous
-    if not old_dir.is_dir():
-        return
-    slug = record["id"]
-    doc_id = record["id"]
-    for path in list(old_dir.iterdir()):
-        if path.name == f"{slug}.html" or path.name.startswith(doc_id):
-            if path.is_dir():
-                shutil.rmtree(path)
-            else:
-                path.unlink()
-            print(f"  retired {path}")
-    if not any(old_dir.iterdir()):
-        old_dir.rmdir()
-        print(f"  removed empty category dir {old_dir}")
