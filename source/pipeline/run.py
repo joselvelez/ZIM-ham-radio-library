@@ -27,6 +27,8 @@ def ai_vectorize_stub(rendered_path: Path) -> str | None:
 def process_one(pdf: Path, category: str, html_root: Path, max_pages: int) -> None:
     print(f"\n=== Processing {pdf.name} ===")
     record = ingest_pdf(pdf, category=category)
+    if not record.get("category"):
+        raise SystemExit(f"No category for {pdf.name}. Re-run with --category to triage it.")
 
     print(f"Extracting (max {max_pages} pages)...")
     extracted = extract_pdf(pdf, max_pages=max_pages)
