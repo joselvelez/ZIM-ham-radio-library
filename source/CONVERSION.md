@@ -136,3 +136,8 @@ Single source of truth in `source/pipeline/figures.py`:
 - The diagram SVG contains only the vector items inside the region plus those labels.
 - The same classification is used for both HTML body text and SVG content. No second filter, no content-specific word lists.
 
+For large manuals, limit pages during prototype runs:
+```bash
+python3 source/pipeline/run.py source/pdfs/public/basic/ --category manuals --pages 5
+```
+Default is 5 pages. Omit `--pages` only when you want the full document.

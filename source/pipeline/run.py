@@ -23,11 +23,12 @@ def ai_vectorize_stub(rendered_path: Path) -> str | None:
     print(f"[AI vectorization stub] Would recreate diagram from {rendered_path}")
     return None
 
-def process_one(pdf: Path, category: str, html_root: Path) -> None:
+def process_one(pdf: Path, category: str, html_root: Path, max_pages: int) -> None:
     print(f"\n=== Processing {pdf.name} ===")
     record = ingest_pdf(pdf, category=category)
 
-    extracted = extract_pdf(pdf)
+    print(f"Extracting (max {max_pages} pages)...")
+    extracted = extract_pdf(pdf, max_pages=max_pages)
     pages = extracted.get("pages", [])
     print(f"Pages: {extracted['page_count']}, body blocks on p0: {len(pages[0]['text_blocks']) if pages else 0}")
     print(f"Native vectors on p0: {pages[0].get('has_native_vectors') if pages else False}")
@@ -42,8 +43,9 @@ def process_one(pdf: Path, category: str, html_root: Path) -> None:
         print(f"SVG: {svg_path}")
 
     # AI path stub (always noted; real call replaces this)
+    print("Rendering page 0 for AI stub...")
     doc = fitz.open(pdf)
-    pix = doc[0].get_pixmap(dpi=120)
+    pix = doc[0].get_pixmap(dpi=72)
     render_path = Path("source/notes") / f"{record['id']}-page0.png"
     pix.save(str(render_path))
     doc.close()
@@ -64,6 +66,7 @@ def main():
     ap.add_argument("path", type=Path, help="PDF file or directory of PDFs")
     ap.add_argument("--category", default="band-plans")
     ap.add_argument("--html-root", type=Path, default=Path("html"))
+    ap.add_argument("--pages", type=int, default=5, help="Max pages to extract per PDF (default 5 for prototype)")
     args = ap.parse_args()
 
     target = args.path.resolve()
@@ -77,7 +80,7 @@ def main():
         sys.exit(1)
 
     for pdf in pdfs:
-        process_one(pdf, args.category, args.html_root)
+        process_one(pdf, args.category, args.html_root, args.pages)
 
     rebuild_index(args.html_root)
     print("\nIndex rebuilt.")

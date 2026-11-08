@@ -35,11 +35,18 @@ def extract_page(page: fitz.Page) -> Dict[str, Any]:
         "height": page.rect.height,
     }
 
-def extract_pdf(pdf_path: Path) -> Dict[str, Any]:
+def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:
+    """Extract pages. max_pages limits work for large manuals during prototype runs."""
     doc = fitz.open(pdf_path)
-    pages = [extract_page(p) for p in doc]
+    total = doc.page_count
+    limit = total if max_pages is None else min(max_pages, total)
+    pages = []
+    for i in range(limit):
+        if i == 0 or (i + 1) % 10 == 0 or i == limit - 1:
+            print(f"  extracting page {i + 1}/{limit} (of {total})")
+        pages.append(extract_page(doc[i]))
     doc.close()
-    return {"path": str(pdf_path), "page_count": len(pages), "pages": pages}
+    return {"path": str(pdf_path), "page_count": total, "pages_extracted": limit, "pages": pages}
 
 def extract_diagram_svg(page: fitz.Page, out_path: Path) -> str | None:
     """SVG of the figure only: vector items inside drawing regions + their labels.
