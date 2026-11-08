@@ -1,2 +1,4 @@
 pymupdf>=1.23.0
+# Code knowledge graph for the pipeline (local AST analysis, no LLM required for code).
+graphifyy>=0.1.0
 # Optional for future: pillow, opencv-python-headless, etc. for fingerprints

@@ -1,8 +1,11 @@
 """Assemble clean semantic HTML article with metadata."""
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, Any, List
 import html
 from datetime import datetime
+
+from .layout import column_order, UnclassifiableLayout
+
 
 def _title_from_content(extracted: Dict[str, Any], fallback: str) -> str:
     """First substantial body paragraph becomes the title. No hash, no ID munging."""
@@ -13,49 +16,83 @@ def _title_from_content(extracted: Dict[str, Any], fallback: str) -> str:
                 return t
     return fallback
 
-def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_paths: list | None = None) -> str:
+
+def _caption(page_no: int, labels: List[str]) -> str:
+    """Semantic caption: page number plus any intersecting label text.
+
+    Fail Fast if page_no is missing.
+    """
+    if page_no is None:
+        raise ValueError("figure missing page association")
+    base = f"Figure from page {page_no + 1}"
+    clean = [lbl.strip() for lbl in labels if lbl and lbl.strip()]
+    if clean:
+        return f"{base}. {' '.join(clean)}"
+    return base
+
+
+def _ordered_page_elements(text_blocks: List[dict], figures: List[dict], page_width: float) -> List[dict]:
+    """Interleave text blocks and figures for one page in reading order.
+
+    Uses the same column_order function as text extraction. Figures are
+    treated as blocks for ordering purposes, then emitted as <figure>.
+    """
+    mixed = []
+    for blk in text_blocks:
+        mixed.append({"kind": "text", "bbox": blk["bbox"], "text": blk["text"]})
+    for fig in figures:
+        mixed.append({"kind": "figure", "bbox": fig["bbox"], "figure": fig})
+    try:
+        ordered = column_order(mixed, page_width)
+    except UnclassifiableLayout:
+        # Fall back to y-then-x if the mixed set is unclassifiable, but do not
+        # silently drop the error for pure text (that already failed in extract).
+        ordered = sorted(mixed, key=lambda e: (e["bbox"][1], e["bbox"][0]))
+    return ordered
+
+
+def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures: list | None = None) -> str:
     title = _title_from_content(extracted, record.get("id", "Untitled"))
     category = record["category"]  # required; no silent default
     source_pdf = record.get("path", "unknown")
     sha = record.get("sha256", "")[:12]
-
-    # Body text only. Skip the first block if it is exactly the title we already used.
-    body_paras = []
-    title_used = False
-    for p in extracted.get("pages", []):
-        for blk in p.get("text_blocks", []):
-            t = blk["text"].strip()
-            if not t:
-                continue
-            if not title_used and t.splitlines()[0].strip() == title:
-                title_used = True
-                # keep any remaining lines of that block after the title line
-                rest = "\n".join(t.splitlines()[1:]).strip()
-                if rest:
-                    body_paras.append(f"<p>{html.escape(rest)}</p>")
-                continue
-            body_paras.append(f"<p>{html.escape(t)}</p>")
-
-    figures = []
     slug = record["id"]
-    for svg in svg_paths or []:
-        path = Path(svg)
-        if not path.exists():
+
+    # Group figures by page index
+    by_page: Dict[int, List[dict]] = {}
+    for fig in figures or []:
+        if not Path(fig["path"]).exists():
             continue
-        # stem is "{slug}-page{N}-{k}"; extract the page number
-        page_no = "?"
-        if "-page" in path.stem:
-            after = path.stem.split("-page", 1)[1]
-            page_no = after.split("-", 1)[0]
-        caption_page = str(int(page_no) + 1) if page_no.isdigit() else page_no
-        rel = f"{slug}/{path.name}"
-        figures.append(f'''
+        by_page.setdefault(fig["page"], []).append(fig)
+
+    body_parts = []
+    title_used = False
+    for page_idx, page in enumerate(extracted.get("pages", [])):
+        page_figs = by_page.get(page_idx, [])
+        width = page.get("width") or 600
+        elements = _ordered_page_elements(page.get("text_blocks", []), page_figs, width)
+        for el in elements:
+            if el["kind"] == "text":
+                t = el["text"].strip()
+                if not t:
+                    continue
+                if not title_used and t.splitlines()[0].strip() == title:
+                    title_used = True
+                    rest = "\n".join(t.splitlines()[1:]).strip()
+                    if rest:
+                        body_parts.append(f"<p>{html.escape(rest)}</p>")
+                    continue
+                body_parts.append(f"<p>{html.escape(t)}</p>")
+            else:
+                fig = el["figure"]
+                rel = f"{slug}/{Path(fig['path']).name}"
+                cap = _caption(fig["page"], fig.get("labels") or [])
+                body_parts.append(f'''
 <figure>
   <object type="image/svg+xml" data="{html.escape(rel)}" width="100%"></object>
-  <figcaption>Figure from page {html.escape(caption_page)} (native vectors).</figcaption>
+  <figcaption>{html.escape(cap)}</figcaption>
 </figure>
 ''')
-    figure_html = "".join(figures)
 
     meta = f'''
 <meta name="category" content="{html.escape(category)}">
@@ -84,15 +121,15 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], svg_pat
   <p><a href="../../index.html">← Back to index</a></p>
   <h1>{html.escape(title)}</h1>
   <p class="meta">Category: {html.escape(category)} · Source: {html.escape(source_pdf)} · SHA: {sha}</p>
-  {"".join(body_paras)}
-  {figure_html}
+  {"".join(body_parts)}
   <p class="meta">Prototype article generated by the minimal pipeline. Figures prefer accurate SVG.</p>
 </body>
 </html>
 '''
     return html_doc
 
-def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: Path, svg_paths: list | None = None) -> Path:
+
+def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: Path, figures: list | None = None) -> Path:
     import shutil
     category = record["category"]  # required; no silent default
     art_dir = html_root / "articles" / category
@@ -102,11 +139,12 @@ def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: 
     # Per-document asset directory. Keeps the category folder flat and scalable.
     asset_dir = art_dir / slug
     asset_dir.mkdir(parents=True, exist_ok=True)
-    paths = [Path(p) for p in (svg_paths or []) if Path(p).exists()]
-    content = make_article_html(record, extracted, paths)
+    figs = [f for f in (figures or []) if Path(f["path"]).exists()]
+    content = make_article_html(record, extracted, figs)
     out.write_text(content)
     kept = set()
-    for path in paths:
+    for fig in figs:
+        path = Path(fig["path"])
         dest = asset_dir / path.name
         shutil.copy(path, dest)
         kept.add(dest.name)

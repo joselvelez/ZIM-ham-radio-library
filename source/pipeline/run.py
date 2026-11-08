@@ -4,6 +4,12 @@
 Usage:
   python3 source/pipeline/run.py path/to/file.pdf --category band-plans
   python3 source/pipeline/run.py source/pdfs/public/basic/ --category band-plans
+
+Flags:
+  --category   Triage assignment for files that do not yet have a category.
+  --pages N    Debug-only limit. Requires --debug. Default is the full document.
+  --debug      Allow --pages. Without this flag, --pages is rejected.
+  --html-root  Output root (default: html).
 """
 import argparse
 import sys
@@ -20,28 +26,32 @@ from source.pipeline.index import rebuild_index
 from source.pipeline.sources import write_sources_page
 import pymupdf as fitz
 
+
 def ai_vectorize_stub(rendered_path: Path) -> str | None:
     """Placeholder for AI raster → accurate SVG recreation."""
     print(f"[AI vectorization stub] Would recreate diagram from {rendered_path}")
     return None
 
-def process_one(pdf: Path, category: str, html_root: Path, max_pages: int) -> None:
+
+def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None) -> None:
     print(f"\n=== Processing {pdf.name} ===")
     record = ingest_pdf(pdf, category=category)
     if not record.get("category"):
         raise SystemExit(f"No category for {pdf.name}. Re-run with --category to triage it.")
 
-    print(f"Extracting (max {max_pages} pages)...")
+    if max_pages is None:
+        print("Extracting (full document)...")
+    else:
+        print(f"Extracting (debug limit: {max_pages} pages)...")
     extracted = extract_pdf(pdf, max_pages=max_pages)
     pages = extracted.get("pages", [])
     print(f"Pages: {extracted['page_count']}, extracted: {len(pages)}")
 
     notes = Path("source/notes")
     notes.mkdir(parents=True, exist_ok=True)
-    svg_paths: list[Path] = []
+    figures: list[dict] = []
     doc = fitz.open(pdf)
-    # Figures are scanned across the whole document. cluster_drawings is fast;
-    # text extraction stays limited by --pages.
+    # Figures are scanned across the whole document.
     print(f"Scanning {doc.page_count} pages for diagrams...")
     for i in range(doc.page_count):
         regions = figure_regions(doc[i])
@@ -50,28 +60,47 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int) -> No
         results = extract_diagram_svgs(doc[i], notes, f"{record['id']}-page{i}")
         if results:
             for r in results:
-                svg_paths.append(Path(r))
-                print(f"  diagram on page {i + 1}: {r}")
+                figures.append(r)
+                print(f"  diagram on page {i + 1}: {r['path']}")
     doc.close()
-    print(f"Diagrams: {len(svg_paths)}")
+    print(f"Diagrams: {len(figures)}")
 
-    svg_ok = bool(svg_paths)
+    svg_ok = bool(figures)
     quality = score_document(extracted, svg_ok)
     print(f"Score: {quality['score']} (text={quality['text_score']}, figure={quality['figure_score']}, cpp={quality['chars_per_page']})")
     review = enqueue_if_low(record, quality)
     if review:
         print(f"Queued for review: {review}")
 
-    article = write_article(record, extracted, html_root, svg_paths)
+    article = write_article(record, extracted, html_root, figures)
     print(f"Article: {article}")
+
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("path", type=Path, help="PDF file or directory of PDFs")
     ap.add_argument("--category", default=None, help="Triage: set category for files that do not have one yet")
     ap.add_argument("--html-root", type=Path, default=Path("html"))
-    ap.add_argument("--pages", type=int, default=5, help="Max pages to extract per PDF (default 5 for prototype)")
+    ap.add_argument(
+        "--pages",
+        type=int,
+        default=None,
+        help="Debug-only page limit. Requires --debug. Default is the full document.",
+    )
+    ap.add_argument(
+        "--debug",
+        action="store_true",
+        help="Allow --pages. Without this flag, --pages is rejected (Fail Fast).",
+    )
     args = ap.parse_args()
+
+    if args.pages is not None and not args.debug:
+        raise SystemExit(
+            "--pages is a debug-only limit and requires --debug. "
+            "Omit --pages to extract the full document."
+        )
+    if args.pages is not None and args.pages < 1:
+        raise SystemExit("--pages must be a positive integer")
 
     target = args.path.resolve()
     if not target.exists():
@@ -92,6 +121,7 @@ def main():
     src = write_sources_page(args.html_root, Path("source/manifest.json"))
     print(f"\nIndex rebuilt. Sources page: {src}")
     print("Done.")
+
 
 if __name__ == "__main__":
     main()

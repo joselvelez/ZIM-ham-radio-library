@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # One-time setup for the conversion pipeline.
-# Creates a local virtualenv and installs the Python dependencies.
+# Creates a local virtualenv and installs the Python dependencies,
+# including Graphify for local code knowledge-graph analysis.
 # Safe to re-run.
 
 set -euo pipefail
@@ -23,3 +24,10 @@ echo "  source .venv/bin/activate"
 echo ""
 echo "Then run the pipeline, for example:"
 echo "  python3 source/pipeline/run.py source/pdfs/public/basic/ --category band-plans"
+echo ""
+echo "Graphify (local code knowledge graph) is installed."
+echo "To analyze the pipeline:"
+echo "  graphify extract source/pipeline"
+echo "  graphify query 'reading order'"
+echo "Or use the helper:"
+echo "  ./source/graphify.sh"

@@ -197,3 +197,37 @@ A search box filters the table by any of those fields. The page is regenerated a
 
 ![Source list mockup](docs/sources-list-mockup.svg)
 
+
+## Locked implementation decisions (2026-11-08)
+
+These decisions are locked and implemented in `source/pipeline/`.
+
+### Full-document text extraction
+Default is the entire document. `--pages N` is an explicit debug-only limit and requires `--debug`. Using `--pages` without `--debug` is a hard failure (Fail Fast). Documented in `run.py` help and here.
+
+### Reading order
+Single source of truth: `source/pipeline/layout.py` (`column_order`).  
+Based on the official PyMuPDF `column_boxes` algorithm. Text blocks are grouped into columns by x-range overlap, then emitted left-column-first, top-to-bottom within each column. Overlapping blocks that cannot be uniquely classified raise `UnclassifiableLayout` (Fail Fast). The same function is used for body text and for interleaving figures.
+
+### Figure placement
+Figures are first-class elements in a per-page ordered sequence. `assemble.py` builds a mixed list of text blocks and figures for each page and sorts it with `column_order`. Figures appear after the text that precedes them on the page in reading order, not at the end of the article.
+
+### SVG quality
+Conservative pure-Python optimizer in `source/pipeline/svg_optimize.py`. Implements the safe subset of SVGO (remove metadata, comments, empty groups, editor namespaces; round decimals to 2; preserve `viewBox` and `clipPath`). No new runtime. Malformed SVG raises `BadSVG` (Fail Fast). The function is the single place for SVG cleanup.
+
+### Captions
+`_caption` in `assemble.py` produces "Figure from page N" plus any label text that intersects the region (already extracted as labels). Page number is required; missing page association is a hard failure.
+
+### Code knowledge graph (Graphify)
+Graphify (`graphifyy` on PyPI) is part of the pipeline setup. It builds a local AST knowledge graph of `source/pipeline/` with no LLM required for code.  
+Install via `./source/setup.sh` (it is in `source/requirements.txt`).  
+Run with `./source/graphify.sh` or `graphify extract source/pipeline`.  
+Output: `source/pipeline/graphify-out/graph.json`.
+
+## Prototype status (updated)
+
+- `layout.py` — column-aware reading order (single source of truth).
+- `svg_optimize.py` — conservative SVG cleanup (SVGO safe subset).
+- `extract.py` — full-document extraction by default; uses `column_order`; optimizes SVGs; returns figure metadata (path, page, bbox, labels).
+- `assemble.py` — per-page ordered sequence of text and figures; semantic captions.
+- `run.py` — `--pages` is debug-only and requires `--debug`.

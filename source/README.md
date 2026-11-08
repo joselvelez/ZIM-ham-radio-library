@@ -35,14 +35,26 @@ The pipeline needs a virtualenv and PyMuPDF. From the repo root:
 source .venv/bin/activate
 ```
 
-Then process PDFs:
+Then process PDFs (full document by default):
 
 ```bash
 python3 source/pipeline/run.py source/pdfs/public/basic/ --category band-plans
 ```
 
+Debug-only page limit (requires `--debug`):
+
+```bash
+python3 source/pipeline/run.py path/to/file.pdf --category manuals --debug --pages 5
+```
+
+Graphify (local code knowledge graph) is installed by setup. To analyze the pipeline:
+
+```bash
+./source/graphify.sh
+# or
+graphify extract source/pipeline
+```
+
 `.venv/` is gitignored. Re-run `./source/setup.sh` after pulling if `source/requirements.txt` changes.
 
-See CONVERSION.md for the public source list (`html/sources.html`).
-
-See `CONVERSION.md` → **Running the pipeline** for the command and every flag (`--category`, `--pages`, `--html-root`).
+See CONVERSION.md for the public source list (`html/sources.html`) and the locked implementation decisions (reading order, figure placement, SVG cleanup, captions, `--pages` flag).
