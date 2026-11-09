@@ -19,6 +19,10 @@ from .figures import figure_regions, is_diagram, is_rule, is_barcode, is_path_ar
 # Strip repeating page chrome. pymupdf4llm applies these as margins.
 PAGE_MARGINS = (0, 50, 0, 50)
 FIGURE_DPI = 200
+# Do not let pymupdf4llm invent tables. Its detector produces placeholder
+# headers (Col2) and broken cells on this class of manual. Text flow is
+# the usable output; tables are not.
+TABLE_STRATEGY = None
 
 
 def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:
@@ -41,6 +45,7 @@ def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:
         pages=pages,
         page_chunks=True,
         margins=PAGE_MARGINS,
+        table_strategy=TABLE_STRATEGY,
     )
     if not chunks:
         raise SystemExit(f"pymupdf4llm returned no pages for {pdf_path.name}")

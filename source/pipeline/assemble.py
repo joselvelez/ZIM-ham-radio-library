@@ -13,6 +13,7 @@ from datetime import datetime
 import markdown as md_lib
 
 from .structure import clean_caption_labels
+from .toc import toc_to_markdown
 
 
 def _title_from_markdown(chunks: List[dict], fallback: str) -> str:
@@ -53,7 +54,7 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
         page_no = (chunk.get("metadata") or {}).get("page")
         # pymupdf4llm page is 1-based
         page_idx = (page_no - 1) if isinstance(page_no, int) else None
-        text = chunk.get("text", "").strip()
+        text = toc_to_markdown(chunk.get("text", "")).strip()
         if text:
             body_parts.append(md_lib.markdown(text, extensions=["extra", "sane_lists"]))
         if page_idx is not None:
