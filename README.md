@@ -104,9 +104,10 @@ chmod +x install.sh
 ## Pipeline setup (for conversion work)
 
 The ZIM build (`./install.sh`) only needs `zim-tools` and `python3`.  
-The PDF → HTML pipeline under `source/` needs a virtualenv:
+The PDF → HTML pipeline under `source/` needs **Python 3.10–3.13** (the layout engine depends on `onnxruntime`, which has no wheel for 3.14+) and a virtualenv:
 
 ```bash
+python3.13 -m venv .venv
 ./source/setup.sh
 source .venv/bin/activate
 python3 source/pipeline/run.py source/pdfs/public/basic/ --category band-plans

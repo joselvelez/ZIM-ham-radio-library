@@ -109,34 +109,37 @@ Quality over speed on figures. Accuracy is the hard requirement; automation and 
 Manifest is the single source of truth for dedup, canonical choice, metadata, and processing history.  
 Next concrete step: prototype the ingest → extract → one AI vectorization → HTML path on a small set of representative PDFs (clean manual + diagram-heavy page + scanned page) and validate both visual fidelity and RAG chunk quality.
 
-## Prototype status (2026-11-08)
+## Current pipeline (2026-11-09)
 
-Minimal working slice under `source/pipeline/`:
+Working path under `source/pipeline/`:
 
-- `ingest.py` — SHA-256 + simple fingerprint, manifest.json update, exact/near-dup check.
-- `extract.py` — PyMuPDF text blocks (reading-order sorted), native vector detection, SVG export via `get_svg_image()`, page render for AI path.
-- `assemble.py` — semantic HTML with metadata (`<meta name="category">` etc.), figure embedding, written to `html/articles/<category>/`.
-- `run.py` — end-to-end entrypoint. Also stubs the AI raster→SVG path.
+- `ingest.py` — SHA-256 identifies a document. Category lives in the manifest. `--category` sets or changes it.
+- `extract.py` — body, headings, reading order, and tables from `pymupdf4llm` with the `pymupdf-layout` engine activated. Figures are high-DPI PNG clips of diagram regions.
+- `toc.py` — leader-dot TOC lines become Markdown list items.
+- `style.py` — heading ids, TOC links, sticky sidebar nav, native dialog lightbox.
+- `assemble.py` — Markdown to HTML, figures placed per page, style layer applied.
+- `run.py` — end-to-end entrypoint.
 
-Sample: `source/pdfs/public/basic/sample-band-plan.pdf` (tiny band-plan with native vector diagram).
+**Python 3.10–3.13 is required.** `pymupdf-layout` depends on `onnxruntime`, which has no wheel for Python 3.14+. `setup.sh` fails fast outside that range.
 
-Setup (once per clone):
+Setup (once per clone, with Python 3.13):
 ```bash
+python3.13 -m venv .venv
 ./source/setup.sh
 source .venv/bin/activate
 ```
 
-Run (single file or directory):
+Run (full document by default):
 ```bash
-python3 source/pipeline/run.py source/pdfs/public/basic/ --category band-plans
+python3 source/pipeline/run.py source/pdfs/public/basic/nav-comms_P2_ft-857-operators-manual.pdf --category manuals
 ```
 
 Outputs:
 - `source/manifest.json`
-- `html/articles/band-plans/sample.html` + co-located SVG
-- index.html updated with link
+- `html/articles/<category>/<id>.html` plus a sibling directory of PNG figures
+- index and sources pages rebuilt
 
-Next increments: better reading-order / column handling, real AI vectorization call (or local model), confidence scoring, review queue, multi-page, dedup refinement.
+Validated on the FT-857 operator manual: full extraction, TOC as linked lists, sticky sidebar, figure lightbox, Specifications as a heading and table.
 
 ## Figure extraction rule (locked)
 
@@ -242,7 +245,3 @@ Figures are high-DPI PNG of each diagram region (`page.get_pixmap(clip=…, dpi=
 ## Article style (2026-11-09)
 
 The assembler post-processes the HTML: headings get stable ids, TOC list items become links to those ids, a sticky sidebar nav is built from the TOC, and each figure opens a native dialog lightbox. No external CSS or JS. Body text stays in the main flow so Kiwix and the NOMAD extractor still see the full article.
-
-## Layout engine (2026-11-09)
-
-Body extraction uses pymupdf4llm with the pymupdf-layout engine activated. Layout is a CPU-only ONNX Graph Neural Network that reads PDF internals. It must be imported and activated before pymupdf4llm. This is what produces real headings and tables (for example the Specifications page). Pin pymupdf-layout<2 to match PyMuPDF 1.x.

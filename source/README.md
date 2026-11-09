@@ -28,7 +28,7 @@ A minimal end-to-end slice (ingest → extract → SVG → HTML) is available fo
 
 ## Setup (required after clone)
 
-The pipeline needs a virtualenv and PyMuPDF. From the repo root:
+The pipeline needs Python 3.10–3.13 (onnxruntime has no wheel for 3.14+) and a virtualenv. From the repo root:
 
 ```bash
 ./source/setup.sh
