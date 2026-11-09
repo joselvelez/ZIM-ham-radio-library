@@ -242,3 +242,7 @@ Figures are high-DPI PNG of each diagram region (`page.get_pixmap(clip=…, dpi=
 ## Article style (2026-11-09)
 
 The assembler post-processes the HTML: headings get stable ids, TOC list items become links to those ids, a sticky sidebar nav is built from the TOC, and each figure opens a native dialog lightbox. No external CSS or JS. Body text stays in the main flow so Kiwix and the NOMAD extractor still see the full article.
+
+## Layout engine (2026-11-09)
+
+Body extraction uses pymupdf4llm with the pymupdf-layout engine activated. Layout is a CPU-only ONNX Graph Neural Network that reads PDF internals. It must be imported and activated before pymupdf4llm. This is what produces real headings and tables (for example the Specifications page). Pin pymupdf-layout<2 to match PyMuPDF 1.x.

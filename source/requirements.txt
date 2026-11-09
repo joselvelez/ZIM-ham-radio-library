@@ -2,6 +2,9 @@ pymupdf>=1.23.0
 # Official PyMuPDF companion for markdown (headings, reading order, tables).
 # Pin <1 because 2.0 is a stub that requires PyMuPDF 2.x.
 pymupdf4llm>=0.3,<1
+# Layout engine for pymupdf4llm. Must be imported and activated before
+# pymupdf4llm. Pin <2 to match PyMuPDF 1.x. AGPL-3.0, same as PyMuPDF.
+pymupdf-layout>=1.28,<2
 # Standard markdown → HTML. Do not hand-roll this.
 markdown>=3.5
 # HTML post-process for ids, TOC links, and lightbox markup.

@@ -1,7 +1,8 @@
-"""Extract text via pymupdf4llm and figures as high-DPI PNG.
+"""Extract text via pymupdf4llm (with layout) and figures as high-DPI PNG.
 
-Body text, headings, and reading order come from pymupdf4llm.to_markdown.
-That is the maintained path for this; we do not reimplement it.
+Body text, headings, reading order, and tables come from pymupdf4llm with
+the pymupdf-layout engine activated. That is the maintained path; we do not
+reimplement layout or table detection.
 
 Figures are clipped regions rasterized at high DPI. Clipped SVG from
 get_svg_image is incomplete (MuPDF maintainer guidance); a pixmap of the
@@ -9,6 +10,9 @@ region is the usable output.
 """
 from __future__ import annotations
 import pymupdf as fitz
+# Layout must be imported and activated before pymupdf4llm.
+import pymupdf.layout
+pymupdf.layout.activate()
 import pymupdf4llm
 from pathlib import Path
 from typing import Dict, Any, List
@@ -19,10 +23,6 @@ from .figures import figure_regions, is_diagram, is_rule, is_barcode, is_path_ar
 # Strip repeating page chrome. pymupdf4llm applies these as margins.
 PAGE_MARGINS = (0, 50, 0, 50)
 FIGURE_DPI = 200
-# Do not let pymupdf4llm invent tables. Its detector produces placeholder
-# headers (Col2) and broken cells on this class of manual. Text flow is
-# the usable output; tables are not.
-TABLE_STRATEGY = None
 
 
 def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:
@@ -45,7 +45,8 @@ def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:
         pages=pages,
         page_chunks=True,
         margins=PAGE_MARGINS,
-        table_strategy=TABLE_STRATEGY,
+        header=False,
+        footer=False,
     )
     if not chunks:
         raise SystemExit(f"pymupdf4llm returned no pages for {pdf_path.name}")
