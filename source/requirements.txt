@@ -4,5 +4,7 @@ pymupdf>=1.23.0
 pymupdf4llm>=0.3,<1
 # Standard markdown → HTML. Do not hand-roll this.
 markdown>=3.5
+# HTML post-process for ids, TOC links, and lightbox markup.
+beautifulsoup4>=4.12
 # Code knowledge graph for the pipeline.
 graphifyy>=0.1.0

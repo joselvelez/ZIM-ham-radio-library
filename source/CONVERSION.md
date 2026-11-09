@@ -238,3 +238,7 @@ Output: `source/pipeline/graphify-out/graph.json`.
 Body text, headings, reading order, and tables come from `pymupdf4llm.to_markdown` with page margins to drop chrome. Markdown is converted to HTML with the standard `markdown` library. We do not hand-roll heading or reading-order logic.
 
 Figures are high-DPI PNG of each diagram region (`page.get_pixmap(clip=…, dpi=200)`). Clipped SVG from `get_svg_image` is incomplete; a pixmap of the region is the usable output. Region filters (rule, barcode, path-art, body text) are unchanged.
+
+## Article style (2026-11-09)
+
+The assembler post-processes the HTML: headings get stable ids, TOC list items become links to those ids, a sticky sidebar nav is built from the TOC, and each figure opens a native dialog lightbox. No external CSS or JS. Body text stays in the main flow so Kiwix and the NOMAD extractor still see the full article.

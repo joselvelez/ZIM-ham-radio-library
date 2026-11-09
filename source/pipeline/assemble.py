@@ -11,9 +11,11 @@ import re
 from datetime import datetime
 
 import markdown as md_lib
+from bs4 import BeautifulSoup
 
 from .structure import clean_caption_labels
 from .toc import toc_to_markdown
+from .style import add_heading_ids, link_toc, toc_nav_html, wrap_figures, LIGHTBOX_JS, STYLE_CSS
 
 
 def _title_from_markdown(chunks: List[dict], fallback: str) -> str:
@@ -66,6 +68,14 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
                     f"<figcaption>{html.escape(cap)}</figcaption></figure>"
                 )
 
+    body_html = "".join(body_parts)
+    soup = BeautifulSoup(f"<div id=\"body\">{body_html}</div>", "html.parser")
+    index = add_heading_ids(soup)
+    link_toc(soup, index)
+    wrap_figures(soup)
+    nav = toc_nav_html(soup)
+    body = str(soup.find(id="body").decode_contents())
+
     meta = (
         f'<meta name="category" content="{html.escape(category)}">\n'
         f'<meta name="source" content="{html.escape(source_pdf)}">\n'
@@ -81,22 +91,20 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
   <title>{html.escape(title)}</title>
   {meta}
   <style>
-    body {{ font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; background: #0c121c; color: #e8eef5; line-height: 1.55; }}
-    h1, h2, h3, h4, h5, h6 {{ color: #ffdc50; margin-top: 1.6rem; }}
-    a {{ color: #64b4ff; }}
-    figure {{ margin: 1.5rem 0; background: #1a2230; padding: 1rem; border-radius: 6px; }}
-    figure img {{ max-width: 100%; height: auto; background: #fff; }}
-    figcaption {{ font-size: 0.85rem; color: #8aa; margin-top: 0.5rem; }}
-    .meta {{ font-size: 0.8rem; color: #6a7; }}
-    table {{ border-collapse: collapse; width: 100%; margin: 1rem 0; }}
-    th, td {{ border: 1px solid #334; padding: 0.4rem 0.6rem; }}
+    {STYLE_CSS}
   </style>
 </head>
 <body>
-  <p><a href="../../index.html">← Back to index</a></p>
-  <h1>{html.escape(title)}</h1>
-  <p class="meta">Category: {html.escape(category)} · Source: {html.escape(source_pdf)} · SHA: {sha}</p>
-  {"".join(body_parts)}
+  <div class="layout">
+    {nav}
+    <main>
+      <p><a href="../../index.html">← Back to index</a></p>
+      <h1>{html.escape(title)}</h1>
+      <p class="meta">Category: {html.escape(category)} · Source: {html.escape(source_pdf)} · SHA: {sha}</p>
+      {body}
+    </main>
+  </div>
+  <script>{LIGHTBOX_JS}</script>
 </body>
 </html>
 '''

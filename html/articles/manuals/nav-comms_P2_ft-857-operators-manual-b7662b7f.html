@@ -7,24 +7,44 @@
 <meta name="source" content="pdfs/public/basic/nav-comms_P2_ft-857-operators-manual.pdf">
 <meta name="sha256" content="b7662b7f8480">
 <meta name="pipeline" content="pymupdf4llm">
-<meta name="generated" content="2026-11-09T00:51:27.928489Z">
+<meta name="generated" content="2026-11-09T17:41:48.337469Z">
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; background: #0c121c; color: #e8eef5; line-height: 1.55; }
-    h1, h2, h3, h4, h5, h6 { color: #ffdc50; margin-top: 1.6rem; }
-    a { color: #64b4ff; }
-    figure { margin: 1.5rem 0; background: #1a2230; padding: 1rem; border-radius: 6px; }
-    figure img { max-width: 100%; height: auto; background: #fff; }
-    figcaption { font-size: 0.85rem; color: #8aa; margin-top: 0.5rem; }
-    .meta { font-size: 0.8rem; color: #6a7; }
-    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
-    th, td { border: 1px solid #334; padding: 0.4rem 0.6rem; }
+    :root { color-scheme: dark; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #0c121c; color: #e8eef5; line-height: 1.6; }
+.layout { display: grid; grid-template-columns: 16rem 1fr; gap: 2rem; max-width: 72rem; margin: 0 auto; padding: 1.5rem; }
+nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
+nav.toc .toc-title { color: #ffdc50; font-weight: 600; margin: 0 0 0.5rem; }
+nav.toc ul { list-style: none; padding: 0; margin: 0; }
+nav.toc li { margin: 0.25rem 0; }
+nav.toc a { color: #8ab4ff; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+main { max-width: 70ch; }
+h1 { font-size: 1.8rem; color: #ffdc50; margin: 0 0 0.5rem; }
+h2, h3, h4, h5, h6 { color: #ffdc50; margin-top: 1.8rem; font-size: 1.15rem; }
+a { color: #64b4ff; }
+.meta { font-size: 0.8rem; color: #6a7; }
+figure { margin: 1.5rem 0; background: #1a2230; padding: 1rem; border-radius: 6px; }
+figure img { max-width: 100%; height: auto; background: #fff; cursor: zoom-in; }
+figcaption { font-size: 0.85rem; color: #8aa; margin-top: 0.5rem; }
+button.zoom { background: none; border: 0; padding: 0; display: block; width: 100%; cursor: zoom-in; }
+dialog { max-width: 90vw; max-height: 90vh; background: #111; color: #eee; border: 0; border-radius: 8px; padding: 1rem; }
+dialog img { max-width: 100%; max-height: 75vh; background: #fff; }
+dialog::backdrop { background: rgba(0,0,0,0.75); }
+ul { padding-left: 1.2rem; }
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  nav.toc { position: static; max-height: 16rem; }
+}
   </style>
 </head>
 <body>
-  <p><a href="../../index.html">← Back to index</a></p>
-  <h1>OPERATING MANUAL</h1>
-  <p class="meta">Category: manuals · Source: pdfs/public/basic/nav-comms_P2_ft-857-operators-manual.pdf · SHA: b7662b7f8480</p>
-  <h1><strong>OPERATING MANUAL</strong></h1>
+  <div class="layout">
+    <nav class="toc" aria-label="Contents"><p class="toc-title">Contents</p><ul><li><a href="#preliminary-inspection">Preliminary Inspection — 5</a></li><li><a href="#installation-tips">Installation Tips — 5</a></li><li><a href="#safety-information">Safety Information — 6</a></li><li><a href="#installing-the-microphone-and-front-panel">Installing the Microphone and Front Panel — 7</a></li><li><a href="#power-connections">Power connections — 8</a></li><li><a href="#grounding">Grounding — 10</a></li><li><a href="#antenna-considerations">Antenna Considerations — 12</a></li><li><a href="#rf-field-exposure">RF Field Exposure — 14</a></li><li><a href="#electromagnetic-compatibility">Electromagnetic Compatibility — 15</a></li><li><a href="#heat-and-ventilation">Heat and Ventilation — 15</a></li><li><a href="#linear-amplifier-interfacing">Linear Amplifier Interfacing — 16</a></li><li><a href="#cw-key-keyer-connections">CW Key/Keyer Connections — 17</a></li><li><a href="#adjusting-the-front-feet">Adjusting the Front Feet — 18</a></li><li><a href="#multi-function-key-detail">Multi Function Key Detail — 24</a></li><li><a href="#turning-the-transceiver-on-and-off">Turning the Transceiver On and Off — 34</a></li><li><a href="#operating-band-selection">Operating Band Selection — 34</a></li><li><a href="#mode-selection">Mode Selection — 34</a></li><li><a href="#adjusting-the-audio-volume-level">Adjusting the Audio Volume Level — 35</a></li><li><a href="#menu-quick-start">Menu Quick Start — 35</a></li><li><a href="#adjusting-the-rf-gain-and-squelch">Adjusting the RF Gain and Squelch — 36</a></li><li><a href="#setting-the-operating-frequency">Setting the Operating Frequency — 36</a></li><li><a href="#changing-the-dial-speed">Changing the Dial Speed — 37</a></li><li><a href="#stacked-vfo-system">Stacked VFO System — 37</a></li><li><a href="#locking-front-panel-controls">Locking Front Panel Controls — 38</a></li><li><a href="#if-shift">IF Shift — 40</a></li><li><a href="#noise-blanker">Noise Blanker — 41</a></li><li><a href="#am-fm-tuning-dial-operation">AM/FM Tuning Dial Operation — 45</a></li><li><a href="#automatic-power-off-feature">Automatic Power-Off Feature — 46</a></li><li><a href="#ssb-am-transmission">SSB/AM Transmission — 48</a></li><li><a href="#cw-transmission">CW Transmission — 52</a></li></ul></nav>
+    <main>
+      <p><a href="../../index.html">← Back to index</a></p>
+      <h1>OPERATING MANUAL</h1>
+      <p class="meta">Category: manuals · Source: pdfs/public/basic/nav-comms_P2_ft-857-operators-manual.pdf · SHA: b7662b7f8480</p>
+      <h1 id="operating-manual"><strong>OPERATING MANUAL</strong></h1>
 <p><strong>VERTEX STANDARD CO., LTD.</strong>
 4-8-8 Nakameguro, Meguro-Ku, Tokyo 153-8644, Japan
 <strong>VERTEX STANDARD</strong>
@@ -39,100 +59,84 @@ Unit 12, Sun Valley Business Park, Winnall Close
 Winchester, Hampshire, SO23 0LB, U.K.
 <strong>VERTEX STANDARD HK LTD.</strong>
 Unit 5, 20/F., Seaview Centre, 139-141 Hoi Bun Road,
-Kwun Tong, Kowloon, Hong Kong</p><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page0-0.png" alt="Figure from page 1"><figcaption>Figure from page 1</figcaption></figure><ul>
+Kwun Tong, Kowloon, Hong Kong</p><figure><button aria-label="Enlarge Figure from page 1" class="zoom" data-dialog="fig-1" type="button"><img alt="Figure from page 1" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page0-0.png"/></button><figcaption>Figure from page 1</figcaption><dialog id="fig-1"><img alt="Figure from page 1" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page0-0.png"/><p>Figure from page 1</p><form method="dialog"><button>Close</button></form></dialog></figure><ul>
 <li>Introduction — 1</li>
 <li>Specifications — 2</li>
 <li>Accessories &amp; Options — 4</li>
 <li>
 <p>Installation — 5</p>
 </li>
-<li>
-<p>Preliminary Inspection — 5</p>
-</li>
-<li>Installation Tips — 5</li>
-<li>Safety Information — 6</li>
-<li>Installing the Microphone and Front Panel — 7</li>
-<li>Power connections — 8</li>
-<li>
-<p>Grounding — 10</p>
-</li>
+<li><a href="#preliminary-inspection">Preliminary Inspection — 5</a></li>
+<li><a href="#installation-tips">Installation Tips — 5</a></li>
+<li><a href="#safety-information">Safety Information — 6</a></li>
+<li><a href="#installing-the-microphone-and-front-panel">Installing the Microphone and Front Panel — 7</a></li>
+<li><a href="#power-connections">Power connections — 8</a></li>
+<li><a href="#grounding">Grounding — 10</a></li>
 <li>
 <p>Mobile Station Grounding — 10</p>
 </li>
 <li>Base Station Earth Grounding — 11</li>
-<li>
-<p>Antenna Considerations — 12</p>
-</li>
+<li><a href="#antenna-considerations">Antenna Considerations — 12</a></li>
 <li>
 <p>Mobile Antenna Installations — 12</p>
 </li>
 <li>Base Station Antenna Installations — 13</li>
-<li>RF Field Exposure — 14</li>
-<li>Electromagnetic Compatibility — 15</li>
-<li>Heat and Ventilation — 15</li>
-<li>Linear Amplifier Interfacing — 16</li>
-<li>CW Key/Keyer Connections — 17</li>
+<li><a href="#rf-field-exposure">RF Field Exposure — 14</a></li>
+<li><a href="#electromagnetic-compatibility">Electromagnetic Compatibility — 15</a></li>
+<li><a href="#heat-and-ventilation">Heat and Ventilation — 15</a></li>
+<li><a href="#linear-amplifier-interfacing">Linear Amplifier Interfacing — 16</a></li>
+<li><a href="#cw-key-keyer-connections">CW Key/Keyer Connections — 17</a></li>
 <li>Receiver Accessories (Tape Recorder etc.) — 18</li>
-<li>Adjusting the Front Feet — 18</li>
+<li><a href="#adjusting-the-front-feet">Adjusting the Front Feet — 18</a></li>
 <li>
 <p>Front Panel Control &amp; Switches — 20</p>
 </li>
-<li>
-<p>Multi Function Key Detail — 24</p>
-</li>
+<li><a href="#multi-function-key-detail">Multi Function Key Detail — 24</a></li>
 <li>Rear panel Connectors — 32</li>
 <li>
 <p>Operation — 34</p>
 </li>
-<li>
-<p>Turning the Transceiver On and Off — 34</p>
-</li>
-<li>Operating Band Selection — 34</li>
-<li>Mode Selection — 34</li>
-<li>Adjusting the Audio Volume Level — 35</li>
-<li>Menu Quick Start — 35</li>
-<li>Adjusting the RF Gain and Squelch — 36</li>
-<li>Setting the Operating Frequency — 36</li>
-<li>Changing the Dial Speed — 37</li>
-<li>Stacked VFO System — 37</li>
+<li><a href="#turning-the-transceiver-on-and-off">Turning the Transceiver On and Off — 34</a></li>
+<li><a href="#operating-band-selection">Operating Band Selection — 34</a></li>
+<li><a href="#mode-selection">Mode Selection — 34</a></li>
+<li><a href="#adjusting-the-audio-volume-level">Adjusting the Audio Volume Level — 35</a></li>
+<li><a href="#menu-quick-start">Menu Quick Start — 35</a></li>
+<li><a href="#adjusting-the-rf-gain-and-squelch">Adjusting the RF Gain and Squelch — 36</a></li>
+<li><a href="#setting-the-operating-frequency">Setting the Operating Frequency — 36</a></li>
+<li><a href="#changing-the-dial-speed">Changing the Dial Speed — 37</a></li>
+<li><a href="#stacked-vfo-system">Stacked VFO System — 37</a></li>
 <li>
 <p>Receiver Accessories — 38</p>
 </li>
-<li>
-<p>Locking Front Panel Controls — 38</p>
-</li>
+<li><a href="#locking-front-panel-controls">Locking Front Panel Controls — 38</a></li>
 <li>Clarifier — 39</li>
-<li>IF Shift — 40</li>
+<li><a href="#if-shift">IF Shift — 40</a></li>
 <li>AGC — 41</li>
-<li>Noise Blanker — 41</li>
+<li><a href="#noise-blanker">Noise Blanker — 41</a></li>
 <li>IPO — 42</li>
 <li>ATT (Front End Attenuator) — 42</li>
 <li>DSP Bandpass Filter (DBP) — 43</li>
 <li>DSP CW Peaking Filter (DBF) — 44</li>
 <li>DSP Noise Reduction (DNR) — 44</li>
 <li>DSP Notch Filter (DNF) — 45</li>
-<li>AM/FM Tuning Dial Operation — 45</li>
-<li>Automatic Power-Off Feature — 46</li>
+<li><a href="#am-fm-tuning-dial-operation">AM/FM Tuning Dial Operation — 45</a></li>
+<li><a href="#automatic-power-off-feature">Automatic Power-Off Feature — 46</a></li>
 <li>
 <p>Transmitter Operation — 48</p>
 </li>
-<li>
-<p>SSB/AM Transmission — 48</p>
-</li>
+<li><a href="#ssb-am-transmission">SSB/AM Transmission — 48</a></li>
 <li>
 <p>Basic Setup/Operation — 48</p>
 </li>
 <li>VOX Operation — 49</li>
 <li>AF Speech Processor Operation — 50</li>
 <li>DSP Microphone Equalizer — 51</li>
-<li>CW Transmission — 52</li>
+<li><a href="#cw-transmission">CW Transmission — 52</a></li>
 </ul>
 <p>Operation using Straight Key/External Keying Device .. 52</p>
 <ul>
 <li>Using the Built-in Electronic Keyer — 54</li>
-<li>
-<p>FM Transmission — 56</p>
-</li>
+<li><a href="#fm-transmission">FM Transmission — 56</a></li>
 <li>
 <p>Basic Setup/Operation — 56</p>
 </li>
@@ -160,9 +164,9 @@ Kwun Tong, Kowloon, Hong Kong</p><figure><img src="nav-comms_P2_ft-857-operators
 <li>PSK31 Operation — 64</li>
 <li>“User” Defined Digital Modes — 64</li>
 <li>Packet (1200/9600 bps FM) Operation — 65</li>
-<li>WeatherFax Monitoring — 66</li>
-<li>Time-Out Timer — 67</li>
-<li>Split Frequency Operation — 67</li>
+<li><a href="#weatherfax-monitoring">WeatherFax Monitoring — 66</a></li>
+<li><a href="#time-out-timer">Time-Out Timer — 67</a></li>
+<li><a href="#split-frequency-operation">Split Frequency Operation — 67</a></li>
 <li>
 <p>ATAS-100/-120 Operation — 68</p>
 </li>
@@ -171,9 +175,7 @@ Kwun Tong, Kowloon, Hong Kong</p><figure><img src="nav-comms_P2_ft-857-operators
 </li>
 <li>Manual Tuning — 69</li>
 <li>ATAS-100/-120 Operating Tips — 70</li>
-<li>
-<p>FC-30 Automatic Antenna Tuner Operation — 71</p>
-</li>
+<li><a href="#fc-30-automatic-antenna-tuner-operation">FC-30 Automatic Antenna Tuner Operation — 71</a></li>
 <li>
 <p>Antenna Tuner Memory System — 72</p>
 </li>
@@ -193,18 +195,12 @@ Kwun Tong, Kowloon, Hong Kong</p><figure><img src="nav-comms_P2_ft-857-operators
 <li>Memory Channel Recall — 76</li>
 <li>Masking (“Hiding”) a Memory — 77</li>
 <li>Memory Operation on “HOME” Channel Memories — 78</li>
-<li>Labeling Memories after Programming Channel Data — 79</li>
+<li><a href="#labeling-memories-after-programming-channel-data">Labeling Memories after Programming Channel Data — 79</a></li>
 <li>Spectrum Scope Monitor — 80</li>
 <li>Smart Search [TM] — 81</li>
-<li>
-<p>Scanning Operation — 82</p>
-</li>
-<li>
-<p>Scanning Features — 82</p>
-</li>
-<li>
-<p>Scanning Operation — 82</p>
-</li>
+<li><a href="#scanning-operation">Scanning Operation — 82</a></li>
+<li><a href="#scanning-features">Scanning Features — 82</a></li>
+<li><a href="#scanning-operation">Scanning Operation — 82</a></li>
 <li>
 <p>Scan-Resume Choices — 83</p>
 </li>
@@ -213,32 +209,28 @@ Kwun Tong, Kowloon, Hong Kong</p><figure><img src="nav-comms_P2_ft-857-operators
 <ul>
 <li>“Priority Channel” Scanning — 85</li>
 <li>Programmable Memory Scan (PMS) Operation — 86</li>
-<li>Dual Watch Operation — 87</li>
+<li><a href="#dual-watch-operation">Dual Watch Operation — 87</a></li>
 <li>
 <p>Miscellaneous Settings — 88</p>
 </li>
 <li>
 <p>Operation on Alaska Emergency Frequency: 5167.5 kHz — 88</p>
 </li>
-<li>CW Training Feature — 89</li>
+<li><a href="#cw-training-feature">CW Training Feature — 89</a></li>
 <li>Programming the Panel Key Functions — 89</li>
-<li>
-<p>Beacon Feature — 90</p>
-</li>
+<li><a href="#beacon-feature">Beacon Feature — 90</a></li>
 <li>
 <p>Beacon Text Storage — 90</p>
 </li>
 <li>Beacon Text Sending (On the Air) — 91</li>
-<li>
-<p>Display Customization — 92</p>
-</li>
+<li><a href="#display-customization">Display Customization — 92</a></li>
 <li>
 <p>Display Lamp Mode — 92</p>
 </li>
 <li>Display Contrast — 92</li>
 <li>Display Dimmer — 92</li>
 <li>Display Color — 93</li>
-<li>Menu Operation — 94</li>
+<li><a href="#menu-operation">Menu Operation — 94</a></li>
 </ul>
 <p>CAT <strong>(Computer Aided Transceiver) Operation</strong> <strong>. 113</strong></p>
 <ul>
@@ -259,7 +251,7 @@ Kwun Tong, Kowloon, Hong Kong</p><figure><img src="nav-comms_P2_ft-857-operators
 <p>Setup of Memories</p>
 <ul>
 <li>for Low Earth Orbit (LEO) FM Satellite Operation — 122</li>
-<li>MH-59A8J Remote Microphone — 125</li>
+<li><a href="#mh-59a8j-remote-microphone">MH-59A8J Remote Microphone — 125</a></li>
 </ul><p>The <strong>FT-857</strong> is a rugged, innovative multiband, multimode mobile/portable transceiver for
 the amateur radio MF/HF/VHF/UHF bands. Providing coverage of the 160-10 meter bands
 plus the 6 m, 2 m, and 70 cm bands, the <strong>FT-857</strong> includes operation on the SSB, CW, AM,
@@ -275,7 +267,7 @@ IF Shift; Clarifier (“R.I.T.”); IF Noise Blanker; AGC Fast/Slow/Auto/Off sel
 and Squelch control; IPO (Intercept Point Optimization) and a receiver front-end Attenuator; AM Aircraft reception; AM and FM Broadcast reception; U.S. Weather Band reception;
 VOX; Built-in Electronic Keyer with Memories and a Beacon mode; Adjustable CW Pitch;
 Automatic FM Repeater Shift (ARS); Built-in CTCSS Encoder/Decoders; ARTS™ (AutoRange Transponder System); Smart Search™ Automatic Memory Loading System; Spectrum Scope; 200 Memories plus Home Channels and Band-limiting Memories; Alpha-Numeric Labeling of Memories; Automatic Power-Off (APO) and Time-Out Timer (TOT) functions; Computer Interface capability; and Cloning capability.</p>
-<p>We urge you to read this manual in its entirety, so as to gain a full understanding of the</p><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page2-0.png" alt="Figure from page 3. HOME CLAR"><figcaption>Figure from page 3. HOME CLAR</figcaption></figure><p><strong>General</strong>
+<p>We urge you to read this manual in its entirety, so as to gain a full understanding of the</p><figure><button aria-label="Enlarge Figure from page 3. HOME CLAR" class="zoom" data-dialog="fig-2" type="button"><img alt="Figure from page 3. HOME CLAR" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page2-0.png"/></button><figcaption>Figure from page 3. HOME CLAR</figcaption><dialog id="fig-2"><img alt="Figure from page 3. HOME CLAR" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page2-0.png"/><p>Figure from page 3. HOME CLAR</p><form method="dialog"><button>Close</button></form></dialog></figure><p><strong>General</strong>
 <strong>Frequency Range</strong> : Receive: 0.1-56 MHz, 76-108 MHz, 118-164 MHz,</p>
 <p>420-470 MHz
 Transmit: 160 - 6 Meters, 2 Meters,</p>
@@ -336,15 +328,15 @@ CW (option YF-122CN installed): 300 Hz/1.0 kHz
 <strong>AF Output</strong> : 2.5 W (@4 Ohms, 10% THD or less)
 <strong>AF Output Impedance</strong> : 4-16 Ohms</p>
 <p><em>Specifications are subject to change without notice, and are guaranteed within the amateur</em>
-<em>bands only.</em></p><h6><strong>SUPPLIED ACCESSORIES</strong></h6>
+<em>bands only.</em></p><h6 id="supplied-accessories"><strong>SUPPLIED ACCESSORIES</strong></h6>
 <ul>
 <li>Hand Microphone MH-31A8J — 1</li>
 <li>Mobile Mounting Bracket MMB-82 — 1</li>
 <li>DC Power Cord — 1</li>
-<li>Operating Manual — 1</li>
+<li><a href="#operating-manual">Operating Manual — 1</a></li>
 <li>Warranty Card — 1</li>
 </ul>
-<h6><strong>AVAILABLE OPTIONS</strong></h6>
+<h6 id="available-options"><strong>AVAILABLE OPTIONS</strong></h6>
 <p><strong>FP-1030A</strong> External AC Power Supply (25A)
 <strong>DSP-2</strong> Digital Signal Processing Unit
 <strong>YF-122S</strong> Collins SSB Filter (2.3 kHz/4.7 kHz: –6 dB/–66 dB)
@@ -367,7 +359,7 @@ amateur radio station. It is presumed that you possess technical knowledge and c
 understanding consistent with your status as a licensed radio amateur. Please take some
 extra time to make certain that the important safety and technical requirements detailed in
 this chapter are followed closely.</p>
-<h6><strong>PRELIMINARY INSPECTION</strong></h6>
+<h6 id="preliminary-inspection"><strong>PRELIMINARY INSPECTION</strong></h6>
 <p>Inspect the transceiver visually immediately upon opening the packing carton. Confirm that
 all controls and switches work freely, and inspect the cabinet for any damage. Gently shake
 the transceiver to verify that no internal components have been shaken loose due to rough
@@ -378,14 +370,14 @@ instructions regarding the prompt resolution of the damage situation. Be certain
 shipping carton, especially if there are any punctures or other evidence of damage incurred
 during shipping; if it is necessary to return the unit for service or replacement, use the original packing materials but put the entire package inside another packing carton, so as to
 preserve the evidence of shipping damage for insurance purposes.</p>
-<h6><strong>INSTALLATION TIPS</strong></h6>
+<h6 id="installation-tips"><strong>INSTALLATION TIPS</strong></h6>
 <p>To ensure long life of the components, be certain to provide adequate ventilation around the
 cabinet of the <strong>FT-857</strong> .</p>
 <p>Do not install the transceiver on top of another heat-generating device (such as a power
 supply or amplifier), and do not place equipment, books, or papers on top of the <strong>FT-857</strong> .
 Avoid heating vents and window locations that could expose the transceiver to excessive
 direct sunlight, especially in hot climates. The <strong>FT-857</strong> should not be used in an environment
-where the ambient temperature exceeds 140º F (+60 °C).</p><h6><strong>SAFETY INFORMATION</strong></h6>
+where the ambient temperature exceeds 140º F (+60 °C).</p><h6 id="safety-information"><strong>SAFETY INFORMATION</strong></h6>
 <p>The <strong>FT-857</strong> is an electrical apparatus, as well as a generator of RF (Radio Frequency)
 energy, and you should exercise all safety precautions as are appropriate for this type of
 device. These safety tips apply to any device installed in a well-designed amateur radio
@@ -405,7 +397,7 @@ raise the radiation pattern as far away from passengers as possible.</p>
 practice to switch to Low power if there are people walking nearby.</p>
 <p>Never wear dual-earmuff headphones while driving a vehicle.</p>
 <p>Do not attempt to drive your vehicle while making a telephone call on an autopatch
-using the DTMF microphone. Pull over to the side of the road, whether dialing manually.</p><h6><strong>INSTALLING THE MICROPHONE AND FRONT PANEL</strong></h6>
+using the DTMF microphone. Pull over to the side of the road, whether dialing manually.</p><h6 id="installing-the-microphone-and-front-panel"><strong>INSTALLING THE MICROPHONE AND FRONT PANEL</strong></h6>
 <ol>
 <li>Insert the microphone’s plug into the recessed jack on the transceiver, as shown in the
 illustration.</li>
@@ -418,7 +410,7 @@ the panel locks into place.</li>
 <li>To remove the Front Panel, use your left thumb to push rearward (slightly) the latch on
 the left-hand of the panel, then slide the Front Panel to the right and away from the
 transceiver.</li>
-</ol><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page8-0.png" alt="Figure from page 9"><figcaption>Figure from page 9</figcaption></figure><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page8-1.png" alt="Figure from page 9"><figcaption>Figure from page 9</figcaption></figure><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page8-2.png" alt="Figure from page 9"><figcaption>Figure from page 9</figcaption></figure><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page8-3.png" alt="Figure from page 9. BAND MODE"><figcaption>Figure from page 9. BAND MODE</figcaption></figure><h6><strong>POWER CONNECTIONS</strong></h6>
+</ol><figure><button aria-label="Enlarge Figure from page 9" class="zoom" data-dialog="fig-3" type="button"><img alt="Figure from page 9" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page8-0.png"/></button><figcaption>Figure from page 9</figcaption><dialog id="fig-3"><img alt="Figure from page 9" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page8-0.png"/><p>Figure from page 9</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 9" class="zoom" data-dialog="fig-4" type="button"><img alt="Figure from page 9" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page8-1.png"/></button><figcaption>Figure from page 9</figcaption><dialog id="fig-4"><img alt="Figure from page 9" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page8-1.png"/><p>Figure from page 9</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 9" class="zoom" data-dialog="fig-5" type="button"><img alt="Figure from page 9" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page8-2.png"/></button><figcaption>Figure from page 9</figcaption><dialog id="fig-5"><img alt="Figure from page 9" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page8-2.png"/><p>Figure from page 9</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 9. BAND MODE" class="zoom" data-dialog="fig-6" type="button"><img alt="Figure from page 9. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page8-3.png"/></button><figcaption>Figure from page 9. BAND MODE</figcaption><dialog id="fig-6"><img alt="Figure from page 9. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page8-3.png"/><p>Figure from page 9. BAND MODE</p><form method="dialog"><button>Close</button></form></dialog></figure><h6 id="power-connections"><strong>POWER CONNECTIONS</strong></h6>
 <p>The DC power connector for the <strong>FT-857</strong> must only be connected to a DC source providing
 13.8 Volts DC (±15%), and capable of at least 22 Amperes of current. Always observe
 proper polarity when making DC connections:</p>
@@ -426,7 +418,7 @@ proper polarity when making DC connections:</p>
 lead connects to the <em><strong>Negative</strong></em> ( <strong>–</strong> ) DC terminal.</p>
 <p>In mobile installations, noise pickup may be minimized by connecting the DC cable directly
 to your vehicle’s battery, rather than to the ignition switch or “accessory” circuitry. Direct
-connection to the battery also provides the best voltage stability.</p><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page9-0.png" alt="Figure from page 10. 12V Battery Cigarette Lighter Plug"><figcaption>Figure from page 10. 12V Battery Cigarette Lighter Plug</figcaption></figure><h6><strong>POWER CONNECTIONS</strong></h6>
+connection to the battery also provides the best voltage stability.</p><figure><button aria-label="Enlarge Figure from page 10. 12V Battery Cigarette Lighter Plug" class="zoom" data-dialog="fig-7" type="button"><img alt="Figure from page 10. 12V Battery Cigarette Lighter Plug" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page9-0.png"/></button><figcaption>Figure from page 10. 12V Battery Cigarette Lighter Plug</figcaption><dialog id="fig-7"><img alt="Figure from page 10. 12V Battery Cigarette Lighter Plug" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page9-0.png"/><p>Figure from page 10. 12V Battery Cigarette Lighter Plug</p><form method="dialog"><button>Close</button></form></dialog></figure><h6 id="power-connections-2"><strong>POWER CONNECTIONS</strong></h6>
 <p>Tips for Successful Mobile Installations:</p>
 <ul>
 <li>
@@ -452,7 +444,7 @@ well).</p>
 <strong>FT-857</strong> . If the battery is not charged sufficiently to maintain at least 11¾ Volts at the
 radio, erratic operation or shut-down may occur.</p>
 </li>
-</ul><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page10-0.png" alt="Figure from page 11"><figcaption>Figure from page 11</figcaption></figure><h6><strong>GROUNDING</strong></h6>
+</ul><figure><button aria-label="Enlarge Figure from page 11" class="zoom" data-dialog="fig-8" type="button"><img alt="Figure from page 11" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page10-0.png"/></button><figcaption>Figure from page 11</figcaption><dialog id="fig-8"><img alt="Figure from page 11" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page10-0.png"/><p>Figure from page 11</p><form method="dialog"><button>Close</button></form></dialog></figure><h6 id="grounding"><strong>GROUNDING</strong></h6>
 <p>The provision of an effective ground system is important in any successful communications
 station. A good ground system can contribute to station efficiency in a number of ways:</p>
 <ul>
@@ -504,7 +496,7 @@ panel Ground lug of the <strong>FT-857</strong> transceiver to the vehicle or ve
 clear up any such difficulties.</p>
 <p>Vertex Standard does not recommend the use of “on glass” mobile antennas unless the shield
 of the coaxial cable is securely grounded near the feedpoint of the antenna. Such antennas
-frequently are responsible for the ground-related difficulties described above</p><h6><strong>GROUNDING</strong></h6>
+frequently are responsible for the ground-related difficulties described above</p><h6 id="grounding-2"><strong>GROUNDING</strong></h6>
 <p><strong>Base Station Earth Grounding</strong>
 Typically, the ground connection consists of one or more copper-clad steel rods, driven into
 the ground. If multiple ground rods are used, they should be configured in a “V” configuration, and bonded together at the apex of the “V” which is nearest the station location. Use a
@@ -525,7 +517,7 @@ ground bus. This so-called “Daisy Chain” grounding technique may nullify any
 effective radio frequency grounding. See the drawings below for examples of proper and
 improper ground connections.</p>
 <p>Improper Ground Connection</p>
-<p>Proper Ground Connection</p><h6><strong>ANTENNA CONSIDERATIONS</strong></h6>
+<p>Proper Ground Connection</p><h6 id="antenna-considerations"><strong>ANTENNA CONSIDERATIONS</strong></h6>
 <p>The antenna systems connected to your <strong>FT-857</strong> transceiver are, of course, critically important in ensuring successful communications. The <strong>FT-857</strong> is designed for use with any antenna system providing a 50 Ω resistive impedance at the desired operating frequency. While
 minor excursions from the 50 Ω specification are of no consequence, the power amplifier’s
 protection circuitry will begin to reduce the power output of there is more than a 50% divergence from the specified impedance (less than 33 Ω or greater than 75 Ω, corresponding to
@@ -554,7 +546,7 @@ antennas are almost always utilized on HF for this reason.</p>
 <p>In mobile (and portable) installations, when vertical antennas are used, remember that the
 grounding of the base area of the antenna is critically important to proper operation. Since
 most HF vertical antennas emulate a quarter-wavelength “monopole” antenna, the “missing
-half” of the dipole antenna consists of a counterpoise of radial ground system In a vehicle</p><h6><strong>ANTENNA CONSIDERATIONS</strong></h6>
+half” of the dipole antenna consists of a counterpoise of radial ground system In a vehicle</p><h6 id="antenna-considerations-2"><strong>ANTENNA CONSIDERATIONS</strong></h6>
 <p>rest of the vehicle’s body, using a heavy braid bonded securely at both ends, to ensure that as
 much counterpoise as possible is secured. In portable operation, be sure to lay out radials (or
 otherwise construct a n image plane for the vertical monopole); it is not adequate simply to
@@ -579,7 +571,7 @@ the event of a catastrophic support or power-pole structural failure. Ground you
 support structure(s) adequately, so as to dissipate energy absorbed during a lightning strike.
 Install appropriate lightning arrestors in the antenna coaxial cables (and rotator cables, if
 rotary antennas are used).</p>
-<p>In the event of an approaching electrical storm disconnect all antenna lead-in rotator cables</p><h6><strong>ANTENNA CONSIDERATIONS</strong></h6>
+<p>In the event of an approaching electrical storm disconnect all antenna lead-in rotator cables</p><h6 id="antenna-considerations-3"><strong>ANTENNA CONSIDERATIONS</strong></h6>
 <p>Do not allow disconnected cables to touch the case of your <strong>FT-857</strong> transceiver or accessories, as lightning can easily jump from the cable to the circuitry of your transceiver via the
 case, causing irreparable damage. If a lightning storm is in progress in your immediate area,
 do not attempt to disconnect the cables, as you could be killed instantly if lightning should
@@ -588,7 +580,7 @@ strike your antenna structure or a nearby power line.</p>
 away both from the radiating element (to prevent electrical shock and RF exposure danger)
 and the ground system (in the event of an electrical storm). The buried radials of a groundmounted vertical antenna can carry lethal voltages outward from the center of the antenna in
 the event of a direct lightning strike.</p>
-<h6><strong>RF FIELD EXPOSURE</strong></h6>
+<h6 id="rf-field-exposure"><strong>RF FIELD EXPOSURE</strong></h6>
 <p>This transceiver is capable of power output in excess of 50 Watts, so customers in the United
 States may be required to demonstrate compliance with Federal Communications Commission (FCC) regulations concerning maximum permissible exposure to radio frequency energy. Compliance is based on the actual power output used, feedline loss, antenna type and
 height, and other factors which can only be evaluated as a system.</p>
@@ -603,7 +595,7 @@ someone is standing adjacent to your antenna, and use the lowest power possible.
 <p>Never stand in front of an antenna (during testing or operation) when RF power is applied,
 especially in the case of 430 MHz directional arrays. The 20 Watt power output supplied by
 the <strong>FT-857</strong>, combined with the directivity of a beam antenna, can cause immediate heating
-of human or animal tissues, and may cause other undesirable medical effects.</p><h6><strong>ELECTROMAGNETIC COMPATIBILITY</strong></h6>
+of human or animal tissues, and may cause other undesirable medical effects.</p><h6 id="electromagnetic-compatibility"><strong>ELECTROMAGNETIC COMPATIBILITY</strong></h6>
 <p>If this transceiver is used with, or in the vicinity of, a computer or computer-driven accessories, you may need to experiment with grounding and/or Radio Frequency Interference (RFI)
 suppression devices (such as ferrite cores) to minimize interference to your communications
 caused by energy from the computer. Computer-generated RFI is usually a result of inadequate shielding of the computer’s cabinet or I/O and peripheral connections. While computer equipment may “comply” with RF emission standards, this does not ensure that sensitive Amateur Radio receivers like the <strong>FT-857</strong> will not experience interference from the
@@ -613,7 +605,7 @@ to install AC line filters on the power cord(s) of the suspected equipment, and 
 ferrite toroidal chokes may be required on interconnecting patch/data cables. As a last resort, you can try installing additional shielding within the computer’s case, using appropriate conductive mesh or conductive shielding tape. Especially check “RF holes” where plastic is used for cabinet front panels.</p>
 <p>For further information, consult amateur radio reference guides and publications relating to
 RFI suppression techniques.</p>
-<h6><strong>HEAT AND VENTILATION</strong></h6>
+<h6 id="heat-and-ventilation"><strong>HEAT AND VENTILATION</strong></h6>
 <p>To ensure long life of the components, be certain to provide adequate ventilation around the
 cabinet of the <strong>FT-857</strong> . The cooling system of the transceiver must be free to draw cool air in
 from the side of the transceiver and expel warm air from the rear of the transceiver.</p>
@@ -621,7 +613,7 @@ from the side of the transceiver and expel warm air from the rear of the transce
 amplifier), and do not place equipment, books, or papers on top of the transceiver. Place the
 transceiver on a hard, flat, stable surface. Avoid heating vents and window locations that
 could expose the transceiver to excessive direct sunlight, especially in hot climates.</p>
-<p>Heat Water &amp; Moisture Dust Ventilation</p><h6><strong>LINEAR AMPLIFIER INTERFACING</strong></h6>
+<p>Heat Water &amp; Moisture Dust Ventilation</p><h6 id="linear-amplifier-interfacing"><strong>LINEAR AMPLIFIER INTERFACING</strong></h6>
 <p>The <strong>FT-857</strong> provides the switching and drive-control lines required for easy interfacing to
 most all commonly-available amplifiers sold today.</p>
 <p>These include:</p>
@@ -653,11 +645,11 @@ of T/R switching: application of +13V or a closure to ground.</p>
 by your <strong>FT-857</strong> ’s CAT <strong>/LINEAR</strong> jack (“TX GND” pin). Alternatively, many of these amplifiers use “RF Sensing” to control their relays; if yours is in this category, you may then use
 the T/R control line from the “TX GND” pin
 of the CAT <strong>/LINEAR</strong> jack for control of your
-HF linear amplifier, and RF sensing for your</p><h6><strong>LINEAR AMPLIFIER INTERFACING</strong></h6>
+HF linear amplifier, and RF sensing for your</p><h6 id="linear-amplifier-interfacing-2"><strong>LINEAR AMPLIFIER INTERFACING</strong></h6>
 <p>The “TX GND” T/R control line is a transistor “open collector” circuit, capable of handling
 positive amplifier relay coil voltages of up to +50V DC and current of up to 400 mA. If you
 plan on using multiple linear amplifiers for different bands, you must provide external bandswitching of the “TX GND” relay control line from the <strong>CAT/LINEAR</strong> jack.</p>
-<h6><strong>CW KEY/KEYER CONNECTIONS</strong></h6>
+<h6 id="cw-key-keyer-connections"><strong>CW KEY/KEYER CONNECTIONS</strong></h6>
 <p>All commonly-available keyer paddles should work perfectly with the built-in Electronic
 Keyer. The wiring configuration for the paddle is shown below.</p>
 <p>For straight-key operation, only the tip and shaft connections are used.</p>
@@ -665,7 +657,7 @@ Keyer. The wiring configuration for the paddle is shown below.</p>
 two-conductor plug is used, the key line will be constantly shorted to ground.</p>
 <p>When using an external electronic keyer, be absolutely certain that it is configured for “positive” keying, not “negative” or “grid block” keying. The “key-up” voltage of the <strong>FT-857</strong> is
 +5V, and the “key-down” current is only about 1 mA.</p>
-<p>For CW automated keying using a personal computer, with an external memory keyer providing for manual sending, it usually is possible to connect the keyed lines together via a</p><h6>RECEIVER ACCESSORIES ( TAPE RECORDER ETC. )</h6>
+<p>For CW automated keying using a personal computer, with an external memory keyer providing for manual sending, it usually is possible to connect the keyed lines together via a</p><h6 id="receiver-accessories-tape-recorder-etc">RECEIVER ACCESSORIES ( TAPE RECORDER ETC. )</h6>
 <p>Connection of a tape recorder or other such receiver accessory is
 easily accomplished by using the <strong>DATA</strong> jack’s Data Out (1200 bps)
 terminal (Pin 5) and Ground (Pin 2). The audio output is fixed at
@@ -674,10 +666,10 @@ terminal (Pin 5) and Ground (Pin 2). The audio output is fixed at
 1200bps
 GND</p>
 <p><strong>DATA</strong></p>
-<h6><strong>ADJUSTING THE FRONT FEET</strong></h6>
+<h6 id="adjusting-the-front-feet"><strong>ADJUSTING THE FRONT FEET</strong></h6>
 <p>The two front feet of the transceiver allow the transceiver to be tilted upward for better
 viewing. Simply fold both feet forward to raise the front of the transceiver, and fold them
-back against the bottom case to lower the front of the <strong>FT-857</strong> .</p><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page19-0.png" alt="Figure from page 20"><figcaption>Figure from page 20</figcaption></figure><h6><strong>NOTE</strong></h6><p><strong>AF</strong> Knob
+back against the bottom case to lower the front of the <strong>FT-857</strong> .</p><figure><button aria-label="Enlarge Figure from page 20" class="zoom" data-dialog="fig-9" type="button"><img alt="Figure from page 20" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page19-0.png"/></button><figcaption>Figure from page 20</figcaption><dialog id="fig-9"><img alt="Figure from page 20" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page19-0.png"/><p>Figure from page 20</p><form method="dialog"><button>Close</button></form></dialog></figure><h6 id="note"><strong>NOTE</strong></h6><p><strong>AF</strong> Knob
 The (inner) <strong>VOL</strong> knob adjusts the receiver audio volume level presented to the internal
 or external speaker. Clockwise rotation increases the volume level.</p>
 <p><strong>SQL/RF</strong> Knob
@@ -696,7 +688,7 @@ the <strong>SELECT</strong> knob is used to set a tuning offset of up to ±9.99 
 frequency is not affected by the setting of the Clarifier.
 Press and hold in this key for one second to activate the IF Shift feature, which allows
 you to use the <strong>SELECT</strong> knob to adjust the center frequency of the IF filter’s passband
-response.</p><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page21-0.png" alt="Figure from page 22. HOME CLAR"><figcaption>Figure from page 22. HOME CLAR</figcaption></figure><p><strong>FUNC</strong> Key
+response.</p><figure><button aria-label="Enlarge Figure from page 22. HOME CLAR" class="zoom" data-dialog="fig-10" type="button"><img alt="Figure from page 22. HOME CLAR" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page21-0.png"/></button><figcaption>Figure from page 22. HOME CLAR</figcaption><dialog id="fig-10"><img alt="Figure from page 22. HOME CLAR" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page21-0.png"/><p>Figure from page 22. HOME CLAR</p><form method="dialog"><button>Close</button></form></dialog></figure><p><strong>FUNC</strong> Key
 Press this key momentarily to enable the changing of the function of the Multi Function
 keys ([ <strong>A</strong> ], [ <strong>B</strong> ], and [ <strong>C</strong> ]) by rotating the <strong>SELECT</strong> knob.
 Press and hold in this key for one second to activate the “Menu” mode.</p>
@@ -727,7 +719,7 @@ glow blue when a signal is received with a CTCSS/DCS tone matching that to which
 your transceiver is set.</p><p><strong>BAND</strong> [(] <strong>DWN</strong> [)] / <strong>BAND</strong> [(] <strong>UP</strong> [)] Key
 Pressing either of these keys momentarily will cause the frequency to be moved up or
 down by one frequency band. The selections available are:</p>
-<p>..... <strong>1.8 MHz</strong>   - <strong>3.5 MHz</strong>   - <strong>5.0 MHz</strong>   - <strong>7.0 MHz</strong>   - <strong>10 MHz</strong>   - <strong>14 MHz</strong>   <strong>15 MHz</strong>  - <strong>18 MHz</strong>  - <strong>21 MHz</strong>  - <strong>24 MHz</strong>  - <strong>28 MHz</strong>  - <strong>50 MHz</strong>  <strong>88 MHz</strong>  - <strong>108 MHz</strong>  - <strong>144 MHz</strong>  - <strong>430 MHz</strong>  - <strong>1.8 MHz</strong> [.....]</p>
+<p>..... <strong>1.8 MHz</strong>   - <strong>3.5 MHz</strong>   - <strong>5.0 MHz</strong>   - <strong>7.0 MHz</strong>   - <strong>10 MHz</strong>   - <strong>14 MHz</strong> <strong>15 MHz</strong>  - <strong>18 MHz</strong>  - <strong>21 MHz</strong>  - <strong>24 MHz</strong>  - <strong>28 MHz</strong>  - <strong>50 MHz</strong> <strong>88 MHz</strong>  - <strong>108 MHz</strong>  - <strong>144 MHz</strong>  - <strong>430 MHz</strong>  - <strong>1.8 MHz</strong> [.....]</p>
 <p><strong>V/M</strong> Key
 Pressing this key switches frequency control between the VFO and Memory Systems.
 Press and hold in this key to store the contents of the VFO into the QMB (Quick Memory
@@ -740,7 +732,7 @@ This is the main tuning dial for the transceiver. It is used both for frequency 
 well as “Menu” setting in the transceiver.</p>
 <p>Liquid Crystal Display
 The Liquid Crystal Display (LCD) provides indication of the operating frequency and
-other aspects of transceiver status.</p><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page23-0.png" alt="Figure from page 24. HOME CLAR"><figcaption>Figure from page 24. HOME CLAR</figcaption></figure><p><strong>MIC</strong> Jack
+other aspects of transceiver status.</p><figure><button aria-label="Enlarge Figure from page 24. HOME CLAR" class="zoom" data-dialog="fig-11" type="button"><img alt="Figure from page 24. HOME CLAR" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page23-0.png"/></button><figcaption>Figure from page 24. HOME CLAR</figcaption><dialog id="fig-11"><img alt="Figure from page 24. HOME CLAR" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page23-0.png"/><p>Figure from page 24. HOME CLAR</p><form method="dialog"><button>Close</button></form></dialog></figure><p><strong>MIC</strong> Jack
 Connect the supplied <strong>MH-31A8J</strong> Hand Microphone to this jack.</p>
 <p><strong>SP-PH</strong> Switch
 If you use earphones with this transceiver, move this switch to the “ <strong>PH</strong> ” position before
@@ -759,7 +751,7 @@ speaker (4 Ω ~ 16 Ω impedance) or earphones. The audio level varies</p>
 switch (located on the back side of front panel) MUST BE set to the “ <strong>PH</strong> ” position, to
 prevent the possibility of injury to your ears.</p>
 <p><strong>MAIN BODY</strong> ( <strong>FRONT</strong> )</p>
-<p><strong>CONTROL Jack</strong></p><h6><strong>MULTI FUNCTION KEY DETAIL</strong></h6>
+<p><strong>CONTROL Jack</strong></p><h6 id="multi-function-key-detail"><strong>MULTI FUNCTION KEY DETAIL</strong></h6>
 <p>important operating features of the transceiver. When
 you press the [ <strong>FUNC</strong> ] key, then rotate the <strong>SELECT</strong>
 knob, the current function of that key will appear
@@ -768,7 +760,7 @@ bottom of the LCD). You may scroll the display
 through 17 rows of functions available for use via the [ <strong>FUNC</strong> [] <strong>A</strong></p>
 <p>[ <strong>A</strong> ], [ <strong>B</strong> ], and [ <strong>C</strong> ] keys.</p>
 <p>[ <strong>FUNC</strong> [] <strong>A</strong> ] [ <strong>B</strong> ] [ <strong>C</strong> ] <strong>DIAL</strong></p>
-<p>[ <strong>B</strong> ] [ <strong>C</strong> ]</p><h6><strong>MULTI FUNCTION KEY DETAIL</strong></h6><h6><strong>MULTI FUNCTION KEY DETAIL</strong></h6><h6><strong>MULTI FUNCTION KEY DETAIL</strong></h6><h6><strong>MULTI FUNCTION KEY DETAIL</strong></h6><h6><strong>MULTI FUNCTION KEY DETAIL</strong></h6><h6><strong>MULTI FUNCTION KEY DETAIL</strong></h6><h6><strong>NOTE</strong></h6><p><strong>INPUT</strong> Jack
+<p>[ <strong>B</strong> ] [ <strong>C</strong> ]</p><h6 id="multi-function-key-detail-2"><strong>MULTI FUNCTION KEY DETAIL</strong></h6><h6 id="multi-function-key-detail-3"><strong>MULTI FUNCTION KEY DETAIL</strong></h6><h6 id="multi-function-key-detail-4"><strong>MULTI FUNCTION KEY DETAIL</strong></h6><h6 id="multi-function-key-detail-5"><strong>MULTI FUNCTION KEY DETAIL</strong></h6><h6 id="multi-function-key-detail-6"><strong>MULTI FUNCTION KEY DETAIL</strong></h6><h6 id="multi-function-key-detail-7"><strong>MULTI FUNCTION KEY DETAIL</strong></h6><h6 id="note-2"><strong>NOTE</strong></h6><p><strong>INPUT</strong> Jack
 This is the DC power supply connection for the transceiver. Use the supplied DC cable
 to connect this jack to the car battery or DC power supply,
 which must be capable of supplying at least 22 Amps @
@@ -797,7 +789,7 @@ facing to a personal computer for</p>
 <p>GND</p>
 <p>TX GND</p>
 <p>+13.8V</p>
-<p>LINEAR</p><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page33-0.png" alt="Figure from page 34"><figcaption>Figure from page 34</figcaption></figure><p><strong>DATA</strong> Jack
+<p>LINEAR</p><figure><button aria-label="Enlarge Figure from page 34" class="zoom" data-dialog="fig-12" type="button"><img alt="Figure from page 34" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page33-0.png"/></button><figcaption>Figure from page 34</figcaption><dialog id="fig-12"><img alt="Figure from page 34" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page33-0.png"/><p>Figure from page 34</p><form method="dialog"><button>Close</button></form></dialog></figure><p><strong>DATA</strong> Jack
 This 6-pin, mini-DIN jack accepts AFSK input from a Terminal Node Controller (TNC); it also provides fixed-level
 Receiver Audio Output, Push-To-Talk (PTT), Squelch Status, and ground lines.</p>
 <p>DATA</p>
@@ -828,13 +820,13 @@ Connect your HF and/or 50 MHz antenna’s 50 Ω coaxial cable to this M-type (�
 <em><strong>and use of your new FT-857. I know you’re anxious to get on the air, but I encour-</strong></em>
 <em><strong>age you to read the “Operation” section of this manual as thoroughly as possible, so</strong></em>
 <em><strong>you’ll get the most out of this fantastic new rig. Now. . .let’s get operating!</strong></em></p>
-<h6><strong>TURNING THE TRANSCEIVER ON AND OFF</strong></h6>
+<h6 id="turning-the-transceiver-on-and-off"><strong>TURNING THE TRANSCEIVER ON AND OFF</strong></h6>
 <p><strong>POWER</strong> switch for one second.</p>
 <ul>
 <li>To turn the transceiver off, again press and hold in
 the <strong>POWER</strong> switch for one second.</li>
 </ul>
-<h6><strong>OPERATING BAND SELECTION</strong></h6>
+<h6 id="operating-band-selection"><strong>OPERATING BAND SELECTION</strong></h6>
 <p>This transceiver covers an incredibly wide frequency range, over which a number of different operating modes are used. Therefore, this transceiver’s frequency coverage has been
 divided into different operating bands, each of with has its own pre-set frequency steps and
 operating modes. You can change the channel steps and operating mode once you get started,
@@ -847,7 +839,7 @@ next lower or higher operating band, respectively.</p>
 <p><em><strong>VFOa and VFOb are independent VFOs, so</strong></em>
 <em><strong>they may be set to different bands. See the</strong></em>
 <em><strong>“Stacked VFO System” discussion on page 37 for details.</strong></em></p>
-<h6><strong>MODE SELECTION</strong></h6>
+<h6 id="mode-selection"><strong>MODE SELECTION</strong></h6>
 <p>Press either the [ <strong>MODE</strong> [(] - [)] ] or [ <strong>MODE</strong> [(] - [)] ] key to move among the eight settings for the
 operating modes, respectively.</p>
 <p>..... <strong>LSB</strong>    - <strong>USB</strong>    - <strong>CW</strong>    - <strong>CWR</strong>    - <strong>AM</strong>    - <strong>FM</strong>    - <strong>DIG</strong>    - <strong>PKT</strong>    - <strong>LSB</strong> .....</p>
@@ -856,14 +848,14 @@ sideband from the “default” BFO injection sideband
 (in most cases, the default injection sideband is on the
 “USB” side); “ <strong>DIG</strong> ” is an AFSK-based Digital mode,
 set up per Menu Mode <strong>No-038</strong> [ <strong>DIG MODE</strong> ] ; and
-“ <strong>PKT</strong> ” represents either 1200 or 9600 bps FM packet.</p><h6><strong>ADJUSTING THE AUDIO VOLUME LEVEL</strong></h6>
+“ <strong>PKT</strong> ” represents either 1200 or 9600 bps FM packet.</p><h6 id="adjusting-the-audio-volume-level"><strong>ADJUSTING THE AUDIO VOLUME LEVEL</strong></h6>
 <p>When operating in the “ <strong>DIG</strong> ” or “ <strong>PKT</strong> ” modes, you
 may set the <strong>AF</strong> knob to any comfortable setting, or
 even all the way off, because the output from the <strong>DATA</strong>
 jack is a fixed-level audio signal.</p>
 <p><em><strong>Start with the AF knob set fully counter-clockwise, especially when using FM (the</strong></em>
 <em><strong>background noise on FM can be surprisingly loud)!</strong></em></p>
-<h6><strong>MENU QUICK START</strong></h6>
+<h6 id="menu-quick-start"><strong>MENU QUICK START</strong></h6>
 <p>Many aspects of this transceiver’s configuration may be customized using the convenient
 “Menu” system, which allow you to configure many “set and forget” settings just the way
 you want to. A full discussion of the Menu system begins on page 94; for now, here is a brief
@@ -881,7 +873,7 @@ normal operation.</p>
 <p><em><strong>If you had previously pressed the</strong></em> [ <strong>FUNC</strong> ] <em><strong>key to enable the changing of the func-</strong></em>
 <em><strong>tion of the Multi Function keys</strong></em> <em>[(]</em> [ <strong>A</strong> ] <em><strong>,</strong></em> [ <strong>B</strong> ] <em><strong>, and</strong></em> [ <strong>C</strong> ] <em>[)]</em> <em><strong>by the</strong></em> <strong>SELECT</strong> <em><strong>knob, you’ll</strong></em>
 <em><strong>need to press it again after exiting the Menu mode.</strong></em></p>
-<p>[ <strong>FUNC</strong> ] <strong>DIAL</strong></p><h6><strong>ADJUSTING THE RF GAIN AND SQUELCH</strong></h6>
+<p>[ <strong>FUNC</strong> ] <strong>DIAL</strong></p><h6 id="adjusting-the-rf-gain-and-squelch"><strong>ADJUSTING THE RF GAIN AND SQUELCH</strong></h6>
 <p>depending on the country to which the <strong>FT-857</strong> has been
 exported. In the U.S. version, the default function of
 this control is “RF Gain.” The configuration of the
@@ -899,7 +891,7 @@ maximum sensitivity in all modes, and the <strong>SQL/RF</strong> Gain control w
 Squelch control. In this case, rotate the <strong>SQL/RF</strong> Gain control to the point where the background noise is just silenced; this will provide the best sensitivity to weak signals, while
 keeping the receiver quiet when no signal is received. The LED just above the Main <strong>DIAL</strong>
 will glow Green when the squelch is opened by an incoming signal or noise.</p>
-<h6><strong>SETTING THE OPERATING FREQUENCY</strong></h6>
+<h6 id="setting-the-operating-frequency"><strong>SETTING THE OPERATING FREQUENCY</strong></h6>
 <ol>
 <li>In the “ <strong>SSB</strong> / <strong>CW</strong> / <strong>DIG</strong> ” modes, rotate the <strong>DIAL</strong> knob to set the frequency. Clockwise
 rotation of the <strong>DIAL</strong> increases the operating frequency.</li>
@@ -921,7 +913,7 @@ enable the <strong>DIAL</strong> in these modes, use Menu Mode <strong>No-004</s
 <p><em><strong>The main DIAL synthesizer’s tuning rate (the number of steps per rotation of the</strong></em>
 <em><strong>DIAL) can be adjusted using Menu Mode No-035 [DIAL STEP]. See page 102 for</strong></em>
 <em><strong>details.</strong></em></p>
-<h6><strong>CHANGING THE DIAL SPEED</strong></h6>
+<h6 id="changing-the-dial-speed"><strong>CHANGING THE DIAL SPEED</strong></h6>
 <p>By default, the <strong>FT-857</strong> begins operation in the “fine tuning” mode for the main tuning dial.
 However, a faster tuning rate may be selected, for quick navigation up and down the band.</p>
 <p>To engage the “Fast Tuning” mode, just press the <strong>POWER</strong> switch momentarily while the</p>
@@ -929,7 +921,7 @@ However, a faster tuning rate may be selected, for quick navigation up and down 
 rotate the main tuning dial you will notice that the tuning rate has increased significantly. Press the <strong>POWER</strong>
 switch momentarily once more to return to the “Slow
 Tuning” mode (the small “ ” will disappear).</p>
-<h6><strong>STACKED VFO SYSTEM</strong></h6>
+<h6 id="stacked-vfo-system"><strong>STACKED VFO SYSTEM</strong></h6>
 <p>Press the [ <strong>FUNC</strong> ] key momentarily, then rotate the <strong>SELECT</strong> knob, as needed, until Multi
 Function Row “a” [ <strong>A</strong> / <strong>B, A=B, SPL</strong> ] appears on the display.</p>
 <p>Now press the <a href="**A** / **B**"> <strong>A</strong> </a> key to toggle between the “A” and “B” VFOs. There are two such
@@ -937,7 +929,7 @@ VFOs provided on each Amateur band, so you may set VFO-A to the CW sub-band, and
 VFO-B to the SSB sub-band, if you like. The operating mode will be preserved, along with
 the frequency information, on each VFO.</p>
 <p><em><strong>When changing bands on either the “A” or “B” VFO, the two VFOs do not change</strong></em>
-<em><strong>bands together. This facilitates split-band operation, such as on FM satellites.</strong></em></p><h6><strong>LOCKING FRONT PANEL CONTROLS</strong></h6>
+<em><strong>bands together. This facilitates split-band operation, such as on FM satellites.</strong></em></p><h6 id="locking-front-panel-controls"><strong>LOCKING FRONT PANEL CONTROLS</strong></h6>
 <p>The front panel <strong>LOCK</strong> button allows you to
 disable the <strong>DIAL</strong> and/or the front panel controls.</p>
 <p>[ <strong>LOCK</strong> ]</p>
@@ -961,7 +953,7 @@ locks the microphone keys.</li>
 to save the new setting and exit to normal operation.</li>
 </ol>
 <p>When the controls are locked out (small “ ” icon will appear at the bottom right-hand
-corner of the LCD), press the <strong>LOCK</strong> button once more to release them to normal operation.</p><h6>CLARIFIER ( RECEIVER INCREMENTAL TUNING )</h6>
+corner of the LCD), press the <strong>LOCK</strong> button once more to release them to normal operation.</p><h6 id="clarifier-receiver-incremental-tuning">CLARIFIER ( RECEIVER INCREMENTAL TUNING )</h6>
 <p>The Clarifier (RIT) allows you to set an offset of up to ±9.99 kHz of the receive frequency
 relative to your transmit frequency. To achieve a wider offset than this, you may use the
 “Split” operating mode, described later.</p>
@@ -995,7 +987,7 @@ to zero after the first “step” of the <strong>DIAL</strong> .</li>
 <p>[ <strong>TX</strong> &lt; <strong>RX</strong> (within 1 KHz)]</p>
 <p>[ <strong>TX</strong> = <strong>RX</strong> (simplex)]</p>
 <p>[ <strong>TX</strong> - <strong>RX</strong> (within 1 KHz)]</p>
-<p>[ <strong>TX</strong> - <strong>RX</strong> (exceed 1 KHz)]</p><h6><strong>IF SHIFT</strong></h6>
+<p>[ <strong>TX</strong> - <strong>RX</strong> (exceed 1 KHz)]</p><h6 id="if-shift"><strong>IF SHIFT</strong></h6>
 <p>The receiver’s IF SHIFT feature is an effective interference-reduction tool, which allows
 you to shift the passband response higher or lower without changing the pitch of the incoming signal.</p>
 <ol>
@@ -1020,7 +1012,7 @@ See page 99.</p>
 <p>(slightly shifted to the upper side)</p>
 <p>(slightly shifted to the lower side)</p>
 <p>(more shifted to the lower side)</p>
-<p>[ <strong>CLAR</strong> ]</p><h6>AGC ( AUTOMATIC GAIN CONTROL )</h6>
+<p>[ <strong>CLAR</strong> ]</p><h6 id="agc-automatic-gain-control">AGC ( AUTOMATIC GAIN CONTROL )</h6>
 <p>The receiver recovery time constant of the AGC system may be modified to match your
 operating needs.</p>
 <ol>
@@ -1035,7 +1027,7 @@ modes.</p>
 <em><strong>disappear), the S-meter (which monitors AGC voltage) will cease to function.</strong></em>
 <em><strong>Depending on the setting of the RF Gain control, incoming signals will probably be dis-</strong></em>
 <em><strong>torted if the AGC is turned off.</strong></em></p>
-<h6><strong>NOISE BLANKER</strong></h6>
+<h6 id="noise-blanker"><strong>NOISE BLANKER</strong></h6>
 <p>The IF Noise Blanker may be useful in reducing or eliminating some types of impulse noise,
 especially noise generated by automotive ignition systems.</p>
 <ol>
@@ -1052,7 +1044,7 @@ new setting and return to normal operation.</li>
 </ol>
 <p><em><strong>During very crowded band conditions, you may wish to turn the Noise Blanker</strong></em>
 <em><strong>off, as its use will degrade the strong-signal-handling capability of the receiver</strong></em>
-<em><strong>somewhat.</strong></em></p><h6>IPO ( INTERCEPT POINT OPTIMIZATION )</h6>
+<em><strong>somewhat.</strong></em></p><h6 id="ipo-intercept-point-optimization">IPO ( INTERCEPT POINT OPTIMIZATION )</h6>
 <p>The IPO feature bypasses the receiver RF preamplifier, thereby eliminating the preamp’s
 gain. This feature is not available on the 144 MHz and 430 MHz bands.</p>
 <ol>
@@ -1068,7 +1060,7 @@ indicating that the preamp is now disengaged from the receiver circuit.</li>
 <em><strong>and other problems associated with strong signal input to the receiver. Rule of thumb: so</strong></em>
 <em><strong>long as the S-meter is moving on background noise, additional front-end gain is not</strong></em>
 <em><strong>necessary.</strong></em></p>
-<h6>ATT ( FRONT END ATTENUATOR )</h6>
+<h6 id="att-front-end-attenuator">ATT ( FRONT END ATTENUATOR )</h6>
 <p>The Attenuator will reduce all signals (and noise) by 10 dB, and it may be used to make
 reception more pleasant under extremely noisy conditions. This feature is not available on
 the 144 MHz and 430 MHz bands.</p>
@@ -1080,7 +1072,7 @@ side of the “ <strong>ATT</strong> ” selection, and the “ ” icon will ap
 <li>Press the <a href="**ATT**"> <strong>B</strong> </a> key once more to switch the Attenuator out of the receiver front end
 circuit. Signals will again be received at a level 10 dB louder than was the case when the
 Attenuator was engaged.</li>
-</ol><h6>DSP BANDPASS FILTER ( DBF ) [(] REQUIRES OPTIONAL DSP-2 UNIT [)]</h6>
+</ol><h6 id="dsp-bandpass-filter-dbf-requires-optional-dsp-2-unit">DSP BANDPASS FILTER ( DBF ) [(] REQUIRES OPTIONAL DSP-2 UNIT [)]</h6>
 <p>In the SSB mode, the receiver’s selectivity may be enhanced via the DSP Bandpass Filter.</p>
 <ol>
 <li>Press the [ <strong>DSP</strong> ] key momentarily. This instantly activates Multi Function Row “p” [ <strong>DNR,</strong>
@@ -1116,7 +1108,7 @@ Filter.</p>
 and return to normal operation.
 4. Press the <a href="**DBF**"> <strong>C</strong> </a> key once more to disable the DSP Bandpass Filter.</p>
 </li>
-</ul><h6>DSP CW PEAKING FILTER ( DBF ) [(] REQUIRES OPTIONAL DSP-2 UNIT [)]</h6>
+</ul><h6 id="dsp-cw-peaking-filter-dbf-requires-optional-dsp-2-unit">DSP CW PEAKING FILTER ( DBF ) [(] REQUIRES OPTIONAL DSP-2 UNIT [)]</h6>
 <p>In the CW mode, pressing the <a href="**DBF**"> <strong>C</strong> </a> key in Multi Function Row “p” [ <strong>DNR, DNF, DBF</strong> ]
 activates a narrow-bandwidth peaking filter, which may be ideal for use under very crowded
 conditions. The DSP CW Peaking Filter also is especially helpful under VHF/UHF weaksignal situations.</p>
@@ -1132,7 +1124,7 @@ Hz, and 240 Hz (default value: 240 Hz).</li>
 <li>When you have made your selection, press and hold in the [ <strong>FUNC</strong> ] key for one second
 to save the new setting and return to normal operation.</li>
 </ol>
-<h6>DSP NOISE REDUCTION ( DNR ) [(] REQUIRES OPTIONAL DSP-2 UNIT [)]</h6>
+<h6 id="dsp-noise-reduction-dnr-requires-optional-dsp-2-unit">DSP NOISE REDUCTION ( DNR ) [(] REQUIRES OPTIONAL DSP-2 UNIT [)]</h6>
 <p>The Noise Reduction feature of the DSP system may be used to enhance signal-to-noise
 ratio on weak signals.</p>
 <ol>
@@ -1152,7 +1144,7 @@ normal operation.</li>
 </ol>
 <p><em><strong>If noise is present at a level which causes indication on the S-meter, the perfor-</strong></em>
 <em><strong>mance of the Noise Reduction filter may be enhanced by rotating the SQL/RF</strong></em>
-<em><strong>(RF Gain) control in a counter-clockwise direction so as to set the (fixed) S-meter read-</strong></em></p><h6>DSP NOTCH FILTER ( DNF ) [(] REQUIRES OPTIONAL DSP-2 UNIT [)]</h6>
+<em><strong>(RF Gain) control in a counter-clockwise direction so as to set the (fixed) S-meter read-</strong></em></p><h6 id="dsp-notch-filter-dnf-requires-optional-dsp-2-unit">DSP NOTCH FILTER ( DNF ) [(] REQUIRES OPTIONAL DSP-2 UNIT [)]</h6>
 <p>The DSP system’s Notch Filter may be helpful in removing one or more offending carrier or
 heterodyne signals from the audio passband.</p>
 <ol>
@@ -1165,7 +1157,7 @@ display. You will notice that the audio level of the carrier signal is now being
 </ol>
 <p><em><strong>Do not activate this filter in the CW mode, as incoming CW signals will be notched</strong></em>
 <em><strong>out of the audio passband!</strong></em></p>
-<h6><strong>AM/FM TUNING DIAL OPERATION</strong></h6>
+<h6 id="am-fm-tuning-dial-operation"><strong>AM/FM TUNING DIAL OPERATION</strong></h6>
 <p>In the AM and FM modes, the <strong>DIAL</strong> knob is locked out (via the setting of Menu Mode <strong>No-</strong>
 <strong>004</strong> [ <strong>AM&amp;FM DIAL</strong> ] ) so as to allow “channelized” tuning on these modes. To adjust the
 operating frequency, simply rotate the <strong>SELECT</strong> knob.</p>
@@ -1174,7 +1166,7 @@ Menu Mode <strong>No-004</strong> [ <strong>AM&amp;FM DIAL</strong> ] . See page
 <p><em><strong>The “channelized” mode of tuning on AM and FM automatically rounds off the</strong></em>
 <em><strong>frequency to the next “logical” step when you rotate the SELECT knob one “click”</strong></em>
 <em><strong>in either direction. This eliminates the inconvenience of having to preset the frequency to</strong></em>
-<em><strong>an “even” channel.</strong></em></p><h6><strong>AUTOMATIC POWER-OFF FEATURE</strong></h6>
+<em><strong>an “even” channel.</strong></em></p><h6 id="automatic-power-off-feature"><strong>AUTOMATIC POWER-OFF FEATURE</strong></h6>
 <p>The APO feature helps conserve battery life by automatically turning the transceiver off
 after a user-defined period of time within which there has been no dial or key activity. The
 available selections for the time before power-off are 1 ~ 6 hours, as well as “APO Off.” The
@@ -1194,7 +1186,7 @@ the radio automatically.</p>
 <p>Just press and hold in the <strong>POWER</strong> switch for one second to turn the transceiver back on
 after an APO shutdown, as usual.</p>
 <p><em><strong>The APO feature will be disabled while using the Beacon or ARTS features, even</strong></em>
-<em><strong>if the APO feature is set to “ON.”</strong></em></p><h6><strong>NOTE</strong></h6><h6><strong>SSB/AM TRANSMISSION</strong></h6>
+<em><strong>if the APO feature is set to “ON.”</strong></em></p><h6 id="note-3"><strong>NOTE</strong></h6><h6 id="ssb-am-transmission"><strong>SSB/AM TRANSMISSION</strong></h6>
 <p><strong>Basic Setup/Operation</strong>
 1. Press the [ <strong>MODE</strong> [(] - [)] ] or [ <strong>MODE</strong> [(] - [)] ] key so as to select either SSB (LSB/USB) or the
 AM mode. In the SSB mode, if you are operating on the 7 MHz or lower bands, select
@@ -1237,7 +1229,7 @@ for the Microphone Gain.</p>
 <em><strong>some of the bass response, resulting in improved “talk power” in many instances. The</strong></em>
 <em><strong>“1” position is primarily used in countries like Japan, where vowel sounds are of critical</strong></em>
 <em><strong>importance in conveying information; in Western languages, consonant sounds (which</strong></em>
-<em><strong>are rich in high-frequency components) are frequently more important.</strong></em></p><h6><strong>SSB/AM TRANSMISSION</strong></h6>
+<em><strong>are rich in high-frequency components) are frequently more important.</strong></em></p><h6 id="ssb-am-transmission-2"><strong>SSB/AM TRANSMISSION</strong></h6>
 <p><strong>VOX Operation</strong>
 The VOX system provides automatic transmit/receive switching based on voice input to the
 microphone. With the VOX system enabled, you do not need to press the <strong>PTT</strong> switch in
@@ -1291,7 +1283,7 @@ second to save the new setting and return to normal operation.</p>
 </li>
 </ul>
 <p><em><strong>The delay time for return to the receive mode is set independently on CW and</strong></em>
-<em><strong>voice modes; for CW, use Menu Mode No-024 [CW DELAY] (see next chapter).</strong></em></p><h6><strong>SSB/AM TRANSMISSION</strong></h6>
+<em><strong>voice modes; for CW, use Menu Mode No-024 [CW DELAY] (see next chapter).</strong></em></p><h6 id="ssb-am-transmission-3"><strong>SSB/AM TRANSMISSION</strong></h6>
 <p><strong>AF Speech Processor Operation</strong>
 The AF Speech Processor increases your average power output while operating on SSB and
 AM modes.</p>
@@ -1325,7 +1317,7 @@ good voice quality has been obtained via your adjustment.</p>
 </ul>
 <p><em><strong>Excessive advancement of the Compression Level may lead to distortion. Each</strong></em>
 <em><strong>operator’s voice pattern is different, so try several settings to find the one which is</strong></em>
-<em><strong>best for your voice.</strong></em></p><h6><strong>SSB/AM TRANSMISSION</strong></h6>
+<em><strong>best for your voice.</strong></em></p><h6 id="ssb-am-transmission-4"><strong>SSB/AM TRANSMISSION</strong></h6>
 <p><strong>DSP Microphone Equalizer</strong> ( <strong>REQUIRES OPTIONAL DSP-2 UNIT</strong> )</p>
 <p>In the SSB, AM, and FM transmission modes, you may use the DSP system to change the
 frequency response of the audio stage, if you have installed the optional <strong>DSP-2</strong> Digital
@@ -1342,7 +1334,7 @@ components of your voice’s audio characteristics.</p>
 <strong>BOTH</strong> :High/Low Cut (mid-range frequencies are emphasized)</li>
 <li>When you have made your selection, press and hold in the [ <strong>FUNC</strong> ] key for one second
 to save the new setting and exit to normal operation.</li>
-</ol><h6><strong>CW TRANSMISSION</strong></h6>
+</ol><h6 id="cw-transmission"><strong>CW TRANSMISSION</strong></h6>
 <p><strong>Operation using Straight Key/External Keying Device</strong>
 When using a straight key, an external electronic keyer, or a computer-generated keying
 device, please follow the instructions in this section.</p>
@@ -1393,7 +1385,7 @@ default value is “50.”</p>
 <li>
 <p>When done, press and hold in the [ <strong>FUNC</strong> ] key for one second to save the new setting</p>
 </li>
-</ul><h6><strong>CW TRANSMISSION</strong></h6>
+</ul><h6 id="cw-transmission-2"><strong>CW TRANSMISSION</strong></h6>
 <p>This adjustment also controls the BFO offset (actual pitch of your transmitted signal
 relative to your current receive frequency). To adjust the CW sidetone pitch:</p>
 <ul>
@@ -1417,7 +1409,7 @@ zeroing in on another station. To activate the CW SPOT tone, just press and hold
 </ul>
 <p>[ <strong>HOME</strong> ] key for one second while in the CW mode.</p>
 <p><em><strong>Pressing the</strong></em> <a href="**SPOT**"> <strong>A</strong> </a> <em><strong>key while in Multi Function Row “j” [SPOT, BK, KYR]</strong></em>
-<em><strong>will also activate the CW SPOT tone.</strong></em></p><h6><strong>CW TRANSMISSION</strong></h6>
+<em><strong>will also activate the CW SPOT tone.</strong></em></p><h6 id="cw-transmission-3"><strong>CW TRANSMISSION</strong></h6>
 <p><strong>Using the Built-in Electronic Keyer</strong>
 The built-in Electronic Keyer provides a convenient method of generating CW. The Electronic Keyer includes weight and speed adjustments.</p>
 <ol start="3">
@@ -1459,7 +1451,7 @@ weighting ratio:</p>
 <p>When done, press and hold in the [ <strong>FUNC</strong> ] key for one second to save the new setting</p>
 </li>
 </ul>
-<p>d i l i</p><h6><strong>CW TRANSMISSION</strong></h6>
+<p>d i l i</p><h6 id="cw-transmission-4"><strong>CW TRANSMISSION</strong></h6>
 <p><strong>KEY REV</strong> ] . The default setting for this feature is “NORMAL,” whereby the “Tip” connection on the Key Plug is “Dot” and the “Ring” connection is “Dash.” To change the
 paddle polarity:</p>
 <ul>
@@ -1482,7 +1474,7 @@ and exit to normal operation.</p>
 </li>
 </ul>
 <p><em><strong>Menu Mode No-025 [CW KEY REV] is most frequently utilized five minutes be-</strong></em>
-<em><strong>fore a contest, when you realize your keyer paddle is wired backwards!</strong></em></p><h6><strong>FM TRANSMISSION</strong></h6>
+<em><strong>fore a contest, when you realize your keyer paddle is wired backwards!</strong></em></p><h6 id="fm-transmission"><strong>FM TRANSMISSION</strong></h6>
 <p><strong>Basic Setup/Operation</strong>
 1. Press the [ <strong>MODE</strong> [(] - [)] ] or [ <strong>MODE</strong> [(] - [)] ] key so as to select the FM mode.
 2. Press the microphone’s <strong>PTT</strong> switch, and speak into the microphone in a normal voice.
@@ -1508,7 +1500,7 @@ input.
 9. When done, press and hold in the [ <strong>FUNC</strong> ] key to save the new setting for the FM-mode
 microphone gain.
 10. The VOX feature is operational during FM transmission. From Multi Function Row “d”</p>
-<p>[ <strong>RPT, REV, VOX</strong> ], press the <a href="**VOX**"> <strong>C</strong> </a> key to activate/deactivate VOX.</p><h6><strong>FM TRANSMISSION</strong></h6>
+<p>[ <strong>RPT, REV, VOX</strong> ], press the <a href="**VOX**"> <strong>C</strong> </a> key to activate/deactivate VOX.</p><h6 id="fm-transmission-2"><strong>FM TRANSMISSION</strong></h6>
 <p><strong>Repeater Operation</strong>
 1. Press the [ <strong>FUNC</strong> ] key momentarily, then rotate the <strong>SELECT</strong> knob, as needed, until
 Multi Function Row “d” [ <strong>RPT, REV, VOX</strong> ] appears on the display.
@@ -1539,7 +1531,7 @@ Encode/Decode), “ <strong>DEN</strong> ” (Digital Coded Squelch, Encode), fo
 <p>If the default repeater access tone is not appropriate for the repeater on which you are
 operating it may be set easily:</p>
 </li>
-</ul><h6><strong>FM TRANSMISSION</strong></h6>
+</ul><h6 id="fm-transmission-3"><strong>FM TRANSMISSION</strong></h6>
 <p>Mode <strong>No-083</strong> [ <strong>TONE FREQ</strong> ] .
 (2) Rotate the <strong>DIAL</strong> knob to select the</p>
 <p>desired CTCSS frequency.
@@ -1568,7 +1560,7 @@ Multi Function Row “e” [ <strong>TON,</strong> <strong>– – –</strong> 
 <li>When the radio detects the correct tone, it will halt on that tone, and audio will be allowed to pass.</li>
 <li>The CTCSS tone detected will be stored as the “current” tone, so it may be used for
 memory storage purposes, and you may now exit to normal operation.</li>
-</ol><h6><strong>FM TRANSMISSION</strong></h6>
+</ol><h6 id="fm-transmission-4"><strong>FM TRANSMISSION</strong></h6>
 <p><strong>DCS Operation</strong>
 Another form of tone access control is Digital Code Squelch, or DCS. It is a newer, more
 advanced tone system that is less susceptible to false triggering than CTCSS. A DCS Encoder/Decoder is built into your transceiver, and operation is very similar to that described
@@ -1594,7 +1586,7 @@ Multi Function Row “e” [ <strong>TON,</strong> <strong>– – –</strong> 
 allowed to pass.</li>
 <li>The DCS code detected will be stored as the “current” code, so it may be used for
 memory storage purposes, and you may now exit to normal operation.</li>
-</ol><h6><strong>FM TRANSMISSION</strong></h6>
+</ol><h6 id="fm-transmission-5"><strong>FM TRANSMISSION</strong></h6>
 <p><strong>Split Tone Operation</strong>
 The <strong>FT-857</strong> can be configured in a “Split Tone” configuration via the Menu mode.</p>
 <p>This allows you to encode a CTCSS Tone but decode a DCS code, encode and decode
@@ -1626,7 +1618,7 @@ for one second. This instantly recalls Menu Mode <strong>No-083</strong> [ <stro
 Decode CTCSS frequency (or DCS code).
 4. Press the <strong>SELECT</strong> knob momentarily, then rotate the <strong>DIAL</strong> knob to select the “ <strong>T</strong> ” option. This is the tone you Transmit, i.e. the “Encode” tone.
 5. Press the <strong>SELECT</strong> knob momentarily, then rotate the <strong>DIAL</strong> knob to select the desired
-Encode CTCSS frequency (or DCS code).</p><h6><strong>FM TRANSMISSION</strong></h6>
+Encode CTCSS frequency (or DCS code).</p><h6 id="fm-transmission-6"><strong>FM TRANSMISSION</strong></h6>
 <p><strong>ARTS™ Operation</strong>
 The ARTS™ system uses DCS signaling to inform you when you and another ARTS™
 equipped station are within communications range. This can be especially valuable during
@@ -1658,7 +1650,7 @@ status.</p>
 <p><a href="**ARTS**"> <strong>A</strong> </a> key for one second. This is a “hot key” which will instantly recall Menu
 Mode <strong>No-008</strong> [ <strong>ARTS BEEP</strong> ] .
 2. Rotate the <strong>DIAL</strong> to select the desired ARTS™ Beep mode (see above).
-3. When you have made your selection, press and hold in the [ <strong>FUNC</strong> ] key for one second</p><h6><strong>FM TRANSMISSION</strong></h6>
+3. When you have made your selection, press and hold in the [ <strong>FUNC</strong> ] key for one second</p><h6 id="fm-transmission-7"><strong>FM TRANSMISSION</strong></h6>
 <p><strong>CW Identifier Setup</strong>
 The ARTS™ feature includes a CW identifier, as discussed previously. Every ten minutes
 during ARTS [™] operation, the radio can be instructed to send “ <em><strong>DE</strong></em> ( <strong>your callsign</strong> ) <em><strong>K</strong></em> ” if this
@@ -1681,7 +1673,7 @@ entry position.</li>
 <li>Rotate the <strong>DIAL</strong> to set the CW ID function to “ <strong>ON</strong> .”</li>
 <li>Press and hold in the [ <strong>FUNC</strong> ] key for one second to save the new setting and exit to
 normal operation.</li>
-</ol><h6>DIGITAL MODE OPERATION ( SSB-BASED AFSK )</h6>
+</ol><h6 id="digital-mode-operation-ssb-based-afsk">DIGITAL MODE OPERATION ( SSB-BASED AFSK )</h6>
 <p>The <strong>FT-857</strong> provides extensive capability for digital mode operation on the HF, VHF, and
 UHF bands. The use of AFSK (Audio Frequency-Shifted Keying) configurations allows a
 wide variety of different communication modes to be utilized. The Menu provides for specific digital mode selections, which include custom BFO offsets to optimize the receive and
@@ -1714,7 +1706,7 @@ decoded.</li>
 300 Hz filter has been installed, it may be used for RTTY
 work. Recall Multi Function Row “n” [ <strong>CFIL,</strong> <strong>– – –</strong> <strong>,</strong> <strong>– – –</strong> ],
 then press the <a href="**–**"> <strong>B</strong> </a> or <a href="**–**"> <strong>C</strong> </a> key to engage the narrow</li>
-</ol><h6>DIGITAL MODE OPERATION ( SSB-BASED AFSK )</h6>
+</ol><h6 id="digital-mode-operation-ssb-based-afsk-2">DIGITAL MODE OPERATION ( SSB-BASED AFSK )</h6>
 <p>monitor ALC voltage. If not, press the [ <strong>FUNC</strong> ] key momentarily, then rotate the <strong>SE-</strong>
 <strong>LECT</strong> knob to select to select Multi Function Row “i” [ <strong>MTR,</strong> <strong>– – –</strong> <strong>, DISP</strong> ], then press the</p>
 <p><a href="**MTR**"> <strong>A</strong> </a> or [ <strong>B</strong> ] key so as to select metering of ALC (“ <strong>ALC</strong> ” icon will appear at the
@@ -1747,7 +1739,7 @@ or <strong>YF-122CN</strong> 300 Hz filter may also be utilized, as described pr
 Also provided in the <strong>FT-857</strong> are two convenient “USER” Digital modes, one each providing USB- and LSB-side injection, which may be used for SSTV, Fax, Pactor, and other
 digital operating modes.</p>
 <p>Here is an example involving the configuration of the USER mode for JT44 (WSJT) operation with USB-side injection (as opposed to LSB injection, used in the default “RTTY”
-mode):</p><h6>DIGITAL MODE OPERATION ( SSB-BASED AFSK )</h6>
+mode):</p><h6 id="digital-mode-operation-ssb-based-afsk-3">DIGITAL MODE OPERATION ( SSB-BASED AFSK )</h6>
 <ol start="2">
 <li>Press the [ <strong>MODE</strong> [(] - [)] ] or [ <strong>MODE</strong> [(] - [)] ] key, as needed, to select the DIG operating mode
 (the “ <strong>DIG</strong> ” icon will appear on the display).</li>
@@ -1763,7 +1755,7 @@ mode.</li>
 <p><em><strong>The USER-L and USER-U Digital modes should allow you to operate on any</strong></em>
 <em><strong>SSB-based AFSK Digital mode. Note that the “PSK31” configurations will also</strong></em>
 <em><strong>work well for many Digital operating situations.</strong></em></p>
-<h6>PACKET ( 1200/9600 BPS FM ) OPERATION</h6>
+<h6 id="packet-1200-9600-bps-fm-operation">PACKET ( 1200/9600 BPS FM ) OPERATION</h6>
 <p>The <strong>FT-857</strong> is designed for operation on either 1200 bps or 9600 bps packet, and setup is
 similar to that described previously for SSB-based modes. A separate Data input adjustment
 is provided, allowing you to optimize the deviation on the FM Packet modes separately
@@ -1782,7 +1774,7 @@ your setting and exit.</li>
 <li>Press the [ <strong>MODE</strong> [(] - [)] ] or [ <strong>MODE</strong> [(] - [)] ] key, as needed,
 to select the PKT operating mode (the “ <strong>PKT</strong> ” icon will
 appear on the display)</li>
-</ol><h6>PACKET ( 1200/9600 BPS FM ) OPERATION</h6>
+</ol><h6 id="packet-1200-9600-bps-fm-operation-2">PACKET ( 1200/9600 BPS FM ) OPERATION</h6>
 <p>ating on 1200 bps, try now to connect to another station or node; you may well find that the
 drive level needs no further adjustment. If, however, you are having trouble connecting due
 to insufficient or excessive drive from the TNC to the <strong>FT-857</strong>, use Menu Mode <strong>No-071</strong></p>
@@ -1795,7 +1787,7 @@ modulator. Remember to press and hold in the [ <strong>FUNC</strong> ] key for o
 <em><strong>it can only be accomplished using a calibrated deviation meter; the optimum set-</strong></em>
 <em><strong>ting is usually ±2.75 kHz (±0.25 kHz). For 1200 bps, the optimum level is much less</strong></em>
 <em><strong>critical, with the optimum deviation being between ±2.5 kHz and ±3.5 kHz.</strong></em></p>
-<h6><strong>WEATHERFAX MONITORING</strong></h6>
+<h6 id="weatherfax-monitoring"><strong>WEATHERFAX MONITORING</strong></h6>
 <p>Monitoring of HF WeatherFax broadcasts is easily accomplished using the <strong>FT-857</strong> .</p>
 <p>Before proceeding, be certain that the WeatherFax demodulator is
 properly connected to Pins 5 and 2 of the rear panel <strong>DATA</strong> jack.</p>
@@ -1812,7 +1804,7 @@ from the transceiver standpoint. The audio level from the <strong>DATA</strong> 
 transceiver is fixed, and cannot be adjusted.</li>
 <li>Fine adjustments in the gray-scale and the frame alignment are accomplished using the
 computer and software connected to your WeatherFax demodulator.</li>
-</ol><h6><strong>TIME-OUT TIMER</strong></h6>
+</ol><h6 id="time-out-timer"><strong>TIME-OUT TIMER</strong></h6>
 <p>Most often used on FM, the transmitter’s Time-Out Timer (TOT) feature disables the transmitter after a user-defined period of transmission. This feature may be useful in preventing
 a “stuck microphone” (accidental closure of the PTT switch) from causing interference to
 other users, and it will also force you to keep your transmissions short, thereby conserving
@@ -1826,7 +1818,7 @@ setting (from 1 minute to 20 minutes).</li>
 <li>When you have made your selection, press and hold in the [ <strong>FUNC</strong> ] key for one second
 to save the new setting and exit to normal operation.</li>
 </ol>
-<h6><strong>SPLIT FREQUENCY OPERATION</strong></h6>
+<h6 id="split-frequency-operation"><strong>SPLIT FREQUENCY OPERATION</strong></h6>
 <p>This transceiver provides convenient split-frequency operation, using VFO-A and VFO-B,
 for DX working and other operating situations requiring unique split frequency pairs.</p>
 <p>The example below will describe a typical split-frequency DX situation on the 20-meter
@@ -1948,7 +1940,7 @@ tuning function of the <strong>ATAS-100/-120</strong> to operate.</p>
 Although the <strong>ATAS-100/-120</strong> is not specified for operation on the above bands, and optimum operation is therefore not guaranteed, the <strong>ATAS-100/-120</strong> generally can be tuned
 successfully on these bands (some manual adjustment may be required). Operation of the
 <strong>ATAS-100/-120</strong> on these bands will not damage the antenna’s components; please feel free
-to experiment on these bands if you like</p><h6><strong>FC-30 AUTOMATIC ANTENNA TUNER OPERATION</strong></h6>
+to experiment on these bands if you like</p><h6 id="fc-30-automatic-antenna-tuner-operation"><strong>FC-30 AUTOMATIC ANTENNA TUNER OPERATION</strong></h6>
 <p>The optional <strong>FC-30</strong> Automatic Antenna Tuner provides automatic tuning of a coaxial line
 so as to present a nominal 50 Ω impedance to the <strong>FT-857</strong> ’s HF/50 MHz antenna port.</p>
 <p>Before operation can begin, you must instruct the <strong>FT-857</strong> ’s microprocessor that the <strong>FC-30</strong>
@@ -1974,7 +1966,7 @@ turn the transceiver off.</li>
 <strong>FC-30</strong> will be selected/adjusted for optimum SWR. When tuning is complete, the transmission will cease, and you will be ready for operation on this frequency.</li>
 </ol>
 <p><em><strong>Tuning data will be stored in the FC-30’s Memory system. See the discussion at</strong></em>
-<em><strong>the nect page for details on how this works.</strong></em></p><h6><strong>FC-30 AUTOMATIC ANTENNA TUNER OPERATION</strong></h6>
+<em><strong>the nect page for details on how this works.</strong></em></p><h6 id="fc-30-automatic-antenna-tuner-operation-2"><strong>FC-30 AUTOMATIC ANTENNA TUNER OPERATION</strong></h6>
 <p><strong>Antenna Tuner Memory System</strong>
 The <strong>FC-30</strong>, working in concert with the <strong>FT-857</strong>, can store impedance matching data in its
 micro-computer memory, so as to provide instant adjustment as you transmit in different
@@ -2002,7 +1994,7 @@ antenna tuner, as full transmitter power will be delivered to the antenna system
 intervention by the <strong>FC-30</strong> .</p>
 <p>If the impedance encountered by the <strong>FC-30</strong> exceeds 3:1, and the “ <strong>HSWR</strong> ” icon is illuminated, the microprocessor will not retain the tuning data for that frequency, as the <strong>FC-30</strong>
 presumes that you will want to adjust or repair your antenna system so as to correct the high
-SWR condition.</p><h6>QMB ( QUICK MEMORY BANK ) CHANNELS</h6>
+SWR condition.</p><h6 id="qmb-quick-memory-bank-channels">QMB ( QUICK MEMORY BANK ) CHANNELS</h6>
 <p>The “Quick Memory” Bank provides one-touch access to frequencies you want to store and
 recall in a hurry. You may store a “QMB” channel into a “regular” memory later, if you like;
 use of the “regular” memories will be described later.</p>
@@ -2025,7 +2017,7 @@ frequency or a Memory channel).</p>
 <em><strong>change frequencies as if you were in a “VFO” mode. You also can change the</strong></em>
 <em><strong>operating mode by pressing the</strong></em> [ <strong>MODE</strong> ( - )] <em><strong>or</strong></em> [ <strong>MODE</strong> ( - )] <em><strong>key. When either change is</strong></em>
 <em><strong>performed, “MTQMB” will appear in the display, where “MT” represents “Memory Tun-</strong></em>
-<em><strong>ing.” Press the</strong></em> <a href="**RCL**"> <strong>B</strong> </a> <em><strong>key once more to return to the originally-stored QMB frequency.</strong></em></p><h6>MEMORY OPERATION ON “ REGULAR ” MEMORY CHANNELS</h6>
+<em><strong>ing.” Press the</strong></em> <a href="**RCL**"> <strong>B</strong> </a> <em><strong>key once more to return to the originally-stored QMB frequency.</strong></em></p><h6 id="memory-operation-on-regular-memory-channels">MEMORY OPERATION ON “ REGULAR ” MEMORY CHANNELS</h6>
 <p>Most Memory operation will be conducted in the “regular” memory registers. There are 200
 memory channels available for storage and recall of important frequencies.</p>
 <p><strong>Normal Memory Storage</strong>
@@ -2066,7 +2058,7 @@ knob one click clockwise to move on to the next position.</p>
 <p>When the Tag is complete, press the <a href="**MW**"> <strong>A</strong> </a> key momentarily. This will complete
 the storage of the frequency and Alpha-Numeric label.</p>
 </li>
-</ul><h6>MEMORY OPERATION ON “ REGULAR ” MEMORY CHANNELS</h6>
+</ul><h6 id="memory-operation-on-regular-memory-channels-2">MEMORY OPERATION ON “ REGULAR ” MEMORY CHANNELS</h6>
 <p><strong>Split-Frequency Memory Storage</strong>
 You can also store “Split” frequencies, such as when operating on a repeater system not utilizing a “standard” offset. This procedure may also be used for DX work on 7 MHz SSB, etc.</p>
 <ol>
@@ -2089,7 +2081,7 @@ may now release the <strong>PTT</strong> switch.</li>
 </ol>
 <p><em><strong>In step 7 above, pressing the PTT switch does not activate the transmitter. It sim-</strong></em>
 <em><strong>ply sends a signal to the microprocessor that an independent Transmit frequency</strong></em>
-<em><strong>is being stored on the same channel as a previously-stored Receive frequency.</strong></em></p><h6>MEMORY OPERATION ON “ REGULAR ” MEMORY CHANNELS</h6>
+<em><strong>is being stored on the same channel as a previously-stored Receive frequency.</strong></em></p><h6 id="memory-operation-on-regular-memory-channels-3">MEMORY OPERATION ON “ REGULAR ” MEMORY CHANNELS</h6>
 <p><strong>Memory Channel Recall</strong>
 1. If you currently are in the VFO tuning mode, press the [ <strong>M/V</strong> ] key once to enter the
 “Memory” mode (a memory channel number “ <strong>M-nnn</strong> ” will appear on the display in the
@@ -2121,7 +2113,7 @@ to the VFO mode (the memory channel number will be replaced by “VFOa” or
 <p><em><strong>1) When operating on a “Split” frequency memory, a special “–+” indication will</strong></em>
 <em><strong>appear on the LCD.</strong></em>
 <em><strong>2) If some memory channels appear to be “missing,” be sure you are not operating in the</strong></em>
-<em><strong>“Memory Group” mode, and in the wrong Memory Group.</strong></em></p><h6>MEMORY OPERATION ON “ REGULAR ” MEMORY CHANNELS</h6>
+<em><strong>“Memory Group” mode, and in the wrong Memory Group.</strong></em></p><h6 id="memory-operation-on-regular-memory-channels-4">MEMORY OPERATION ON “ REGULAR ” MEMORY CHANNELS</h6>
 <p><strong>Masking (“Hiding”) a Memory</strong>
 Frequency data stored on a memory channel can be deleted, if desired, from any memory
 channel except channel “1.” The deletion process is not a “hard” erasure, so if you erase a
@@ -2140,7 +2132,7 @@ frequency information on a channel containing masked data, the masked data will 
 over-written and lost.</li>
 <li>Memory Channel 1 is used for Priority operation, and frequency information may only
 be over-written (not masked) on this channel.</li>
-</ol><h6>MEMORY OPERATION ON “ HOME ” CHANNEL MEMORIES</h6>
+</ol><h6 id="memory-operation-on-home-channel-memories">MEMORY OPERATION ON “ HOME ” CHANNEL MEMORIES</h6>
 <p>Four Special one-touch “Home” channels are available, for special frequencies you use
 often. Either “simplex” or “split” frequency/mode data may be stored in the “Home” channel locations. Special “Home” channels are available for HF (any frequency between 1.8
 and 29.7 MHz), 50 MHz, 144 MHz, and 430 MHz.</p>
@@ -2168,7 +2160,7 @@ This stores the transmit frequency data into the “Home” channel location.</p
 where you currently are operating (HF, 50 MHz, 144 MHz, or 430 MHz). The “ <strong>HOME</strong> ”
 indication will appear on the display.
 2. Press the [ <strong>HOME</strong> ] key once more to return to the previously-used frequency (either a
-VFO frequency or a memory channel).</p><h6><strong>LABELING MEMORIES AFTER PROGRAMMING CHANNEL DATA</strong></h6>
+VFO frequency or a memory channel).</p><h6 id="labeling-memories-after-programming-channel-data"><strong>LABELING MEMORIES AFTER PROGRAMMING CHANNEL DATA</strong></h6>
 <p>You may wish to append an alpha-numeric “Tag” (label) to a memory or memories, to aid in
 recollection of the channel’s intended use (such as a club name, etc.), some time after you
 have performed the initial memory programming. This is easily accomplished using the
@@ -2262,7 +2254,7 @@ memories, because this will disable Smart Search™ operation.
 6. To disable Smart Search™ operation, press the <a href="**SRCH**"> <strong>B</strong> </a> key momentarily.</p>
 <p><em><strong>The Smart Search</strong></em> <em><strong>[TM]</strong></em> <em><strong>memories are so-called “soft” memories; they will be lost if</strong></em>
 <em><strong>you initiate a new Smart Search</strong></em> <em><strong>[TM]</strong></em> <em><strong>sweep of the band, or if you switch to the VFO</strong></em>
-<em><strong>or Memory system..</strong></em></p><h6><strong>SCANNING FEATURES</strong></h6>
+<em><strong>or Memory system..</strong></em></p><h6 id="scanning-features"><strong>SCANNING FEATURES</strong></h6>
 <p>This transceiver contains a wide variety of scanning capabilities. Whether you are in the
 VFO mode or one of the memory modes, scanning operation is fundamentally identical in
 all configurations, but with the following differences:</p>
@@ -2278,7 +2270,7 @@ all configurations, but with the following differences:</p>
 user-programmed frequency limits.</p>
 </li>
 </ul>
-<h6><strong>SCANNING OPERATION</strong></h6>
+<h6 id="scanning-operation"><strong>SCANNING OPERATION</strong></h6>
 <p>In order for the <strong>FT-857</strong> to scan automatically, the Squelch must be set so that the background noise is silenced, because the command to “Stop Scanning” driven by the same
 circuit that causes the green “Busy” LED to light up (when noise or a signal is received).</p>
 <ol>
@@ -2309,7 +2301,7 @@ in the next chapter for details of how to customize the resumption of scanning.<
 7. Press the <strong>PTT</strong> switch on the microphone to cancel scanning.</p>
 </li>
 </ul>
-<p><em><strong>You may also press and hold in either the [UP] or [DWN] key on the microphone</strong></em></p><h6><strong>SCANNING OPERATION</strong></h6>
+<p><em><strong>You may also press and hold in either the [UP] or [DWN] key on the microphone</strong></em></p><h6 id="scanning-operation-2"><strong>SCANNING OPERATION</strong></h6>
 <p><strong>Scan-Resume Choices</strong>
 Scanning operation requires that you have the <strong>FT-857</strong> ’s audio squelched. The transceiver
 then “assumes” that the opening of the squelch corresponds to the discovery of a signal you
@@ -2345,7 +2337,7 @@ the memory channel number will change to become a “ <em><strong>dot</strong></
 this shows that this channel now is not included in the
 scanning loop.</li>
 <li>Repeat steps 2 and 3 as many times as necessary to skip</li>
-</ol><h6><strong>SCANNING OPERATION</strong></h6>
+</ol><h6 id="scanning-operation-3"><strong>SCANNING OPERATION</strong></h6>
 <ol start="5">
 <li>Initiate memory scanning; you will observe that the channels you marked to be skipped
 are not included in the scanning loop.</li>
@@ -2357,7 +2349,7 @@ channel manually, then pressing the <a href="**SKIP**"> <strong>B</strong> </a> 
 to become a “ <em><strong>hyphen</strong></em> .”</li>
 </ol>
 <p><em><strong>It is not possible to Skip Memory Channel M-001 (the Priority Channel). See the</strong></em>
-<em><strong>next chapter for details on Priority operation.</strong></em></p><h6>“ PRIORITY CHANNEL ” SCANNING</h6>
+<em><strong>next chapter for details on Priority operation.</strong></em></p><h6 id="priority-channel-scanning">“ PRIORITY CHANNEL ” SCANNING</h6>
 <p>The <strong>FT-857</strong> ’s scanning features include a two-channel scanning capability which allows
 you to operate on a VFO or Memory channel, while periodically checking Memory Channel
 “M-001” for activity. If a station is received on Memory Channel “ <strong>M-001</strong> ” which is strong
@@ -2381,7 +2373,7 @@ scanning. Otherwise, when a signal appears on the Priority channel, Priority mon
 will just pause on the channel. Priority monitoring will resume in accordance with the
 SCAN MODE Menu setting, as mentioned previously.</li>
 <li>To cancel Priority monitoring, again press the <a href="**PRI**"> <strong>B</strong> </a> key.</li>
-</ol><h6>PROGRAMMABLE MEMORY SCAN ( PMS ) OPERATION</h6>
+</ol><h6 id="programmable-memory-scan-pms-operation">PROGRAMMABLE MEMORY SCAN ( PMS ) OPERATION</h6>
 <p>To limit scanning (and manual tuning) within a particular frequency range, you can use the
 Programmable Memory Scanning (PMS) feature, which utilizes five special-purpose memory
 pairs (“ <strong>M-P1L</strong> / <strong>M-P1U</strong> ” through “ <strong>M-P5L</strong> / <strong>M-P5U</strong> ”). The PMS feature is especially useful in
@@ -2421,7 +2413,7 @@ to recall Multi Function Row “f” [ <strong>ARTS, SRCH, PMS</strong> ].</li>
 </ol>
 <ul>
 <li>148.00 MHz range until you press the [ <strong>V/M</strong> ] key to return to memory or VFO operation.</li>
-</ul><h6><strong>DUAL WATCH OPERATION</strong></h6>
+</ul><h6 id="dual-watch-operation"><strong>DUAL WATCH OPERATION</strong></h6>
 <p>Dual Watch is similar, in some respects, to scanning. In Dual Watch, however, the transceiver monitors (squelched) on the VFO-A frequency while periodically checking VFO-B
 for activity (or vice-versa). A typical example might be for you to set VFO-A to 50.110
 MHz, watching for DX stations who might call CQ on that frequency, while periodically
@@ -2440,7 +2432,7 @@ briefly to VFO-B frequency, looking for activity.</li>
 <li>Press the <a href="**DW**"> <strong>C</strong> </a> key again to cancel Dual Watch operation (the “ ” icon will disappear).</li>
 </ol>
 <p><em><strong>Pressing the PTT switch on the microphone does not cancel Dual Watch opera-</strong></em>
-<em><strong>tion.</strong></em></p><h6><strong>OPERATION ON ALASKA EMERGENCY FREQUENCY:</strong> 5167.5 KHZ ( U.S. VERSION ONLY ) SECTION</h6>
+<em><strong>tion.</strong></em></p><h6 id="operation-on-alaska-emergency-frequency-5167-5-khz-u-s-version-only-section"><strong>OPERATION ON ALASKA EMERGENCY FREQUENCY:</strong> 5167.5 KHZ ( U.S. VERSION ONLY ) SECTION</h6>
 <p>97.401(d) of the regulations governing amateur radio in the United States permit emergency
 amateur communications on the spot frequency of 5167.5 kHz by stations in (or within 92.6
 km of) the state of Alaska. This frequency is only to be used when the immediate safety of
@@ -2469,7 +2461,7 @@ the procedure.</li>
 </ol>
 <p>In an emergency, note that a half-wave dipole cut for this frequency should be approximately 45’3” on each leg (90’6” total length).Emergency operation on 5167.5 kHz is shared
 with the Alaska-Fixed Service. This transceiver is not authorized for operation, under the
-FCC’s Part 87, for aeronautical communications.</p><h6><strong>CW TRAINING FEATURE</strong></h6>
+FCC’s Part 87, for aeronautical communications.</p><h6 id="cw-training-feature"><strong>CW TRAINING FEATURE</strong></h6>
 <p>The <strong>FT-857</strong> provides a CW Training feature, which sends random Morse Code five-character groups via the sidetone (heard in the speaker), so you can improve your CW proficiency
 whether or not the bands are open.</p>
 <ol>
@@ -2489,7 +2481,7 @@ sidetone only, does not key the transmitter).</li>
 exit to normal operation.</li>
 </ol>
 <p><em><strong>You may adjust the Morse speed using Menu Mode No-030 [CW SPEED].</strong></em></p>
-<h6><strong>PROGRAMMING THE FRONT PANEL KEY FUNCTIONS</strong></h6>
+<h6 id="programming-the-front-panel-key-functions"><strong>PROGRAMMING THE FRONT PANEL KEY FUNCTIONS</strong></h6>
 <p>The Function ([ <strong>A</strong> ], [ <strong>B</strong> ], [ <strong>C</strong> ]) keys in Multi Function Row “q” [ <strong>PG A, PG B, PG C</strong> ], may each
 be assigned the function of a particular key. These may be used to create a custom set of “hot
 keys” to often-used functions from other Multi Function Rows.</p>
@@ -2502,7 +2494,7 @@ keys” to often-used functions from other Multi Function Rows.</p>
 <li>Rotate the <strong>DIAL</strong> knob to select the feature or function you wish to be assigned to the key.</li>
 <li>When you have completed the set-up, press and hold in the [ <strong>FUNC</strong> ] key for one second
 to exit the Menu mode.</li>
-</ol><h6><strong>BEACON FEATURE</strong></h6>
+</ol><h6 id="beacon-feature"><strong>BEACON FEATURE</strong></h6>
 <p>The <strong>FT-857</strong> ’s unique “Beacon” feature allows you to set up the transceiver to send a repetitive message. For example, on a DX-pedition, the <strong>FT-857</strong> beacon might be activated on a
 50 MHz frequency, to alert DXers as to possible band openings.</p>
 <p><strong>Beacon Text Storage</strong>
@@ -2536,7 +2528,7 @@ repeat step 5.</p>
 7. Press and hold in the [ <strong>FUNC</strong> ] key for one second until you hear a double beep; the
 second beep confirms that the Beacon text was successfully stored.</p>
 </li>
-</ul><h6><strong>BEACON FEATURE</strong></h6>
+</ul><h6 id="beacon-feature-2"><strong>BEACON FEATURE</strong></h6>
 <p><strong>Beacon Transmission (On the Air)</strong>
 1. Press and hold in the [ <strong>FUNC</strong> ] key for one second to enter the Menu mode.
 2. Rotate the <strong>SELECT</strong> knob to select Menu Mode <strong>No-012</strong> [ <strong>BEACON TIME</strong> ] .
@@ -2565,7 +2557,7 @@ may be used as a traditional CW message keyer. To do this:</p>
 <li>Press the [ <strong>FUNC</strong> ] key momentarily, then rotate the <strong>SELECT</strong> knob, as needed, until
 Multi Function Row “o” [ <strong>PLY1, PLY2, PLY3</strong> ] appears on the display.</li>
 <li>Press the <a href="**PLY1**"> <strong>A</strong> </a> key momentarily to send the “ <strong>BEACON TEXT 1</strong> ” message. Alternatively, pressing the <a href="**PLY2**"> <strong>B</strong> </a> or <a href="**PLY3**"> <strong>C</strong> </a> key will initiate the message at those respective break points.</li>
-</ol><h6><strong>DISPLAY CUSTOMIZATION</strong></h6>
+</ol><h6 id="display-customization"><strong>DISPLAY CUSTOMIZATION</strong></h6>
 <p><strong>Display Lamp Mode</strong>
 The <strong>FT-857</strong> illumination lamp has four options for activation of the illumination.</p>
 <p>To set up the Lamp mode:</p>
@@ -2603,7 +2595,7 @@ The LCD illumination level may also be adjusted using the Menu Mode.</p>
 level. As you make the adjustment, you will be able to see the effects of your changes.</li>
 <li>When you have completed the adjustment, press and hold in the [ <strong>FUNC</strong> ] key for one
 second to exit the Menu mode.</li>
-</ol><h6><strong>DISPLAY CUSTOMIZATION</strong></h6>
+</ol><h6 id="display-customization-2"><strong>DISPLAY CUSTOMIZATION</strong></h6>
 <p><strong>Display Color</strong>
 The LCD color may be changed using the Menu Mode for different operating status conditions. For example, the display may be configured to show a different color according to
 ARTS status, by Band, by Memory Group, by VFO/Memory/HOME/QMB status, or may
@@ -2628,7 +2620,7 @@ for one second to exit the Menu mode.</li>
 </ol><p>The Menu System allows you to customize a wide variety of transceiver performance aspects and operating characteristics. Once you have gone through the various Menu
 customization procedures initially, you will find that you will not have to resort to them
 frequently during everyday operation.</p>
-<h6><strong>MENU OPERATION</strong></h6>
+<h6 id="menu-operation"><strong>MENU OPERATION</strong></h6>
 <ol>
 <li>
 <p>Press and hold in the [ <strong>FUNC</strong> ] key for one second. The Menu Item number and a title for</p>
@@ -3444,7 +3436,7 @@ computer. The <strong>CT-62</strong> has a built-in level converter, allowing di
 panel CAT <strong>/LINEA</strong> R jack to the serial port of your computer, without the need for an external RS-232C level converter box.</p>
 <p>Vertex Standard does not produce CAT System operating software, due to the wide variety
 of personal computers, operating systems, and applications in use today.</p>
-<p>The information presented in this section will allow the programmer to understand the command structure and opcodes used in the <strong>FT-857</strong> ’s CAT System.</p><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page114-0.png" alt="Figure from page 115. RS-232C CT-62 (Option)"><figcaption>Figure from page 115. RS-232C CT-62 (Option)</figcaption></figure><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page114-1.png" alt="Figure from page 115. CAT/LINEAR"><figcaption>Figure from page 115. CAT/LINEAR</figcaption></figure><p>CAT <strong>Data Protocol</strong>
+<p>The information presented in this section will allow the programmer to understand the command structure and opcodes used in the <strong>FT-857</strong> ’s CAT System.</p><figure><button aria-label="Enlarge Figure from page 115. RS-232C CT-62 (Option)" class="zoom" data-dialog="fig-13" type="button"><img alt="Figure from page 115. RS-232C CT-62 (Option)" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page114-0.png"/></button><figcaption>Figure from page 115. RS-232C CT-62 (Option)</figcaption><dialog id="fig-13"><img alt="Figure from page 115. RS-232C CT-62 (Option)" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page114-0.png"/><p>Figure from page 115. RS-232C CT-62 (Option)</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 115. CAT/LINEAR" class="zoom" data-dialog="fig-14" type="button"><img alt="Figure from page 115. CAT/LINEAR" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page114-1.png"/></button><figcaption>Figure from page 115. CAT/LINEAR</figcaption><dialog id="fig-14"><img alt="Figure from page 115. CAT/LINEAR" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page114-1.png"/><p>Figure from page 115. CAT/LINEAR</p><form method="dialog"><button>Close</button></form></dialog></figure><p>CAT <strong>Data Protocol</strong>
 All commands sent from the computer to the transceiver consist of five-byte blocks, with up
 to 200 ms between each byte. The last byte in each block is the instruction opcode, while the
 first four bytes of each block are arguments (either parameters for that instruction, or dummy
@@ -3595,7 +3587,7 @@ both radios are now identical. They both may be turned
 on now for normal operation.</li>
 </ol>
 <p>[Distination Radio]</p>
-<p>[Source Radio]</p><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page119-0.png" alt="Figure from page 120. CAT/LINEAR CAT/LINEAR"><figcaption>Figure from page 120. CAT/LINEAR CAT/LINEAR</figcaption></figure><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page119-1.png" alt="Figure from page 120. CAT/LINEAR CAT/LINEAR"><figcaption>Figure from page 120. CAT/LINEAR CAT/LINEAR</figcaption></figure><p><strong>OPTIONAL DIGITAL SIGNAL PROCESSING UNIT DSP-2</strong>
+<p>[Source Radio]</p><figure><button aria-label="Enlarge Figure from page 120. CAT/LINEAR CAT/LINEAR" class="zoom" data-dialog="fig-15" type="button"><img alt="Figure from page 120. CAT/LINEAR CAT/LINEAR" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page119-0.png"/></button><figcaption>Figure from page 120. CAT/LINEAR CAT/LINEAR</figcaption><dialog id="fig-15"><img alt="Figure from page 120. CAT/LINEAR CAT/LINEAR" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page119-0.png"/><p>Figure from page 120. CAT/LINEAR CAT/LINEAR</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 120. CAT/LINEAR CAT/LINEAR" class="zoom" data-dialog="fig-16" type="button"><img alt="Figure from page 120. CAT/LINEAR CAT/LINEAR" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page119-1.png"/></button><figcaption>Figure from page 120. CAT/LINEAR CAT/LINEAR</figcaption><dialog id="fig-16"><img alt="Figure from page 120. CAT/LINEAR CAT/LINEAR" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page119-1.png"/><p>Figure from page 120. CAT/LINEAR CAT/LINEAR</p><form method="dialog"><button>Close</button></form></dialog></figure><p><strong>OPTIONAL DIGITAL SIGNAL PROCESSING UNIT DSP-2</strong>
 The <strong>DSP-2</strong> is a highly-effective filtering technology which can dramatically improve reception and transmission.</p>
 <ol>
 <li>Turn the transceiver’s power off by pressing and holding in the <strong>POWER</strong> switch for one
@@ -3611,7 +3603,7 @@ plug).</li>
 </ol>
 <p>DSP-2</p>
 <p>MAIN UNIT</p>
-<p><strong>Figure 1</strong> <strong>Figure 2</strong></p><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page120-0.png" alt="Figure from page 121. ä"><figcaption>Figure from page 121. ä</figcaption></figure><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page120-1.png" alt="Figure from page 121. BAND MODE"><figcaption>Figure from page 121. BAND MODE</figcaption></figure><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page120-2.png" alt="Figure from page 121. BAND MODE"><figcaption>Figure from page 121. BAND MODE</figcaption></figure><p><strong>OPTIONAL FILTERS: YF-122S, YF-122C, AND YF-122CN</strong>
+<p><strong>Figure 1</strong> <strong>Figure 2</strong></p><figure><button aria-label="Enlarge Figure from page 121. ä" class="zoom" data-dialog="fig-17" type="button"><img alt="Figure from page 121. ä" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page120-0.png"/></button><figcaption>Figure from page 121. ä</figcaption><dialog id="fig-17"><img alt="Figure from page 121. ä" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page120-0.png"/><p>Figure from page 121. ä</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 121. BAND MODE" class="zoom" data-dialog="fig-18" type="button"><img alt="Figure from page 121. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page120-1.png"/></button><figcaption>Figure from page 121. BAND MODE</figcaption><dialog id="fig-18"><img alt="Figure from page 121. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page120-1.png"/><p>Figure from page 121. BAND MODE</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 121. BAND MODE" class="zoom" data-dialog="fig-19" type="button"><img alt="Figure from page 121. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page120-2.png"/></button><figcaption>Figure from page 121. BAND MODE</figcaption><dialog id="fig-19"><img alt="Figure from page 121. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page120-2.png"/><p>Figure from page 121. BAND MODE</p><form method="dialog"><button>Close</button></form></dialog></figure><p><strong>OPTIONAL FILTERS: YF-122S, YF-122C, AND YF-122CN</strong>
 1. Turn the transceiver’s power off by pressing and holding in the PWR switch for one
 second, then disconnect the DC cable from the <strong>INPUT</strong> jack on the rear panel of the
 transceiver.
@@ -3631,7 +3623,7 @@ activate the optional filter which is installed in the “ <strong>FIL1</strong>
 change the setting of Menu Mode <strong>No-086</strong> [ <strong>TX IF FIL-</strong></p>
 <p>stalled the optional <strong>YF-122S</strong> filter).</p>
 <p>Optional Filter</p>
-<p>MAIN UNIT</p><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page121-0.png" alt="Figure from page 122. BAND MODE"><figcaption>Figure from page 122. BAND MODE</figcaption></figure><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page121-1.png" alt="Figure from page 122. BAND MODE"><figcaption>Figure from page 122. BAND MODE</figcaption></figure><p><strong>OPTIONAL HIGH STABILITY REFERENCE OSCILLATOR TCXO-9</strong>
+<p>MAIN UNIT</p><figure><button aria-label="Enlarge Figure from page 122. BAND MODE" class="zoom" data-dialog="fig-20" type="button"><img alt="Figure from page 122. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page121-0.png"/></button><figcaption>Figure from page 122. BAND MODE</figcaption><dialog id="fig-20"><img alt="Figure from page 122. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page121-0.png"/><p>Figure from page 122. BAND MODE</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 122. BAND MODE" class="zoom" data-dialog="fig-21" type="button"><img alt="Figure from page 122. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page121-1.png"/></button><figcaption>Figure from page 122. BAND MODE</figcaption><dialog id="fig-21"><img alt="Figure from page 122. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page121-1.png"/><p>Figure from page 122. BAND MODE</p><form method="dialog"><button>Close</button></form></dialog></figure><p><strong>OPTIONAL HIGH STABILITY REFERENCE OSCILLATOR TCXO-9</strong>
 The <strong>TCXO-9</strong> provides high stability over a wide range of ambient temperatures, so as to
 enhance digital-mode operating.</p>
 <ol>
@@ -3647,7 +3639,7 @@ plug).</li>
 <li><strong>TCXO-9</strong> installation is now complete. Connect the DC cable to the <strong>INPUT</strong> jack.</li>
 </ol>
 <p>TCXO-9</p>
-<p>MAIN UNIT</p><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page122-0.png" alt="Figure from page 123. BAND MODE"><figcaption>Figure from page 123. BAND MODE</figcaption></figure><figure><img src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page122-1.png" alt="Figure from page 123. BAND MODE"><figcaption>Figure from page 123. BAND MODE</figcaption></figure><p><strong>SETUP</strong> <strong>OF MEMORIES</strong> <strong>FOR LOW EARTH ORBIT</strong> [(] <strong>LEO</strong> [)] <strong>FM SATELLITE OPERATION</strong>
+<p>MAIN UNIT</p><figure><button aria-label="Enlarge Figure from page 123. BAND MODE" class="zoom" data-dialog="fig-22" type="button"><img alt="Figure from page 123. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page122-0.png"/></button><figcaption>Figure from page 123. BAND MODE</figcaption><dialog id="fig-22"><img alt="Figure from page 123. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page122-0.png"/><p>Figure from page 123. BAND MODE</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 123. BAND MODE" class="zoom" data-dialog="fig-23" type="button"><img alt="Figure from page 123. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page122-1.png"/></button><figcaption>Figure from page 123. BAND MODE</figcaption><dialog id="fig-23"><img alt="Figure from page 123. BAND MODE" src="nav-comms_P2_ft-857-operators-manual-b7662b7f/nav-comms_P2_ft-857-operators-manual-b7662b7f-page122-1.png"/><p>Figure from page 123. BAND MODE</p><form method="dialog"><button>Close</button></form></dialog></figure><p><strong>SETUP</strong> <strong>OF MEMORIES</strong> <strong>FOR LOW EARTH ORBIT</strong> [(] <strong>LEO</strong> [)] <strong>FM SATELLITE OPERATION</strong>
 Although the <strong>FT-857</strong> is not capable of “full duplex” operation (simultaneous transmission
 and reception), its flexible memory system is ideal for configuring a set of memories for
 LEO satellite work.</p>
@@ -3717,7 +3709,7 @@ adjustment is not needed.</p><p><strong>SETUP</strong> <strong>OF MEMORIES</stro
 channels).</p>
 <p>A complete set of frequencies may be stored for each LEO satellite you wish to utilize, and
 once configured, the <strong>FT-857</strong> provides a flexible and easy-to-use earth station capability for
-these popular satellites.</p><h6><strong>MH-59A8J REMOTE MICROPHONE</strong></h6>
+these popular satellites.</p><h6 id="mh-59a8j-remote-microphone"><strong>MH-59A8J REMOTE MICROPHONE</strong></h6>
 <p>The optional <strong>MH-59A8J</strong> Remote Microphone provides control of the major functions of the
 <strong>FT-857</strong> from the microphone’s keypad. The <strong>MH-59A8J</strong> includes a rotary control knob for
 adjust the operating frequency and receiver audio volume level.</p>
@@ -3748,7 +3740,7 @@ digit “2” during Direct Keypad Frequency Entry.</p>
 <p>[ <strong>3</strong> ( <strong>CLAR</strong> )] key</p>
 <p>Pressing this key momentarily activates the Receiver Clarifier (“R.I.T.”) feature.
 Press and hold in this key for one second to activate the IF Shift feature.
-This key generates the DTMF “3” tone during transmission, and frequency entry</p><h6><strong>MH-59A8J REMOTE MICROPHONE</strong></h6>
+This key generates the DTMF “3” tone during transmission, and frequency entry</p><h6 id="mh-59a8j-remote-microphone-2"><strong>MH-59A8J REMOTE MICROPHONE</strong></h6>
 <p>[ <strong>4</strong> ( <strong>HOME</strong> )] key</p>
 <p>Pressing this key recalls a favorite “Home” frequency memory.
 This key generates the DTMF “4” tone during transmission, and frequency entry digit “4” during Direct Keypad Frequency Entry.</p>
@@ -3767,14 +3759,14 @@ This key generates the DTMF “7” tone during transmission, and frequency entr
 digit “7” during Direct Keypad Frequency Entry.</p>
 <p>[ <strong>8</strong> ( <strong>DWN BAND</strong> )] key</p>
 <p>Pressing this key causes the frequency to be moved down by one frequency band:
-<strong>1.8 MHz</strong>  - <strong>430 MHz</strong>  - <strong>144 MHz</strong>  - <strong>108 MHz</strong>  - <strong>88 MHz</strong>  - <strong>50 MHz</strong>  <strong>28 MHz</strong>  - <strong>24 MHz</strong>  - <strong>21 MHz</strong>  - <strong>18 MHz</strong>  - <strong>15 MHz</strong>  - <strong>14 MHz</strong>  - <strong>10 MHz</strong>  <strong>7 MHz</strong>  - <strong>5 MHz</strong>  - <strong>3.5 MHz</strong>  - <strong>1.8 MHz</strong> [.....]</p>
+<strong>1.8 MHz</strong>  - <strong>430 MHz</strong>  - <strong>144 MHz</strong>  - <strong>108 MHz</strong>  - <strong>88 MHz</strong>  - <strong>50 MHz</strong> <strong>28 MHz</strong>  - <strong>24 MHz</strong>  - <strong>21 MHz</strong>  - <strong>18 MHz</strong>  - <strong>15 MHz</strong>  - <strong>14 MHz</strong>  - <strong>10 MHz</strong> <strong>7 MHz</strong>  - <strong>5 MHz</strong>  - <strong>3.5 MHz</strong>  - <strong>1.8 MHz</strong> [.....]</p>
 <p>This key generates the DTMF “8” tone during transmission, and frequency entry
 digit “8” during Direct Keypad Frequency Entry.</p>
 <p>[ <strong>9</strong> ( <strong>BAND UP</strong> )] key</p>
 <p>Pressing this key causes the frequency to be moved up by one frequency band:
-<strong>1.8 MHz</strong>  - <strong>3.5 MHz</strong>  - <strong>5 MHz</strong>  - <strong>7 MHz</strong>  - <strong>10 MHz</strong>  - <strong>14 MHz</strong>  - <strong>15 MHz</strong>  <strong>18 MHz</strong>  - <strong>21 MHz</strong>  - <strong>24 MHz</strong>  - <strong>28 MHz</strong>  - <strong>50 MHz</strong>  - <strong>88 MHz</strong>  <strong>108 MHz</strong>  - <strong>144 MHz</strong>  - <strong>430 MHz</strong>  - <strong>1.8 MHz</strong> [.....]</p>
+<strong>1.8 MHz</strong>  - <strong>3.5 MHz</strong>  - <strong>5 MHz</strong>  - <strong>7 MHz</strong>  - <strong>10 MHz</strong>  - <strong>14 MHz</strong>  - <strong>15 MHz</strong> <strong>18 MHz</strong>  - <strong>21 MHz</strong>  - <strong>24 MHz</strong>  - <strong>28 MHz</strong>  - <strong>50 MHz</strong>  - <strong>88 MHz</strong> <strong>108 MHz</strong>  - <strong>144 MHz</strong>  - <strong>430 MHz</strong>  - <strong>1.8 MHz</strong> [.....]</p>
 <p>This key generates the DTMF “9” tone during transmission, and frequency entry
-digit “9” during Direct Keypad Frequency Entry.</p><h6><strong>MH-59A8J REMOTE MICROPHONE</strong></h6>
+digit “9” during Direct Keypad Frequency Entry.</p><h6 id="mh-59a8j-remote-microphone-3"><strong>MH-59A8J REMOTE MICROPHONE</strong></h6>
 <p>[ - ] key</p>
 <p>This key generates the DTMF “F (  - )” tone during transmission.</p>
 <p>[ <strong>0</strong> ( <strong>CNTL</strong> )] key</p>
@@ -3810,7 +3802,7 @@ via Menu Mode <strong>No-068</strong> [ <strong>PG ACC</strong> ] .</p>
 <p>[ <strong>PWR</strong> ( <strong>FAST</strong> )] key</p>
 <p>Press and hold in this key for one second to turn the transceiver on or off.
 While the transceiver is turned on, pressing this key momentarily will engage the
-“Fast Tuning” mode, to allow more rapid frequency navigation (a small “running</p><h6><strong>MH-59A8J REMOTE MICROPHONE</strong></h6>
+“Fast Tuning” mode, to allow more rapid frequency navigation (a small “running</p><h6 id="mh-59a8j-remote-microphone-4"><strong>MH-59A8J REMOTE MICROPHONE</strong></h6>
 <p>[ <strong>P1</strong> ] key (Quick Split)</p>
 <p>Press this key to change the Sub VFO frequency
 (Main VFO frequency + 5 kHz) and automatically
@@ -3862,5 +3854,13 @@ All rights reserved.</p>
 <p>No portion of this manual
 may be reproduced</p>
 <p>VERTEX STANDARD CO., LTD. 0212u-AK</p>
+    </main>
+  </div>
+  <script>document.querySelectorAll('button.zoom').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var d = document.getElementById(b.getAttribute('data-dialog'));
+    if (d && d.showModal) d.showModal();
+  });
+});</script>
 </body>
 </html>
