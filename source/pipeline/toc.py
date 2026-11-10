@@ -38,14 +38,18 @@ def parse_toc_line(line: str) -> Tuple[str, str]:
 
 
 def toc_to_markdown(text: str) -> str:
-    """Rewrite a block of leader-dot lines as a markdown list.
+    """Rewrite leader-dot lines as a markdown list.
 
-    Non-leader lines are preserved. A run of leader lines becomes one list.
+    Layout emits the TOC as one table cell with <br> between entries.
+    Split on <br> and newlines so each entry is a line. Non-leader
+    lines are preserved. A run of leader lines becomes one list.
     """
+    # Normalize layout's single-cell TOC into lines.
+    normalized = text.replace("<br>", "\n").replace("<br/>", "\n")
     out: List[str] = []
     in_list = False
-    for raw in text.splitlines():
-        line = raw.strip()
+    for raw in normalized.splitlines():
+        line = raw.strip().strip("|").strip()
         if is_toc_line(line):
             title, page = parse_toc_line(line)
             if not in_list:
