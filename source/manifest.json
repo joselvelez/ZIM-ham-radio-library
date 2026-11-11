@@ -44,6 +44,30 @@
       "title": "US Amateur Radio Bands (color, 11x8)",
       "status": "ingested",
       "canonical": true
+    },
+    "nav-comms_P2_hambands4_color_17x11-03b8d915": {
+      "id": "nav-comms_P2_hambands4_color_17x11-03b8d915",
+      "path": "pdfs/public/basic/nav-comms_P2_hambands4_color_17x11.pdf",
+      "sha256": "03b8d915947307b2eafa66ea0036d5d90c55e968b4bf8827f6adf034e4746824",
+      "fingerprint": "sz620246-h490e482009f232a8",
+      "size": 620246,
+      "category": "reference",
+      "location": "basic",
+      "title": "US Amateur Radio Bands (color, 17x11)",
+      "status": "ingested",
+      "canonical": true
+    },
+    "nav-comms_P2_hambands4_grayscale_11x8_5-b4e32c2f": {
+      "id": "nav-comms_P2_hambands4_grayscale_11x8_5-b4e32c2f",
+      "path": "pdfs/public/basic/nav-comms_P2_hambands4_grayscale_11x8_5.pdf",
+      "sha256": "b4e32c2f4c9685a042ac5f94da8576b1c6b4248a02bb6d37848576d64a385fc1",
+      "fingerprint": "sz330942-hcd17d5ef8942676d",
+      "size": 330942,
+      "category": "reference",
+      "location": "basic",
+      "title": "US Amateur Radio Bands (grayscale, 11x8)",
+      "status": "ingested",
+      "canonical": true
     }
   },
   "version": 1
