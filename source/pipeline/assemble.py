@@ -178,28 +178,31 @@ def make_poster_html(record: Dict[str, Any], extracted: Dict[str, Any], page_ima
 '''
 
 
-def retire_previous_article(record: Dict[str, Any], html_root: Path) -> None:
-    """Remove the article left in the old category when the category changes.
+def retire_other_copies(record: Dict[str, Any], html_root: Path) -> None:
+    """Remove every article for this document except the current category.
 
-    Fail Fast if the previous category is set but the id is missing.
-    An empty old category directory is removed.
+    A document id has exactly one article. Copies left in other categories
+    are deleted. An empty category directory is removed.
     """
-    previous = record.get("_previous_category")
-    if not previous:
-        return
+    import shutil
     slug = record.get("id")
-    if not slug:
-        raise ValueError("category change without a document id")
-    old_dir = html_root / "articles" / previous
-    old_html = old_dir / f"{slug}.html"
-    old_assets = old_dir / slug
-    if old_html.exists():
-        old_html.unlink()
-    if old_assets.exists():
-        import shutil
-        shutil.rmtree(old_assets)
-    if old_dir.exists() and not any(old_dir.iterdir()):
-        old_dir.rmdir()
+    category = record.get("category")
+    if not slug or not category:
+        raise ValueError("cannot retire copies without an id and a category")
+    articles = html_root / "articles"
+    if not articles.exists():
+        return
+    for cat_dir in list(articles.iterdir()):
+        if not cat_dir.is_dir() or cat_dir.name == category:
+            continue
+        old_html = cat_dir / f"{slug}.html"
+        old_assets = cat_dir / slug
+        if old_html.exists():
+            old_html.unlink()
+        if old_assets.exists():
+            shutil.rmtree(old_assets)
+        if not any(cat_dir.iterdir()):
+            cat_dir.rmdir()
 
 
 def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: Path, figures: list | None = None, page_image: dict | None = None) -> Path:

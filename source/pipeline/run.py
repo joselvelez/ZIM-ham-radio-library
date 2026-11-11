@@ -20,7 +20,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from source.pipeline.ingest import ingest_pdf, load_manifest, save_manifest
 from source.pipeline.extract import extract_pdf, extract_diagram_pngs, is_poster, render_page_png
 from source.pipeline.figures import figure_regions
-from source.pipeline.assemble import write_article
+from source.pipeline.assemble import write_article, retire_other_copies
 from source.pipeline.quality import score_document, enqueue_if_low
 from source.pipeline.index import rebuild_index
 from source.pipeline.sources import write_sources_page
@@ -80,6 +80,7 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
         page_image = render_page_png(doc[0], notes, record["id"])
         doc.close()
         print(f"  page: {page_image['path']}")
+        retire_other_copies(record, html_root)
         article = write_article(record, extracted, html_root, page_image=page_image)
         print(f"Article: {article}")
         return
@@ -107,6 +108,7 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
     if review:
         print(f"Queued for review: {review}")
 
+    retire_other_copies(record, html_root)
     article = write_article(record, extracted, html_root, figures)
     print(f"Article: {article}")
 
