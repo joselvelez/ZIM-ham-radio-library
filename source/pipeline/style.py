@@ -144,28 +144,31 @@ document.querySelectorAll('button.zoom').forEach(function (b) {
 
 
 STYLE_CSS = """
-:root { color-scheme: dark; }
-body { font-family: system-ui, sans-serif; margin: 0; background: #0c121c; color: #e8eef5; line-height: 1.6; }
-.layout { display: grid; grid-template-columns: 16rem 1fr; gap: 2rem; max-width: 72rem; margin: 0 auto; padding: 1.5rem; }
+:root { color-scheme: light; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
+.layout { display: grid; grid-template-columns: 16rem 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
 nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
-nav.toc .toc-title { color: #ffdc50; font-weight: 600; margin: 0 0 0.5rem; }
+nav.toc .toc-title { color: #1a1a1a; font-weight: 600; margin: 0 0 0.5rem; }
 nav.toc ul { list-style: none; padding: 0; margin: 0; }
 nav.toc li { margin: 0.25rem 0; }
-nav.toc a { color: #8ab4ff; text-decoration: none; }
+nav.toc a { color: #0b57d0; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
-main { max-width: 70ch; }
-h1 { font-size: 1.8rem; color: #ffdc50; margin: 0 0 0.5rem; }
-h2, h3, h4, h5, h6 { color: #ffdc50; margin-top: 1.8rem; font-size: 1.15rem; }
-a { color: #64b4ff; }
-.meta { font-size: 0.8rem; color: #6a7; }
-figure { margin: 1.5rem 0; background: #1a2230; padding: 1rem; border-radius: 6px; }
+main { max-width: none; }
+h1 { font-size: 1.8rem; color: #1a1a1a; margin: 0 0 0.5rem; }
+h2, h3, h4, h5, h6 { color: #1a1a1a; margin-top: 1.8rem; font-size: 1.15rem; }
+a { color: #0b57d0; }
+.meta { font-size: 0.8rem; color: #555; }
+figure { margin: 1.5rem 0; background: #f6f6f6; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; }
 figure img { max-width: 100%; height: auto; background: #fff; cursor: zoom-in; }
-figcaption { font-size: 0.85rem; color: #8aa; margin-top: 0.5rem; }
+figcaption { font-size: 0.85rem; color: #555; margin-top: 0.5rem; }
 button.zoom { background: none; border: 0; padding: 0; display: block; width: 100%; cursor: zoom-in; }
-dialog { max-width: 90vw; max-height: 90vh; background: #111; color: #eee; border: 0; border-radius: 8px; padding: 1rem; }
+dialog { max-width: 90vw; max-height: 90vh; background: #fff; color: #1a1a1a; border: 1px solid #ccc; border-radius: 8px; padding: 1rem; }
 dialog img { max-width: 100%; max-height: 75vh; background: #fff; }
-dialog::backdrop { background: rgba(0,0,0,0.75); }
+dialog::backdrop { background: rgba(0,0,0,0.5); }
 ul { padding-left: 1.2rem; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #bbb; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f0f0f0; font-weight: 600; }
 @media (max-width: 800px) {
   .layout { grid-template-columns: 1fr; }
   nav.toc { position: static; max-height: 16rem; }

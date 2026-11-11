@@ -52,21 +52,21 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
             by_page.setdefault(fig["page"], []).append(fig)
 
     body_parts = []
-    for chunk in chunks:
-        page_no = (chunk.get("metadata") or {}).get("page")
-        # pymupdf4llm page is 1-based
-        page_idx = (page_no - 1) if isinstance(page_no, int) else None
+    for i, chunk in enumerate(chunks):
+        meta = chunk.get("metadata") or {}
+        page_no = meta.get("page")
+        # Layout may omit page. Fall back to chunk order (0-based).
+        page_idx = (page_no - 1) if isinstance(page_no, int) else i
         text = toc_to_markdown(chunk.get("text", "")).strip()
         if text:
             body_parts.append(md_lib.markdown(text, extensions=["extra", "sane_lists"]))
-        if page_idx is not None:
-            for fig in by_page.get(page_idx, []):
-                rel = f"{slug}/{Path(fig['path']).name}"
-                cap = _caption(fig["page"], fig.get("labels") or [])
-                body_parts.append(
-                    f'<figure><img src="{html.escape(rel)}" alt="{html.escape(cap)}">'
-                    f"<figcaption>{html.escape(cap)}</figcaption></figure>"
-                )
+        for fig in by_page.get(page_idx, []):
+            rel = f"{slug}/{Path(fig['path']).name}"
+            cap = _caption(fig["page"], fig.get("labels") or [])
+            body_parts.append(
+                f'<figure><img src="{html.escape(rel)}" alt="{html.escape(cap)}">'
+                f"<figcaption>{html.escape(cap)}</figcaption></figure>"
+            )
 
     body_html = "".join(body_parts)
     soup = BeautifulSoup(f"<div id=\"body\">{body_html}</div>", "html.parser")
