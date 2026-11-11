@@ -49,7 +49,7 @@ html/articles/manuals/
     {slug}-page12-1.svg
 ```
 
-The HTML references them as `{slug}/filename.svg`. This keeps the category folder flat (one HTML per source) and scales to thousands of documents × dozens of figures. On a category change the article and its asset directory move together; the old directory is removed only when empty.
+The HTML references them as `{slug}/filename.png`. This keeps the category folder flat (one HTML per source) and scales to thousands of documents × dozens of figures. A document id has exactly one article. On a category change the old article and its asset directory are deleted; the new ones are written in the new category. An empty old category directory is removed.
 
 ### Deduplication
 Early, before expensive stages.  
@@ -195,12 +195,14 @@ The title is the largest specific line that identifies the document, not the fir
 
 The resolved title is stored on the manifest record and used for the article `<h1>`, the `<title>`, and the index. The index therefore shows `FT-857 Operating Manual`, not `OPERATING MANUAL`.
 
+When two documents resolve to the same title, the filename's variant is appended so they stay distinguishable: `US Amateur Radio Bands (bw, 11x8)` and `US Amateur Radio Bands (color, 11x8)`. The other document is updated at the same time. Fail Fast if the titles collide and the filename has no variant.
+
 ## Charts and posters
 
 A one-page PDF is a chart or poster, not a reflowable manual. Reflowing it into paragraphs destroys the chart.
 
-- The page is rendered at high DPI and is the article.
-- The extracted text is placed under the image so search and the RAG can index the labels.
+- The page is rendered at high DPI and is the article. It is full width and opens in the same lightbox as other figures.
+- The extracted text is placed in a closed "Extracted labels (for search)" block so search and the RAG can index the labels without showing the broken reflow.
 - Diagram extraction is skipped. The page image is the content.
 
 Multi-page PDFs follow the normal extract-and-reflow path.
