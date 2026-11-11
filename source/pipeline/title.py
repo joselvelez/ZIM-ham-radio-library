@@ -58,6 +58,31 @@ def _specific(text: str) -> bool:
     return cleaned.lower() not in GENERIC
 
 
+def variant_qualifier(pdf_path: Path) -> str:
+    """The part of the filename that distinguishes a variant.
+
+    Band charts of the same title differ by color and size:
+    hambands4_bw_11x8_5 vs hambands4_color_11x8_5.
+    Those tokens are the qualifier. Empty when the filename has none.
+    """
+    stem = pdf_path.stem.lower()
+    tokens = []
+    for token in ("color", "bw", "grayscale", "grey", "mono"):
+        if token in stem:
+            tokens.append(token)
+    for part in stem.replace("-", "_").split("_"):
+        if "x" in part and any(c.isdigit() for c in part):
+            tokens.append(part.replace("_", "."))
+    return ", ".join(tokens)
+
+
+def disambiguate(base: str, qualifier: str) -> str:
+    """Append the qualifier when the base title is shared. Fail Fast if empty."""
+    if not qualifier:
+        raise ValueError(f"title {base!r} collides and the filename has no variant")
+    return f"{base} ({qualifier})"
+
+
 def document_title(pdf_path: Path) -> str:
     """Largest specific line that identifies the document. Fail Fast if none.
 

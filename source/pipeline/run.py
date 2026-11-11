@@ -24,7 +24,7 @@ from source.pipeline.assemble import write_article
 from source.pipeline.quality import score_document, enqueue_if_low
 from source.pipeline.index import rebuild_index
 from source.pipeline.sources import write_sources_page
-from source.pipeline.title import document_title
+from source.pipeline.title import document_title, variant_qualifier, disambiguate
 import pymupdf as fitz
 
 
@@ -41,13 +41,26 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
         raise SystemExit(f"No category for {pdf.name}. Re-run with --category to triage it.")
 
     title = document_title(pdf)
+    qualifier = variant_qualifier(pdf)
+    manifest = load_manifest()
+    docs = manifest.setdefault("documents", {})
+    base = title
+    others = [
+        (did, rec) for did, rec in docs.items()
+        if did != record["id"] and (rec.get("title") or "").split(" (")[0] == base
+    ]
+    if others:
+        title = disambiguate(base, qualifier)
+        for did, rec in others:
+            other_path = Path(rec.get("path", ""))
+            other_q = variant_qualifier(other_path) if other_path.name else ""
+            if other_q:
+                rec["title"] = disambiguate(base, other_q)
     if record.get("title") != title:
         record["title"] = title
-        manifest = load_manifest()
-        docs = manifest.setdefault("documents", {})
         if record["id"] in docs:
             docs[record["id"]]["title"] = title
-            save_manifest(manifest)
+        save_manifest(manifest)
     print(f"Title: {title}")
 
     if max_pages is None:

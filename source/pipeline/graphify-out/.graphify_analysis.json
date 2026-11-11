@@ -1,0 +1,265 @@
+{
+  "communities": {
+    "0": [
+      "extract",
+      "extract_extract_diagram_svgs",
+      "extract_extract_page",
+      "extract_extract_pdf",
+      "extract_py_any",
+      "extract_py_page",
+      "extract_py_path",
+      "extract_rationale_1",
+      "extract_rationale_49",
+      "extract_rationale_73",
+      "figures",
+      "figures_figure_regions",
+      "figures_is_barcode",
+      "figures_is_diagram",
+      "figures_is_label",
+      "figures_is_path_art",
+      "figures_is_prose_svg",
+      "figures_is_rule",
+      "figures_nearby_text",
+      "figures_py_page",
+      "figures_rationale_1",
+      "figures_rationale_113",
+      "figures_rationale_131",
+      "figures_rationale_158",
+      "figures_rationale_33",
+      "figures_rationale_38",
+      "figures_rationale_62",
+      "figures_rationale_92",
+      "pymupdf",
+      "rect"
+    ],
+    "1": [
+      "assemble",
+      "assemble_caption",
+      "assemble_make_article_html",
+      "assemble_ordered_page_elements",
+      "assemble_py_any",
+      "assemble_py_path",
+      "assemble_rationale_1",
+      "assemble_rationale_11",
+      "assemble_rationale_21",
+      "assemble_rationale_35",
+      "assemble_retire_previous",
+      "assemble_title_from_content",
+      "assemble_write_article",
+      "layout",
+      "layout_as_rect",
+      "layout_can_join",
+      "layout_column_order",
+      "layout_overlaps_x",
+      "layout_py_valueerror",
+      "layout_rationale_1",
+      "layout_rationale_17",
+      "layout_rationale_32",
+      "layout_rationale_41",
+      "layout_unclassifiablelayout"
+    ],
+    "2": [
+      "element",
+      "index",
+      "index_py_path",
+      "index_rationale_1",
+      "index_rationale_13",
+      "index_rebuild_index",
+      "re",
+      "svg_optimize",
+      "svg_optimize_badsvg",
+      "svg_optimize_local",
+      "svg_optimize_optimize_svg",
+      "svg_optimize_py_valueerror",
+      "svg_optimize_rationale_1",
+      "svg_optimize_rationale_31",
+      "svg_optimize_rationale_71",
+      "svg_optimize_round_numbers",
+      "svg_optimize_round_numbers_repl",
+      "svg_optimize_strip_editor_attrs",
+      "xml_etree"
+    ],
+    "3": [
+      "argparse",
+      "run",
+      "run_ai_vectorize_stub",
+      "run_main",
+      "run_process_one",
+      "run_py_path",
+      "run_rationale_2",
+      "run_rationale_31",
+      "source_pipeline_assemble",
+      "source_pipeline_extract",
+      "source_pipeline_figures",
+      "source_pipeline_index",
+      "source_pipeline_ingest",
+      "source_pipeline_quality",
+      "source_pipeline_sources",
+      "sys"
+    ],
+    "4": [
+      "hashlib",
+      "ingest",
+      "ingest_ingest_pdf",
+      "ingest_load_manifest",
+      "ingest_location_tier",
+      "ingest_py_any",
+      "ingest_py_path",
+      "ingest_rationale_1",
+      "ingest_rationale_28",
+      "ingest_rationale_50",
+      "ingest_save_manifest",
+      "ingest_sha256_file",
+      "ingest_simple_fingerprint",
+      "json"
+    ],
+    "5": [
+      "datetime",
+      "pathlib",
+      "quality",
+      "quality_enqueue_if_low",
+      "quality_py_any",
+      "quality_py_path",
+      "quality_rationale_1",
+      "quality_rationale_15",
+      "quality_rationale_47",
+      "quality_score_document",
+      "typing"
+    ],
+    "6": [
+      "html",
+      "sources",
+      "sources_human_size",
+      "sources_location",
+      "sources_py_path",
+      "sources_rationale_1",
+      "sources_write_sources_page"
+    ],
+    "7": [
+      "init"
+    ]
+  },
+  "cohesion": {
+    "0": 0.1471264367816092,
+    "1": 0.14492753623188406,
+    "2": 0.14619883040935672,
+    "3": 0.15833333333333333,
+    "4": 0.2857142857142857,
+    "5": 0.2,
+    "6": 0.42857142857142855,
+    "7": 1.0
+  },
+  "gods": [
+    {
+      "id": "extract_extract_diagram_svgs",
+      "label": "extract_diagram_svgs()",
+      "degree": 13
+    },
+    {
+      "id": "run_process_one",
+      "label": "process_one()",
+      "degree": 11
+    },
+    {
+      "id": "ingest_ingest_pdf",
+      "label": "ingest_pdf()",
+      "degree": 10
+    },
+    {
+      "id": "extract_extract_page",
+      "label": "extract_page()",
+      "degree": 9
+    },
+    {
+      "id": "layout_unclassifiablelayout",
+      "label": "UnclassifiableLayout",
+      "degree": 9
+    },
+    {
+      "id": "layout_column_order",
+      "label": "column_order()",
+      "degree": 9
+    },
+    {
+      "id": "svg_optimize_optimize_svg",
+      "label": "optimize_svg()",
+      "degree": 9
+    },
+    {
+      "id": "figures_figure_regions",
+      "label": "figure_regions()",
+      "degree": 8
+    },
+    {
+      "id": "assemble_make_article_html",
+      "label": "make_article_html()",
+      "degree": 7
+    },
+    {
+      "id": "extract_extract_pdf",
+      "label": "extract_pdf()",
+      "degree": 7
+    }
+  ],
+  "surprises": [
+    {
+      "source": "process_one()",
+      "target": "write_article()",
+      "source_files": [
+        "run.py",
+        "assemble.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "extract_page()",
+      "target": "UnclassifiableLayout",
+      "source_files": [
+        "extract.py",
+        "layout.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "process_one()",
+      "target": "extract_pdf()",
+      "source_files": [
+        "run.py",
+        "extract.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "extract_diagram_svgs()",
+      "target": "BadSVG",
+      "source_files": [
+        "extract.py",
+        "svg_optimize.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "process_one()",
+      "target": "extract_diagram_svgs()",
+      "source_files": [
+        "run.py",
+        "extract.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

@@ -62,18 +62,19 @@ def write_sources_page(html_root: Path, manifest_path: Path) -> Path | None:
   <meta charset="utf-8">
   <title>Source list</title>
   <style>
-    body {{ font-family: system-ui, sans-serif; max-width: 1100px; margin: 2rem auto; padding: 0 1rem; background: #0c121c; color: #e8eef5; }}
-    h1 {{ color: #ffdc50; }}
-    a {{ color: #64b4ff; }}
-    input {{ width: 100%; max-width: 480px; padding: 0.5rem; margin: 0.5rem 0 1rem; background: #1a2230; color: #e8eef5; border: 1px solid #345; border-radius: 4px; }}
+    :root {{ color-scheme: light; }}
+    body {{ font-family: system-ui, sans-serif; max-width: 1100px; margin: 2rem auto; padding: 0 1rem; background: #fff; color: #1a1a1a; line-height: 1.6; }}
+    h1 {{ color: #1a1a1a; }}
+    a {{ color: #0b57d0; }}
+    input {{ width: 100%; max-width: 480px; padding: 0.5rem; margin: 0.5rem 0 1rem; background: #fff; color: #1a1a1a; border: 1px solid #bbb; border-radius: 4px; }}
     table {{ border-collapse: collapse; width: 100%; font-size: 0.9rem; }}
-    th, td {{ border-bottom: 1px solid #243; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }}
-    th {{ color: #8cf; }}
+    th, td {{ border: 1px solid #bbb; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }}
+    th {{ background: #f0f0f0; color: #1a1a1a; font-weight: 600; }}
     code {{ font-size: 0.75rem; word-break: break-all; }}
-    code.hash {{ cursor: pointer; }}
-    code.hash:hover {{ color: #ffdc50; }}
-    code.hash.copied {{ color: #8f8; }}
-    .count {{ color: #8aa; font-size: 0.85rem; }}
+    code.hash {{ cursor: pointer; color: #0b57d0; }}
+    code.hash:hover {{ text-decoration: underline; }}
+    code.hash.copied {{ color: #0a7; }}
+    .count {{ color: #555; font-size: 0.85rem; }}
   </style>
 </head>
 <body>

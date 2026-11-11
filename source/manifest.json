@@ -29,7 +29,19 @@
       "size": 384008,
       "category": "band-plans",
       "location": "basic",
-      "title": "US Amateur Radio Bands",
+      "title": "US Amateur Radio Bands (bw, 11x8)",
+      "status": "ingested",
+      "canonical": true
+    },
+    "nav-comms_P2_hambands4_color_11x8_5-84e7463d": {
+      "id": "nav-comms_P2_hambands4_color_11x8_5-84e7463d",
+      "path": "pdfs/public/basic/nav-comms_P2_hambands4_color_11x8_5.pdf",
+      "sha256": "84e7463d932d33a16514f69da059985d644410678ed5e69cddf69bf8d765a317",
+      "fingerprint": "sz1090794-h95e8dd396afee23e",
+      "size": 1090794,
+      "category": "band-plans",
+      "location": "basic",
+      "title": "US Amateur Radio Bands (color, 11x8)",
       "status": "ingested",
       "canonical": true
     }

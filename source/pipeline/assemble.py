@@ -130,6 +130,14 @@ def make_poster_html(record: Dict[str, Any], extracted: Dict[str, Any], page_ima
     rel = f"{slug}/{Path(page_image['path']).name}"
     text = "\n".join(c.get("text", "") for c in extracted.get("chunks") or []).strip()
     text_html = md_lib.markdown(text, extensions=["extra"]) if text else ""
+    soup = BeautifulSoup(
+        f'<div id="body"><figure class="poster">'
+        f'<img src="{html.escape(rel)}" alt="{html.escape(title)}">'
+        f'<figcaption>{html.escape(title)}</figcaption></figure></div>',
+        "html.parser",
+    )
+    wrap_figures(soup)
+    figure = str(soup.find("figure"))
 
     meta = (
         f'<meta name="category" content="{html.escape(category)}">\n'
@@ -146,26 +154,52 @@ def make_poster_html(record: Dict[str, Any], extracted: Dict[str, Any], page_ima
   {meta}
   <style>
     {STYLE_CSS}
+    body {{ background: #fff; }}
+    .poster-page {{ max-width: 90rem; margin: 0 auto; padding: 1.5rem; }}
+    .poster-page h1 {{ font-size: 2rem; }}
     .poster img {{ width: 100%; height: auto; }}
     .poster-text {{ margin-top: 1.5rem; }}
   </style>
 </head>
 <body>
-  <div class="layout">
-    <main>
-      <p><a href="../../index.html">← Back to index</a></p>
-      <h1>{html.escape(title)}</h1>
-      <p class="meta">Category: {html.escape(category)} · Source: {html.escape(source_pdf)} · SHA: {sha}</p>
-      <figure class="poster">
-        <img src="{html.escape(rel)}" alt="{html.escape(title)}">
-        <figcaption>{html.escape(title)}</figcaption>
-      </figure>
-      <div class="poster-text">{text_html}</div>
-    </main>
+  <div class="poster-page">
+    <p><a href="../../index.html">← Back to index</a></p>
+    <h1>{html.escape(title)}</h1>
+    <p class="meta">Category: {html.escape(category)} · Source: {html.escape(source_pdf)} · SHA: {sha}</p>
+    {figure}
+    <details class="poster-text">
+      <summary>Extracted labels (for search)</summary>
+      {text_html}
+    </details>
   </div>
+  <script>{LIGHTBOX_JS}</script>
 </body>
 </html>
 '''
+
+
+def retire_previous_article(record: Dict[str, Any], html_root: Path) -> None:
+    """Remove the article left in the old category when the category changes.
+
+    Fail Fast if the previous category is set but the id is missing.
+    An empty old category directory is removed.
+    """
+    previous = record.get("_previous_category")
+    if not previous:
+        return
+    slug = record.get("id")
+    if not slug:
+        raise ValueError("category change without a document id")
+    old_dir = html_root / "articles" / previous
+    old_html = old_dir / f"{slug}.html"
+    old_assets = old_dir / slug
+    if old_html.exists():
+        old_html.unlink()
+    if old_assets.exists():
+        import shutil
+        shutil.rmtree(old_assets)
+    if old_dir.exists() and not any(old_dir.iterdir()):
+        old_dir.rmdir()
 
 
 def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: Path, figures: list | None = None, page_image: dict | None = None) -> Path:
