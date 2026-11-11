@@ -183,7 +183,27 @@ python3 source/pipeline/run.py source/pdfs/public/basic/ --pages 5
 Category is not a folder and not a flag you pass every time. It lives in the manifest. `--category` is how you set it the first time.
 
 
-## Public source list
+## Document title
+
+The title is the largest specific line that identifies the document, not the first heading and not the PDF info-dictionary title.
+
+- The info-dictionary title is untrusted. It is often a path or a filename.
+- The first heading is often a generic cover word (`OPERATING MANUAL`) that is the same on every manual of a series.
+- A line that appears on more than one early page is a running title. That is preferred, because it identifies the document rather than a section.
+- Generic cover words (`OPERATING MANUAL`, `INTRODUCTION`, `CONTENTS`, `SPECIFICATIONS`) are skipped.
+- Fail Fast if no specific line is found on the first six pages.
+
+The resolved title is stored on the manifest record and used for the article `<h1>`, the `<title>`, and the index. The index therefore shows `FT-857 Operating Manual`, not `OPERATING MANUAL`.
+
+## Charts and posters
+
+A one-page PDF is a chart or poster, not a reflowable manual. Reflowing it into paragraphs destroys the chart.
+
+- The page is rendered at high DPI and is the article.
+- The extracted text is placed under the image so search and the RAG can index the labels.
+- Diagram extraction is skipped. The page image is the content.
+
+Multi-page PDFs follow the normal extract-and-reflow path.
 
 `html/sources.html` is a searchable list of every ingested source, generated from the manifest and packaged into the ZIM. It is the public view of what the library contains.
 

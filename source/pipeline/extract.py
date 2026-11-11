@@ -19,10 +19,25 @@ from typing import Dict, Any, List
 
 from .figures import figure_regions, is_diagram, is_rule, is_barcode, is_path_art
 
-
 # Strip repeating page chrome. pymupdf4llm applies these as margins.
 PAGE_MARGINS = (0, 50, 0, 50)
 FIGURE_DPI = 200
+
+
+# A single page is a chart or poster, not a reflowable manual.
+def is_poster(page_count: int) -> bool:
+    """True when the document is one page. Reflow would destroy it."""
+    return page_count == 1
+
+
+def render_page_png(page: fitz.Page, out_dir: Path, stem: str) -> dict:
+    """High-DPI render of the whole page. Fail Fast if the write fails."""
+    pix = page.get_pixmap(dpi=FIGURE_DPI)
+    out = out_dir / f"{stem}-page.png"
+    pix.save(str(out))
+    if not out.exists() or out.stat().st_size == 0:
+        raise SystemExit(f"Page PNG write failed for {out}")
+    return {"path": str(out), "page": page.number, "labels": []}
 
 
 def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:

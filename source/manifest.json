@@ -18,6 +18,19 @@
       "size": 3395271,
       "category": "manuals",
       "status": "ingested",
+      "canonical": true,
+      "title": "FT-857 Operating Manual"
+    },
+    "nav-comms_P2_hambands4_bw_11x8_5-50110f1f": {
+      "id": "nav-comms_P2_hambands4_bw_11x8_5-50110f1f",
+      "path": "pdfs/public/basic/nav-comms_P2_hambands4_bw_11x8_5.pdf",
+      "sha256": "50110f1fd49f96af3abb7b4d65498c1e040e82bd856dc2f5f248c727dd3299b3",
+      "fingerprint": "sz384008-h3338e7ac88c515e9",
+      "size": 384008,
+      "category": "band-plans",
+      "location": "basic",
+      "title": "US Amateur Radio Bands",
+      "status": "ingested",
       "canonical": true
     }
   },

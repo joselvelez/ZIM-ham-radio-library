@@ -40,7 +40,11 @@ def _caption(page_no: int, labels: List[str]) -> str:
 
 def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures: list | None = None) -> str:
     chunks = extracted.get("chunks") or []
-    title = _title_from_markdown(chunks, record.get("id", "Untitled"))
+    # Title is resolved before assembly and stored on the record.
+    # The first heading is not the title: it is often a generic cover word.
+    title = record.get("title")
+    if not title:
+        raise ValueError("record has no title; title resolution must run before assembly")
     category = record["category"]
     source_pdf = record.get("path", "unknown")
     sha = record.get("sha256", "")[:12]
@@ -110,7 +114,61 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
 '''
 
 
-def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: Path, figures: list | None = None) -> Path:
+def make_poster_html(record: Dict[str, Any], extracted: Dict[str, Any], page_image: dict) -> str:
+    """A one-page chart or poster. The page image is the article.
+
+    Extracted text is placed under the image so search and the RAG can
+    index the labels. The page is not reflowed.
+    """
+    title = record.get("title")
+    if not title:
+        raise ValueError("record has no title; title resolution must run before assembly")
+    category = record["category"]
+    source_pdf = record.get("path", "unknown")
+    sha = record.get("sha256", "")[:12]
+    slug = record["id"]
+    rel = f"{slug}/{Path(page_image['path']).name}"
+    text = "\n".join(c.get("text", "") for c in extracted.get("chunks") or []).strip()
+    text_html = md_lib.markdown(text, extensions=["extra"]) if text else ""
+
+    meta = (
+        f'<meta name="category" content="{html.escape(category)}">\n'
+        f'<meta name="source" content="{html.escape(source_pdf)}">\n'
+        f'<meta name="sha256" content="{sha}">\n'
+        f'<meta name="pipeline" content="pymupdf4llm-poster">\n'
+        f'<meta name="generated" content="{datetime.utcnow().isoformat()}Z">'
+    )
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{html.escape(title)}</title>
+  {meta}
+  <style>
+    {STYLE_CSS}
+    .poster img {{ width: 100%; height: auto; }}
+    .poster-text {{ margin-top: 1.5rem; }}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <main>
+      <p><a href="../../index.html">← Back to index</a></p>
+      <h1>{html.escape(title)}</h1>
+      <p class="meta">Category: {html.escape(category)} · Source: {html.escape(source_pdf)} · SHA: {sha}</p>
+      <figure class="poster">
+        <img src="{html.escape(rel)}" alt="{html.escape(title)}">
+        <figcaption>{html.escape(title)}</figcaption>
+      </figure>
+      <div class="poster-text">{text_html}</div>
+    </main>
+  </div>
+</body>
+</html>
+'''
+
+
+def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: Path, figures: list | None = None, page_image: dict | None = None) -> Path:
     import shutil
     category = record["category"]
     art_dir = html_root / "articles" / category
@@ -119,6 +177,11 @@ def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: 
     out = art_dir / f"{slug}.html"
     asset_dir = art_dir / slug
     asset_dir.mkdir(parents=True, exist_ok=True)
+    if page_image is not None:
+        out.write_text(make_poster_html(record, extracted, page_image))
+        dest = asset_dir / Path(page_image["path"]).name
+        shutil.copy(page_image["path"], dest)
+        return out
     figs = [f for f in (figures or []) if Path(f["path"]).exists()]
     out.write_text(make_article_html(record, extracted, figs))
     kept = set()

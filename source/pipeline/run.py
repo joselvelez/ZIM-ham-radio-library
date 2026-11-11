@@ -17,13 +17,14 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from source.pipeline.ingest import ingest_pdf
-from source.pipeline.extract import extract_pdf, extract_diagram_pngs
+from source.pipeline.ingest import ingest_pdf, load_manifest, save_manifest
+from source.pipeline.extract import extract_pdf, extract_diagram_pngs, is_poster, render_page_png
 from source.pipeline.figures import figure_regions
 from source.pipeline.assemble import write_article
 from source.pipeline.quality import score_document, enqueue_if_low
 from source.pipeline.index import rebuild_index
 from source.pipeline.sources import write_sources_page
+from source.pipeline.title import document_title
 import pymupdf as fitz
 
 
@@ -39,6 +40,16 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
     if not record.get("category"):
         raise SystemExit(f"No category for {pdf.name}. Re-run with --category to triage it.")
 
+    title = document_title(pdf)
+    if record.get("title") != title:
+        record["title"] = title
+        manifest = load_manifest()
+        docs = manifest.setdefault("documents", {})
+        if record["id"] in docs:
+            docs[record["id"]]["title"] = title
+            save_manifest(manifest)
+    print(f"Title: {title}")
+
     if max_pages is None:
         print("Extracting (full document)...")
     else:
@@ -49,6 +60,17 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
 
     notes = Path("source/notes")
     notes.mkdir(parents=True, exist_ok=True)
+
+    if is_poster(extracted["page_count"]):
+        print("Poster (one page): rendering the page, not reflowing.")
+        doc = fitz.open(pdf)
+        page_image = render_page_png(doc[0], notes, record["id"])
+        doc.close()
+        print(f"  page: {page_image['path']}")
+        article = write_article(record, extracted, html_root, page_image=page_image)
+        print(f"Article: {article}")
+        return
+
     figures: list[dict] = []
     doc = fitz.open(pdf)
     # Figures are scanned across the whole document.
