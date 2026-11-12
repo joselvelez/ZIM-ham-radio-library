@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>An occasional series (nav-comms_tutorial_rig-control-with-flrig)</title>
+  <meta name="title" content="An occasional series (nav-comms_tutorial_rig-control-with-flrig)">
+<meta name="category" content="operating">
+<meta name="source" content="pdfs/public/basic/nav-comms_tutorial_rig-control-with-flrig.pdf">
+<meta name="sha256" content="8fdd393757be">
+<meta name="pipeline" content="pymupdf4llm">
+<meta name="generated" content="2026-11-12T22:54:04.368010Z">
+  <style>
+    :root { color-scheme: light; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
+.layout { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
+.layout:has(nav.toc) { grid-template-columns: 16rem 1fr; }
+nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
+nav.toc .toc-title { color: #1a1a1a; font-weight: 600; margin: 0 0 0.5rem; }
+nav.toc ul { list-style: none; padding: 0; margin: 0; }
+nav.toc li { margin: 0.25rem 0; }
+nav.toc a { color: #0b57d0; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+main { max-width: none; }
+h1 { font-size: 1.8rem; color: #1a1a1a; margin: 0 0 0.5rem; }
+h2, h3, h4, h5, h6 { color: #1a1a1a; margin-top: 1.8rem; font-size: 1.15rem; }
+a { color: #0b57d0; }
+.meta { font-size: 0.8rem; color: #555; }
+figure { margin: 1.5rem 0; background: #f6f6f6; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; }
+figure img { max-width: 100%; height: auto; background: #fff; cursor: zoom-in; }
+figcaption { font-size: 0.85rem; color: #555; margin-top: 0.5rem; }
+button.zoom { background: none; border: 0; padding: 0; display: block; width: 100%; cursor: zoom-in; }
+dialog { max-width: 90vw; max-height: 90vh; background: #fff; color: #1a1a1a; border: 1px solid #ccc; border-radius: 8px; padding: 1rem; }
+dialog img { max-width: 100%; max-height: 75vh; background: #fff; }
+dialog::backdrop { background: rgba(0,0,0,0.5); }
+ul { padding-left: 1.2rem; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #bbb; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f0f0f0; font-weight: 600; }
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  nav.toc { position: static; max-height: 16rem; }
+}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    
+    <main>
+      <p><a href="../../index.html">← Back to index</a></p>
+      <h1>An occasional series (nav-comms_tutorial_rig-control-with-flrig)</h1>
+      <p class="meta">Category: operating · Source: pdfs/public/basic/nav-comms_tutorial_rig-control-with-flrig.pdf · SHA: 8fdd393757be</p>
+      <h2 id="how-do-i">How do I?</h2>
+<h2 id="an-occasional-series">An occasional series</h2>
+<h2 id="this-week-rig-control-with-flrig">This week: Rig Control with FLRIG</h2>
+<p>Imagine sitting at your radio desk and being able change band, mode and frequency with a few keystrokes.  Or being able to leave the radio in the shack and play radio from your living room or porch with your tablet or smart phone.  Your sound card alone will not control the rig. Rig control requires separate cables. </p>
+<p>Part of the solution is solid, reliable software. <strong>Ham Radio Deluxe-HRD</strong> seems to be the gold standard. It is not free.  Its users seem to like it. I’ve tried it, but to be fair not lately. When I tried it years ago I didn’t have a rig that was easy to use with CAT control. I wanted to use <em>FLDIGI</em> - <em>Fast Light Digital Modem</em> and <em><strong>FLRIG</strong></em> is part of that suite. <em>FLDIGI</em> is open source and the main custodian is W1HKJ. Please see links at the end. <em>FLDIGI</em> is free and widely used.  It can literally support hundreds of digital modes. </p>
+<p>What is CAT control? Computer Aided Transceiver control uses USB or RS232 ports to connect your computer to your radio. At that point your radio is a peripheral, just like a printer or a mouse.  A sound card, such as a Tigertronics Signalink or West Mountain Radio Rigblaster, simply uses PTT (push to talk) to put the transceiver into transmit mode and then switches back to receive.  CAT can do that, but can also change frequency, band, mode, power, RF gain, etc.  Many modern rigs have memory channels where you can program favorite settings.  Perhaps memory 1 is a favorite SSB net. Memory 2 is one of the DX watering holes. Memory 3 is your settings for RTTY, etc. Older rigs may not be able to store that info, but a good rig control program like <strong>FLRIG</strong> will. </p>
+<p>I really just want to play radio. Do I really need this? The general answer is no.  I have operated for years without it.  I have been intrigued by rig control and have played with it, but didn’t use it until recently.  What changed?  FT8 and the WSJT-X suite of digital modes. </p>
+<p>The WSJT-X suite is designed to use CAT control. Up to version 2.0 it was recommended but not required.  Version 2.0 requires it.  I was able to get my radio to work with it with a lot of help from Andy, AF3I.   We both have the same radio so I let him make it work and simply copied his settings.  Thanks Andy!</p><p>WSJT-X is amazing but has 2 faults. It does not interface directly with the NSFJP logging software. I am told it will with <strong>HRD</strong> though.  To log a WSJT-X QSO directly to N3FJP you need an add on (free) called JTAlert.  See link at end.  JTAlert will log the WSJT-X QSO into N3FJP. The other problem is that It seems to want to be the only prohgram controlling your radio, ever. </p>
+<p>Since this all works well;why do I need rig control?  I like <em>FLDIGI</em> .  WSJT-X seems to fight with it for access to the radio. It seems every time I get FLDIGI to work again, then close it and open WSJT-X, when I go back it is broken.  Someone on the Groups.io <em>FLDIGI</em> list was helping someone and said that they used the <strong>FLRIG</strong> link below and successfully used <strong>FLRIG</strong> with <em>FLDIGI</em> , WSJT-X and N3FJP!  I was hooked.  So I downloaded this version and tried again.  The <em>FLDGI</em> page has settings for popular radios. Start with those although you may have to make some adjustments. The hardest part was finding <strong>FLRIG</strong> in the drop down list in WSJT-X.  It’s there, but easy to miss when scrolling down.  Once you have <strong>FLRIG</strong> as the rig in WSJT-X, you should be able to start NSFJP, then WSJT-X then JTAlert and be ready to go. </p>
+<p>in <em>FLDIGI</em> go to the Configure menu to set up rig control. Use the default settings but change the port to 12345. At that point <strong>FLRIG</strong> will display in <em>FLDIGI</em> whatever frequency your radio shows.  Changing bands?  Change the frequency in <em>FLDIGI</em> and your radio will change. </p>
+<p>The one part I have not figured out yet, and maybe it cannot be done, is how to use <strong>FLRIG</strong> with N3FJP directly.  For SSB contesting, I have N3FJP set to use CAT control to capture band, frequency and power info. No more changing bands and didn’t realize you didn’t change the log. <strong>FLRIG</strong> is not a drop down option  so maybe for the few SSB contests I participate in, I either manually set up N3FJP for rig control or do without. For digital contesting <em>FLDIGI</em> will log directly to N3FJP . In order to log properly from JTAlert or <em>FLDIGI</em> , rig control in N3FJP has to be set to none. Otherwise N3FJP and <strong>FLRIG</strong> will be fighting for control of your radio. </p>
+<p>The one drawback I have found with using <strong>FLRIG</strong> is that it sets the power to both VFO’s the same.  I have VFO A set for 3.947 mhz SSB work. I have VFO B set for digital work. If I want to operate digital, I simply press the button to swap A&amp;B and all the settings are there.  I don’t have to adjust power, AGC settings, etc.   The only way I have found to do that with <strong>FLRIG</strong> is to use the <strong>FLRIG</strong> memory which feels like extra key strokes. </p>
+<p>Rig and CAT control is a complicated subject.  For more info please see the sites below. Consider joining the Yahoo or Groups.io reflector for your radio and or software. There are some great resources out there for WSJT-X, <em>FLDIGI</em> , Yaesu, Kenwood, Icom and others.</p><p>If you just want to do FT8 or other WSJT-X modes, you do not need <strong>FLRIG</strong> . The CAT controls built into WSJT-X work fine.  If you just want to use <em>FLDIGI</em> you don’t need <strong>FLRIG.</strong> But if you want the freedom to flip back and forth between the two (last night I worked PSK31 on 40m and FT8 on 40m and 80m) <strong>FLRIG</strong> will make life easier. </p>
+<p>Links: FLRIG that works well: </p>
+<p>http://www.w1hkj.com/alpha/flrig/ </p>
+<p>FLRIG main page http://www.w1hkj.com/ </p>
+<p>Tigertronics FLDIGI set up </p>
+<p>http://www.tigertronics.com/pgmsetup.htm#FLdigi </p>
+<p>JTAlert: https://hamapps.com/ </p>
+<p>N3FJP digital setup http://www.n3fjp.com/help/digitalsetup.html</p>
+    </main>
+  </div>
+  <script>document.querySelectorAll('button.zoom').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var d = document.getElementById(b.getAttribute('data-dialog'));
+    if (d && d.showModal) d.showModal();
+  });
+});</script>
+</body>
+</html>

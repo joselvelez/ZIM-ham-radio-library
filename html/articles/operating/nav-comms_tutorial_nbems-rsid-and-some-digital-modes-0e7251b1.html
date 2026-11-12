@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>This week: ....A Glance At Some other Digital Modes and RSID and NBEMS</title>
+  <meta name="title" content="This week: ....A Glance At Some other Digital Modes and RSID and NBEMS">
+<meta name="category" content="operating">
+<meta name="source" content="pdfs/public/basic/nav-comms_tutorial_nbems-rsid-and-some-digital-modes.pdf">
+<meta name="sha256" content="0e7251b18dac">
+<meta name="pipeline" content="pymupdf4llm">
+<meta name="generated" content="2026-11-12T22:54:04.030145Z">
+  <style>
+    :root { color-scheme: light; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
+.layout { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
+.layout:has(nav.toc) { grid-template-columns: 16rem 1fr; }
+nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
+nav.toc .toc-title { color: #1a1a1a; font-weight: 600; margin: 0 0 0.5rem; }
+nav.toc ul { list-style: none; padding: 0; margin: 0; }
+nav.toc li { margin: 0.25rem 0; }
+nav.toc a { color: #0b57d0; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+main { max-width: none; }
+h1 { font-size: 1.8rem; color: #1a1a1a; margin: 0 0 0.5rem; }
+h2, h3, h4, h5, h6 { color: #1a1a1a; margin-top: 1.8rem; font-size: 1.15rem; }
+a { color: #0b57d0; }
+.meta { font-size: 0.8rem; color: #555; }
+figure { margin: 1.5rem 0; background: #f6f6f6; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; }
+figure img { max-width: 100%; height: auto; background: #fff; cursor: zoom-in; }
+figcaption { font-size: 0.85rem; color: #555; margin-top: 0.5rem; }
+button.zoom { background: none; border: 0; padding: 0; display: block; width: 100%; cursor: zoom-in; }
+dialog { max-width: 90vw; max-height: 90vh; background: #fff; color: #1a1a1a; border: 1px solid #ccc; border-radius: 8px; padding: 1rem; }
+dialog img { max-width: 100%; max-height: 75vh; background: #fff; }
+dialog::backdrop { background: rgba(0,0,0,0.5); }
+ul { padding-left: 1.2rem; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #bbb; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f0f0f0; font-weight: 600; }
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  nav.toc { position: static; max-height: 16rem; }
+}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    
+    <main>
+      <p><a href="../../index.html">← Back to index</a></p>
+      <h1>This week: ....A Glance At Some other Digital Modes and RSID and NBEMS</h1>
+      <p class="meta">Category: operating · Source: pdfs/public/basic/nav-comms_tutorial_nbems-rsid-and-some-digital-modes.pdf · SHA: 0e7251b18dac</p>
+      <h2 id="how-do-i">How do I?</h2>
+<h2 id="an-occasional-series">An occasional series</h2>
+<h2 id="this-week-a-glance-at-some-other-digital-modes-and-rsid-and-nbems">This week: ....A Glance At Some other Digital Modes and RSID and NBEMS</h2>
+<p>Amateur radio is full of expermenters. The technology fascinates some folks, followed by “what if I try....” </p>
+<p>What is digital? In a nutshell it is sending a radio signal by means other than CW (Morse Code) or Phone (voice). From the end of WWII until the 1980’s the only digital option was RTTY-Radio teletype. In the early days, one had to acquire an actual teletype machine and build an interface to your radio. Not for the faint of heart! </p>
+<p>In 1983 as personal computers became more widely available, a new digital mode appeared; AMTOR. It offered Forward Error Correction (FEC) and was able to deliver error free copy. AMTOR required some fairly expensive hardware though. The next to appear was packet radio, which again required some more hardware, then more hardware based modes such as PACTOR and CLOVER appeared. In the late 1990’s computers and sound cards had improved to the point where extra hardware was not needed; a computer and sound card could get your station on the air with digital modes. <em>FLDIGI</em> the <em><strong>F</strong></em> ast <em><strong>L</strong></em> ight <em><strong>Digi</strong></em> tal modem appeared. Its popularity has changed overe the years, as has the software, but it is still free and widely used. With <em>FLDIGI</em> came PSK31, which got a lot of hams on the air with digital modes and got them interested in weak signal work. A typical PSK31 transmission is not more than 30 watts. </p>
+<p>Circa 2003 there were essentially 3 ways to operate digital modes: RTTY using the very popular MMTTY engine so that your computer and sound card replaced a bulky and now hard to find machine; <em>FLDIGI</em> , primarily with PSK31 but also able to operate RTTY, CW, CLOVER, MSFK and dozens of other modes; and AGWPE, a packet engine that let one operate packet without more hardware. AGWPE is a software based virtual terminal node controller or TNC. </p>
+<p>Then came DR Joe Taylor, K1JT and his WSJT-X software. Today it is possibly the most widely used software for HF digital. FT8 is relatively simple to set up (see other articles in this series) and it has certainly gotten a lot of hams on the air. But FT8 is designed simply for weak signal work and was designed to exchange the basics (call sign, grid square, signal report) in a very brief amount of time. It does that well, but that is all it does. </p>
+<p>What if you want more? The ability to have a more conversational QSO, or the ability to send longer messages? You have options, but most will work best with <em>FLDIGI</em> . FLDIGI is free and fairly easy to set up. For some modes you may want or need CAT control using FLRIG and other modes work fine if you manually tune the radio and set the frequency in the software. A sound card connects your rig to the computer as well. An external sound card such as those sold by TigerTronics and West Mountain Radio are not only easy to use but widely used and help is easy to find. If you are buying a new radio, some, such as the Kenwood 590SG have a built in sound card. The radio may cost a little more upfront but may be cheaper in the long run. </p>
+<p>The EMCOMM community has embraced NBEMS (Narrow Band Emergency Messaging Software) and uses <em>FLDIGI</em> . Every state has local, state wide and regional nets. You can check into a local net</p><p>with a flooding event report and within hours it has percolated up the chain of nets to the national level. “When all else fails...” </p>
+<p>The Pennsylvania State net meets on 3.583 mhz USB at 0800 EST on Sunday’s. The net uses THOR22. THOR is so new it does not appear in any of my books, but once again Google is a big help. According to the FLDIGI website http://www.w1hkj.com/FldigiHelp-3.21/Modes/THORdesc.htm THOR is a family of offset incremental multi-frequency shift keyed modes with a low symbol rate. It has FEC built in. THOR22 is 21.533 baud and equates to 78 words per minute. Once the roll has been called and the checkins received, the net switches to MFSK32 to exchange messages. It is very similar to THOR. MFSK32 was designed for VHF work but is being used on HF. MFSK32 can also send photos, which is one reason it is used for NBEMS messaging. It may not be quite as robust as THOR but can send photos and larger messages at at higher rate of speed. </p>
+<p><strong>==&gt; picture [318 x 238] intentionally omitted &lt;==</strong></p>
+<p><strong>THOR22 in use on the PA NBEMS net. Running on</strong> <em><strong>FLDIGI</strong></em></p><p><strong>==&gt; picture [350 x 263] intentionally omitted &lt;==</strong></p>
+<p><strong>MFSK32 used for NBEMS messaging</strong> </p>
+<p>WSJT-X and FT8 is the first software many hams have used to explore digital modes. They may not know about MMTTY or <em>FLDIGI</em> . Instead of accepting the limitations of FT8 as simply a weak signal, rapid transaction mode, they want it to do more. PSK31 works very well. It is amazing what 30 watts and a narrow signal can do. But instead of learning <em>FLDIGI</em> or one of the other PSK31 software packages, they want FT8 to do the same. Hence the birth of FT8CALL which has now been renamed JS8CALL. </p>
+<p>JS8CALL was launched on October of 2018. The official website is http://js8call.com/. It is in its infancy and not widely used yet. The primary use seems to be as propagation beacons and a way to see who can hear you. Yes, PSK reporter does this, but that requires internet access and going to a website. With JS8CALL one simply sends a message and monitoring stations will reply that they heard it. The designers have visions of making JS8CALL into a more robust PSK31: able to exchange more info such as state, county, station information etc as well as free form messages. Time will tell if it is successful at this. </p>
+<p>How can I tell what that noise is? If using FLDIGI, please turn on RSID for both transmit and receive. Reed-Solomon Identification is a sub signal sent with the main signal that tells what it is. FLDIGI will decode the RSID first and display a message telling what it found and set FLDIGI for that mode. Very cool!. RSID is the same technology that lets your car stereo display the name of the song or artist being played.</p><p><strong>==&gt; picture [372 x 279] intentionally omitted &lt;==</strong></p>
+<p>** </p>
+<h2 id="rsid-display-in-fldigi"><strong>RSID display in FLDIGI</strong></h2>
+<p>Hopefully this glimpse of some other digital modes was helpful. As time and demand permit we may be able to come back and do a longer article on each, so watch this space! </p>
+<p>See ya on the air!</p>
+    </main>
+  </div>
+  <script>document.querySelectorAll('button.zoom').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var d = document.getElementById(b.getAttribute('data-dialog'));
+    if (d && d.showModal) d.showModal();
+  });
+});</script>
+</body>
+</html>

@@ -1,0 +1,3054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FT-8900R Operating Manual</title>
+  <meta name="title" content="FT-8900R Operating Manual">
+<meta name="category" content="manuals">
+<meta name="source" content="pdfs/public/basic/nav-comms_manual_yaesu_ft-8900r.pdf">
+<meta name="sha256" content="f5678f8125d9">
+<meta name="pipeline" content="pymupdf4llm">
+<meta name="generated" content="2026-11-12T22:18:31.585883Z">
+  <style>
+    :root { color-scheme: light; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
+.layout { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
+.layout:has(nav.toc) { grid-template-columns: 16rem 1fr; }
+nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
+nav.toc .toc-title { color: #1a1a1a; font-weight: 600; margin: 0 0 0.5rem; }
+nav.toc ul { list-style: none; padding: 0; margin: 0; }
+nav.toc li { margin: 0.25rem 0; }
+nav.toc a { color: #0b57d0; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+main { max-width: none; }
+h1 { font-size: 1.8rem; color: #1a1a1a; margin: 0 0 0.5rem; }
+h2, h3, h4, h5, h6 { color: #1a1a1a; margin-top: 1.8rem; font-size: 1.15rem; }
+a { color: #0b57d0; }
+.meta { font-size: 0.8rem; color: #555; }
+figure { margin: 1.5rem 0; background: #f6f6f6; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; }
+figure img { max-width: 100%; height: auto; background: #fff; cursor: zoom-in; }
+figcaption { font-size: 0.85rem; color: #555; margin-top: 0.5rem; }
+button.zoom { background: none; border: 0; padding: 0; display: block; width: 100%; cursor: zoom-in; }
+dialog { max-width: 90vw; max-height: 90vh; background: #fff; color: #1a1a1a; border: 1px solid #ccc; border-radius: 8px; padding: 1rem; }
+dialog img { max-width: 100%; max-height: 75vh; background: #fff; }
+dialog::backdrop { background: rgba(0,0,0,0.5); }
+ul { padding-left: 1.2rem; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #bbb; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f0f0f0; font-weight: 600; }
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  nav.toc { position: static; max-height: 16rem; }
+}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav class="toc" aria-label="Contents"><p class="toc-title">Contents</p><ul><li><a href="#rf-squelch">RF Squelch — 26</a></li><li><a href="#repeater-operation">Repeater Operation — 27</a></li><li><a href="#repeater-shifts">Repeater Shifts — 27</a></li><li><a href="#automatic-repeater-shift-ars">Automatic Repeater Shift (ARS) — 27</a></li><li><a href="#manual-repeater-shift-activation">Manual Repeater Shift Activation — 28</a></li></ul></nav>
+    <main>
+      <p><a href="../../index.html">← Back to index</a></p>
+      <h1>FT-8900R Operating Manual</h1>
+      <p class="meta">Category: manuals · Source: pdfs/public/basic/nav-comms_manual_yaesu_ft-8900r.pdf · SHA: f5678f8125d9</p>
+      <h2 id="quad-band-fm-transceiver-ft-8900r-operating-manual">QUAD BAND FM TRANSCEIVER FT-8900R OPERATING MANUAL</h2>
+<p><strong>==&gt; picture [271 x 163] intentionally omitted &lt;==</strong></p>
+<h2 id="vertex-standard-co-ltd-4-8-8-nakameguro-meguro-ku-tokyo-153-8644-japan-vertex-standard">VERTEX STANDARD CO., LTD. 4-8-8 Nakameguro, Meguro-Ku, Tokyo 153-8644, Japan VERTEX STANDARD</h2>
+<p>US Headquarters </p>
+<p>10900 Walker Street, Cypress, CA 90630, U.S.A. YAESU EUROPE B.V. </p>
+<p>P.O. Box 75525, 1118 ZN Schiphol, The Netherlands </p>
+<h2 id="yaesu-uk-ltd">YAESU UK LTD.</h2>
+<p>Unit 12, Sun Valley Business Park, Winnall Close Winchester, Hampshire, SO23 0LB, U.K. </p>
+<h2 id="vertex-standard-hk-ltd">VERTEX STANDARD HK LTD.</h2>
+<p>Unit 5, 20/F., Seaview Centre, 139-141 Hoi Bun Road, Kwun Tong, Kowloon, Hong Kong</p><h2 id="contents">Contents</h2>
+<ul>
+<li>Introduction ...................................................... 1|CTCSS/DCS Operation — 29</li>
+</ul>
+<p>|---|---|</p>
+<ul>
+<li>Specifications .................................................... 2|CTCSS Operation — 29</li>
+<li>Accessories &amp; Options ..................................... 3|DCS Operation — 30</li>
+<li>Supplied Accessories ..................................... 3|Tone Search Scanning — 31</li>
+<li>Optional Accessories...................................... 3|Memory Operation — 32</li>
+<li>Installation ........................................................ 4|Regular Memory Channel Operation — 32</li>
+<li>Preliminary Inspection ................................... 4|Memory Storage — 32</li>
+<li>Installation Tips.............................................. 4|Memory Recall — 34</li>
+<li>Safety Information ......................................... 5|Memory Offset Tuning — 34</li>
+<li>Antenna Considerations ................................. 6|Deleting Memories — 34</li>
+<li>Mobile Installation ......................................... 8|HOME Channel Memory — 35</li>
+<li>Transceiver Installation.............................. 8|Memory Only Mode — 35</li>
+<li>Mobile Power Connections........................ 9|Hyper Memory Mode — 36</li>
+<li>Mobile Speakers ........................................ 9|Hyper Memory Storage — 36</li>
+<li>Base Station Installation .............................. 10|Hyper Memory Recall — 36</li>
+<li>AC Power Supplies .................................. 10|Scanning — 37</li>
+<li>Packet Radio Terminal Node Controller . 10|Setting the Scan-Resume Technique — 37</li>
+<li>Front Panel Controls &amp; Switches ................. 12|VFO Scanning — 38</li>
+<li>LCD.................................................................. 16|Memory Scanning — 39</li>
+</ul>
+<p>|Rear Panel Connections ................................ 17|How to Skip(Omit)a Channel|</p>
+<ul>
+<li>MH-48A6JMicrophone ................................... 18|During Memory Scan Operation — 39</li>
+<li>MH-42B6JSMicrophone .................................. 19|Preferential Memory Scan — 40</li>
+</ul>
+<p>|Basic Operation .............................................. 20|Programmable(Band Limit)Memory Scan .. 41|
+|Turning the Transceiver On and Off ........... 20|“Priority Channel” Scanning(Dual Watch) .. 42|</p>
+<ul>
+<li>Adjusting the Squelch Setting ..................... 20|Smart Search — 43</li>
+<li>Selecting the Operating Band ...................... 20|ARTSTM: Auto Range Transponder System — 44</li>
+<li>Selecting the Frequency Band ..................... 21|Basic ARTS Setup and Operation — 44</li>
+<li>Frequency Navigation .................................. 22|CW Identifier Setup — 45</li>
+<li>Tuning Dial .............................................. 22|DTMF Autodialer Operation — 46</li>
+<li>Direct Keypad Frequency Entry .............. 22|Internet Connection Feature — 48</li>
+<li>Scannig .................................................... 22|Miscellaneous Settings — 50</li>
+<li>Transmission ................................................ 23|Time-Out Timer — 50</li>
+<li>Changing the Transmitter Power Level ... 23|Automatic Power Off — 50</li>
+<li>Advanced Operation ...................................... 24|Programming the Key Assignment — 51</li>
+<li>Lock Feature................................................. 24|FM Bandwith &amp; MIC Gain Control — 52</li>
+<li>Keyboard Beeper .......................................... 24|DCS Code Inversionm — 53</li>
+<li>Channel Step Selection ................................ 24|Cross Band Repeater Operation — 54</li>
+<li>Display Brightness ....................................... 25|Reset Procedure — 55</li>
+<li>Band Linking ............................................... 25|Cloning — 56</li>
+<li>Audio Muting ............................................... 26|Menu (“Set”) Mode — 58</li>
+<li><a href="#rf-squelch">RF Squelch — 26</a></li>
+<li><a href="#repeater-operation">Repeater Operation — 27</a></li>
+<li><a href="#repeater-shifts">Repeater Shifts — 27</a></li>
+<li><a href="#automatic-repeater-shift-ars">Automatic Repeater Shift (ARS) — 27</a></li>
+<li><a href="#manual-repeater-shift-activation">Manual Repeater Shift Activation — 28</a></li>
+<li>Changing the Default Repeater Shift — 28</li>
+</ul><p><strong>==&gt; picture [270 x 82] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>1 4
+VOL SQL 2 5 SQL PWRVOL
+3 KEY2 6
+LOW V/M HM SCN LOW V/M HM SCN
+<strong>----- End of picture text -----</strong></p>
+<p>The FT-8900R is a ruggedly-built, high quality Quad Band FM transceiver providing 50 Watts of power output on the 29/50/144 MHz Amateur bands and 35 Watts on the 430 MHz band. </p>
+<p>The high power output of the FT-8900R is produced by its RD70HVF1 Power MOS FET amplifier, with a direct-flow heat sink and thermostatically-controlled cooling fan maintaining a safe temperature for the transceiver’s circuitry. </p>
+<p>Featuring 809 memory channels, full duplex operation with independent Volume and Squelch controls, and built-in CTCSS and DCS encoder/decoder circuits, the FT-8900R includes provision for remote-head mounting, utilizing the optional YSK-8900 Separation Kit, which allows installation evening the most compact of cars. </p>
+<p>We recommend that you read this manual in its entirety, so as to understand fully the many features of your new FT-8900R transceiver.</p><h2 id="specifications">SPECIFICATIONS</h2>
+<h2 id="general">~~GENERAL~~</h2>
+<p>Frequency Range: RX: 28.000 - 29.700 MHz, 50.000 - 54.000 MHz, 108.000 - 180.000 MHz, 320.000 - 480.000 MHz, 700 - 985 MHz (Cellular Blocked) TX: 28.000 - 29.700 MHz, 50.000 - 54.000 MHz, 144.000 - 146.000 MHz  (or 144.000 - 148.000 MHz), 430.000 - 440.000 MHz (or 430.00 - 450.000 MHz) Channel Steps: 5/10/12.5/15/20/25/50 kHz Modes of Emission: F3, F2, F1 Antenna Impedance: 50 Ohms, unbalanced (Antenna Duplexer built-in) Frequency Stability: ±5 ppm @ 14° F ~ +140° F (–10 °C ~ +60 °C) Operating Temperature Range: –4° F ~ +140° F (–20 °C ~ +60 °C) Supply Voltage: 13.8 VDC (±15%), negative ground Current Consumption (Approx.): RX: 0.5 A (Squelched) TX: 8.0 A (50/430 MHz), 8.5 A (29/144 MHz) Case Size (W x H x D): 5.5” x 1.6” x 6.6” (140 x 41.5 x 168 mm) (w/o knobs &amp; connectors) Weight (Approx.): 2.2 lb (1 kg) ~~TRANSMITTER~~ Output Power: 50/20/10/5 W (29/50/144 MHz), 35/20/10/5 W (430 MHz) Modulation Type: Variable Reactance Maximum Deviation: ±5 kHz Spurious Radiation: Better than –60 dB (29 MHz: Better than –50 dB) Modulation Distortion: Less than 3% Microphone Impedance: 2 kΩ DATA Jack Impedance: 10 kΩ </p>
+<h2 id="receiver">~~RECEIVER~~</h2>
+<p>Circuit Type: Double-conversion superheterodyne Intermediate Frequencies: 45.05 MHz/450 kHz (Left band), 47.25 MHz/450 kHz (Right band) Sensitivity (for 12dB SINAD): Better than 0.2 µV Squelch Sensitivity: Better than 0.16 µV Selectivity (–6dB/–60dB): 12 kHz/30 kHz Maximum AF Output: 2 W @ 8 Ω for 5% THD AF Output Impedance: 4-16 Ω </p>
+<p>Specifications are subject to change without notice, and are guaranteed within the 29, 50, 144, and 430 MHz amateur bands only. Frequency ranges will vary according to transceiver version; check with your dealer.</p><h2 id="accessories-options">ACCESSORIES &amp; OPTIONS</h2>
+<p><strong>==&gt; picture [361 x 95] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SUPPLIED ACCESSORIES</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Microphone MH-48A6J or MH-42B6JS (depending on transceiver version) — 1</li>
+<li>Mobile Mounting Bracket MMB-36 — 1</li>
+<li>DC Power Cord w/Fuse (T9021715) — 1</li>
+<li>Spare Fuse 15 A (Q0000081)| — 2</li>
+<li>Operating Manual — 1</li>
+<li>Warranty Card — 1</li>
+</ul>
+<p><strong>----- End of picture text -----</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>OPTIONALACCESSORIES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MH-48A6J</td>
+<td>DTMF Microphone�1</td>
+</tr>
+<tr>
+<td>MH-42B6JS</td>
+<td>Hand Microphone�1</td>
+</tr>
+<tr>
+<td>YSK-8900</td>
+<td>Separation Kit</td>
+</tr>
+<tr>
+<td>MEK-2</td>
+<td>Microphone Extension Kit�2</td>
+</tr>
+<tr>
+<td>MLS-100</td>
+<td>High-Power External Speaker</td>
+</tr>
+<tr>
+<td>FP-1023</td>
+<td>AC Power Supply (25A: USA only)</td>
+</tr>
+<tr>
+<td>FP-1030A</td>
+<td>AC Power Supply (30A)</td>
+</tr>
+<tr>
+<td>CT-39A</td>
+<td>Packet Interface Cable</td>
+</tr>
+</tbody>
+</table>
+<p>Availability of accessories may vary. Some accessories are supplied as standard per local requirements, while others may be unavailable in some regions. Consult your Yaesu dealer for details regarding these and any newly-available options Connection of any non-Yaesuapproved accessory, should it cause damage, may void the Limited Warranty on this apparatus. </p>
+<ul>
+<li>
+<p>�1: If you replace the microphone from the MH-48A6J to MH-42B6JS or vice versa, perform Menu #23 (MIC). See page 63 for details. </p>
+</li>
+<li>
+<p>�2: When using the MH-48A6J or MH-42B6JS microphone in conjunction with the MEK-2, in some cases, the [P1] through [P4] functions may operate erratically.</p>
+</li>
+</ul><h2 id="installation">INSTALLATION</h2>
+<p>This chapter describes the installation procedure for integrating the FT-8900R into a typical amateur radio station. It is presumed that you possess technical knowledge and conceptual understanding consistent with your status as a licensed radio amateur. Please take some extra time to make certain that the important safety and technical requirements detailed in this chapter are followed closely. </p>
+<h2 id="preliminary-inspection">PRELIMINARY INSPECTION</h2>
+<p>Inspect the transceiver visually immediately upon opening the packing carton. Confirm that all controls and switches work freely, and inspect the cabinet for any damage. Gently shake the transceiver to verify that no internal components have been shaken loose due to rough handling during shipping. </p>
+<p>If any evidence of damage is discovered, document it thoroughly and contact the shipping company (or your local dealer, if the unit was purchased over-the-counter) so as to get instructions regarding the prompt resolution of the damage situation. Be certain to save the shipping carton, especially if there are any punctures or other evidence of damage incurred during shipping; if it is necessary to return the unit for service or replacement, use the original packing materials but put the entire package inside another packing carton, so as to preserve the evidence of shipping damage for insurance purposes. </p>
+<h2 id="installation-tips">INSTALLATION TIPS</h2>
+<p>To ensure long life of the components, be certain to provide adequate ventilation around the cabinet of the FT-8900R. </p>
+<p>Do not install the transceiver on top of another heat-generating device (such as a power supply or amplifier), and do not place equipment, books, or papers on top of the FT-8900R. Avoid heating vents and window locations that could expose the transceiver to excessive direct sunlight, especially in hot climates. The FT-8900R should not be used in an environment where the ambient temperature exceeds +140° F (+60° C).</p><h2 id="installation-2">INSTALLATION</h2>
+<h2 id="safety-information">SAFETY INFORMATION</h2>
+<p>The FT-8900R is an electrical apparatus, as well as a generator of RF (Radio Frequency) energy, and you should exercise all safety precautions as are appropriate for this type of device. These safety tips apply to any device installed in a well-designed amateur radio station. </p>
+<p><strong>==&gt; picture [22 x 19] intentionally omitted &lt;==</strong></p>
+<p>Never allow unsupervised children to play in the vicinity of your transceiver or antenna installation. </p>
+<p><strong>==&gt; picture [22 x 20] intentionally omitted &lt;==</strong></p>
+<p>Be certain to wrap any wire or cable splices thoroughly with insulating electrical tape, to prevent short circuits. </p>
+<p><strong>==&gt; picture [22 x 20] intentionally omitted &lt;==</strong></p>
+<p>Do not route cables or wires through door jambs or other locations where, through wear and tear, they may become frayed and shorted to ground or to each other. </p>
+<p>Do not stand in front of a directional antenna while you are transmitting into that antenna. Do not install a directional antenna in any location where humans or pets may be walking in the main directional lobe of the antenna’s radiation pattern. </p>
+<p>In mobile installations, it is preferable to mount your antenna on top of the roof of the vehicle, if feasible, so as to utilize the car body as a counterpoise for the antenna and raise the radiation pattern as far away from passengers as possible. </p>
+<p><strong>==&gt; picture [22 x 19] intentionally omitted &lt;==</strong></p>
+<p>During vehicular operation when stopped (in a parking lot, for example), make it a practice to switch to Low power if there are people walking nearby. </p>
+<p><strong>==&gt; picture [22 x 20] intentionally omitted &lt;==</strong></p>
+<p>Never wear dual-earmuff headphones while driving a vehicle. </p>
+<p>Do not attempt to drive your vehicle while making a telephone call on an autopatch using the DTMF microphone. Pull over to the side of the road, whether dialing manually or using the auto-dial feature.</p><h2 id="installation-3">INSTALLATION</h2>
+<h2 id="antenna-considerations">ANTENNA CONSIDERATIONS</h2>
+<p>The FT-8900R is designed for use with antennas presenting an impedance of near 50 Ohms at all operating frequencies. The antenna (or a 50 Ohm dummy load) should be connected whenever the transceiver is turned on, to avoid damage that could otherwise result if transmission occurs accidentally without an antenna. </p>
+<p>Ensure that your antenna is designed to handle 50 Watts of transmitter power. Some magnetic-mount mobile antennas, designed for use with hand-held transceivers, may not be capable of withstanding this power level. Consult the antenna manufacturer’s specification sheet for details. </p>
+<p>Most all FM work is performed using vertical polarization. When installing a directional antenna such as a Yagi or Cubical Quad, be certain to orient it so as to produce vertical polarization, unless you are engaged in a special operating situation where horizontal polarization is used. In the case of a Yagi antenna, orient the elements vertically for vertical polarization; for a Cubical Quad, the feedpoint should be at the center of one of the vertical sides of the driven element (or at a side corner, in the case of a diamond-shaped Cubical Quad). </p>
+<p>Note that this transceiver is designed with wide frequency coverage in the VHF/UHF spectrum. For general listening, you may wish to have a broadband antenna such as a discone available, as a directional antenna such as a Yagi will have degraded performance outside the Amateur band for which it is designed. </p>
+<p>Excellent reference texts and computer software are available for the design and optimization of VHF and UHF antennas. Your dealer should be able to assist you with all aspects of your antenna installation requirements. </p>
+<p>Use high-quality 50 Ohm coaxial cable for the lead-in to your FT-8900R transceiver. All efforts at providing an efficient antenna system will be wasted if poor quality, lossy coaxial cable is used. Losses in coaxial lines increase as the frequency increases, so an 8-meter-long (25’) coaxial line with 1/2 dB of loss at 29 MHz may have a loss of 6 dB or more at 446 MHz; choose your coaxial cable carefully based on the installation location (mobile vs. base) and the overall length of the cable required (for very short runs of cable in a mobile installation, the smaller, more flexible cable types may be acceptable).</p><h2 id="antenna-considerations-2">ANTENNA CONSIDERATIONS</h2>
+<p>For reference, the chart below shows approximate loss figures for typically-available coaxial cables frequently used in VHF/UHF installations. </p>
+<p>Loss in dB per 30 m (100 feet) for Selected 50-Ohm Coaxial Cables (Assumes 50-ohm Input/Output Terminations) </p>
+<table>
+<thead>
+<tr>
+<th>CABLETYPE</th>
+<th>LOSS: 144 MHZ</th>
+<th>LOSS: 430 MHZ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RG-58A</td>
+<td>6.5</td>
+<td>&gt;10</td>
+</tr>
+<tr>
+<td>RG-58 Foam</td>
+<td>4.7</td>
+<td>8</td>
+</tr>
+<tr>
+<td>RG-213</td>
+<td>3.0</td>
+<td>5.9</td>
+</tr>
+<tr>
+<td>RG-8 Foam</td>
+<td>2.0</td>
+<td>3.7</td>
+</tr>
+<tr>
+<td>Belden 9913</td>
+<td>1.5</td>
+<td>2.9</td>
+</tr>
+<tr>
+<td>Times Microwave LMR-400</td>
+<td>1.5</td>
+<td>2.6</td>
+</tr>
+<tr>
+<td>7/8” “Hardline”</td>
+<td>0.7</td>
+<td>1.3</td>
+</tr>
+</tbody>
+</table>
+<p>Loss figures are approximate; consult cable manufacturers’ catalogs for complete specifications. </p>
+<p>In outdoor installations, be certain to weatherproof all connectors thoroughly, as water entering a coaxial cable will cause losses to escalate rapidly, thus diminishing your communications effectiveness. The use of the shortest possible length of the highest quality coaxial cable that fits within your budget will ensure the best performance from your FT-8900R.</p><figure><button aria-label="Enlarge Figure from page 9. ANTENNA CONSIDERATIONS 7/8” “Hardline”" class="zoom" data-dialog="fig-1" type="button"><img alt="Figure from page 9. ANTENNA CONSIDERATIONS 7/8” “Hardline”" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page8-0.png"/></button><figcaption>Figure from page 9. ANTENNA CONSIDERATIONS 7/8” “Hardline”</figcaption><dialog id="fig-1"><img alt="Figure from page 9. ANTENNA CONSIDERATIONS 7/8” “Hardline”" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page8-0.png"/><p>Figure from page 9. ANTENNA CONSIDERATIONS 7/8” “Hardline”</p><form method="dialog"><button>Close</button></form></dialog></figure><h2 id="installation-4">INSTALLATION</h2>
+<h2 id="mobile-installation">MOBILE INSTALLATION</h2>
+<p>The FT-8900R must only be installed in vehicles having a 13.8 Volt negative ground electrical system. Mount the transceiver where the display, controls, and microphone are easily accessible, using the supplied MMB-36 mounting bracket. </p>
+<p>The transceiver may be installed in almost any location, but should not be positioned near a heating vent nor anywhere where it might interfere with driving (either visually or mechanically). Make sure to provide plenty of space on all sides of the transceiver so that air can flow freely around the radio’s case. Refer to the diagrams showing proper installation procedures. </p>
+<h2 id="transceiver-installation">Transceiver Installation</h2>
+<ul>
+<li>
+<p>Choose a mounting location with sufficient clearance for the transceiver. Using the mounting bracket as a template for the mounting holes, use a 4.8 mm (3/16”) bit to drill the mounting holes, and secure the mounting bracket with the supplied screws, washers, and nuts (see diagram). </p>
+</li>
+<li>
+<p>Position the transceiver in the bracket so that the holes in the side are aligned with those in the bracket, and bolt the transceiver into place using the supplied short screws and flat washers. </p>
+</li>
+</ul>
+<p><strong>==&gt; picture [141 x 283] intentionally omitted &lt;==</strong></p>
+<p><strong>==&gt; picture [174 x 156] intentionally omitted &lt;==</strong></p><figure><button aria-label="Enlarge Figure from page 10" class="zoom" data-dialog="fig-2" type="button"><img alt="Figure from page 10" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page9-0.png"/></button><figcaption>Figure from page 10</figcaption><dialog id="fig-2"><img alt="Figure from page 10" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page9-0.png"/><p>Figure from page 10</p><form method="dialog"><button>Close</button></form></dialog></figure><h2 id="installation-5">INSTALLATION</h2>
+<h2 id="mobile-installation-2">MOBILE INSTALLATION</h2>
+<h2 id="mobile-power-connections">Mobile Power Connections</h2>
+<p>To minimize voltage drop and avoid blowing the vehicle’s fuses, connect the supplied DC power cable directly to the battery terminals. Do not attempt to defeat or bypass the DC cable’s fuse – it is there to protect you, your transceiver, and your vehicle’s electrical system. </p>
+<p>Warning! </p>
+<p>Never apply AC power to the power cable of the FT-8900R, nor DC voltage greater than 15.8 Volts. When replacing the fuse, only use a 15-A fast-blow type. Failure to observe these safety precautions will void the Limited Warranty on this product. </p>
+<ul>
+<li>
+<p>Before connecting the transceiver, check the voltage at the battery terminals while revving the engine. If the voltage exceeds 15 Volts, adjust the vehicle’s voltage regulator before proceeding with installation. </p>
+</li>
+<li>
+<p>Connect the RED power cable lead to the POSITIVE (+) battery terminal, and the BLACK power cable lead to the NEGATIVE (–) terminal. If you need to extend the power cable, use #12 AWG or larger insulated, stranded copper wire. Solder the splice connections carefully, and wrap the connections thoroughly with insulating electrical tape. </p>
+</li>
+<li>
+<p>Before connecting the cable to the transceiver, verify the voltage and polarity of the voltage at the transceiver end of the DC cable using a DC voltmeter. Now connect the transceiver to the DC cable. </p>
+</li>
+</ul>
+<p><strong>==&gt; picture [320 x 153] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>FT-8900R Cabin �  � Engine Room
+Battery
+RED: Positive (+)
+BLACK: Negative (–)
+<strong>----- End of picture text -----</strong></p>
+<h2 id="mobile-speakers">Mobile Speakers</h2>
+<p>The optional MSL-100 External Speaker includes its own swivel-type mounting bracket, and is available from your Yaesu dealer. </p>
+<p>Other external speakers may be used with the FT-8900R, if they present the specified 8- Ohm impedance and are capable of handling the 2 Watts of audio output supplied by the FT8900R.</p><h2 id="installation-6">INSTALLATION</h2>
+<h2 id="base-station-installation">BASE STATION INSTALLATION</h2>
+<p>The FT-8900R is ideal for base station use as well as in mobile installations. The FT8900R is specifically designed to integrate into your station easily, using the information to follow as a reference. </p>
+<h2 id="ac-power-supplies">AC Power Supplies</h2>
+<p>Operation of the FT-8900R from an AC line requires a power source capable of providing at least 15 Amps continuously at 13.8 Volts DC. The FP-1023 and FP-1030A AC Power Supplies are available from your Yaesu dealer to satisfy these requirements. Other wellregulated power supplies may be used, as well, if they meet the above voltage and current specifications. </p>
+<p>Use the DC power cable supplied with your transceiver for making power connections to the power supply. Connect the RED power cable lead to the POSITIVE (+) power supply terminal, and connect the BLACK power cable lead to the NEGATIVE (–) power supply terminal. </p>
+<h2 id="packet-radio-terminal-node-controller-tnc">Packet Radio Terminal Node Controller (TNC)</h2>
+<p>The FT-8900R provides a convenient rear-panel DATA jack for easy connections to your TNC. This connector is a standard mini-DIN connector. A pre-wired connector and cable assembly option, model CT-39A, is available from your local Yaesu dealer. </p>
+<p>The FT-8900R’s DATA jack connections are optimized for the data transmission and reception speed in use. In accordance with industry standards, the signal levels, impedances, and bandwidths are significantly different on 9600 bps as opposed to 1200 bps. If your TNC does not provide multiple lines to accommodate such optimization, you may still be able to utilize your TNC, if it is designed for multiple-radio use, by connecting the TNC “Radio 1” port to the 1200 bps lines on the FT-8900R, and the “Radio 2” port to the 9600 bps lines. The pin connections of the Data connector are shown below. </p>
+<p>DATA Jack Pin Out </p>
+<table>
+<thead>
+<tr>
+<th>Pin</th>
+<th>Label</th>
+<th>Note</th>
+<th>CT-39A Wire Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>PKD</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(DATA IN)</td>
+<td>Packet Data Input</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Impedance: 10 kΩ,</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Maximum Input Level: 40 mV p-p for 1200 bps</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2.0 Vp-p for 9600 bps</td>
+<td>Brown</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>GND</td>
+<td>Signal Ground</td>
+<td>Red</td>
+</tr>
+<tr>
+<td>3</td>
+<td>PTT</td>
+<td>Gound to Transmit</td>
+<td>Orange</td>
+</tr>
+<tr>
+<td>4</td>
+<td>RX9600</td>
+<td>9600 bps Packet Data Output</td>
+<td></td>
+</tr>
+<tr>
+<td>Impedance: 10 kΩ,Maximum Output: 500 mV p-p</td>
+<td>Yellow</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>RX1200</td>
+<td>1200 bps Packet Data Output</td>
+<td></td>
+</tr>
+<tr>
+<td>Impedance: 10 kΩ,Maximum Output: 300 mV p-p</td>
+<td>Green</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>PKS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(SQL)</td>
+<td>Squelch Control</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Squelch Open:+5 V,Squelch Close: 0 V</td>
+<td>Blue</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><h2 id="installation-7">INSTALLATION</h2>
+<h2 id="base-station-installation-2">BASE STATION INSTALLATION</h2>
+<p>Note that 9600 bps packet transmit-deviation adjustment is very critical to successful operation, and can only be accomplished using a calibrated deviation meter (such as that found on an FM Service Monitor used in a communications service center). In most cases, the Packet Data Input level (set via a potentiometer inside the TNC) must be adjusted to provide a deviation of ±2.75 kHz (±0.25 kHz). Check with your packet node’s sysop if you have any questions about the appropriate deviation level for your network. Note also that high throughput on 9600 bps frequently requires strong signals, so you may wish to consider the use of a directional antenna such as a Yagi for communication with high-speed packet nodes. </p>
+<p>The setting of the 1200 bps Packet Data Input level is much less critical than it is at 9600 bps, and satisfactory adjustment to the optimum (±2.5 ~ ±3.5 kHz) deviation can usually be done “by ear” by adjusting the TNC’s 1200 bps TX Audio Level potentiometer so that the outgoing packets (as monitored on a separate VHF or UHF receiver) are approximately the same level as (A) the DTMF tones or (B) the 1750 Hz Burst tone produced using the microphone. </p>
+<p>Finally, note that the Menu (“Set”) mode allows you to set the Packet data rate (1200 or 9600 bps) independently for each band, and set the Packet Receiving Band (Main band, Right band, or Left band: The Paket Transmitting Band is fixed on the Main band). If you have trouble getting your FT-8900R to respond correctly during packet operation, check to be certain that you do not have Menu #26 (PCKT S) set to the wrong data rate, and/or Menu #27 (PCKT B) set to the wrong receiving band. </p>
+<p><strong>==&gt; picture [265 x 95] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>ANT
+13.8VDC
+EXT SP DATAOUT DATAIN PTT
+DATA
+DATA IN
+GND
+DATA OUT
+(9600bps)
+PKS
+<strong>----- End of picture text -----</strong></p>
+<h2 id="9600bps-packet-setup">9600bps Packet Setup</h2>
+<p><strong>==&gt; picture [265 x 96] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>ANT
+13.8VDC
+EXT SP DATAOUT DATAIN PTT
+DATA
+DATA IN
+GND
+DATA OUT
+(1200bps)
+PKS
+<strong>----- End of picture text -----</strong></p>
+<p>1200bps Packet Setup</p><h2 id="front-panel-controls-switches">FRONT PANEL CONTROLS &amp; SWITCHES</h2>
+<p><strong>==&gt; picture [328 x 137] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>3
+1 1 4 8
+VOL SQL 2 5 SQL PWRVOL
+2 3 KEY2 6 7
+LOW V/M HM SCN LOW V/M HM SCN
+4 5 6
+<strong>----- End of picture text -----</strong></p>
+<h2 id="1-left-dial-knob">1[“Left” ][DIAL][ knob]</h2>
+<p>This 20-position detented rotary switch is the tuning dial for the “left” band. Press this knob momentarily to switch the “Main band” to be the “left” band. </p>
+<p>When the “left” band is set to be the “Main band” in the VFO mode, press this knob to enable rapid tuning (in 1 MHz steps) using this knob. </p>
+<p>Press and hold in this knob for 1/2 second to toggle the operating band on the “left” side as follows: </p>
+<p>144 MHz � 350 MHz � 430 MHz �  850 MHz � 29 MHz � 50 MHz � 144 MHz[......] </p>
+<h2 id="2-left-vol-sql-knob">2[“Left” ][VOL] SQL Knob</h2>
+<p>The inner VOL (Volume) control adjusts the speaker audio level form the “left” receiver. Clockwise rotation increases the audio level. </p>
+<p>Press this knob momentarily to switch the Internet Connection feature “on” and “off.” </p>
+<p>The outer SQL (Squelch) control is used to silence background noise on the “left” receiver. It should be advanced clockwise just to the point where the noise is silenced (and the “ ” indicator on the display turns off), so as to provide the best sensitivity to weak signals. </p>
+<h2 id="3-hyper-memory-buttons-1-6">3[Hyper Memory Buttons ([][1][] ~ [][6][])]</h2>
+<p>Press and hold in one of these buttons for 2 seconds to store the current total configuration of the radio into a special “Hyper” memory bank. </p>
+<p>Press the appropriate button momentarily to recall the desired “Hyper” memory.</p><h2 id="front-panel-controls-switches-2">FRONT PANEL CONTROLS &amp; SWITCHES</h2>
+<h2 id="4-left-side-keys">4[“Left” Side Keys]</h2>
+<h2 id="low-key">[LOW] Key</h2>
+<p>Press this key momentarily to select the transmitter power output level of the “left” band (“LOW,” “MID2,” “MID1,” or “HIGH”). </p>
+<p>When the “left” band is set to the Memory mode or Home Channel, press and hold in this key for 1/2 second to switch the memory channel display between the “Frequency” format and “Alpha-numeric Tag” format. </p>
+<h2 id="v-m-key">[V/M] Key</h2>
+<p>Press this key momentarily to switch the frequency control for the “left” band between the VFO and Memory Systems. </p>
+<p>When the “left” band is set to the VFO mode, press and hold in this for 1/2 second to activate the Smart Search Feature. </p>
+<p>When the “left” band is set to the Memory mode, press and hold in this key for 1/2 second to shift to the “Memory Tuning” feature. </p>
+<h2 id="hm-key">[HM] Key</h2>
+<p>Press this key momentarily to recall a favorite “Home” frequency memory. Press and hold in this key for 1/2 second to activate Priority Channel Scanning. </p>
+<h2 id="scn-key">[SCN] Key</h2>
+<p>Press this key momentarily to activate the Scanner on the “left” band. When the “left” band is set to the Memory mode, press and hold in this key for 1/2 second to set up the Scan Skip List or Preferential Scan List. </p>
+<h2 id="5-set-key">5[[][SET][] Key]</h2>
+<p>Press this key momentarily to enter the Set (“Menu”) mode. </p>
+<p>Press and hold in this for 1/2 second to transfer the contents of the “Main band” VFO into a Memory register.</p><h2 id="front-panel-controls-switches-3">FRONT PANEL CONTROLS &amp; SWITCHES</h2>
+<h2 id="6-right-side-keys">6[“Right” Side Keys]</h2>
+<p>The “right” side ([LOW], [V/M], [HM], and [SCN]) keys may be set to either of two function sets via Menu #20 (KEY.MOD). See page 63 for the setup procedure. </p>
+<h2 id="low-key-mhz-key">[LOW] Key ([MHz] Key)</h2>
+<h2 id="key-mode-1-low-key-default">Key Mode “1” ([LOW] Key: Default)</h2>
+<p>Press this key momentarily to select the transmitter power output level of the “right” band (“LOW,” “MID2,” “MID1,” or “HIGH”). </p>
+<p>When the “right” band is set to the Memory mode or Home Channel, press and hold in this key for 1/2 second to switch the memory channel display between the “Frequency” format and the “Alpha-numeric Tag” format. </p>
+<h2 id="key-mode-2-mhz-key">Key Mode “2” ([MHz] Key)</h2>
+<p>Press this key momentarily to allow tuning in 1-MHz steps on the “Main” band VFO. Press and hold in this key for 1/2 second to allow tuning in 10-MHz steps on the “Main” band VFO. </p>
+<h2 id="v-m-key-rev-key">[V/M] Key ([REV] Key)</h2>
+<h2 id="key-mode-1-v-m-key-default">Key Mode “1” ([V/M] Key: Default)</h2>
+<p>Press this key momentarily to switch the frequency control for the “right” band between the VFO and Memory Systems. </p>
+<p>When the “right” band is set to the VFO mode, press and hold in this for 1/2 second to activate the Smart Search Feature. </p>
+<p>When the “right” band is set to the Memory mode, press and hold in this key for 1/2 second to shift to the “Memory Tuning” feature. </p>
+<h2 id="key-mode-2-rev-key">Key Mode “2” ([REV] Key)</h2>
+<p>Press this key momentarily to reverse the transmit and receive frequencies on the “Main” band during split-frequency (i.e. “Repeater”) operation. </p>
+<p>Press and hold in this key for 1/2 second to change the frequency shift direction: RPT – (minus shift), RPT + (plus shift), or RPT OFF (simplex). </p>
+<h2 id="hm-key-tone-key">[HM] Key ([TONE] Key)</h2>
+<h2 id="key-mode-1-hm-key-default">Key Mode “1” ([HM] Key: Default)</h2>
+<p>Press this key momentarily to recall a favorite “Home” frequency memory. Press and hold in this for 1/2 second to activate Priority Channel Scanning. </p>
+<h2 id="key-mode-2-tone-key">Key Mode “2” ([TONE] Key)</h2>
+<p>Press this key momentarily to change the Tone Squelch mode: ENC (CTCSS Encoder), ENC.DEC (CTCSS Tone Squelch), or DCS (DCS) operation.</p><h2 id="front-panel-controls-switches-4">FRONT PANEL CONTROLS &amp; SWITCHES</h2>
+<p>[SCN] Key ([SUB] Key) </p>
+<p>Key Mode “1” ([SCN] Key: Default) </p>
+<p>Press this key momentarily to activate the Scanner on the “Right” band. </p>
+<p>When the “Right” band is set to the Memory mode, press and hold in this key for 1/2 second to set up the Scan Skip List or Preferential Scan List. </p>
+<p>Key Mode “2” ([SCN] Key) </p>
+<p>Press this key momentarily to make the next key you press act on the “Sub” band (the “ ” icon will blink on the “Sub” band). </p>
+<h2 id="7-vol-sql-knob-right">7[VOL] SQL Knob (Right)</h2>
+<p>The inner VOL (Volume) control adjusts the speaker audio level from the “right” receiver. Clockwise rotation increases the audio level. </p>
+<p>Press and hond in this knob for 2 seconds to turn the radio “on” and “off.” </p>
+<p>The outer SQL (Squelch) control is used to silence background noise on the “right” receiver. It should be advanced clockwise just to the point where the noise is silenced (and the “ ” indicator on the display turns off), so as to provide the best sensitivity to weak signals. </p>
+<h2 id="8-dial-knob-right">8[DIAL][ knob (Right)]</h2>
+<p>This 20-position detented rotary switch is the tuning dial for the “right” band. Press this knob momentarily to switch the “Main band” to be the “right” band. When the “right” band is set to be the “Main” band in the VFO mode, press this knob to enable rapid tuning (in 1 MHz steps) using this knob. </p>
+<p>Press and hold in this knob for 1/2 second to switch the operating band on the “right” band between 144 MHz and 430 MHz.</p><h2 id="lcd">LCD</h2>
+<dl>
+<dt>“Left” Band Memory Channel “Left” Band Memory Channel “Left” Band Frequency “Right” Band Frequency “Left” Band S- &amp; PO Meter “Right” Band S- &amp; PO Meter ~~Icons~~ : Preferential Memory Channel : Skip Memory Channel : Minus Shift : Plus Shift : Odd Splits : Tone Encoder : Tone Decoder : Transmission in Progress : “Main” Band : Busy Channel (or Squelch Off) </dt>
+<dd>
+<p>Memory Tune Mode : Audio Mute Active </p>
+</dd>
+<dd>
+<p>Digital Code Squelch (DCS) </p>
+</dd>
+<dd>
+<p>AM Reception </p>
+</dd>
+<dd>
+<p>9600 bps Packet Mode : Low TX Power Selected : Middle TX Power Selected : Automatic Power-Off Active : Keypad/DIAL Lock Active : Menu (“Set”) Mode : Key Function Mode is selected to “KEY-2”</p>
+</dd>
+</dl><figure><button aria-label="Enlarge Figure from page 18. : Preferential Memory Channel : Odd Splits" class="zoom" data-dialog="fig-3" type="button"><img alt="Figure from page 18. : Preferential Memory Channel : Odd Splits" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page17-0.png"/></button><figcaption>Figure from page 18. : Preferential Memory Channel : Odd Splits</figcaption><dialog id="fig-3"><img alt="Figure from page 18. : Preferential Memory Channel : Odd Splits" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page17-0.png"/><p>Figure from page 18. : Preferential Memory Channel : Odd Splits</p><form method="dialog"><button>Close</button></form></dialog></figure><h2 id="rear-panel-connections">REAR PANEL CONNECTIONS</h2>
+<p><strong>==&gt; picture [269 x 184] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>4 3
+ANT
+13.8VDC
+EXT SP
+DATA
+1 2
+<strong>----- End of picture text -----</strong></p>
+<h2 id="1-antenna-jack">1[Antenna Jack]</h2>
+<p>Connect your antenna here, using a type-M (PL-259) plug and coaxial cable. </p>
+<h2 id="2-data-jack">2[DATA][ Jack]</h2>
+<p>This 6-pin mini-DIN connector provides simple interfacing to a packet Terminal Node Controller (TNC) for 1200 bps or 9600 bps operation. The pin connections are shown on page 10. </p>
+<h2 id="3-ext-sp-jack">3[EXT SP][ Jack]</h2>
+<p>This 2-conductor, 3.5-mm mini phone jack provides audio output for an optional speaker. The optimum load impedance is 8 Ohms. Inserting a plug into this jack disables the audio path to the transceiver’s internal speaker. </p>
+<h2 id="4-13-8v-dc-cable-pigtails-w-fuse">4[13.8V DC][ Cable Pigtails w/Fuse]</h2>
+<p>This is the DC power supply connection for the transceiver. Use the supplied DC cable to connect this pigtail to the car battery or base station DC power supply capable of at least 9 Amperes (continuous duty). Make certain that the Red lead connects to the Positive (+) side of the power source, and that the Black lead connects to the Negative (-) side of the power source.</p><h2 id="mh-48a6j-microphone">MH-48A6J MICROPHONE</h2>
+<h2 id="1-ptt-switch">1[PTT][ Switch]</h2>
+<p><strong>==&gt; picture [143 x 166] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>6
+1 5
+2 4
+3
+” band
+DTMF MICROPHONE
+MH-48
+<strong>----- End of picture text -----</strong></p>
+<p>Press this switch to transmit, and release it to receive. </p>
+<h2 id="2-keypad">2[Keypad]</h2>
+<p>These 16 keys generate DTMF tones during transmission. In the receive mode, these 16 keys can be used for ~~1~~ direct frequency entry and/or direct numeric recall of the Memory channels. ~~2~~ </p>
+<h2 id="3-p1-p2-p3-p4-buttons">3[[][P1][]/[][P2][]/[][P3][]/[][P4][] Buttons]</h2>
+<p>[P1] button: Press this button to switch the “Main” </p>
+<p>band between the “Left” and “Right” displays on the LCD screen. This is the best and easiest way to set the “Main” band to the side you prefer. </p>
+<p>Pressing and holding in this button for 1/2 second moves operation to the next-highest frequency band on the “Main” band. [P2] button: Press this button momentarily to switch the frequency control for the “Main” band between the VFO and Memory Systems. When the “Main” band is set to the VFO mode, press and hold in this button for 1/2 second to activate the Smart Search Feature. </p>
+<p>When the “Main” band is set to the Memory mode, press and hold in this button for 1/2 second to shift to the “Memory (offset) Tuning” feature. </p>
+<p>[P3] button: Pressing this button repeatedly allows selection of the CTCSS or DCS mode on the “Main” band. The selections available are: </p>
+<p>ENC � ENC.DEC (Tone Squelch) � DCS � OFF � ENC[......] </p>
+<p>[P4] button: Press this button momentarily to select the transmitter power output level on the “Main” band (“LOW,” “MID2,” “MID1,” or “HIGH”). When the “Main” band is set to the Memory mode or Home Channel, press and hold in this key for 1/2 second to switch the memory channel display between the “Frequency” format and “Alpha-numeric Tag” format. </p>
+<p>You can reprogram the [P1], [P2], [P3], and [P4] buttons for other functions, if desired. See page 51 for details. </p>
+<h2 id="4-lamp-switch">4[LAMP][ Switch]</h2>
+<p>This switch illuminates the Microphone keypad. </p>
+<h2 id="5-lock-switch">5[LOCK][ Switch]</h2>
+<p>This switch locks out the Microphone buttons (except for the keypad and PTT switch). </p>
+<h2 id="6-up-dwn-button">6[[][UP][]/[][DWN][] Button]</h2>
+<p>Press (or hold in) either of these buttons to tune (or scan up or down) the operating frequency or through the memory channels on the “Main” band. In many ways, these buttons emulate the function of the (rotary) “Main” band DIAL knob.</p><h2 id="mh-42b6js-microphone">MH-42B6JS MICROPHONE</h2>
+<p>The MH-42B6JS is similar to the MH-48A6J, but the MH-42B6JS does not include a DTMF keypad and its illumination switch. </p>
+<p><strong>==&gt; picture [36 x 24] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>4
+<strong>----- End of picture text -----</strong></p>
+<h2 id="1-ptt-switch-2">1[PTT][ Switch]</h2>
+<p>Press this switch to transmit, and release it to receive. </p>
+<h2 id="2-acc-p-p1-p2-buttons">2[[][ACC][]/[][P][]/[][P1][]/[][P2][] Buttons]</h2>
+<p><strong>==&gt; picture [115 x 140] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>3
+2
+CONDENSER  MIC
+MH-42B
+<strong>----- End of picture text -----</strong></p>
+<p>[ACC] button: Press this button to switch the “Main” band between the “Left” and “Right” displays on the ~~1~~ LCD screen. This is the best and easiest way to set the “Main” band to the side you prefer. Pressing and holding in this button for 1/2 second moves operation to the next-highest frequency band on the “Main” band. </p>
+<p>[P] button: Press this button momentarily to switch the frequency control for the “Main” band between the VFO and Memory Systems. </p>
+<p>When the “Main” band is set to the VFO mode, press and hold in this button for 1/2 second to activate the Smart Search Feature. When the “Main” band is set to the Memory mode, press and hold in this button for 1/2 second to shift to the “Memory (offset) Tuning” feature. </p>
+<p>[P2] button: Pressing this button repeatedly allows selection of the CTCSS or DCS mode on the “Main” band. The selections available are: </p>
+<p>ENC � ENC.DEC (Tone Squelch) � DCS � OFF � ENC[......] </p>
+<p>[P3] button: Press this button momentarily to select the transmitter power output level on the “Main” band (“LOW,” “MID2,” “MID1,” or “HIGH”). </p>
+<p>When the “Main” band is set to the Memory mode or Home Channel, press and hold in this key for 1/2 second to switch the memory channel display between the “Frequency” format and “Alpha-numeric Tag” format. </p>
+<p>You can reprogram the [ACC], [P], [P1], and [P2] buttons for other functions, if desired. See page 51 for details. </p>
+<h2 id="3-lock-switch">3[LOCK][ Switch]</h2>
+<p>This switch locks out the Microphone buttons (except for the keypad and PTT switch). </p>
+<h2 id="4-up-dwn-button">4[[][UP][]/[][DWN][] Button]</h2>
+<p>Press (or hold in) either of these buttons to tune (or scan up or down) the operating frequency or through the memory channels on the “Main” band. In many ways, these buttons emulate the function of the (rotary) “Main” band DIAL knob. </p>
+<p>Notice: If you replace the microphone from the MH-48A6J to MH-42B6JS or vice versa, perform Menu #23 (MIC). See page 63 for details.</p><h2 id="basic-operation">BASIC OPERATION</h2>
+<p>Hi! I’m R. F. Radio, and I’ll be helping you along as you learn the many features of the FT-8900R. I know you’re anxious to get on the air, but I encourage you to read the “Operation” section of this manual as thoroughly as possible, so you’ll get the most out of this fantastic new transceiver. Now. . .let’s get operating! </p>
+<h2 id="turning-the-transceiver-on-and-off">TURNING THE TRANSCEIVER ON AND OFF</h2>
+<ol>
+<li>To turn the transceiver on, press and hold in the “right” VOL knob for 2 seconds. </li>
+</ol>
+<ul>
+<li>When you turn on the FT-8900R, the current DC supply voltage is indicated on the LCD for 2 seconds. After this interval, the display will switch its normal indication of the operating frequency. </li>
+</ul>
+<p><strong>==&gt; picture [131 x 66] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>4
+5 SQL PWRVOL
+KEY2 6
+LOW V/M HM SCN
+<strong>----- End of picture text -----</strong></p>
+<ol start="2">
+<li>To turn the transceiver off, again press and hold in the “right” VOL knob for 2 seconds. </li>
+</ol>
+<h2 id="adjusting-the-audio-volume-level">ADJUSTING THE AUDIO VOLUME LEVEL</h2>
+<p>The audio volume level is set independently for the “left” and “right” sides of the transceiver. The “left” VOL knob provides adjustment for the “left” side of the FT-8900R, while the “right” VOL knob provides adjustment for the “right” side of the FT-8900R. </p>
+<h2 id="adjusting-the-squelch-setting">ADJUSTING THE SQUELCH SETTING</h2>
+<p>The squelch is also set independently for the “left” and “right” sides of the transceiver. The “left” SQL knob provides adjustment for the “left” side of the FT-8900R, while the “right” SQL knob provides adjustment for the “right” side of the FT-8900R. </p>
+<p>A special “RF Squelch” feature is provided on this radio. This feature allows you to set the squelch so that only signals exceeding a certain S-meter level will open the squelch. See page 26 for details </p>
+<h2 id="selecting-the-operating-band">SELECTING THE OPERATING BAND</h2>
+<p>In the factory default configuration, The FT-8900R operates in the “Dual Receive” mode. During Dual Receive operation, the “Main” band frequency ( on which transmission is possible) will be indicated by the “ ” icon. </p>
+<p>To establish the “Main” band, simply press the microphone’s [P1] key (MH-48A6J, [ACC] key: MH-42B6JS), or press the DIAL knob for the “left” or “right” side momentarily, as appropriate. You will observe the “ ” icon lighting up alternate sides of the display as you switch “Main” bands from the “left” side to the “right” side, and vice-versa.</p><h2 id="basic-operation-2">BASIC OPERATION</h2>
+<h2 id="selecting-the-frequency-band">SELECTING THE FREQUENCY BAND</h2>
+<p>Press and hold in the “left” DIAL knob to move the operating band on the “left” band 144 MHz � 350 MHz � 430 MHz �  850 MHz � 29 MHz � 50 MHz � 144 MHz[......] </p>
+<p>Press and hold in the “right” DIAL knob to switch the operating band on the “right” band between the 144 MHz and 430 MHz. </p>
+<p>1) You may select the operating band on the “Main” band by pressing and holding in the microphone’s [P1] key for 1/2 second. </p>
+<p>2) The FT-8900R may be configured to operate either in a V-V or U-U mode, if needed. </p>
+<p><strong>==&gt; picture [320 x 38] intentionally omitted &lt;==</strong></p>
+<p>VHF-VHF[(] V-V[)] Operation </p>
+<p>UHF-UHF[(] U-U[)] Operation </p>
+<h2 id="notice">Notice</h2>
+<p>The FT-8900R may receive very strong signals on the Image frequency, and/or the receiver sensitivity may be somewhat reduced by the combination of the “Left” and “Right” band frequencies while Dual Receive operation is engaged. </p>
+<p>If you experience interference that you suspect may be coming in via an “Image” path, you may calculate the possible frequencies using the formulas below. This information may be used in the design of effective countermeasures such as traps, etc. </p>
+<ul>
+<li>
+<p>(“Left” band freq. ± 45.05 MHz) x n1 – (“Right” band freq. ± 47.25 MHz) x n2 = </p>
+</li>
+<li>
+<p>“Left” band IF freq. or “Right” band IF freq. </p>
+</li>
+<li>
+<p>(“Left” band 28 MHz freq. + 45.05 MHz) x n = “Right” band freq. </p>
+</li>
+<li>
+<p>(n is an integer: 1, 2, 3, …)</p>
+</li>
+</ul><h2 id="basic-operation-3">BASIC OPERATION</h2>
+<h2 id="frequency-navigation">FREQUENCY NAVIGATION</h2>
+<h2 id="1-tuning-dial">1) Tuning Dial</h2>
+<p>Rotating the DIAL knob allows tuning in the pre-programmed steps established for the current operating band. Clockwise rotation of the DIAL knob causes the FT-8900R to be tuned toward a higher frequency, while counter-clockwise rotation will lower the operating frequency. </p>
+<p>On the “Main” band frequency, press the DIAL knob momentarily, then rotate the DIAL knob, to change the “Main” band frequency steps to 1 MHz per step. This feature is extremely useful for making rapid frequency excursions over the wide tuning range of the FT8900R. </p>
+<h2 id="2-direct-keypad-frequency-entry-mh-48a6j-microphone">2) Direct Keypad Frequency Entry (MH-48A6J Microphone)</h2>
+<p>The keypad of the MH-48A6J DTMF Microphone may be used for direct entry of the “Main” band operating frequency. </p>
+<p>To enter a frequency from the MH-48A6J keypad, just press the numbered digits in the proper sequence. There is no “decimal point” key on the MH-48A6J keypad, so if the frequency is below 100 MHz (e.g. 29.480 MHz), any required leading zeroes must be entered. Examples: To enter 29.480 MHz, press [0] � [2] � [9] � [4] � [8] � [0] To enter 433.000 MHz, press [4] � [3] � [3] � [0] � [0] � [0] </p>
+<h2 id="3-scanning">3) Scanning</h2>
+<p>From the VFO mode, press the [SCN] key momentarily to initiate scanning toward a higher frequency. The FT-8900R will stop when it receives a signal strong enough to break through the squelch threshold. The FT-8900R will then hold on that frequency according to the setting of the “resume” mode (Menu #34 (SCAN); see page 65). </p>
+<p>If you wish to reverse the direction of the scan (i.e. toward a lower frequency, instead of a higher frequency), just rotate the DIAL knob one click in the counter-clockwise direction while the FT-8900R is scanning. The scanning direction will be reversed. To revert to scanning toward a higher frequency once more, rotate the DIAL knob one click clockwise. </p>
+<p>Press the [SCN] key again to cancel scanning.</p><h2 id="transmission">TRANSMISSION</h2>
+<p>To transmit, simply close the PTT (Push To Talk) switch on the microphone. </p>
+<p>The FT-8900R will transmit only on the “Main” band. During transmission, the “ ” icon will appear at the upper right of the “Main” frequency field on the display. </p>
+<h2 id="changing-the-transmitter-power-level">Changing the Transmitter Power Level</h2>
+<p>You can select from among a total of four transmit power levels on your FT-8900R. </p>
+<p>To change the power level, press the [LOW] key to select one of four power settings. These power levels will be stored, in memory registers, at LOW MID 2 MID 1 HIGH the time of memory storage (see page 32 for details 5 W 10 W 20 W 50 W (35 W: 430 MHz) on Memory operation). </p>
+<p>During transmission, the Bar Graph will deflect in the display, according to the power output selected. </p>
+<p>You may change the power level on the “Main” band using the microphone’s [P4] key. </p>
+<p>The FT-8900R may receive very strong signals on the Image frequency, and/or the receiver sensitivity may be somewhat reduced by the combination of the “Left” and “Right” band frequencies while Full Duplex operation is engaged. </p>
+<p>If you experience interference that you suspect may be coming in via a frequency “Mix,” you may calculate the possible frequencies using the formulas below. This information may be used in the design of effective countermeasures such as traps, etc. </p>
+<ul>
+<li>
+<p>“Right” band 144 MHz TX freq. – 100.35 MHz = “Left” band IF freq. or “Left” band 2nd IF freq. Image </p>
+</li>
+<li>
+<p>“Left” band 28 MHz TX freq. – 11.7 MHz = “Right” band IF freq. or “Right” band 2nd IF freq. Image </p>
+</li>
+<li>
+<p>“Left” band 50 MHz TX freq. – 58.5 MHz = “Right” band IF freq. or “Right” band 2nd IF freq. Image </p>
+</li>
+<li>
+<p>(“Right” band 144 MHz RX freq. + 47.25 MHz) x n1 – (“Left” band 28 MHz TX freq.) x n2 = “Right” band IF freq. or “Right” band 2nd IF freq. Image </p>
+</li>
+<li>
+<p>(“Right” band 430 MHz RX freq. – 47.25 MHz) x n1 – (“Left” band 50 MHz TX freq.) x n2 = “Right” band IF freq. or “Right” band 2nd IF freq. Image </p>
+</li>
+<li>
+<p>(“Left” band 50 MHz RX freq. + 45.05 MHz) x n1 – (“Right” band 144 MHz TX freq.) x n2 = “Left” band IF freq. or “Left” band 2nd IF freq. Image </p>
+</li>
+<li>
+<p>“Right” band 144 MHz TX freq. – (“Left” band 50 MHz RX freq.+ 45.05 MHz) x n1 = “Left” band IF freq. or “Left” band 2nd IF freq. Image </p>
+</li>
+<li>
+<p>144 MHz TX freq. x n1 – (430 MHz RX freq.– 45.05 MHz) x n2 = </p>
+</li>
+<li>
+<p>“Left” band IF freq. or “Left” band 2nd IF freq. Image </p>
+</li>
+<li>
+<p>144 MHz TX freq. x n1 – (430 MHz RX freq.– 45.05 MHz) x n2 + 11.15 MHz = “Left” band IF freq. or “Left” band 2nd IF freq. Image </p>
+</li>
+<li>
+<p>“Right” band 430 MHz TX freq. x n1 – (“Left” band 50 MHz RX freq.+ 45.05 MHz) x n2 = ± “Left” band IF freq. or “Left” band 2nd IF freq. Image </p>
+</li>
+<li>
+<p>430 MHz TX freq. x n1 – (144 MHz RX freq.+ 45.05 MHz) x n2 = </p>
+</li>
+<li>
+<p>“Left” band IF freq. or “Left” band 2nd IF freq. Image </p>
+</li>
+<li>
+<p>(n is an integer: 1, 2, 3, …) </p>
+</li>
+</ul>
+<h2 id="basic-operation-4">BASIC OPERATION</h2>
+<table>
+<thead>
+<tr>
+<th>LOW</th>
+<th>MID 2</th>
+<th>MID 1</th>
+<th>HIGH</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5 W</td>
+<td>10 W</td>
+<td>20 W</td>
+<td>50 W</td>
+</tr>
+<tr>
+<td>(35 W: 430 MHz)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="notice-2">Notice</h2><h2 id="advanced-operation">ADVANCED OPERATION</h2>
+<h2 id="lock-feature">LOCK FEATURE</h2>
+<p>In order to prevent accidental frequency change, the panel switches and DIAL knobs may be locked out. </p>
+<p>To activate the Lock feature: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #21 (LOCK). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to change the setting to “ON.” </p>
+</li>
+<li>
+<p>Press the [SET] key momentarily to save the new setting and exit to normal operation. </p>
+</li>
+<li>
+<p>To unlock the panel switches and DIAL knobs, select “OFF” in step 3 above. </p>
+</li>
+</ol>
+<h2 id="keyboard-beeper">KEYBOARD BEEPER</h2>
+<p>A key/button beeper provides useful audible feedback whenever a key/button is pressed. </p>
+<p>If you want to turn the beep off: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #5 (BEEP). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to change the setting to “OFF.” </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+<li>
+<p>To back on again the beep, select “ON” in step 3 above. </p>
+</li>
+</ol>
+<h2 id="channel-step-selection">CHANNEL STEP SELECTION</h2>
+<p>The FT-8900R’s synthesizer provides the option of utilizing channel steps of 5/10/12.5/15/ 20/25/50 kHz per step, any number of which may be important to your operating requirements. The FT-8900R is set up at the factory with different default steps on each operating band which probably are satisfactory for most operation. However, if you need to change the channel step increments, the procedure to do so is very easy; remember to get set up on the desired band before making any changes, as different steps may be programmed for each operating band. </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #37 (STEP). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the new channel step size. </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation.</p>
+</li>
+</ol><h2 id="advanced-operation-2">ADVANCED OPERATION</h2>
+<h2 id="display-brightness">DISPLAY BRIGHTNESS</h2>
+<p>The FT-8900R display illumination has been specially engineered to provide high visibility with minimal disruption of your “night vision” while you are driving. The brightness of the display is manually adjustable, using following procedure: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #9 (DIMMER). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select a comfortable brightness level: DIM 1, DIM 2, DIM 3, or DIM.OFF (no illumination). </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<h2 id="band-linking">BAND LINKING</h2>
+<p>For operation on Amateur satellites which use a “normal” (not “inverted”) FM transponder, the Band Link feature may be useful. </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #42 (VFO.TR). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to change the setting to “ON.” </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<p>As you rotate the “Main” band DIAL, you will observe that both bands’ frequencies are changing together. When you are done with this operating mode, select “OFF” in step 3 above.</p><h2 id="advanced-operation-3">ADVANCED OPERATION</h2>
+<h2 id="audio-muting">AUDIO MUTING</h2>
+<p>The Audio Mute feature is useful in situation where it would be helpful to reduce the audio level of the “Receive Only” band whenever you receive a signal on the “Main” band or you transmit on the “Main” band during Dual Receive operation. </p>
+<p>To activate the Audio Mute feature: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #24 (MUTE). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to choose the desired selection. </p>
+</li>
+</ol>
+<ul>
+<li>
+<p>TX: Reduces the audio level of the “Receive Only” band whenever you transmit on the “Main” band </p>
+</li>
+<li>
+<p>RX: Reduces the audio level of the “Receive Only” band whenever you receive a signal on the “Main” band. </p>
+</li>
+<li>
+<p>TX/RX: Reduces the audio level of the “Receive Only” band whenever you receive a signal on the “Main” band or you transmit on the “Main” band </p>
+</li>
+<li>
+<p>OFF: Disables the Audio Mute feature </p>
+</li>
+</ul>
+<ol start="4">
+<li>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </li>
+</ol>
+<h2 id="rf-squelch">RF SQUELCH</h2>
+<p>A special “RF Squelch” feature is provided on this radio. This feature allows you to set the squelch so that only signals exceeding a certain S-meter level will open the squelch. </p>
+<p>When setting up the RF Squelch circuit for operation, note that you may set the RF Squelch independently for the “left” and “right” sides, using the following procedure: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #32 (RF SQL). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the desired signal strength level for the squelch threshold (OFF, S-2, S-5, S-9, or S-FULL). </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+<li>
+<p>Finally, rotate the SQL knob fully clockwise.</p>
+</li>
+</ol><h2 id="repeater-operation">REPEATER OPERATION</h2>
+<p>Repeater stations, usually located on mountaintops or other high locations, provide a dramatic extension of the communication range for low-powered hand-held or mobile transceivers. The FT-8900R includes a number of features which make repeater operation simple and enjoyable. </p>
+<h2 id="repeater-shifts">REPEATER SHIFTS</h2>
+<p>Your FT-8900R has been configured, at the factory, for the repeater shifts customary in your country. For the 50 MHz band, this usually will be 1 MHz, while the 144 MHz shift will be 600 kHz; on 70 cm, the shift may be 1.6 MHz, 7.6 MHz, or 5 MHz (USA version). </p>
+<p>Depending on the part of the band in which you are operating, the repeater shift may be either downward (–) or upward (+), and one of these icons will appear at the bottom of the LCD when repeater shifts have been enabled. </p>
+<h2 id="automatic-repeater-shift-ars">AUTOMATIC REPEATER SHIFT (ARS)</h2>
+<p>The FT-8900R provides a convenient Automatic Repeater Shift feature, which causes the appropriate repeater shift to be automatically applied whenever you tune into the designated repeater sub-bands in your country. These sub-bands are shown below. </p>
+<p>If the ARS feature does not appear to be working, you may have accidentally disabled it. </p>
+<p>To re-enable ARS: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #2 (ARS). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to change the setting to “ON” (to enable Automatic Repeater Shift). </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [206 x 167] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>ARS-Repeater Subbands
+2-m
+Version A
+145.1 145.5 146.0 146.4 147.0 147.6 148.0
+146.6 147.4
+145.6 145.8
+European Version
+70-cm
+440.0 445.0 450.0
+Version A
+438.20 439.45
+Euro Version 1
+Euro Version 2
+433.00 433.40
+<strong>----- End of picture text -----</strong></p><h2 id="repeater-operation-2">REPEATER OPERATION</h2>
+<h2 id="manual-repeater-shift-activation">MANUAL REPEATER SHIFT ACTIVATION</h2>
+<p>If the ARS feature has been disabled, or if you need to set a repeater shift direction other than that established by the ARS, you may set the direction of the repeater shift manually. </p>
+<p>To do this: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #33 (RPT.MOD). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the desired shift among “–,” “+,” and “OFF.” </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<h2 id="changing-the-default-repeater-shifts">Changing the Default Repeater Shifts</h2>
+<p>If you travel to a different region, you may need to change the default repeater shift so as to ensure compatibility with local operating requirements. </p>
+<p>To do this, follow the procedure below: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #36 (SHIFT). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the new repeater shift magnitude. </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<p>If you just have one “odd” split that you need to program, don’t change the “default” repeated shifts using this Menu Item! Enter the transmit and receive frequencies separately, as shown on page 33.</p><h2 id="ctcss-dcs-operation">CTCSS/DCS OPERATION</h2>
+<h2 id="ctcss-operation">CTCSS OPERATION</h2>
+<p>Many repeater systems require that a very-low-frequency audio tone be superimposed on your FM carrier in order to activate the repeater. This helps prevent false activation of the repeater by radar or spurious signals from other transmitters. This tone system, called “CTCSS” (Continuous Tone Coded Squelch System), is included in your FT-8900R, and is very easy to activate. </p>
+<p>CTCSS setup involves two actions: setting the Tone Mode and then setting of the Tone Frequency. These actions are set up by using the Set mode #40 (TONE M) and #39 (TONE F). </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #40 (TONE M). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob so that “ENC” appears on the display; this activates the CTCSS Encoder, which allows repeater access. </p>
+</li>
+</ol>
+<p>You may notice an additional “DCS” icon appearing while you rotate the “Main” band DIAL knob in this step. We’ll discuss the Digital Code Squelch system shortly. </p>
+<ol start="4">
+<li>
+<p>Rotating the “Main” band DIAL knob one more click clockwise in step “3” above will cause “ENC.DEC” to appear. When “ENC.DEC” appears, this means that the Tone Squelch system is active, which mutes your FT-8900R’s receiver until it receives a call from another radio sending out a matching CTCSS tone. This can help keep your radio quiet until a specific call is received, which may be helpful while operating in congested areas. </p>
+</li>
+<li>
+<p>When you have made your selection of the CTCSS tone mode, press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob one click counterclockwise to select Menu #39 (TONE F). This Menu selection allows setting of the CTCSS tone frequency to be used. </p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>CTCSS TONE FREQUENCY(Hz)</th>
+<th>CTCSS TONE FREQUENCY(Hz)</th>
+<th>CTCSS TONE FREQUENCY(Hz)</th>
+<th>CTCSS TONE FREQUENCY(Hz)</th>
+<th>CTCSS TONE FREQUENCY(Hz)</th>
+<th>CTCSS TONE FREQUENCY(Hz)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>67.0</td>
+<td>69.3</td>
+<td>71.9</td>
+<td>74.4</td>
+<td>77.0</td>
+<td>79.7</td>
+</tr>
+<tr>
+<td>82.5</td>
+<td>85.4</td>
+<td>88.5</td>
+<td>91.5</td>
+<td>94.8</td>
+<td>97.4</td>
+</tr>
+<tr>
+<td>100.0</td>
+<td>103.5</td>
+<td>107.2</td>
+<td>110.9</td>
+<td>114.8</td>
+<td>118.8</td>
+</tr>
+<tr>
+<td>123.0</td>
+<td>127.3</td>
+<td>131.8</td>
+<td>136.5</td>
+<td>141.3</td>
+<td>146.2</td>
+</tr>
+<tr>
+<td>151.4</td>
+<td>156.7</td>
+<td>159.8</td>
+<td>162.2</td>
+<td>165.5</td>
+<td>167.9</td>
+</tr>
+<tr>
+<td>171.3</td>
+<td>173.8</td>
+<td>177.3</td>
+<td>179.9</td>
+<td>183.5</td>
+<td>186.2</td>
+</tr>
+<tr>
+<td>189.9</td>
+<td>192.8</td>
+<td>196.6</td>
+<td>199.5</td>
+<td>203.5</td>
+<td>206.5</td>
+</tr>
+<tr>
+<td>210.7</td>
+<td>218.1</td>
+<td>225.7</td>
+<td>229.1</td>
+<td>233.6</td>
+<td>241.8</td>
+</tr>
+<tr>
+<td>250.3</td>
+<td>254.1</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<ol start="6">
+<li>
+<p>Press “Main” band DIAL knob momentarily to enable adjustment of the CTCSS frequency. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob until the display indicates the Tone Frequency you need to be using. </p>
+</li>
+<li>
+<p>When you have made your selection, press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation.</p>
+</li>
+</ol><h2 id="ctcss-dcs-operation-2">CTCSS/DCS OPERATION</h2>
+<h2 id="ctcss-operation-2">CTCSS OPERATION</h2>
+<p>1) Your repeater may or may not re-transmit a CTCSS tone - some systems just use CTCSS to control access to the repeater, but don’t pass it along when transmitting. If the S-Meter deflects, but the FT-8900R is not passing audio, repeat steps “1” through “4” above, but rotate the “Main” DIAL knob so that “ENC” appears - this will allow you to hear all traffic on the channel being received. </p>
+<p>2) You may select the Tone Squelch mode (ENC, ENC.DEC, or DCS) on the “Main” band by the microphone’s [P3] key. </p>
+<h2 id="dcs-operation">DCS OPERATION</h2>
+<p>Another form of tone access control is Digital Code Squelch, or DCS. It is a newer, more advanced tone system which generally provides more immunity from false paging than does CTCSS. The DCS Encoder/Decoder is built into your FT-8900R, and operation is very similar to that just described for CTCSS. Your repeater system may be configured for DCS; if not, it is frequently quite useful in Simplex operation if your friend(s) use transceivers equipped with this advanced feature. </p>
+<p>Just as in CTCSS operation, DCS requires that you set the Tone Mode to DCS and that you select a tone code. </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #40 (TONE M). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob until “DCS” appears on the display; this activates the DCS Encoder/Decoder. </p>
+</li>
+<li>
+<p>Now, press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select Menu #10 (DCS.COD). </p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DCS CODE</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>023</td>
+<td>025</td>
+<td>026</td>
+<td>031</td>
+<td>032</td>
+<td>036</td>
+<td>043</td>
+<td>047</td>
+<td>051</td>
+<td>053</td>
+</tr>
+<tr>
+<td>054</td>
+<td>065</td>
+<td>071</td>
+<td>072</td>
+<td>073</td>
+<td>074</td>
+<td>114</td>
+<td>115</td>
+<td>116</td>
+<td>122</td>
+</tr>
+<tr>
+<td>125</td>
+<td>131</td>
+<td>132</td>
+<td>134</td>
+<td>143</td>
+<td>145</td>
+<td>152</td>
+<td>155</td>
+<td>156</td>
+<td>162</td>
+</tr>
+<tr>
+<td>165</td>
+<td>172</td>
+<td>174</td>
+<td>205</td>
+<td>212</td>
+<td>223</td>
+<td>225</td>
+<td>226</td>
+<td>243</td>
+<td>244</td>
+</tr>
+<tr>
+<td>245</td>
+<td>246</td>
+<td>251</td>
+<td>252</td>
+<td>255</td>
+<td>261</td>
+<td>263</td>
+<td>265</td>
+<td>266</td>
+<td>271</td>
+</tr>
+<tr>
+<td>274</td>
+<td>306</td>
+<td>311</td>
+<td>315</td>
+<td>325</td>
+<td>331</td>
+<td>332</td>
+<td>343</td>
+<td>346</td>
+<td>351</td>
+</tr>
+<tr>
+<td>356</td>
+<td>364</td>
+<td>365</td>
+<td>371</td>
+<td>411</td>
+<td>412</td>
+<td>413</td>
+<td>423</td>
+<td>431</td>
+<td>432</td>
+</tr>
+<tr>
+<td>445</td>
+<td>446</td>
+<td>452</td>
+<td>454</td>
+<td>455</td>
+<td>462</td>
+<td>464</td>
+<td>465</td>
+<td>466</td>
+<td>503</td>
+</tr>
+<tr>
+<td>506</td>
+<td>516</td>
+<td>523</td>
+<td>526</td>
+<td>532</td>
+<td>546</td>
+<td>565</td>
+<td>606</td>
+<td>612</td>
+<td>624</td>
+</tr>
+<tr>
+<td>627</td>
+<td>631</td>
+<td>632</td>
+<td>654</td>
+<td>662</td>
+<td>664</td>
+<td>703</td>
+<td>712</td>
+<td>723</td>
+<td>731</td>
+</tr>
+<tr>
+<td>732</td>
+<td>734</td>
+<td>743</td>
+<td>754</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<ol start="5">
+<li>
+<p>Press the “Main” band DIAL knob momentarily to enable the adjustment of the DCS code. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select the desired DCS Code (a three-digit number). </p>
+</li>
+<li>
+<p>When you have made your selection, press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<ul>
+<li>
+<p>1) Remember that the DCS is an Encode/Decode system, so your receiver will remain muted until a matching DCS code is received on an incoming transmis- </p>
+</li>
+<li>
+<p>sion. Switch the DCS off when you’re just tuning around the band! </p>
+</li>
+<li>
+<p>2) You may select the DCS mode on the “Main” band by the microphone’s [P3] key.</p>
+</li>
+</ul><h2 id="ctcss-dcs-operation-3">CTCSS/DCS OPERATION</h2>
+<h2 id="tone-search-scanning">TONE SEARCH SCANNING</h2>
+<p>In operating situations where you don’t know the CTCSS or DCS tone being used by another station or stations, you can command the radio to listen to the incoming signal and scan in search of the tone being used. Two things must be remembered in this regard: </p>
+<ul>
+<li>
+<p>You must be sure that your repeater uses the same tone type (CTCSS vs. DCS). </p>
+</li>
+<li>
+<p>Some repeaters do not pass the CTCSS tone; you may have to listen to the station(s) transmitting on the repeater uplink (input) frequency in order to allow Tone Search Scanning to work. </p>
+</li>
+</ul>
+<p>To scan for the tone in use: </p>
+<ol>
+<li>
+<p>Set the radio up for either CTCSS or DCS Decoder operation (see the previous discussion). In the case of CTCSS, “ENC DEC” will appear on the display; in the case of DCS, “DCS” will appear on the display. </p>
+</li>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #39 (TONE F) when CTCSS is selected, or Menu #10 (DCS.COD) during DCS operation. </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob to enable adjustment of the selected Menu Item. </p>
+</li>
+<li>
+<p>Press the “Main” band [SCN] key momentarily to start scanning for the incoming CTCSS or DCS tone/code. </p>
+</li>
+<li>
+<p>When the radio detects the correct tone or code, it will halt on that tone/code, and audio will be allowed to pass. Press the “Main” band DIAL knob momentarily to lock in that tone/code, then press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<p>If the Tone Scan feature does not detect a tone or code, it will continue to scan indefinitely. When this happens, it may be that the other station is not sending any tone. You can press the [SCN] key to halt the scan at any time. </p>
+<p>Tone Scanning works either in the VFO or Memory modes.</p><h2 id="memory-operation">MEMORY OPERATION</h2>
+<p>The FT-8900R provides a wide variety of memory system resources. These include: </p>
+<ul>
+<li>
+<p>Regular Memory Channels, which made up of: </p>
+</li>
+<li>
+<p>799 “Standard” memory channels, numbered “001” through “799.” </p>
+</li>
+<li>
+<p>Six Home channels, providing storage and quick recall of one prime frequency on each operating band. </p>
+</li>
+<li>
+<p>Five sets of band-edge memories also known as “Programmable Memory Scan” channels, labeled “L1/U1” through “L5/U5.” </p>
+</li>
+<li>
+<p>Six “Hyper-Memory” Channels </p>
+</li>
+</ul>
+<p><strong>==&gt; picture [300 x 184] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>Standard Memory Channels PMS Memory Channels
+(799 channels) (5 Sets)
+HOME Channels (6 channels) Hyper Memory Channels (6 channels)
+001 002 003 004 798 799 L1/U1 L2/U2 L3/U3 L4/U4 L4/U4
+29 MHz Band 50 MHz Band 144 MHz Band 350 MHz Band 430 MHz Band 850 MHz Band 1-HP 2-HP 3-HP 4-HP 5-HP 6-HP
+<strong>----- End of picture text -----</strong></p>
+<h2 id="regular-memory-channel-operation">REGULAR MEMORY CHANNEL OPERATION</h2>
+<h2 id="memory-storage">Memory Storage</h2>
+<ol>
+<li>
+<p>Select the desired frequency, while operating in the VFO mode on the “Main” band. Be sure set up any desired CTCSS or DCS tones, as well as any desired repeater offset. The power level may be also be set at this time, if you wish to store it. </p>
+</li>
+<li>
+<p>Press and hold in the [SET] key for 1/2 second. A memory number will appear (blinking) on the display. </p>
+</li>
+<li>
+<p>Within ten seconds of pressing the [SET] key, use the “Main” band DIAL knob or the microphone’s [UP]/[DWN] buttons to select the desired memory channel for storage (if the channel is already occupied by data stored previously, the “channel frequency” notation will appear on the display. </p>
+</li>
+<li>
+<p>To attach an alpha/numeric name “Tag” to the memory, press and hold in the [SET] key for 1/2 second, then proceed to the next step; otherwise press the [SET] key momentarily to save the entry and exit to normal operation.</p>
+</li>
+</ol><h2 id="memory-operation-2">MEMORY OPERATION</h2>
+<h2 id="regular-memory-channel-operation-2">REGULAR MEMORY CHANNEL OPERATION</h2>
+<p>To Append an Alpha-numeric “Tag” to a Memory </p>
+<ol>
+<li>
+<p>After press and holding in the [SET] key in step 4 above, rotate the “Main” band DIAL knob to select the first character in the name you wish to store, the press the “Main” band DIAL knob momentarily to move on to the next character. Letters, numbers, and symbols are available for storage. </p>
+</li>
+<li>
+<p>Again rotate the “Main” band DIAL knob to select the desired letter, number, or symbol, then press the “Main” band DIAL knob momentarily to move on to the next character’s slot. </p>
+</li>
+</ol>
+<p>If you make a mistake, press the microphone’s [DWN] button to move back to the previous character’s slot, then re-select the correct letter, number, or symbol. </p>
+<ol start="3">
+<li>
+<p>Repeat the above step to program the remaining letters, numbers, or symbols of the desired label. A total of six characters may be used in the creation of a label. </p>
+</li>
+<li>
+<p>When you have completed the creation of the label, press the [SET] key momentarily to save the label and exit to normal operation. </p>
+</li>
+</ol>
+<p>Storing Independent Transmit Frequencies (“Odd Splits”) </p>
+<ol>
+<li>
+<p>Store the receiving frequency using the method already described. </p>
+</li>
+<li>
+<p>Turn to the desired transmit frequency on the “Main” band, then press and hold in the [SET] key for 1/2 second. </p>
+</li>
+<li>
+<p>Within ten seconds of pressing the [SET] key, use the “Main” band DIAL knob or microphone’s [UP]/[DWN] buttons to select the same memory channel number as used in step 1 above. </p>
+</li>
+<li>
+<p>Press and hold in the PTT switch, then press the [SET] key momentarily while holding the PTT switch to save the entry and exit to normal operation. This will not cause transmission; instead, it signals the microprocessor that a separate transmit frequency is being programmed into that memory register. </p>
+</li>
+</ol>
+<p>Whenever you recall a memory which contains independently-stored transmit and receive frequencies, the “[ ]” indication will appear in the display.</p><h2 id="memory-operation-3">MEMORY OPERATION</h2>
+<h2 id="regular-memory-channel-operation-3">REGULAR MEMORY CHANNEL OPERATION</h2>
+<h2 id="memory-recall">Memory Recall</h2>
+<ol>
+<li>
+<p>While operating in the VFO mode, press the [V/M] key momentarily to enter the Memory mode. </p>
+</li>
+<li>
+<p>Rotate the DIAL knob to select the desired channel. </p>
+</li>
+<li>
+<p>To return to the VFO mode, press the [V/M] key momentarily again. </p>
+</li>
+</ol>
+<ul>
+<li>
+<p>1) When the radio is already set to the Memory mode, an easy way to recall memories is to enter the microphone’s key in the memory channel number. For ex- </p>
+</li>
+<li>
+<p>ample, to recall memory channel #4, press [0] � [0] � [4]. </p>
+</li>
+<li>
+<p>2) Memory channels on which you may have stored frequencies on the 29 MHz and 50 MHz amateur bands cannot be recalled on the “right” band. </p>
+</li>
+</ul>
+<h2 id="memory-offset-tuning">Memory Offset Tuning</h2>
+<p>Once you have recalled a particular memory channel, you may easily tune off that channel, as though you were in the “VFO” mode. </p>
+<ol>
+<li>
+<p>With the FT-8900R in the “MR” (Memory Recall) mode, select the desired memory channel. </p>
+</li>
+<li>
+<p>Now press and hold in the[[] V/M[]] key for 1/2 second; the “MT” icon will appear on the display. </p>
+</li>
+<li>
+<p>Rotate the DIAL knob, as desired, to tune to a new frequency. The synthesizer steps selected for VFO operation on the current band will be the steps used during Memory Tuning. </p>
+</li>
+<li>
+<p>Press and hold in the[[] V/M[]] key for 1/2 second during Memory Tuning, the data will now have been copied to VFO, although the original memory contents will remain intact on the previously-stored channel. </p>
+</li>
+<li>
+<p>If you wish to return to the original memory frequency, press and hold in the[[] V/M[]] key for 1/2 second. The “MT” icon will disappear. </p>
+</li>
+</ol>
+<h2 id="deleting-memories">Deleting Memories</h2>
+<p>With 808 total memories available, there frequently are situations where you may desire to delete certain memorized frequencies. The procedure for deleting a channel is quite simple: </p>
+<ol>
+<li>
+<p>Press the [V/M] key, if needed, to enter the Memory mode. </p>
+</li>
+<li>
+<p>Press and hold in the [SET] key for 1/2 second, then rotate the “Main” band DIAL knob to select the memory channel to be deleted. Note that memory channel #1 may not be deleted. </p>
+</li>
+<li>
+<p>Press the “Main” band [SCN] key momentarily. The display will revert to memory channel #1. If you rotate the “Main” band DIAL knob to the location you just “Masked,” you will observe that it is now invisible. </p>
+</li>
+</ol>
+<p>Note: One deleted, the channel data cannot be recovered.</p><h2 id="memory-operation-4">MEMORY OPERATION</h2>
+<h2 id="regular-memory-channel-operation-4">REGULAR MEMORY CHANNEL OPERATION</h2>
+<h2 id="home-channel-memory">HOME Channel Memory</h2>
+<p>A special one-touch “HOME” channel is available (one for each of the 6 operating bands: see page 21), to allow quick recall of a favorite operating frequency on each band. Memory storage is simple to accomplish: </p>
+<ol>
+<li>
+<p>Select the desired frequency, while operating in the VFO mode on the “Main” band. Be sure to set up any desired CTCSS or DCS tones, as well as any desired repeater offset. The power level may also be set at this time, if you wish to store it. </p>
+</li>
+<li>
+<p>Press and hold in the [SET] key for 1/2 second. A memory number will appear (blinking) on the display. </p>
+</li>
+<li>
+<p>While the memory channel number is blinking, just press the “Main” [H/M] key. The frequency and other data (if any) will now be stored in the special HOME channel register. </p>
+</li>
+<li>
+<p>You may repeat this process on the other operating bands. </p>
+</li>
+<li>
+<p>To recall the HOME channel, just press the [H/M] key while operating either in the VFO or MR mode. </p>
+</li>
+</ol>
+<h2 id="memory-only-mode">Memory Only Mode</h2>
+<p>Once memory channel programming has been completed, you may place the radio in a “Memory Only” mode, whereby VFO operation is impossible. This may be particularly useful during public-service events where a number of operators may be using the radio for first time, and ultimate simplicity of channel selection is desired. </p>
+<p>To place the radio into the Memory Only mode: </p>
+<ol>
+<li>
+<p>Turn the radio off. </p>
+</li>
+<li>
+<p>Press and hold in the “left” [V/M] key while turning the radio on. </p>
+</li>
+<li>
+<p>Rotate the “right” DIAL knob to select the (F-5 M-ONLY MODE), then press the [SET] key momentarily. </p>
+</li>
+</ol>
+<p>To return to normal operation, repeat the above steps.</p><h2 id="memory-operation-5">MEMORY OPERATION</h2>
+<h2 id="hyper-memory-mode">HYPER MEMORY MODE</h2>
+<p>The FT-8900R usually stores, into memory, the operating frequency and some aspects of operating status (such as CTCSS/DCS data, repeater shift, power level etc.). However, the “Hyper Memory” Mode allows you to store the total current configuration of the radio into a special “Hyper” memory bank. </p>
+<p>For example, a Hyper Memory location may store the frequencies of both the “Left” and “right” bands, plus Scanning features, etc. </p>
+<h2 id="hyper-memory-storage">Hyper Memory Storage</h2>
+<ol>
+<li>
+<p>Set up the transceiver according to the desired configuration. </p>
+</li>
+<li>
+<p>Press and hold in the Hyper Memory key ([1] through [6]), corresponding to the Hyper Memory channel into which you wish to store this configuration, for 2 seconds. </p>
+</li>
+</ol>
+<h2 id="hyper-memory-recall">Hyper Memory Recall</h2>
+<p>Press the appropriate Hyper Memory key ([1] through [6]) to recall the desired Hyper Memory channel. </p>
+<p>The current (original) configuration will lost when you recall the Hyper Memory Channel. To prevent this from happening, press and hold in the Hyper Memory key (generally the [1] key) to store the current configuration into that Hyper Memory Channel before recalling the Hyper Memory Channel, or set Menu #16 to enable the Automatic Writing feature for the Hyper Memory. See page 62 for details.</p><p>The FT-8900R allows you to scan just the memory channels, the entire operating band, or a portion of that band. It will halt on signals encountered, so you can talk to the station(s) on that frequency, if you like. </p>
+<p>Scanning operation is basically the same in each of the above modes. Before you begin, take a moment to select the way in which you would like the scanner to resume scanning after it halts on a signal. </p>
+<h2 id="setting-the-scan-resume-technique">Setting the Scan-Resume Technique</h2>
+<p>Two options for the Scan-Resume mode are available: </p>
+<ul>
+<li>
+<p>TIME: In this mode, the scanner will halt on a signal it encounters, and will hold there for five seconds. If you do not take action to disable the scanner within five seconds, the scanner will resume even if the stations are still active. </p>
+</li>
+<li>
+<p>BUSY: In this mode, the scanner will halt on a signal it encounters. Two seconds after the carrier has dropped because the other station(s) ceased transmission, the scanner will resume. </p>
+</li>
+</ul>
+<p>To set the Scan-Resume mode: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #34 (SCAN). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the desired scan-resume mode. </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<p>Note: The default condition for this Menu Item is “TIME.”</p><h2 id="scanning">SCANNING</h2>
+<h2 id="vfo-scanning">VFO SCANNING</h2>
+<p>This mode allows you to scan the entire current operating band. </p>
+<ol>
+<li>
+<p>Select the VFO mode by pressing the [V/M] key, if necessary. </p>
+</li>
+<li>
+<p>Press the [SCN] key momentarily to start scanning. </p>
+</li>
+<li>
+<p>If and when the scanner encounters a signal strong enough to open the squelch, the scanner will halt temporarily; the decimal point of the frequency display will blink during this “Pause” condition. </p>
+</li>
+<li>
+<p>The scanner will then resume according to the Scan-Resume mode selected in the previous section. </p>
+</li>
+<li>
+<p>To cancel scanning, press the [SCN] key momentarily again (or press the microphone’s PTT key). </p>
+</li>
+</ol>
+<p>When you start scanning, the FT-8900R will be changing frequency in the upward direction. If you want to change direction of the scan while it is underway, rotate the DIAL knob one click in the opposite direction (in this case, one click counterclockwise). You’ll see the scanner turn around and change frequency downward! </p>
+<p>You may change the scanning function so that the VFO frequency will jump to the low band edge of the next band when the VFO frequency reaches the high edge of the current band (or vice versa). See page 60 regarding Menu #4 (BAND).</p><h2 id="memory-scanning">MEMORY SCANNING</h2>
+<p>Memory scanning is similarly easy to initiate: </p>
+<ol>
+<li>
+<p>Set the radio to the Memory mode by pressing the [V/M] key, if necessary. </p>
+</li>
+<li>
+<p>Press the [SCN] key to initiate scanning. </p>
+</li>
+<li>
+<p>As with VFO scanning, the scanner will halt on any signal encountered that is strong enough to open the squelch; it will then resume scanning according to the Scan-Resume mode set previously. </p>
+</li>
+<li>
+<p>To cancel scanning, press the [SCN] key again (or press the microphone’s PTT key). </p>
+</li>
+</ol>
+<p>On the “right” band, Memory Channel scan will only search through the memory channels which are stored inside the 144 MHz and 430 MHz amateur bands. </p>
+<h2 id="how-to-skip-omit-a-channel-during-memory-scan-operation">How to Skip (Omit) a Channel During Memory Scan Operation</h2>
+<p>Some continuous-carrier stations like a Weather Broadcast station will seriously impede scanner operation if you are using the “Carrier Drop” Scan-Resume mode, as the incoming signal will not pause long enough for the transceiver to resume scanning. Such channels may be “Skipped” during scanning, if you like: </p>
+<ol>
+<li>
+<p>Set the radio to the Memory Mode by pressing the [V/M] key, if necessary. </p>
+</li>
+<li>
+<p>Rotate the DIAL knob to select the Memory Channel to be skipped during scanning. </p>
+</li>
+<li>
+<p>Press and hold the [SCN] key for 1/2 second so as to make the small “SKIP” icon appear on the display. The current Memory Channel will now be ignored during scanning. The small “SKIP” icon will also appear when you recall the “skipped” memory channel manually. </p>
+</li>
+</ol>
+<p>The “◁” selection is used for “Preferential Memory Scan,” described in the next column. </p>
+<ol start="4">
+<li>To re-institute a channel into the scanning loop, press and hold in the [SCN] key for 1/2 second twice to select “OFF” (the “Skipped” channel will, of course, still be accessible via manual channel selection methods using the DIAL knob in the MR mode, whether or not it is locked out of the scanning loop).</li>
+</ol><h2 id="scanning-2">SCANNING</h2>
+<h2 id="memory-scanning-2">MEMORY SCANNING</h2>
+<h2 id="preferential-memory-scan">Preferential Memory Scan</h2>
+<p>The FT-8900R also allows you to set up a “Preferential Scan List” of channels which you can “flag” within the memory system. These channels are designated by a “◁” icon when you have selected them, one by one, for the Preferential Scan List. </p>
+<p>When you initiate memory scanning, beginning on a channel with the “◁” icon appended, only those channels bearing the “◁” icon will be scanned. If you initiate scanning on a channel which does not have the “◁” icon appended, you will scan all channels including those with the “◁” icon appended. </p>
+<p>Here is the procedure for setting up and using the Preferential Scan List: </p>
+<ol>
+<li>
+<p>Press the [V/M] key momentarily to enter the Memory Recall mode, if you are not using memories already. </p>
+</li>
+<li>
+<p>Rotate the DIAL knob to select the channel which you wish to add to the Preferential Scan List. </p>
+</li>
+<li>
+<p>Press and hold the [SCN] key for 1/2 second, several times if necessary, so as to make the “◁” icon appear by the channel designator. </p>
+</li>
+</ol>
+<p>To initiate Preferential Memory Scan: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #35 (SCAN M). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to “MSM.” </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+<li>
+<p>Now, press the [SCN] key momentarily to initiate Preferential Memory Scanning. Only the channels which have the “◁” icon appended to the channel number will be scanned. </p>
+</li>
+<li>
+<p>To cancel the Preferential Memory Scanning, select “MEM” in step 3 above.</p>
+</li>
+</ol><h2 id="scanning-3">SCANNING</h2>
+<h2 id="programmable-band-limit-memory-scan-pms">PROGRAMMABLE (BAND LIMIT) MEMORY SCAN (PMS)</h2>
+<p>This feature allows you to set sub-band limits for either scanning or manual VFO operation. For example, you might with to set up a limit (in North America) of 144.300 MHz to 148.000 MHz so as to prevent encroachment into the SSB/CW “Weak Signal” portion of the band below 144.300 MHz. Here’s how to do this: </p>
+<ol>
+<li>
+<p>Set the radio to the VFO mode by pressing the [V/M] key, if necessary. </p>
+</li>
+<li>
+<p>Using the techniques learned earlier, store 144.300 MHz into Memory Channel #L1 (the “L” designates the Lower sub-band limit). </p>
+</li>
+<li>
+<p>Likewise, store 148.000 MHz into Memory Channel #U1 (the “U” designates the Upper sub-band limit). </p>
+</li>
+<li>
+<p>Switch to the Memory mode by pressing the [V/M] key once, then rotate the DIAL knob to select Memory Channel # L1. </p>
+</li>
+<li>
+<p>Press and hold in the [V/M] key for 1/2 second to start PMS operation; the “MT” label will be appears on the display. Tuning and canning will now be limited within the justprogrammed range. </p>
+</li>
+<li>
+<p>Five pairs of Band Limit memories, labeled L1/U1 through L5/U5 are available. You therefore can set upper and lower operation limits on a number of bands, if you like.</p>
+</li>
+</ol><h2 id="scanning-4">SCANNING</h2>
+<h2 id="priority-channel-scanning-dual-watch">“PRIORITY CHANNEL” SCANNING (DUAL WATCH)</h2>
+<p>The FT-8900R’s scanning features include a two-channel scanning capability which allows you to operate on a VFO, Memory channel, or Home channel, while periodically checking a user-defined “Priority” Memory Channel for activity. If a station is received on the “Priority” Channel which is strong enough to open the Squelch, the scanner will pause on that station in accordance with the Scan-Resume mode set via Set mode [Menu #34 (SCAN)]. See page 37. </p>
+<p>Here is the procedure for activating Priority Channel Dual Watch operation: </p>
+<h2 id="vfo-priority">VFO Priority</h2>
+<ol>
+<li>
+<p>Recall the memory channel you wish to use as the “priority” frequency. </p>
+</li>
+<li>
+<p>Now set the FT-8900R for operation on a VFO frequency. </p>
+</li>
+<li>
+<p>Press and hold in the [HM] key for 1/2 second to activate the VFO Priority mode. The display will remain on the VFO frequency, but every five seconds the FT-8900R will check the Priority Channel (memory channel) for activity. </p>
+</li>
+<li>
+<p>Press the [V/M] key to disable the VFO Priority mode and exit to regular VFO operation. </p>
+</li>
+</ol>
+<h2 id="memory-priority">Memory Priority</h2>
+<ol>
+<li>
+<p>Store the frequency you wish to be the “Priority” Channel into memory channel “1.” </p>
+</li>
+<li>
+<p>Now set the FT-8900R for operation on another memory channel. </p>
+</li>
+<li>
+<p>Press and hold in the [HM] key for 1/2 second to activate the Memory Priority mode. The display will remain on the current memory channel frequency, but every five seconds the FT-8900R will check the Priority Channel (memory channel “1”) for activity. </p>
+</li>
+<li>
+<p>Press the [V/M] key to disable the Memory Priority mode and exit to regular memory operation. </p>
+</li>
+</ol>
+<h2 id="home-priority">HOME Priority</h2>
+<ol>
+<li>
+<p>Recall the memory channel you wish to use as the “priority” frequency. </p>
+</li>
+<li>
+<p>Now set the FT-8900R for operation on a HOME channel. </p>
+</li>
+<li>
+<p>Press and hold in the [HM] key for 1/2 second to activate the HOME Priority mode. The display will remain on the HOME channel frequency, but every five seconds the FT8900R will check the Priority Channel (memory channel) for activity. </p>
+</li>
+<li>
+<p>Press the [V/M] key to disable the HOME Priority mode and exit to regular VFO operation. </p>
+</li>
+</ol>
+<p>You may operate individual Priority Channel Dual Watch features on both bands at the same time, such as having the VFO Priority mode engaged on the “right” band and the Memory Priority mode engaged on the “left” band.</p><h2 id="smart-search">SMART SEARCH</h2>
+<p>The Smart Search feature may be used to load - automatically with no operator intervention - a special bank of up to 25 memory channels (per band) on activity. </p>
+<p>The Smart Search function will sweep the entire band, and will load the special memory bank with the frequency and repeater shift data pertaining to those channels on which activity is found (if Automatic Repeater Shift is activated). The channels are loaded in order in which they are encountered, not according to signal strength or by ascending frequency. </p>
+<p>The Smart Search feature is especially useful when visiting a city for the first time, where you may be unfamiliar with the repeater frequencies; Smart Search discovers where the local activity is to be found, and automatically loads those frequencies for you. </p>
+<p>Smart Search operation is simple to activate: </p>
+<ol>
+<li>
+<p>Set the radio to the VFO mode by pressing the [V/M] key, if necessary. </p>
+</li>
+<li>
+<p>Press and hold in the [V/M] key; this will cause the radio to scan upward on the current band, loading channels on which it encounters a signal strong enough to open the squelch. </p>
+</li>
+<li>
+<p>When 25 channels are loaded, or when the scanner reaches the band edge, the scanner will stop and the transceiver will revert to the starting frequency. </p>
+</li>
+<li>
+<p>To recall the Smart Search memories just stored, rotate the DIAL knob or press the microphone’s [UP]/[DWN] keys (for the “Main” band Smart Search memories only). </p>
+</li>
+<li>
+<p>If you found particular channels which you wish to store into the “regular” memory channel, follow the memory storage procedures described on page 32. </p>
+</li>
+</ol>
+<ul>
+<li>1) The Smart Search memories are so-called “soft” memories; they will lost if you exit the Smart Search mode or initiate a new Smart Search sweep. </li>
+</ul>
+<p>2) You may activate the Smart Search operation on the “Main” band by press and hold the microphone’s [P2] key. </p>
+<p>3) You may activate the Smart Search operation on the “left” and “right” bands at the same time.</p><p>The ARTS feature uses DCS signaling to inform both parties when you and another ARTSequipped station are within communications range. This may be particularly useful during Search-and Rescue situations, where is important to stay in contact with other members of your group. </p>
+<p>Both stations must set up their DCS codes to the same code number, then activate their ARTS feature using the command appropriate for their radio. Alert ringers may be activated, if desired. </p>
+<p>Whenever you push the PTT switch, or every 25 seconds after ARTS is activated, your radio will transmit a signal which includes a (subaudible) DCS signal for about one second. If the other radio is in range, the beeper will sound (if enabled) and the display will show “IN.RNG” as opposed to the out of range display “OUT.RNG” in which ARTS operation begins. </p>
+<p>Whether you talk or not, the polling every 25 seconds will continue until you de-activate ARTS. Every 10 minutes, moreover, you can have your radio transmit your callsign via CW, so as to comply with identification requirements. When ARTS is de-activated, DCS will also be deactivated (if you were not using it previously in non-ARTS operation). </p>
+<p>If you move out of range for more than one minute (four pollings), your radio will sense that no signal has been received, three beeps will sound, and the display will revert to “OUT.RNG.” If you move back into range, your radio will again beep, and the display will change back to the “IN.RNG” indication. </p>
+<p>During ARTS operation, it is not possible to change the operating frequency or other settings on the “Main” band; you must terminate ARTS in order to resume normal operation. This is a safety feature designed to prevent accidental loss of contact due to channel change, etc. Here is how to activate ARTS: </p>
+<h2 id="basic-arts-setup-and-operation">Basic ARTS Setup and Operation</h2>
+<ol>
+<li>
+<p>Set your radio and the other radio(s) to the same DCS code number, per the discussion on page 30. </p>
+</li>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #3 (ARTS). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the desired ARTS beep option. The available options are: IN.RNG: The beeps are issued only when the radio first confirms that you are within range, but does not re-confirm with beeps thereafter. </p>
+</li>
+</ol>
+<ul>
+<li>
+<p>OUT.RNG: Every time a polling transmission is received from the other station, the alert beeps will be heard. </p>
+</li>
+<li>
+<ol start="5">
+<li>Press the “Main” band DIAL knob momentarily. You will observe the “OUT.RNG” display on the LCD. ARTS operation has now commenced. </li>
+</ol>
+</li>
+</ul>
+<ol start="6">
+<li>Every 25 seconds, your radio will transmit a “polling” call to the other station. When that</li>
+</ol><p>station responds with its own ARTS polling signal, the display will change to “IN.RNG” to confirm that the other station’s polling code was received in response to yours. </p>
+<ol start="7">
+<li>Press the “Main” band DIAL knob momentarily to exit ARTS operation and resume normal functioning of the transceiver. </li>
+</ol>
+<h2 id="cw-identifier-setup">CW Identifier Setup</h2>
+<p>The ARTS feature includes a CW identifier, as discussed previously. Every ten minutes during ARTS operation, the radio can be instructed to send “DE (your callsign) K” if this feature is enabled. The callsign field may contain up to 6 characters. </p>
+<p>Here’s how to program the CW Identifier: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #8 (CWID W). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily. </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily again to enable entry of your callsign. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob one click clockwise to begin entry of the letters and numbers in your callsign. </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily to set the first letter or number in your callsign. </p>
+</li>
+<li>
+<p>When the correct character has been selected, Press the “Main” band DIAL knob momentarily to move on to the next character. </p>
+</li>
+<li>
+<p>Repeat steps 6 and 7 as many times as necessary to complete your callsign. </p>
+</li>
+<li>
+<p>Press the “Main” [SCN] key to delete all data after the cursor that may have been previously stored (erroneously). </p>
+</li>
+<li>
+<p>When you have entered your entire callsign, press the “Main” band DIAL knob momentarily to confirm the callsign. </p>
+</li>
+<li>
+<p>Press the [SET] key momentarily, then rotate the “Main” band DIAL knob one click counter-clockwise to select the Menu #7 (CWID). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select “TX ON” (to enable the CW identifier). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily to save the setting and exit to normal operation.</p>
+</li>
+</ol><h2 id="dtmf-autodialer-operation">DTMF AUTODIALER OPERATION</h2>
+<p>16 DTMF Autodialer memories are available on the FT-8900R. These DTMF Autodialer memories can store up to 16 digits of a telephone number for, repeater autopatch or other uses. </p>
+<p>To load DTMF Autodialer memories, use following procedure: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #15 (DTMF W). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the DTMF Autodialer memory channel number (“d-1” through “d-16”) into which you wish store a telephone number. </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the first digit of the telephone number you wish to store. </p>
+</li>
+<li>
+<p>When you have selected the correct digit, press the “Main” band DIAL knob momentarily. Now, rotate the “Main” band DIAL knob to select the second of the 16 available numbers in this current DTMF Audodialer memory register. </p>
+</li>
+<li>
+<p>Repeat this procedure for each digit in the telephone number. Press the “Main” band [SET] key momentarily to delete any previously-stored data after the cursor. If you make a mistake, press the microphone’s [DWN] key to move back to the first digit, then re-enter the correct number. </p>
+</li>
+<li>
+<p>When entry of all digits is complete, press the [SET] key momentarily to save the new setting. </p>
+</li>
+<li>
+<p>If you wish to store another DTMF string, rotate the “Main” band DIAL knob to select another DTMF memory register, then repeat steps 4 through 7 above. </p>
+</li>
+<li>
+<p>When all required DTMF memories are filled to your satisfaction, press and hold in the “Main” band DIAL knob for 1/2 second to exit to normal operation. </p>
+</li>
+</ol>
+<p>To transmit the memorized telephone number, use the following procedure: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #15 (DTMF W). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the DTMF Autodialer memory channel to be transmitted. </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to exit to normal operation. </p>
+</li>
+<li>
+<p>Press the PTT switch. </p>
+</li>
+<li>
+<p>While still holding the PTT switch in, press the “Main” band [HM] key momentarily to transmit the tone string. </p>
+</li>
+</ol>
+<p>Once you have pressed the [HM] key in the above step, you can release the PTT switch, as the Autodialer will transmit the whole DTMF string automatically.</p><h2 id="dtmf-autodialer-operation-2">DTMF AUTODIALER OPERATION</h2>
+<p>To speed at which the DTMF digits are sent can be changed. Three speed levels are available: 50 ms (High: 20 digits per second), 75 ms (Mid: 13 digits per second), and 100 ms (Low: 10 digits per second). </p>
+<p>To select the speed, use the following procedure: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #14 (DTMF S). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the desired speed. </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<p>You can also set a longer delay between the time you press the [SCN] key (with PTT switch pressed) and the first DTMF digit is sent. </p>
+<p>To set a delay time, use the following procedure: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #13 (DTMF D). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the desired time (50/250/450/750/1000 ms). </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation.</p>
+</li>
+</ol><h2 id="internet-connection-feature">INTERNET CONNECTION FEATURE</h2>
+<p>The FT-8900R can be used to access the repeater which is configured to provide access to the Vertex Standard WIRES[TM] (Wide-Coverage Internet Repeater Enhancement System). </p>
+<ol>
+<li>
+<p>Press the “left” VOL knob momentarily to activate the WIRES™ access capability. The “INT ON” will appear for 2 seconds at the “Main” band frequency display. The “int” icon will appear in the memory channel field on the “Sub” band while WIRES[TM] access is enabled. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob, while pressing and holding in the “left” VOL knob, to select the access number (ICODE “0” ~ “9,” “A,” “B,” “C,” “D,” “E (�),” or “F (#)”) corresponding to the WIRES[TM] repeater to which you wish to establish an Internet link (ask your repeater owner/operator if you don’t know the access numbers in the network). </p>
+</li>
+<li>
+<p>With the WIRES™ capability activated (as in step 1 above), the FT-8900R will generate a brief (0.1 second) DTMF tone according to your selection in step 2. This DTMF tone is sent at the beginning of every transmission to establish or maintain the link to the remote WIRES[TM] repeater. </p>
+</li>
+<li>
+<p>To disable the WIRES[TM] access capability, press the “left” VOL knob again. </p>
+</li>
+</ol>
+<p>You may access other Internet Link Systems that use a DTMF string for access. </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #15 (DTMF W). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then load the DTMF tones which you wish to use to establish an Internet link (ask your repeater owner/operator if you don’t know the access numbers in the network) into the desired DTMF Memory channel. </p>
+</li>
+</ol>
+<ul>
+<li>
+<p>1) Rotate the “Main” band DIAL knob to select the DTMF Autodialer memory channel number (“d-1” through “d-16”). </p>
+</li>
+<li>
+<p>2) Press the “Main” band DIAL knob momentarily. </p>
+</li>
+<li>
+<p>3) Rotate the “Main” band DIAL knob to select the DTMF code, then press the “Main” band DIAL knob momentarily to move the digit. </p>
+</li>
+<li>
+<p>4) Repeat step 3) above. </p>
+</li>
+<li>
+<p>5) Press the “Main” band DIAL knob momentarily to save the new setting. </p>
+</li>
+</ul>
+<ol start="4">
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #17 (INET). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to set this Item to “INT.MEM” (to enable the alternative Internet Link, and disable the WIRES™ access option). </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+<li>
+<p>Press the “left” VOL knob momentarily to activate the Internet Link System. The “INT ON” display will appear for 2 seconds in the “Main” band frequency field. The “int” icon will then appear in the memory channel field on the “Sub” band while the Internet Link System access feature is engaged.</p>
+</li>
+</ol><ol start="8">
+<li>
+<p>Rotate the “Main” band DIAL knob, while pressing and holding in the “left” VOL knob, to select the DTMF access number (“IMEM 1” ~ “IMEM16”) corresponding to the Internet link repeater to which you wish to establish an Internet link. </p>
+</li>
+<li>
+<p>With the Internet link feature activated (as in step 7 above), press the “left” VOL knob or microphone’s [P2] key to send out the DTMF tones according to your selection in step 9 (to establish the link to the Internet link repeater). </p>
+</li>
+<li>
+<p>To disable the Internet link feature, press the “left” VOL knob again. </p>
+</li>
+</ol>
+<p>To return to WIRES[TM] , recall Menu #17 (INET) then set it to “INT. COD.”</p><figure><button aria-label="Enlarge Figure from page 51" class="zoom" data-dialog="fig-4" type="button"><img alt="Figure from page 51" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page50-0.png"/></button><figcaption>Figure from page 51</figcaption><dialog id="fig-4"><img alt="Figure from page 51" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page50-0.png"/><p>Figure from page 51</p><form method="dialog"><button>Close</button></form></dialog></figure><h2 id="miscellaneous-settings">MISCELLANEOUS SETTINGS</h2>
+<h2 id="time-out-timer">- TIME OUT TIMER</h2>
+<p>The “Time-Out Timer” (TOT) feature is designed to force the transceiver into the “receive” mode after a preset time period of continuous transmission (the default is 6 minutes). This feature prevents your transceiver from transmitting a “dead carrier” for a long period of time in the event that the microphone PTT switch is accidentally locked in the “TX” condition. </p>
+<p>The Time-Out Timer’s “switch-to-receive” time may be adjusted, in one minute increments, for any period between 1 and 30 minutes. </p>
+<p>To change the default (6 minute) time setting, use the following procedure: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #41 (TOT). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the desired interval (between 1 and 30 minutes), or OFF. </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<h2 id="automatic-power-off">- AUTOMATIC POWER OFF</h2>
+<p>The “Automatic Power-Off” (APO) feature will turn the radio completely off after a userdefined period of PTT switch or key/button inactivity. If you do not press any front panel keys or buttons, rotate the DIAL knobs or use the microphone’s keys and buttons, or transmit, and so long as the transceiver is not scanning or engaged in priority monitoring, the radio will shut itself off after the specified time period. This feature is useful in minimizing battery drain in a mobile installation if you forget to turn the transceiver off when you leave your vehicle. </p>
+<p>To activate the APO feature, use the following procedure: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #1 (APO). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to set the desired “switch-off” time (between 1 and 12 hours in 0.5 hours increments), or OFF. </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and exit to normal operation.</p>
+</li>
+</ol><h2 id="miscellaneous-settings-2">MISCELLANEOUS SETTINGS</h2>
+<h2 id="programming-the-key-assignments">PROGRAMMING THE KEY ASSIGNMENTS</h2>
+<p>Default FT-8900R key functions have been assigned to Microphone’s [P1]/[P2]/[P3]/[P4] buttons (MH-48A6J, [ACC]/[P]/[P1]/[P2] buttons: MH-42B6JS) at the factory. These may be changed by the user, if you wish to utilize another function on one of these keys. </p>
+<p>To program the function assigned to a key: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select the Menu Item to be configured (“#28 PG P1,” “#29 PG P2,” “#30 PG P3,” or “#31 PG P4”). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the function you wish to assign to the button you selected in the previous step. </p>
+</li>
+<li>
+<p>Press the [SET] key to save the new setting, then rotate the “Main” band DIAL knob to select another programmable button to modify, if desired, and repeat the above steps. </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to exit to normal operation. </p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Press the button</th>
+<th>Press and hold the button</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SCAN</td>
+<td>Activate the Scanner on the “Main” band.</td>
+<td>When the “Main” band is set to the Memory</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>mode, press and hold in this button for 1/2 sec-</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>ond to set up the Scan Skip List or Preferential</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Scan List.</td>
+</tr>
+<tr>
+<td>SQL.OFF</td>
+<td>Opens the Squelch on the “Main” band to</td>
+<td>Opens the Squelch on the “Main” band to al-</td>
+</tr>
+<tr>
+<td></td>
+<td>allow un-muted reception.</td>
+<td>low un-muted reception.</td>
+</tr>
+<tr>
+<td>TCALL</td>
+<td>Activates 1750 Hz Tone Burst.</td>
+<td>Activates 1750 Hz Tone Burst.</td>
+</tr>
+<tr>
+<td>RPTR</td>
+<td>Selects Repeater Shift direction on the</td>
+<td>—</td>
+</tr>
+<tr>
+<td></td>
+<td>“Main” band.</td>
+<td></td>
+</tr>
+<tr>
+<td>PRI</td>
+<td>Activates the Priority feature on the “Main”</td>
+<td>—</td>
+</tr>
+<tr>
+<td></td>
+<td>band.</td>
+<td></td>
+</tr>
+<tr>
+<td>LOW</td>
+<td>Selects the transmit power output level on the</td>
+<td>When the “Main” band is set to the Memory</td>
+</tr>
+<tr>
+<td></td>
+<td>“Main” band.</td>
+<td>mode or Home Channel, press and hold in this</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>button for 1/2 second to switch the memory</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>channel display between the “Frequency” for-</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>mat and “Alpha-numeric Tag” format.</td>
+</tr>
+<tr>
+<td>TONE</td>
+<td>Activates the CTCSS or DCS operation on</td>
+<td>—</td>
+</tr>
+<tr>
+<td></td>
+<td>the “Main” band.</td>
+<td></td>
+</tr>
+<tr>
+<td>MHz</td>
+<td>Allows tuning in 1-MHz step on the “Main”</td>
+<td>Allows tuning in 10-MHz step on the “Main”</td>
+</tr>
+<tr>
+<td></td>
+<td>band VFO.</td>
+<td>band VFO.</td>
+</tr>
+<tr>
+<td>REV</td>
+<td>Reverses the transmit and receive frequencies</td>
+<td>Press this button momentarily to selects Re-</td>
+</tr>
+<tr>
+<td></td>
+<td>duringsplit-frequencyoperation.</td>
+<td>peater Shift direction on the “Main” band.</td>
+</tr>
+<tr>
+<td>HOME</td>
+<td>Switches operation to the “Home” channel</td>
+<td>Activate the Priority Scanning.</td>
+</tr>
+<tr>
+<td></td>
+<td>on the “Main” band.</td>
+<td></td>
+</tr>
+<tr>
+<td>BAND</td>
+<td>Toggles the “Main” band of operation</td>
+<td>Switches operating band on the “Main” band.</td>
+</tr>
+<tr>
+<td></td>
+<td>between the “Left” band and “right” band.</td>
+<td></td>
+</tr>
+<tr>
+<td>VFO/MR</td>
+<td>Switches frequency control between the VFO</td>
+<td>Activate the Smart Search Feature when the</td>
+</tr>
+<tr>
+<td></td>
+<td>and Memory modes on the “Main” band.</td>
+<td>“Main” band is set to the VFO mode.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Shift to the “Memory Tuning” feature when</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>the “Main” band is set to the Memorymode.</td>
+</tr>
+</tbody>
+</table><h2 id="miscellaneous-settings-3">MISCELLANEOUS SETTINGS</h2>
+<h2 id="fm-bandwidth-mic-gain-control">FM BANDWIDTH &amp; MIC GAIN CONTROL</h2>
+<p>You can reduce the microphone input level and receiver bandwidth when operating on tightlyclustered frequencies (channel spacing of 12.5 or 15 kHz). This will reduce the transmitter and receiver deviation, thus minimizing interference to other users (and improving reception, as well). </p>
+<p>To configure for the narrower bandwidth, use the following procedure: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #43 (WID.NAR). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to change the display to “NARROW.” </p>
+</li>
+<li>
+<p>Press and hold in the “Main” band DIAL knob for 1/2 second to save the new setting and to normal operation. </p>
+</li>
+</ol>
+<p>To restore the normal (higher) microphone input level and normal (15 kHz) receiver bandwidth, select “WIDE” in step 3 above. </p>
+<p>This feature is ignored on the “right” band and 29 MHz band on the “Left” band.</p><h2 id="miscellaneous-settings-4">MISCELLANEOUS SETTINGS</h2>
+<h2 id="dcs-code-inversion">DCS CODE INVERSION</h2>
+<p>The DCS system was first introduced in the commercial LMR (Land Mobile Radio) service, where it is now in widespread use. DCS is sometime referred to by its different proprietary names, such as DPL[®] (Digital Private Line[®] , a registered trademark of Motorola, Inc.). </p>
+<p>DCS uses a codeword consisting of a 23-bit frame, transmitted (subaudible) at a data rate of 134.4 bps (bit/sec). Occasionally, signal inversion can result in the complement of a code to be sent or received. This prevent receiver squelch from opening with DCS enabled, as the decoded bit sequence would not match that selected for operation. Typical situations that might cause inversion to occur are: </p>
+<ul>
+<li>
+<p>Connection of an external receiver preamplifier. </p>
+</li>
+<li>
+<p>Operating through a repeater. </p>
+</li>
+<li>
+<p>Connection of an external linear amplifier. </p>
+</li>
+</ul>
+<p>Note that code inversion does not mean that any of the above listed equipment is detective! In certain amplifier configurations, the output signal (phase) is inverted from the input. Small signal or power amplifiers having an odd number (1, 3, 5, etc.) of amplification stages may result in inversion of a transmitted or received DCS code. </p>
+<p>While under most circumstances this should not occur (amplifier designs and industry standards take this into account), if you find that your receiver squelch does not open when both you and the other station are using a common DCS code, you or the other station (but not both) can try the following: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #11 (DCS.N/R). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, then rotate the “Main” band DIAL knob to select the following mode. </p>
+</li>
+</ol>
+<ul>
+<li>TRX N:Encoder; Normal, Decoder; Normal </li>
+</ul>
+<p>RX R: Encoder; Normal, Decoder; Reverse (Inverted) </p>
+<p>TX R: Encoder; Reverse (Inverted), Decoder; Normal </p>
+<p>TRX R: Encoder; Reverse (Inverted), Decoder; Reverse (Inverted) </p>
+<ol start="4">
+<li>Press and hold in the “Main” band DIAL knob for 1/2 second to exit to normal operation. </li>
+</ol>
+<p>Remember to restore the default setting to “TRX N” (Encoder; Normal, Decoder; Normal) when done.</p><h2 id="cross-band-repeater-operation">CROSS BAND REPEATER OPERATION</h2>
+<p>The FT-8900R can be set up to operate as a full-featured cross-band repeater via a simple Menu procedure. This feature is useful for emergency portable work in a remote area, and for cross-band linking. </p>
+<p>However, remember these points before using the cross-band repeater function: </p>
+<ul>
+<li>
+<p>Check the amateur radio rules and regulations for your country to ensure that this type of operation is permitted. </p>
+</li>
+<li>
+<p>Pick your frequency pair carefully, so as not to cause harmful interference to other users. The use of cross-band repeaters has the potential to cause serious disruption of communications circuits, and the creation of harmful interference to coordinated repeaters is inconsiderate and may be illegal! If you are not sure of active repeater frequencies in your area, a safe rule is to stay off of the repeater sub-bands and use the FM simplex portion of each band. Contact your area’s frequency coordinator for guidance. </p>
+</li>
+<li>
+<p>Remember that the transmit duty cycle will be much higher during repeater service, so we recommend that the transmit power level be set to a Low setting, to ensure cooler operation. </p>
+</li>
+</ul>
+<p>Transceiver CTCSS settings (Encode/Decode) may, of course, be selected for each band, allowing selective calling for your repeater. However, keep in mind that if the channels you use are so busy as to motivate you toward CTCSS Decoding, you may not have chosen a good frequency pair on which to operate, as the potential for interference to other users is high. </p>
+<p>Here is the procedure for setting up cross-band repeat operation: </p>
+<ol>
+<li>
+<p>Before enabling cross-band repeater operation, configure both band settings as desired, and set the squelch such that background noise is silenced. </p>
+</li>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the “Main” band DIAL knob to select Menu #44 (X-RPT). </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily, “XSTART” will appear on the display. </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob again to activate the cross-band repeater mode. </p>
+</li>
+<li>
+<p>To exit the cross-band repeater mode, Press the [SET] key again.</p>
+</li>
+</ol><ol>
+<li>
+<p>Turn the radio off. </p>
+</li>
+<li>
+<p>Press and hold in the “left” [V/M] key while turning the radio on. </p>
+</li>
+<li>
+<p>Rotate the “right” DIAL knob to select the resetting menu: </p>
+</li>
+</ol>
+<ul>
+<li>SETMOD RESET: Resets the Set (Menu) mode settings to their factory defaults. HYPER RESET: Clears the Hyper Memory settings to factory defaults. MEMORY RESET: Clears the Regular Memory settings to factory defaults. ALL RESET: Clears all memories and other settings to factory defaults. </li>
+</ul>
+<ol start="4">
+<li>Press the [SET] key momentarily to complete the reset procedure, once you have made your selection in step 3.</li>
+</ol><h2 id="cloning">CLONING</h2>
+<p>You can transfer all data stored in one FT-8900R to another FT-8900R by utilizing the handy “Cloning” feature. This requires a user-constructed Cloning cable which connects the DATA jacks on the two transceivers, as shown below. </p>
+<p>To clone from one transceiver to another, use the following procedure: </p>
+<ol>
+<li>
+<p>Insert the Cloning Cable into the DATA jack of each transceiver. </p>
+</li>
+<li>
+<p>Turn both transceivers off, then press and hold in the “left” [V/M] key on each radio while turning the power on again. </p>
+</li>
+<li>
+<p>Rotate the “right” DIAL knob on each radio to select (CLONE START), then press the [SET] key. The display will disappear for a moment, then the “CLONE” notation will appear on the display. </p>
+</li>
+<li>
+<p>On the “destination” radio, press the “left” [LOW] key. The “CLONE -RX-” indicator will appear on the display. </p>
+</li>
+<li>
+<p>Now, on the “source” radio, press the “left” [V/M] key. The “CLONE -TX-” indicator will appear on the display, and the cloning data transfer will immediately begin. </p>
+</li>
+<li>
+<p>If there is a problem during the cloning process, “CLONE ERROR” will be displayed. Check your cable connections, and try again. </p>
+</li>
+<li>
+<p>If cloning was successful, the “CLONE -RX-” and “CLONE -TX-” indicators will disappear. </p>
+</li>
+<li>
+<p>Turn both transceivers off, then remove the Cloning Cable. Channel and operating data for both radios are now identical. They both may be turned on now for normal operation. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [290 x 165] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>ANT ANT
+13.8VDC 13.8VDC
+EXT SP EXT SP
+DATA DATA
+PKS
+GND
+<strong>----- End of picture text -----</strong></p><figure><button aria-label="Enlarge Figure from page 59" class="zoom" data-dialog="fig-5" type="button"><img alt="Figure from page 59" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page58-0.png"/></button><figcaption>Figure from page 59</figcaption><dialog id="fig-5"><img alt="Figure from page 59" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page58-0.png"/><p>Figure from page 59</p><form method="dialog"><button>Close</button></form></dialog></figure><h2 id="menu-set-mode">MENU (“SET”) MODE</h2>
+<p>The FT-8900R Set (Menu) mode, already described in parts of many previous chapters, is easy to activate and set. It may be used for configuration of a wide variety of transceiver parameters, some of which have not been detailed previously. Use the following procedure to activate the Set (Menu) mode: </p>
+<ol>
+<li>
+<p>Press the [SET] key momentarily to enter the Set mode. </p>
+</li>
+<li>
+<p>Turn the “Main” band DIAL knob to select the Menu Item to be adjusted. </p>
+</li>
+<li>
+<p>Press the “Main” band DIAL knob momentarily to enable adjustment of the selected Menu item, then rotate the “Main” band DIAL knob to perform the actual adjustment. </p>
+</li>
+<li>
+<p>After completing your selection and adjustment, press and hold in the “Main” band DIAL knob for 1/2 second to exit the Set mode and exit to normal operation. </p>
+</li>
+</ol>
+<p>1) The “h” character which is in front of the menu number denotes “Enable to provide the individual values for each Hyper Memory Channel.” </p>
+<p>2) The “b” character which is in front of the menu number denotes “Enable to provide the individual values for each Operating Band and Mode (VFO, Memory Channel, and Home Channel).”</p><h2 id="menu-set-mode-2">MENU (“SET”) MODE</h2>
+<p><strong>==&gt; picture [362 x 507] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>Item # Menu Item Function Available Values Default
+1 APO Selects the Automatic Power Off time (time before power OFF/0.5H - 12H OFF
+goes off).
+2 ARS Activates/deactivates the Automatic Repeater Shift feature. ON/OFF �1
+3 ARTS Selects the ARTS beep mode. IN RNG/OUTRNG —
+4 BAND Enables/disables the VFO Band edge for the current band. BND ON/BNDOFF BND OFF
+5 BEEP Enables/disables the beeper BEP.ON/BEP.OFF BEP.ON
+6 CLK.SFT Shifting of CPU clock frequency. SFT.ON/SFT.OFF SFT.OFF
+7 CWID Enables/disables the CW identifier during ARTS operation. TX ON/TX OFF TX OFF
+8 CWID W Stores your callsign into the CW identifier. Up to six char- — —
+acters may be stored.
+9 DIMMER Setting of the Display brightness level. DIM 1/DIM 2/DIM 3/OFF DIM 1
+10 DCS.COD Setting the DCS code. 104 standard DCS Code 023
+11 DCS.N/R Selects “Normal” or “inverted” DCS coding. TRX N/RX R/TX R/TRX R TRX N
+12 DSP.SUB Selects the Sub Band display format. FREQ/CWID/DC-IN/OFF FREQ
+13 DTMF D Setting of the DTMF Autodialer Delay Time. 50MS/250MS/450MS/ 450MS
+750MS/1000MS
+14 DTMF S Setting of the DTMF Autodialer Sending Speed. 50MS/75MS/100MS 50MS
+15 DTMF W Loading of the DTMF Autodialer Memories. — —
+16 HYPER Enables/disables the Automatic Writing feature for the MANUAL/AUTO MANUAL
+Hyper Memory.
+17 INET Selects the Internet Connection mode. INT.COD/INT.MEM INT.COD
+18 INET C Selects the Access Number (DTMF digit) for WIRES™ op- CODE 0 - 9/A/B/C/D/E/F CODE 1
+eration.
+19 INET M Selects the Access Number (DTMF code) for non-WIRES™ d-1 - d-16 d-1
+Internet Link System access.
+20 KEY.MOD Selects the key functions for the “right” band function KEY1/KEY2 KEY1
+switches.
+21 LOCK Enables/disables the Key/Button Lock feature. ON/OFF OFF
+22 LOCKT Enables/disables the PTT Lock feature. OFF/BAND R/ OFF
+BAND L/BOTH
+23 MIC Selects the microphone type to be used. MH-48/MH-42 �2
+24 MUTE Selects the Audio Mute mode. OFF/TX/RX/ (TX/RX) OFF
+25 NAME Stores an Alpha-Numeric “Tag” for a memory channel. — —
+26 PCKT S Sets the transceiver’s circuitry for the Packet baud rate to 1200BPS/9600BPS 1200BPS
+be used.
+27 PCKT B Sets the receiving band for Packet operation. MAIN/R-FIX/L-FIX MAIN
+28 PG P1 Programming the microphone’s [P1]/[ACC] button assign- BAND
+ment. SCAN/SQL.OFF/
+29 PG P2 Programming the microphone’s [P2]/[P] button assignment. TCALL/RPTR/PRI/ VFO/MR
+30 PG P3 Programming the microphone’s [P3]/[P1] button assign- LOW/TONE/ TONE
+ment. MHz/REV/HOME/
+31 PG P4 Programming the microphone’s [P4]/[P2] button assign- BAND/(VFO/MR) LOW
+ment.
+32 RF SQL  Adjustd the RF SQL threshold level. OFF/S-2/S-5/S-9/S-FULL OFF
+33 RPT.MOD Sets the Repeater Shift Direction RPT.OFF/RPT.–/RPT.+ RPT.OFF
+34 SCAN Selects the Scan-Resume mode. TIME/BUSY TIME
+35 SCAN M Selects the Memory Scan mode MEM/MSM MEM
+36 SHIFT Sets the magnitude of the Repeater Shift. 0.00 - 99.50 MHz �1
+37 STEP Sets the Synthesizer steps. 5.0k/10.0k/12.5k/ �1
+20.0k/25.0k/50.0k
+38 SPCONT Defines the audio path to the external speaker (when used). EXT/OFF/INT.EXT/INT EXT
+39 TONE F Sets the CTCSS Tone Frequency. 50 Standard CTCSS Tones 100 Hz
+40 TONE M Selects the Tone Encoder and/or Decoder mode. OFF/ENC/ENC.DEC/DCS OFF
+41 TOT Sets the Time-Out Timer. 1 - 30 minutes/OFF 6 minute
+42 VFO.TR Enables/disables the VFO Tracking feature. ON/OFF OFF
+43 WID.NAR Reducing the MIC Gain (and Deviation). WIDE/NARROW �1
+44 X-RPT Switches the Cross-Band Repeater feature on and off. — —
+45 AM Enables/disables the AM mode. ON/OFF OFF
+46 AUT.AM Selects the receiving mode. AUTO/OFF AUTO
+<strong>----- End of picture text -----</strong></p><h2 id="menu-set-mode-3">MENU (“SET”) MODE</h2>
+<h2 id="menu-1-apo">Menu #1 [APO]</h2>
+<p>Function: Selects the Automatic Power Off time (time before power goes off). Available Values: OFF/0.5 H – 12.0 H in 0.5 hour multiples. Default: OFF (Disables the APO feature) </p>
+<h2 id="menu-2-ars">Menu #2 [ARS]</h2>
+<p>Function: Activates/deactivates the Automatic Repeater Shift feature. Available Values: ON/OFF Default: Depends on the band of operation. </p>
+<h2 id="menu-3-arts">Menu #3 [ARTS]</h2>
+<p>Function: Selects the ARTS beep mode. Available Values: IN RNG/OUTRNG IN RNG: Activates the ARTS feature; a high tone beep will sound when the transceiver first detects that you are within range, and a low beep will sound when the other station goes out of range. </p>
+<p>OUTRNG:Activates the ARTS feature; a high tone beep will sound every time a polling transmission is received from the other station, and a low beep will sound once when the other station goes out of range. </p>
+<h2 id="menu-4-band">Menu #4 [BAND]</h2>
+<p>Function: Enables/disables the VFO Band edge for the current band. Available Values: BND ON/BND.OFF Default: BND ON BND ON: When the VFO frequency reaches the high band edge of the current band, the VFO frequency will jump to the low band edge of the current band (or vice versa). </p>
+<p>BND.OFF: When the VFO frequency reaches the high edge of the current band, the VFO frequency will jump to the low band edge of the next band (or vice versa). </p>
+<h2 id="menu-5-beep">Menu #5 [BEEP]</h2>
+<p>Function: Enables/disables the beeper Available Values: BEP. ON/BEP.OFF Default: BEP. ON </p>
+<h2 id="menu-6-clk-sft">Menu #6 [CLK.SFT]</h2>
+<p>Function: Shifting of CPU clock frequency. Available Values: SFT. ON/SFT.OFF Default: SFT.OFF </p>
+<p>This function is only used to move a spurious response “birdie,” should it fall on a desired frequency.</p><h2 id="menu-set-mode-4">MENU (“SET”) MODE</h2>
+<p>Menu #7 [CWID] </p>
+<p>Function: Enables/disables the CW identifier during ARTS operation. Available Values: TX ON/TX OFF Default: TX OFF </p>
+<h2 id="menu-8-cwid-w">Menu #8 [CWID W]</h2>
+<p>Function: Stores your callsign into the CW identifier. Up to six characters may be stored. See page 45 for details. </p>
+<h2 id="menu-9-dimmer">Menu #9 [DIMMER]</h2>
+<p>Function: Setting of the Display brightness level. Available Values: DIM 1/DIM 2/DIM 3/OFF Default: DIM 1 </p>
+<table>
+<thead>
+<tr>
+<th>enu.</th>
+<th></th>
+<th></th>
+<th></th>
+<th>DCS</th>
+<th>DCS</th>
+<th>CODE</th>
+<th>CODE</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Function: Setting the DCS code.</td>
+<td>023</td>
+<td>025</td>
+<td>026</td>
+<td>031</td>
+<td>032</td>
+<td>036</td>
+<td>043</td>
+<td>047</td>
+<td>051</td>
+<td>053</td>
+</tr>
+<tr>
+<td>Available Values: 104 Standard DCS codes.</td>
+<td>054</td>
+<td>065</td>
+<td>071</td>
+<td>072</td>
+<td>073</td>
+<td>074</td>
+<td>114</td>
+<td>115</td>
+<td>116</td>
+<td>122</td>
+</tr>
+<tr>
+<td>Default: 023</td>
+<td>125</td>
+<td>131</td>
+<td>132</td>
+<td>134</td>
+<td>143</td>
+<td>145</td>
+<td>152</td>
+<td>155</td>
+<td>156</td>
+<td>162</td>
+</tr>
+<tr>
+<td></td>
+<td>165</td>
+<td>172</td>
+<td>174</td>
+<td>205</td>
+<td>212</td>
+<td>223</td>
+<td>225</td>
+<td>226</td>
+<td>243</td>
+<td>244</td>
+</tr>
+<tr>
+<td>Menu #11[DCS.N/R]</td>
+<td>245</td>
+<td>246</td>
+<td>251</td>
+<td>252</td>
+<td>255</td>
+<td>261</td>
+<td>263</td>
+<td>265</td>
+<td>266</td>
+<td>271</td>
+</tr>
+<tr>
+<td>Function: Selects “Normal” or “inverted” DCS</td>
+<td>274</td>
+<td>306</td>
+<td>311</td>
+<td>315</td>
+<td>325</td>
+<td>331</td>
+<td>332</td>
+<td>343</td>
+<td>346</td>
+<td>351</td>
+</tr>
+<tr>
+<td>coding.</td>
+<td>356</td>
+<td>364</td>
+<td>365</td>
+<td>371</td>
+<td>411</td>
+<td>412</td>
+<td>413</td>
+<td>423</td>
+<td>431</td>
+<td>432</td>
+</tr>
+<tr>
+<td>Available Values: TRX N/RX R/TX R/TRX R</td>
+<td>445</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>506</td>
+<td>446</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>516</td>
+<td>452</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>523</td>
+<td>454</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>526</td>
+<td>455</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>532</td>
+<td>462</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>546</td>
+<td>464</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>565</td>
+<td>465</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>606</td>
+<td>466</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>612</td>
+<td>503</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>624</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Default: TRX N</td>
+<td>627</td>
+<td>631</td>
+<td>632</td>
+<td>654</td>
+<td>662</td>
+<td>664</td>
+<td>703</td>
+<td>712</td>
+<td>723</td>
+<td>731</td>
+</tr>
+<tr>
+<td></td>
+<td>732</td>
+<td>734</td>
+<td>743</td>
+<td>754</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<h2 id="menu-10-dcs-cod">Menu #10 [DCS.COD]</h2>
+<h2 id="menu-12-dsp-sub">Menu #12 [DSP.SUB]</h2>
+<p>Function: Selects the Sub Band display format. Available Values: FREQ/CWID/DC-IN/OFF Default: FREQ FREQ: Displays the “Sub” band frequency (Dual band operation). CWID: Displays the CW ID. DC-IN: Displays the DC supply voltage. OFF: No Display. </p>
+<p>Note: When this Menu Item is set to any selection other than the “FREQ” the “Sub” band receiver will be disabled. </p>
+<h2 id="menu-13-dtmf-d">Menu #13 [DTMF D]</h2>
+<p>Function: Setting of the DTMF Autodialer Delay Time. Available Values: 50MS/250MS/450MS/750MS/1000MS Default: 450MS</p><h2 id="menu-set-mode-5">MENU (“SET”) MODE</h2>
+<p>Menu #14 [DTMF S] </p>
+<p>Function: Setting of the DTMF Autodialer Sending Speed. Available Values: 50MS (high speed)/75MS (mid speed)/100MS (low speed) (ms) Default: 50MS </p>
+<h2 id="menu-15-dtmf-w">Menu #15 [DTMF W]</h2>
+<p>Function: Loading of the DTMF Autodialer Memories. See page 46 for details. </p>
+<h2 id="menu-16-hyper">Menu #16 [HYPER]</h2>
+<p>Function: Enables/disables the Automatic Writing feature for the Hyper Memory. Available Values: MANUL/AUTO Default: MANUAL MANUL:Disables the Automatic Writing feature. AUTO: Enables the Automatic Writing feature. The Hyper memory data changes automatically when the radio’s configuration is changed (such as Mode change, Band Change, etc.). </p>
+<h2 id="menu-17-inet">Menu #17 [INET]</h2>
+<p>Function: Selects the Internet Connection mode. Available Values: INT.COD/INT.MEM Default: INT.COD INT.COD: Sets up the Internet Connection mode for WIRES[TM] access. INT.MEM: Sets up the Internet Connection mode for other (DTMF string) Internet Link System access. </p>
+<h2 id="menu-18-inet-c">Menu #18 [INET C]</h2>
+<p>Function: Selects the Access Number (DTMF digit) for WIRES™ operation. Available Values: CODE 0 ~ CODE 9, CODE A, CODE B, CODE C, CODE D, CODE E(#), CODE F(*) Default: CODE 1 </p>
+<h2 id="menu-19-inet-m">Menu #19 [INET M]</h2>
+<p>Function: Selects the Access Number (DTMF code) for non-WIRES™ Internet Link System access. See page 48 for more details. Available Values: d-1 ~ d-16 Default: d-1 </p>
+<h2 id="menu-20-key-mod">Menu #20 [KEY.MOD]</h2>
+<p>Function: Selects the key functions for the “right” band function switches. Available Values: KEY1/KEY2 Default: KEY1</p><h2 id="menu-set-mode-6">MENU (“SET”) MODE</h2>
+<h2 id="menu-21-lock">Menu #21 [LOCK]</h2>
+<p>Function: Enables/disables the Key/Button Lock feature. Available Values: ON/OFF Default: OFF </p>
+<h2 id="menu-22-lockt">Menu #22 [LOCKT]</h2>
+<p>Function: Enables/disables the PTT Lock feature. Available Values: OFF/BAND R/BAND L/BOTH Default: OFF OFF: Enables the PTT switch. BAND R: Disables the PTT switch on the “right” band. BAND L: Disables the PTT switch on the “left” band. BOTH: Disables the PTT switch on the “both” band. </p>
+<h2 id="menu-23-mic">Menu #23 [MIC]</h2>
+<p>Function: Selects the microphone type to be used. Available Values: MH-48/MH-42 Default: Depends on transceiver version. </p>
+<h2 id="menu-24-mute">Menu #24 [MUTE]</h2>
+<p>Function: Selects the Audio Mute mode. Available Values: OFF/TX/RX and TX/RX Default: OFF </p>
+<p>OFF: Disables the Audio Mute feature. TX: Reduces the audio level of the “Sub” band whenever you transmit on the “Main” band. RX: Reduces the audio level of the “Sub” band whenever you receive a signal on the “Main” band. TX/RX:Reduces the audio level of the “Sub” band whenever you receive a signal on the “Main” band or you transmit on the “Main” band. </p>
+<h2 id="menu-25-name">Menu #25 [NAME]</h2>
+<p>Function: Stores an Alpha-Numeric “Tag” for a memory channel. See page 33 for details. </p>
+<h2 id="menu-26-pckt-s">Menu #26 [PCKT S]</h2>
+<p>Function: Sets the transceiver’s circuitry for the Packet baud rate to be used. Available Values: 1200bps/9600bps Default: 1200bps</p><h2 id="menu-set-mode-7">MENU (“SET”) MODE</h2>
+<h2 id="menu-27-pckt-b">Menu #27 [PCKT B]</h2>
+<p>Function: Sets the receivng band for Packet operation. Available Values: MAIN/R-FIX/L-FIX Default: MAIN MAIN: Packet can be received on the “Main” band. R-FIX: Packet can be received on the “right” band only. L-FIX: Packet can be received on the “left” band only. Note: The Packet transmitting band is fixed on the “Main” band. </p>
+<h2 id="menu-28-pg-p1">Menu #28 [PG P1]</h2>
+<p>Function: Programming the microphone’s [P1]/[ACC] button assignment. See page 51 for details. </p>
+<h2 id="menu-29-pg-p2">Menu #29 [PG P2]</h2>
+<p>Function: Programming the microphone’s [P2]/[P] button assignment. See page 51 for details. </p>
+<h2 id="menu-30-pg-p3">Menu #30 [PG P3]</h2>
+<p>Function: Programming the microphone’s [P3]/[P1] button assignment. See page 51 for details. </p>
+<h2 id="menu-31-pg-p4">Menu #31 [PG P4]</h2>
+<p>Function: Programming the microphone’s [P4]/[P2] button assignment. See page 51 for details. </p>
+<h2 id="menu-32-rf-sql">Menu #32 [RF SQL]</h2>
+<p>Function: Adjustd the RF SQL threshold level. Available Values: OFF/S-2/S-5/S-9/S-FULL Default: OFF </p>
+<p>Note: This Menu Item can be set independently on both the “left” and “right” bands. </p>
+<h2 id="menu-33-rpt-mod">Menu #33 [RPT.MOD]</h2>
+<p>Function: Sets the Repeater Shift Direction Available Values: RPT.OFF/RPT. –/RPT. + Default: RPT.OFF (SIMP) Note: This Menu Item can be set independently on both the “left” and “right” bands.</p><h2 id="menu-set-mode-8">MENU (“SET”) MODE</h2>
+<h2 id="menu-34-scan">Menu #34 [SCAN]</h2>
+<p>Function: Selects the Scan-Resume mode. Available Values: TIME/BUSY Default: BUSY TIME: The scanner will halt on a signal it encounters, and will hold five seconds. If you do not take action to disable the scanner within five seconds, the scanner will resume even if the stations are still active. </p>
+<p>BUSY: The scanner will halt on a signal it encounters. Two seconds after the carrier has dropped because the other station(s) ceased transmission, the scanner will resume. Note: This Menu Item can be set independently for each band. </p>
+<h2 id="menu-35-scan-m">Menu #35 [SCAN M]</h2>
+<p>Function: Selects the Memory Scan mode Available Values: MEM/MSM Default: MEM MEM: Enables Memory Scanning on all memory channels (except the memory channel skip memory). </p>
+<p>MSM: Enables Memory Scanning on Preferential Memory Channels only. </p>
+<h2 id="menu-36-shift">Menu #36 [SHIFT]</h2>
+<p>Function: Sets the magnitude of the Repeater Shift. Available Values: 0.00 - 99.95 MHz (50 kHz step) Default: Depends on the band of operation. Note: This Menu Item can be set independently for each band. </p>
+<h2 id="menu-37-step">Menu #37 [STEP]</h2>
+<p>Function: Sets the Synthesizer steps. Available Values: 5.0 k/10.0 k/12.5 k/15.0 k/20.0 k/25.0 k/50.0 k Default: Depends on the band of operation. Note: This Menu Item can be set independently for each band. </p>
+<h2 id="menu-38-spcont">Menu #38 [SPCONT]</h2>
+<p>Function: Defines the audio path to the external speaker (when used). Available Values: EXT/OFF/ INT.EXT/INT Default: EXT EXT: The audio is routed to external speaker (internal speaker is off). OFF: The audio is not routed (internal and external speakers are both off). INT.EXT: The audio is routed to both the internal and external speakers. INT: The audio is routed to the internal speaker only (external speaker is off).</p><h2 id="menu-set-mode-9">MENU (“SET”) MODE</h2>
+<h2 id="menu-39-tone-f">Menu #39 [TONE F]</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Menu #39[TONE F]</td>
+<td>CTCSS TONE FREQUENCY(Hz)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Function: Sets the CTCSS Tone Frequency.</td>
+<td>67.0</td>
+<td>69.3</td>
+<td>71.9</td>
+<td>74.4</td>
+<td>77.0</td>
+<td>79.7</td>
+</tr>
+<tr>
+<td>Available Values: 50 Standard CTCSS Tones</td>
+<td>82.5</td>
+<td>85.4</td>
+<td>88.5</td>
+<td>91.5</td>
+<td>94.8</td>
+<td>97.4</td>
+</tr>
+<tr>
+<td>Default: 100 Hz</td>
+<td>100.0</td>
+<td>103.5</td>
+<td>107.2</td>
+<td>110.9</td>
+<td>114.8</td>
+<td>118.8</td>
+</tr>
+<tr>
+<td>Note: This Menu Item can be set independently</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>for each band and, independently in each</td>
+<td>123.0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>151.4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>171.3</td>
+<td>127.3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>156.7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>173.8</td>
+<td>131.8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>159.8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>177.3</td>
+<td>136.5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>162.2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>179.9</td>
+<td>141.3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>165.5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>183.5</td>
+<td>146.2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>167.9</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>186.2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>memory.</td>
+<td>189.9</td>
+<td>192.8</td>
+<td>196.6</td>
+<td>199.5</td>
+<td>203.5</td>
+<td>206.5</td>
+</tr>
+<tr>
+<td>Menu #40[TONE M]</td>
+<td>210.7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>250.3</td>
+<td>218.1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>254.1</td>
+<td>225.7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>–</td>
+<td>229.1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>–</td>
+<td>233.6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>–</td>
+<td>241.8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>–</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="menu-40-tone-m">Menu #40 [TONE M]</h2>
+<p>Function: Selects the Tone Encoder and/or Decoder mode. Available Values: OFF/ENC/ENC.DEC/DCS Default: OFF ENC: CTCSS Encoder ENC.DEC: CTCSS Encoder/Decoder DCS: Digital Code Squelch Encoder/Decoder </p>
+<h2 id="menu-41-tot">Menu #41 [TOT]</h2>
+<p>Function: Sets the Time-Out Timer. Available Values: 1 - 30 minutes or OFF Default: 6 minutes </p>
+<h2 id="menu-42-vfo-tr">Menu #42 [VFO.TR]</h2>
+<p>Function: Enables/disables the VFO Tracking feature. Available Values: ON/OFF Default: OFF </p>
+<h2 id="menu-43-wid-nar">Menu #43 [WID.NAR]</h2>
+<p>Function: Reducing the MIC Gain (and Deviation). Available Values: WIDE/NARROW Default: Depends on the band of operation. Note: This Menu Item can be set independently for each band. The 29 MHz band is fixed (NARROW). </p>
+<p>Menu #44 [X-RPT] </p>
+<p>Function: Switches the Cross-Band Repeater feature on and off. Perform this Menu function to switch the Cross-Band Repeater feature on and off. See page 54 for details. </p>
+<h2 id="menu-45-am">Menu #45 [AM]</h2>
+<p>Function: Enables/disables the AM mode. Available Values: ON/OFF Default: OFF</p><p>Menu #46 [AUT. AM] Function: Selects the receiving mode. Available Values: AUTO/OFF Default: AUTO (AM in Aeronautical Band, FM elsewhere)</p><figure><button aria-label="Enlarge Figure from page 69" class="zoom" data-dialog="fig-6" type="button"><img alt="Figure from page 69" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page68-0.png"/></button><figcaption>Figure from page 69</figcaption><dialog id="fig-6"><img alt="Figure from page 69" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page68-0.png"/><p>Figure from page 69</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 70" class="zoom" data-dialog="fig-7" type="button"><img alt="Figure from page 70" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page69-0.png"/></button><figcaption>Figure from page 70</figcaption><dialog id="fig-7"><img alt="Figure from page 70" src="nav-comms_manual_yaesu_ft-8900r-f5678f81/nav-comms_manual_yaesu_ft-8900r-f5678f81-page69-0.png"/><p>Figure from page 70</p><form method="dialog"><button>Close</button></form></dialog></figure><ol>
+<li>
+<p>Changes or modifications to this device not expressly approved by VERTEX STANDARD could void the user’s authorization to operate this device. </p>
+</li>
+<li>
+<p>This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions; (1) this device may not cause harmful interference, and (2) this device must accept any interference including interference that may cause undesired operation. </p>
+</li>
+<li>
+<p>The scanning receiver in this equipment is incapable of tuning, or readily being altered, by the User to operate within the frequency bands allocated to the Domestic public Cellular Telecommunications Service in Part 22. </p>
+</li>
+</ol>
+<p>Part 15.21:  Changes or modifications to this device not expressly approved by Vertex Standard could void the user’s authorization to operate this device. </p>
+<h2 id="declaration-by-manufacturer">DECLARATION BY MANUFACTURER</h2>
+<p>The Scanner receiver is not a digital scanner and is incapable of being converted or modified to a digital scanner receiver by any user. </p>
+<ul>
+<li>WARNING: MODIFICATION OF THIS DEVICE TO RECEIVE CELLULAR RADIOTELEPHONE SERVICE SIGNALS IS PROHIBITED UNDER FCC RULES AND FEDERAL LAW.</li>
+</ul><p>Copyright 2003 VERTEX STANDARD CO., LTD. All rights reserved No portion of this manual may be reproduced without the permission of VERTEX STANDARD CO., LTD. Printed in Japan. </p>
+<p>E H 0 0 8 M 1 0 1 0311F-GY</p>
+    </main>
+  </div>
+  <script>document.querySelectorAll('button.zoom').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var d = document.getElementById(b.getAttribute('data-dialog'));
+    if (d && d.showModal) d.showModal();
+  });
+});</script>
+</body>
+</html>

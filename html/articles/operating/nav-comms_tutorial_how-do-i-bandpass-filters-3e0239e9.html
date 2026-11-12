@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>An occasional series (nav-comms_tutorial_how-do-i-bandpass-filters)</title>
+  <meta name="title" content="An occasional series (nav-comms_tutorial_how-do-i-bandpass-filters)">
+<meta name="category" content="operating">
+<meta name="source" content="pdfs/public/basic/nav-comms_tutorial_how-do-i-bandpass-filters.pdf">
+<meta name="sha256" content="3e0239e9f34d">
+<meta name="pipeline" content="pymupdf4llm">
+<meta name="generated" content="2026-11-12T22:53:58.048068Z">
+  <style>
+    :root { color-scheme: light; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
+.layout { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
+.layout:has(nav.toc) { grid-template-columns: 16rem 1fr; }
+nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
+nav.toc .toc-title { color: #1a1a1a; font-weight: 600; margin: 0 0 0.5rem; }
+nav.toc ul { list-style: none; padding: 0; margin: 0; }
+nav.toc li { margin: 0.25rem 0; }
+nav.toc a { color: #0b57d0; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+main { max-width: none; }
+h1 { font-size: 1.8rem; color: #1a1a1a; margin: 0 0 0.5rem; }
+h2, h3, h4, h5, h6 { color: #1a1a1a; margin-top: 1.8rem; font-size: 1.15rem; }
+a { color: #0b57d0; }
+.meta { font-size: 0.8rem; color: #555; }
+figure { margin: 1.5rem 0; background: #f6f6f6; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; }
+figure img { max-width: 100%; height: auto; background: #fff; cursor: zoom-in; }
+figcaption { font-size: 0.85rem; color: #555; margin-top: 0.5rem; }
+button.zoom { background: none; border: 0; padding: 0; display: block; width: 100%; cursor: zoom-in; }
+dialog { max-width: 90vw; max-height: 90vh; background: #fff; color: #1a1a1a; border: 1px solid #ccc; border-radius: 8px; padding: 1rem; }
+dialog img { max-width: 100%; max-height: 75vh; background: #fff; }
+dialog::backdrop { background: rgba(0,0,0,0.5); }
+ul { padding-left: 1.2rem; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #bbb; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f0f0f0; font-weight: 600; }
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  nav.toc { position: static; max-height: 16rem; }
+}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    
+    <main>
+      <p><a href="../../index.html">← Back to index</a></p>
+      <h1>An occasional series (nav-comms_tutorial_how-do-i-bandpass-filters)</h1>
+      <p class="meta">Category: operating · Source: pdfs/public/basic/nav-comms_tutorial_how-do-i-bandpass-filters.pdf · SHA: 3e0239e9f34d</p>
+      <h2 id="how-do-i"><em>How do I?</em></h2>
+<h2 id="an-occasional-series"><em>An occasional series</em></h2>
+<h2 id="this-week-bandpass-filters"><em>This week: Bandpass Filters</em></h2>
+<p><strong>==&gt; picture [173 x 151] intentionally omitted &lt;==</strong></p>
+<p><strong>Bandpass filters are used to eliminate interference.  Both to your amateur radio signal by nearby RF sources (other transmitters, etc) and from your transceiver to nearby televisions, etc.</strong> </p>
+<p><strong>Note:  Bandpass and Band Pass seem to be used interchangeably.  If doing a Google search, it can be helpful to search both terms.</strong> </p>
+<p>Long time readers of this space will see there are many articles on radios, antennas, and - other tips and tricks for operating away from your home station.  See  https://www.radioclub carc.com/resources/ for more articles. </p>
+<p>What does a bandpass filter do?  The complete solution involves dealing with potential problems in both parts of the radio station system – the receiver and the transmitter. </p>
+<p>In a receiver, a bandpass filter allows signals within a selected range of frequencies to be heard or decoded, while sharply attenuating signals (reducing their strength) at unwanted frequencies above and below the desired frequency band.  Signals at frequencies outside the band which the receiver is tuned at, can either saturate or damage the receiver. </p>
+<p>In a transmitter, a bandpass filter provides the same type of processing.  The desired signals pass through the filter and the undesirable signals higher or lower in frequency are turned into heat and dissipated. </p>
+<p>Band pass filters have been around since at least the 1930s.  They were especially common, even “required” in the 1950s and 1960s to prevent TVI-television interference, especially when transmitting on 15 meters, 10 meters and 6 meters. </p>
+<p>While moving the TV “channels” to difference frequencies, and improved radio transceivers have made TVI less common, the rise of household electronics has filled many homes with radio unfriendly electronic hash.  Filters may be able to help you operate more comfortably. </p>
+<p>Perhaps the best use of an external bandpass filter is in a multi transmitter environment to prevent overload of receivers by nearby transmitters. </p>
+<p>Filters are generally classified as: </p>
+<ul>
+<li>Low Pass Filters LPF  The low pass filter is used to attenuate signals which have frequencies higher than the cutoff frequency.</li>
+</ul><ul>
+<li>
+<p>High Pass Filters HPF  The high pass filter is used to attenuate signals which have frequencies lower than the cutoff frequency </p>
+</li>
+<li>
+<p>Band Pass Filters BPF  The Band Pass Filter has two cutoff frequencies.  The first cutoff frequency is from a high pass filter.  This will decide the higher frequency limit of a band that is known as the higher cutoff frequency (fc-high).  The second cutoff frequency is from the low pass filter.  This will decide the lower frequency limit of the band and that is known as lower cutoff frequency (fc-low). </p>
+</li>
+</ul>
+<p>source: Band Pass Filter: What is it? (Circuit, Design &amp; Transfer Function) | Electrical4U </p>
+<p><strong>==&gt; picture [482 x 283] intentionally omitted &lt;==</strong></p>
+<p>The <em>ARRL Handbook for Radio Communication</em> is published annually by the American Radio Relay League.  It is a must have for all amateurs, although you do not need to buy one every year.  Personally I think it’s pretty cool to have one for the year you were first licensed. Used Handbooks can often be found at hamfests. </p>
+<p>In the 2007 edition, chapter 12 devotes about 40 pages to various filters. </p>
+<p><strong>==&gt; picture [482 x 99] intentionally omitted &lt;==</strong></p><p><strong>==&gt; picture [487 x 229] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>HIGH PASS : ‘
+FILTER : AMPLIFICATION $ LOWPASS
+FILTER
+| |
+C1 R2
+|
+‘
+|
+‘
+Vin R1 :
+R4 ; C2== Vout
+R3 H
+‘
+‘
+| ‘:
+'|
+'‘
+| [|
+i‘
+i‘
+<strong>----- End of picture text -----</strong></p>
+<p>Circuit Diagram of Active Band Pass Filter </p>
+<p>Ad </p>
+<p>The first half of the circuit diagram is a passive RC high pass filter. This filter will allow the signals which have frequencies higher than the lower cutoff frequency (fc-low). And attenuate the signals which have frequencies lower than (fc-low). </p>
+<p><strong>==&gt; picture [80 x 26] intentionally omitted &lt;==</strong></p>
+<p>The second half of the circuit diagram is a passive RC low pass filter. This filter will allow the signalsgnals whichwhich hhave frequenciesfreq 1 lower thanhan thethe highhigher cutofff freqfrequency y (fc-high).(fc-high). AndAnd it will attenuate the signals which have frequencies higher than (fc-high). </p>
+<p><strong>==&gt; picture [84 x 25] intentionally omitted &lt;==</strong></p>
+<p>The band or region of frequency in which the band pass filter allows the signal to pass that is known as Bandwidth. The bandwidth is a difference between the higher and lower value of cutoff frequency. </p>
+<p>Banduidth = Fenign — Fetow</p><p>Passive filtering is found in many newer radios and commercial add on filters. </p>
+<p><strong>==&gt; picture [482 x 216] intentionally omitted &lt;==</strong></p>
+<p>Many newer radios since the early 2000s at least have switches (knobs or menu settings) for various filters. </p>
+<p>These examples are from the Yaesu FTDX-1200 manual. </p>
+<p><strong>==&gt; picture [238 x 94] intentionally omitted &lt;==</strong></p>
+<p>Roofing Filters: </p>
+<p>Think of the front end of your radio as a combine header.  (Note-somehow I do not see our esteemed editor and publisher expecting a comparison of radios to combines). </p>
+<p><strong>==&gt; picture [122 x 94] intentionally omitted &lt;==</strong></p>
+<p>Essentially all the RF is coming to your radio.  The receiver may be looking for an FT8 signal, but it is collecting everything.</p><p>But you only want that elusive FT8 signal. You do not want other bands, other signals on your band of choice, random RF from LED bulbs etc. </p>
+<p><strong>==&gt; picture [163 x 191] intentionally omitted &lt;==</strong></p>
+<p>Just that little signal! </p>
+<p><strong>==&gt; picture [133 x 101] intentionally omitted &lt;==</strong></p>
+<p>The feeder house collects everything from the header and guides it into the combine.   The header may be 7’ to 45’  wide.   The feeder house is 3’ to maybe 8’ wide. The feeder house is your roofing filter.  Some radios have a fixed filter.  Maybe 15 KHz wide.  Or 25 KHz.  Some, like the Yaesu FTDX-1200, FT 991A, Icom 7000, 7200, 7300, etc, Kenwood 570 and 590 families to name just a few have a variable roofing filter.  It can be set to 15 KHz, or if you want to narrow the signal and filter out the chaff, you can narrow it down to 6 KHz or even 3 KHz.  A normal SSB transmission is 3 KHz. </p>
+<p>The Yaesu FTDX-1200  roofing filter provides significant protection from interference.  For digital modes and CW, 3KHz is recommended., 6 KHz for SSB and 15 KHz for AM and FM modes.   The FT-991A only has 3 KHz and 15 KHz roofing filters. </p>
+<p>But some noise, like RFI from automobile sparkplugs, can overwhelm even a good roofing filter. That is where the Noise Blanker comes in.  The noise blanker uses different filters specially tuned to target typical automobile noise.  These can be electronic (like in all the transceivers listed in the roofing filter discussion or mechanical (crystals). </p>
+<p>I have used a filter similar to this in my mobile dual band transceiver for years. It plugs into the power cable.</p><p><strong>==&gt; picture [184 x 96] intentionally omitted &lt;==</strong></p>
+<p>If you hear a buzzing noise coming from your speakers, this may do the trick. </p>
+<p>So the feederhouse (roofing filter) fed the received RF into the combine.  But I still am having trouble hearing the desired signal.  This is where the sieves and grain collector come in.  In our transceiver the concave is the width knob in the DSP circuit to further narrow the stream of signals so we can hear the one we are looking for.  The sieves-the Notch and IF shift filters, help us find the and hear the signal we want and send everything else into electronic oblivion. </p>
+<p><strong>==&gt; picture [482 x 229] intentionally omitted &lt;==</strong></p>
+<p>Notch filters.  Let’s say your radio is set to 3.947 MHz  let’s say it’s Field Day and operators are on both sides of you.  The Notch Filter allows you to adjust the center frequency so that you can try to minimize the interference.  It works by notching or blocking out certain received signals.  I believe notch filters are useful in CW work, not so much in phone or data.</p><p><strong>==&gt; picture [298 x 217] intentionally omitted &lt;==</strong></p>
+<p>The IF shift changes the passband without changing the tuning.  Going back to our previous example, if you are on 3.947 MHz and someone is on 3.9495 MHz, you can use the IF Shift knob (or menu setting) to move your passband down so that they do not interfere as much. and remember-if you can hear them, they can probably hear you.  Be nice and try to remedy the situation. </p>
+<p><strong>==&gt; picture [175 x 57] intentionally omitted &lt;==</strong></p>
+<p>So if my KenIcoYea transceiver has built in roofing, notch and IF shift filters and digital signal processing (DSP), why do I need an add on filter? </p>
+<p>In a nutshell, some commercial filters provide more robust filtering than your transceiver can. As one vendor Dunestar, says: </p>
+<h2 id="q-i-am-thinking-about-going-single-op-2-transceivers-in-the-next-contest-do-i-need-band-pass-filters-on-both-rigs"><em><strong>Q: I am thinking about going Single Op 2-transceivers in the next contest. Do I need Band Pass Filters on both rigs?</strong></em></h2>
+<p><em>To get maximum performance from the dual transceiver operation, you should have filters on both rigs. Without bandpass filtering, phase noise and overload hamper receiver performance, even if you are running only low power.</em></p><p><em>Probably the most important consideration, however, is to protect the input stages of both receivers. This is especially important if you are running high power. There is a very real likelihood of the amplifier doing serious damage to the off band receiver, if it is not protected with a filter.</em> </p>
+<p>Considerations in buying filters.  There seem to many vendors.  Many are small.  Single band filters seem to cost in the low $100 range and multi band filters around $500 and up. Multiband filters are obviously more complex.  The advantage is if you operate on multiple bands you do not have to stop and physically change out filters.  Perusing the major online retailers such as Ham Radio Outlet, DX Engineering and Giga Parts finds very few in-stock models for sale. </p>
+<p>The GOTAHams https://gotahams.com/ Amateur Radio Club website has a link to a guide for buying bandpass filters, but that leads to a DX Engineering blog.  DX Engineering seems to be trying to the leader in filtering, but their cupboard seems pretty bare at the moment. </p>
+<p>Dunestar reviews well, but the website says the company is for sale.  Its future is not clear. http://www.dunestar.com/ </p>
+<p>MFJ sells both the MFJ and Vectronics brands. https://mfjenterprises.com.  MFJ seems to be trying to bring consumer sales back in house versus distributing to other retailers.  They offer several filters and some at relatively reasonable prices, but in reading the descriptions, I feel like they are solely focused on eliminating TV interference using the same advertising from the 1950s and early 60s. </p>
+<p>https://www.arraysolutions.com/  Array Solutions is also well reviews on eham.net. Some of their filters seem affordable, and others may be worth the money but are $$$$$$. </p>
+<p>You can build your own.  While some readers may have parts in stock, https://www.kitsandparts.com/ appears to offer ready to assemble kits.  Unfortunately I was unable to figure out how to place an order or how much they cost, but they do have a very nice diagram and parts list on the site. </p>
+<p>Hopefully you now have a better understanding of RF filtering and not only what those knobs and buttons do, but ways to make playing radio more fun! </p>
+<p>Catch ‘ya on the air!</p>
+    </main>
+  </div>
+  <script>document.querySelectorAll('button.zoom').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var d = document.getElementById(b.getAttribute('data-dialog'));
+    if (d && d.showModal) d.showModal();
+  });
+});</script>
+</body>
+</html>

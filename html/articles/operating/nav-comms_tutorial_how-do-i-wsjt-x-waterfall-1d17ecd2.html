@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>An occasional series (nav-comms_tutorial_how-do-i-wsjt-x-waterfall)</title>
+  <meta name="title" content="An occasional series (nav-comms_tutorial_how-do-i-wsjt-x-waterfall)">
+<meta name="category" content="operating">
+<meta name="source" content="pdfs/public/basic/nav-comms_tutorial_how-do-i-wsjt-x-waterfall.pdf">
+<meta name="sha256" content="1d17ecd2b66c">
+<meta name="pipeline" content="pymupdf4llm">
+<meta name="generated" content="2026-11-12T22:54:02.155591Z">
+  <style>
+    :root { color-scheme: light; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
+.layout { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
+.layout:has(nav.toc) { grid-template-columns: 16rem 1fr; }
+nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
+nav.toc .toc-title { color: #1a1a1a; font-weight: 600; margin: 0 0 0.5rem; }
+nav.toc ul { list-style: none; padding: 0; margin: 0; }
+nav.toc li { margin: 0.25rem 0; }
+nav.toc a { color: #0b57d0; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+main { max-width: none; }
+h1 { font-size: 1.8rem; color: #1a1a1a; margin: 0 0 0.5rem; }
+h2, h3, h4, h5, h6 { color: #1a1a1a; margin-top: 1.8rem; font-size: 1.15rem; }
+a { color: #0b57d0; }
+.meta { font-size: 0.8rem; color: #555; }
+figure { margin: 1.5rem 0; background: #f6f6f6; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; }
+figure img { max-width: 100%; height: auto; background: #fff; cursor: zoom-in; }
+figcaption { font-size: 0.85rem; color: #555; margin-top: 0.5rem; }
+button.zoom { background: none; border: 0; padding: 0; display: block; width: 100%; cursor: zoom-in; }
+dialog { max-width: 90vw; max-height: 90vh; background: #fff; color: #1a1a1a; border: 1px solid #ccc; border-radius: 8px; padding: 1rem; }
+dialog img { max-width: 100%; max-height: 75vh; background: #fff; }
+dialog::backdrop { background: rgba(0,0,0,0.5); }
+ul { padding-left: 1.2rem; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #bbb; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f0f0f0; font-weight: 600; }
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  nav.toc { position: static; max-height: 16rem; }
+}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    
+    <main>
+      <p><a href="../../index.html">← Back to index</a></p>
+      <h1>An occasional series (nav-comms_tutorial_how-do-i-wsjt-x-waterfall)</h1>
+      <p class="meta">Category: operating · Source: pdfs/public/basic/nav-comms_tutorial_how-do-i-wsjt-x-waterfall.pdf · SHA: 1d17ecd2b66c</p>
+      <h2 id="how-do-i">How do I?</h2>
+<h2 id="an-occasional-series">An occasional series</h2>
+<h2 id="this-week-wsjt-x-waterfall-and-other-tricks">This week:  WSJT-X -Waterfall and other tricks.</h2>
+<p>WSJT-X has brought a lot of hams to digital modes.  Amateur radio operators have dabbled with digital modes other than CW since the personal computer reached critical mass in the 1980’s. CW claims to be the original digital mode, meaning that hams have been digital for over 100 years and digital predates phone. </p>
+<p>But for many “digital” is “new”.  Many contests award extra points for digital contacts. I heard last night that propagation conditions as we move from the current solar cycle to the next may not improve until 2023.  If that is correct I wonder if some events will start giving extra points for SSB QSO’s and consider digital to be “normal’? </p>
+<p>WSJT-X has a very active yahoogroups reflector.  Warning: it will fill your inbox. </p>
+<p>The reflector is a common meeting place for people having issues with the WSJT-X software, as well as hardware and operating questions. </p>
+<p>I believe many new users of FT-8  and the WSJT-X software suite have several misconceptions, at least based n recent email threads.  Also, please keep in mind that many FT8 users have never used a PC with the radio for CAT control and FT8 could be their first computer assisted radio experience. Please be patient! </p>
+<ul>
+<li>Before starting using WSJT-X please read not only the K1JT guide http://phys ics.princeton.edu/pulsar/k1jt/wsjtx-doc/wsjtx-main-1.9.0.html but the Hinson Guide: </li>
+</ul>
+<p><em>FT8 Operating Guide Work the world on HF using the new digital mode</em> by Gary Hinson ZL2iFB   Version 1.19  April 2018 Note: this document is actively maintained. The latest version is at www.g4ifb.com/FT8_Hinson_tips_for_HF_DXers.pdf </p>
+<h2 id="the-waterfall"><strong>The Waterfall</strong></h2>
+<p>Per DR.  Joe Taylor, K1JT, the waterfall has one use: <strong>to find a clear frequency to transmit on</strong> . That is it!  Unlike some programs where you click on the waterfall to reply</p><p>to someone, all the waterfall in WSJT-X does is show you were to stay away from! </p>
+<p><strong>==&gt; picture [487 x 167] intentionally omitted &lt;==</strong></p>
+<p><strong>Figure 1 Waterfall from the WSJT-X user manual by K1JT</strong> </p>
+<p>A secondary use of the waterfall is to see where activity is (ie: is the band open) and set the receive frequency.  You can set the transmit and receive frequency from the main screen. </p>
+<h2 id="i-keep-calling-and-they-don-t-reply"><strong>I keep calling and they don’t reply!</strong></h2>
+<p>Keith Cameron KC1ATT explains it more clearly than K1JT or Hinson: </p>
+<p>The SNR reported by WSJT-X is a proxy for the actual SNR. Noise is measured across the entire pass band, typically 2.6 KHz. The signal is measured in the FT8 channel, typically 50 Hz. So when the band is very busy the SNR may be reported as lower than the true channel SNR. It is a useful proxy, but only that. </p>
+<p>In addition, signals are distant, but noise is local. If you have a low local noise environment and the contact you are working has a high local noise environment, with identical rigs and antennas you will see a high SNR (favorable) and they will see a low (unfavorable) one. </p>
+<p>So if you see someone as a +5, they may see you as a -5, or even lower.  As  general rule, expect you will appear as -10 db lower than what the other station appears to you. That may not be correct, but is close enough to use a guideline for “will this guy hear me?” I have successfully made QSO’s down to around -22, but we started around -5 or -10 and the band deteriorated that much.  I have also called a -3 or -5 station and gotten back a +1 or more. That is rare.  If the other station appears as a -15 or above when calling CQ I will attempt. -16 and down I move on. </p>
+<p>Another hint:  I see them as a -5, I replied with R-5 and they don’t reply.  Why are they so rude?  The most likely answer is, they simply cannot hear you, tried maybe 3 times and moved on.   Maybe you had a clear frequency and somehow has now set up on top of you. Instead of getting mad, go to the waterfall and see if there is activity on your fre-</p><p>quency now. If yes find a new clear spot and move on.  Or as Jim, N4ST says: </p>
+<p>FT8 is a very popular mode right now and the bands are crowded with signals even though we are approaching the sunspot minimum. </p>
+<p>The FT8 decoder is pretty good at sorting out overlapping signals, sometimes decoding two that are 1 Hz apart, but it can be overwhelmed. </p>
+<p>I find that on 20M, I incur many more busted QSOs than on less crowded bands. 40M &amp; 80M at night can be a zoo also. </p>
+<p>It is very easy for someone to engage in a QSO on your TX frequency and you be unaware because of propagation, but the DX station loses you. </p>
+<p>I do think working split and snagging a fixed TX frequency at the less populated high end of the band does help. </p>
+<p>I also feel that the relatively fast pace of FT8 QSOs has led to a certain amount of impatience with some operators. One or two missed decodes and they move on. </p>
+<p>Another consideration:  You see a European station with a +10 report.  That could be accurate.  Or maybe they are running QRO and that signal is only getting here because they are putting out several hundred watts.  They have almost zero chance of hearing your 30 or 40 watt signal.  WSJT-X was designed for weak signal work. It’s in the name. There seems to be some debate over what that means. For most, it means using 40 watts or less, down to QRP levels of 1 watt or so.  Others say “it says weak signal, not low power” and take that to mean that any power level is OK.  You have no way to really tell, so try to work them, and if they don’t hear you, just move on. </p>
+<p>Do not expect the software to be perfect.  WSJT-X is brilliant.  JTAlert is really clever. FLRIG is solid.  Your radio may virtually be a computer.  But when things don’t work, don’t get mad and start blasting off nasty emails. It’s only a computer.  Really good odds that if you close the software and restart it will be fine.  If that fails reboot the computer. </p>
+<p>Catch ya on the air!</p>
+    </main>
+  </div>
+  <script>document.querySelectorAll('button.zoom').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var d = document.getElementById(b.getAttribute('data-dialog'));
+    if (d && d.showModal) d.showModal();
+  });
+});</script>
+</body>
+</html>

@@ -1,0 +1,2572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FT-257 Operating Manual</title>
+  <meta name="title" content="FT-257 Operating Manual">
+<meta name="category" content="manuals">
+<meta name="source" content="pdfs/public/basic/nav-comms_manual_yaesu_ft-257.pdf">
+<meta name="sha256" content="275e0faf43f7">
+<meta name="pipeline" content="pymupdf4llm">
+<meta name="generated" content="2026-11-12T22:10:46.609134Z">
+  <style>
+    :root { color-scheme: light; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
+.layout { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
+.layout:has(nav.toc) { grid-template-columns: 16rem 1fr; }
+nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
+nav.toc .toc-title { color: #1a1a1a; font-weight: 600; margin: 0 0 0.5rem; }
+nav.toc ul { list-style: none; padding: 0; margin: 0; }
+nav.toc li { margin: 0.25rem 0; }
+nav.toc a { color: #0b57d0; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+main { max-width: none; }
+h1 { font-size: 1.8rem; color: #1a1a1a; margin: 0 0 0.5rem; }
+h2, h3, h4, h5, h6 { color: #1a1a1a; margin-top: 1.8rem; font-size: 1.15rem; }
+a { color: #0b57d0; }
+.meta { font-size: 0.8rem; color: #555; }
+figure { margin: 1.5rem 0; background: #f6f6f6; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; }
+figure img { max-width: 100%; height: auto; background: #fff; cursor: zoom-in; }
+figcaption { font-size: 0.85rem; color: #555; margin-top: 0.5rem; }
+button.zoom { background: none; border: 0; padding: 0; display: block; width: 100%; cursor: zoom-in; }
+dialog { max-width: 90vw; max-height: 90vh; background: #fff; color: #1a1a1a; border: 1px solid #ccc; border-radius: 8px; padding: 1rem; }
+dialog img { max-width: 100%; max-height: 75vh; background: #fff; }
+dialog::backdrop { background: rgba(0,0,0,0.5); }
+ul { padding-left: 1.2rem; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #bbb; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f0f0f0; font-weight: 600; }
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  nav.toc { position: static; max-height: 16rem; }
+}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav class="toc" aria-label="Contents"><p class="toc-title">Contents</p><ul><li><a href="#accessories-options">Accessories &amp; Options — 2</a></li><li><a href="#low-battery-indication">Low Battery Indication — 6</a></li><li><a href="#operation">Operation — 8</a></li><li><a href="#adjusting-the-audio-volume-level">Adjusting the Audio Volume Level — 8</a></li><li><a href="#squelch-adjustment">Squelch Adjustment — 8</a></li><li><a href="#advanced-operation">Advanced Operation — 11</a></li><li><a href="#keyboard-locking">Keyboard Locking — 11</a></li><li><a href="#lcd-illumination">LCD Illumination — 12</a></li><li><a href="#disabling-the-keypad-beeper">Disabling the Keypad Beeper — 12</a></li><li><a href="#rf-squelch">RF Squelch — 13</a></li><li><a href="#checking-the-battery-voltage">Checking the Battery Voltage — 13</a></li><li><a href="#repeater-operation">Repeater Operation — 14</a></li><li><a href="#automatic-repeater-shift-ars">Automatic Repeater Shift (ARS) — 14</a></li><li><a href="#manual-repeater-shift-activation">Manual Repeater Shift Activation — 15</a></li><li><a href="#ctcss-dcs-operation">CTCSS/DCS Operation — 17</a></li><li><a href="#ctcss-operation">CTCSS Operation — 17</a></li><li><a href="#dcs-operation">DCS Operation — 18</a></li><li><a href="#ctcss-dcs-bell-operation">CTCSS/DCS Bell Operation — 19</a></li><li><a href="#memory-mode">Memory Mode — 22</a></li><li><a href="#memory-storage">Memory Storage — 22</a></li></ul></nav>
+    <main>
+      <p><a href="../../index.html">← Back to index</a></p>
+      <h1>FT-257 Operating Manual</h1>
+      <p class="meta">Category: manuals · Source: pdfs/public/basic/nav-comms_manual_yaesu_ft-257.pdf · SHA: 275e0faf43f7</p>
+      <p><strong>==&gt; picture [130 x 34] intentionally omitted &lt;==</strong></p>
+<p><strong>UHF FM TRANSCEIVER</strong> FT-257 </p>
+<p><strong>Operating Manual</strong> </p>
+<h2 id="yaesu-musen-co-ltd"><strong>YAESU MUSEN CO., LTD.</strong></h2>
+<p>Tennozu Parkside Building </p>
+<p>2-5-8 Higashi-Shinagawa, Shinagawa-ku, Tokyo 140-0002 Japan </p>
+<h2 id="yaesu-usa"><strong>YAESU USA</strong></h2>
+<p>6125 Phyllis Drive, Cypress, CA 90630, U.S.A. </p>
+<h2 id="yaesu-uk"><strong>YAESU UK</strong></h2>
+<p>Unit 12, Sun Valley Business Park, Winnall Close Winchester, Hampshire, SO23 0LB, U.K. </p>
+<h2 id="yaesu-hk"><strong>YAESU HK</strong></h2>
+<p>Unit 2002, 20/F, 9 Chong Yip Street, Kwun Tong, Kowloon, Hong Kong</p><figure><button aria-label="Enlarge Figure from page 1. FT-257 Operating Manual" class="zoom" data-dialog="fig-1" type="button"><img alt="Figure from page 1. FT-257 Operating Manual" src="nav-comms_manual_yaesu_ft-257-275e0faf/nav-comms_manual_yaesu_ft-257-275e0faf-page0-0.png"/></button><figcaption>Figure from page 1. FT-257 Operating Manual</figcaption><dialog id="fig-1"><img alt="Figure from page 1. FT-257 Operating Manual" src="nav-comms_manual_yaesu_ft-257-275e0faf/nav-comms_manual_yaesu_ft-257-275e0faf-page0-0.png"/><p>Figure from page 1. FT-257 Operating Manual</p><form method="dialog"><button>Close</button></form></dialog></figure><h2 id="contents">~~<strong>Contents</strong>~~</h2>
+<p><strong>==&gt; picture [161 x 423] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>General Description — 1</li>
+<li><a href="#accessories-options">Accessories &amp; Options — 2</a></li>
+<li>Controls &amp; Connections — 3</li>
+<li>Top &amp; Front Panel — 3</li>
+<li>LCD — 4</li>
+<li>Installation of Accessories — 5</li>
+<li>Antenna Installation| — 5</li>
+<li>Installation of FNB-124LI Battery Pack — 5</li>
+<li>Battery Charging| — 6</li>
+<li><a href="#low-battery-indication">Low Battery Indication — 6</a></li>
+<li>Belt Clip Installation/Removal — 7</li>
+<li><a href="#operation">Operation — 8</a></li>
+<li>Switching Power On and Off| — 8</li>
+<li><a href="#adjusting-the-audio-volume-level">Adjusting the Audio Volume Level — 8</a></li>
+<li><a href="#squelch-adjustment">Squelch Adjustment — 8</a></li>
+<li>Frequency Navigation| — 9</li>
+<li>Transmission| — 10</li>
+<li><a href="#advanced-operation">Advanced Operation — 11</a></li>
+<li><a href="#keyboard-locking">Keyboard Locking — 11</a></li>
+<li><a href="#lcd-illumination">LCD Illumination — 12</a></li>
+<li><a href="#disabling-the-keypad-beeper">Disabling the Keypad Beeper — 12</a></li>
+<li><a href="#rf-squelch">RF Squelch — 13</a></li>
+<li><a href="#checking-the-battery-voltage">Checking the Battery Voltage — 13</a></li>
+<li><a href="#repeater-operation">Repeater Operation — 14</a></li>
+<li>Repeater Shifts| — 14</li>
+<li><a href="#automatic-repeater-shift-ars">Automatic Repeater Shift (ARS) — 14</a></li>
+<li><a href="#manual-repeater-shift-activation">Manual Repeater Shift Activation — 15</a></li>
+<li><a href="#ctcss-dcs-operation">CTCSS/DCS Operation — 17</a></li>
+<li><a href="#ctcss-operation">CTCSS Operation — 17</a></li>
+<li><a href="#dcs-operation">DCS Operation — 18</a></li>
+<li><a href="#ctcss-dcs-bell-operation">CTCSS/DCS Bell Operation — 19</a></li>
+<li>Split Tone Operation| — 20</li>
+<li>Tone Calling (1750 Hz) — 21</li>
+<li><a href="#memory-mode">Memory Mode — 22</a></li>
+<li><a href="#memory-storage">Memory Storage — 22</a></li>
+</ul>
+<p>|Storing Independent|</p>
+<ul>
+<li>Transmit Frequencies (“Odd Split”)| — 22</li>
+<li><a href="#memory-recall">Memory Recall — 23</a></li>
+<li><a href="#home-channel-memory">HOME Channel Memory — 23</a></li>
+<li>Labeling Memories| — 24</li>
+</ul>
+<p>|Enable the Memory|</p>
+<ul>
+<li>Alpha-Numeric Tag display| — 24</li>
+<li><a href="#memory-offset-tuning">Memory Offset Tuning — 25</a></li>
+<li><a href="#deleting-memories">Deleting Memories — 26</a></li>
+<li><a href="#memory-bank-operation">Memory Bank Operation — 26</a></li>
+<li><a href="#moving-memory-data-to-the-vfo">Moving Memory Data to the VFO — 27</a></li>
+<li><a href="#memory-only-mode">Memory Only Mode — 27</a></li>
+</ul>
+<p><strong>----- End of picture text -----</strong></p>
+<p><strong>==&gt; picture [162 x 297] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="#scanning">Scanning — 28</a></li>
+<li><a href="#vfo-scanning">VFO Scanning — 29</a></li>
+<li><a href="#manual-vfo-scan">Manual VFO Scan — 29</a></li>
+<li>Programmed VFO Scan| — 29</li>
+<li>Memory Scanning| — 30</li>
+</ul>
+<p>|How to Skip (Omit) a Channel|</p>
+<ul>
+<li>during Memory Scan Operation — 30</li>
+<li>Preferential Memory Scan| — 31</li>
+<li><a href="#memory-bank-scan">Memory Bank Scan — 32</a></li>
+</ul>
+<p>|Programmable (Band Limit) Memory Scan|</p>
+<ul>
+<li>(PMS)| — 33</li>
+</ul>
+<p>|“Priority Channel” Scanning|</p>
+<ul>
+<li>(Dual Watch)| — 34</li>
+</ul>
+<p>|Automatic Lamp Illumination|</p>
+<ul>
+<li>on Scan Stop — 36</li>
+<li><a href="#band-edge-beeper">Band Edge Beeper — 36</a></li>
+<li><a href="#emergency-channel-operation">Emergency Channel Operation — 37</a></li>
+<li><a href="#smart-search-operation">Smart Search Operation — 38</a></li>
+<li>ATS (Automatic Transponder System) — 39</li>
+<li><a href="#dtmf-operation">DTMF Operation — 41</a></li>
+<li><a href="#miscellaneous-settings">Miscellaneous Settings — 44</a></li>
+<li><a href="#cw-identifier-setup">CW Identifier Setup — 44</a></li>
+<li><a href="#password">Password — 45</a></li>
+<li>Changing the Channel Steps| — 46</li>
+<li><a href="#receive-battery-saver-setup">Receive Battery Saver Setup — 46</a></li>
+<li><a href="#tx-battery-saver">TX Battery Saver — 47</a></li>
+<li>Transmitter Time-Out Timer (TOT) — 47</li>
+<li>Busy Channel Lock-Out (BCLO)| — 48</li>
+<li><a href="#dcs-code-inversion">DCS Code Inversion — 48</a></li>
+<li>Changing the TX Deviation Level| — 49</li>
+<li><a href="#reset-procedures">Reset Procedures — 50</a></li>
+<li>Set (Menu) Mode — 51</li>
+<li><a href="#specifications">Specifications — 60</a></li>
+</ul>
+<p><strong>----- End of picture text -----</strong></p><p>The <strong>FT-257</strong> is a compact submersible*, high-performance FM hand-held providing up to five watts of RF power, and a wealth of convenient features for 430 MHz amateur band operations. </p>
+<p>Additional features include a transmit Time-Out Timer (TOT), Automatic Power-Off (APO), Automatic Repeater Shift (ARS), YAESU’s exclusive Auto Transponder System (ATS), which “beeps” the user when moving out of communications range with another ATS equipped station; and an RF squelch circuit which allows adjusting the squelch to open at a programmed setting of the S-Meter, thus reducing guesswork in setting the squelch threshold. </p>
+<p>We appreciate your purchase of the <strong>FT-257</strong> , and encourage you to read this manual Thoroughly. You will learn about the many exciting features of your exciting new YAESU hand-held transceiver! </p>
+<ul>
+<li>IPX5 water submersible. </li>
+</ul>
+<p><strong>==&gt; picture [91 x 280] intentionally omitted &lt;==</strong></p><figure><button aria-label="Enlarge Figure from page 3" class="zoom" data-dialog="fig-2" type="button"><img alt="Figure from page 3" src="nav-comms_manual_yaesu_ft-257-275e0faf/nav-comms_manual_yaesu_ft-257-275e0faf-page2-0.png"/></button><figcaption>Figure from page 3</figcaption><dialog id="fig-2"><img alt="Figure from page 3" src="nav-comms_manual_yaesu_ft-257-275e0faf/nav-comms_manual_yaesu_ft-257-275e0faf-page2-0.png"/><p>Figure from page 3</p><form method="dialog"><button>Close</button></form></dialog></figure><h2 id="accessories-options"><strong>Accessories &amp; Options</strong></h2>
+<h2 id="supplied-accessories"><strong>Supplied Accessories</strong></h2>
+<ul>
+<li>
+<p><strong>FNB-124LI</strong> 7.4 V  Rechargeable Lithium-Ion Battery Pack </p>
+</li>
+<li>
+<p><strong>YHA-76</strong> Antenna  <strong>SAD-11B</strong> AC Wall Charger (for USA version)  <strong>PA-48B/C/F</strong>[] AC Wall Charger (for EXP version)  <strong>CLIP-24</strong> Belt Clip </p>
+</li>
+<li>
+<p>Operating Manual </p>
+</li>
+<li>
+<p>Quick Manual </p>
+</li>
+<li>
+<p>Warranty Card </p>
+</li>
+</ul>
+<h2 id="available-options"><strong>Available Options</strong></h2>
+<ul>
+<li>
+<p><strong>FNB-124LI</strong> 7.4 V Rechargeable Lithium-Ion Battery Pack </p>
+</li>
+<li>
+<p><strong>SAD-11B</strong> AC Wall Charger  <strong>PA-48B/C/F</strong>[] AC Wall Charger  <strong>CD-57</strong> Charger Cradle  <strong>SDD-11</strong> DC/DC Converter (with cigarette lighter plug)  <strong>E-DC-6</strong> DC Cable (plug and wire only)  <strong>YHA-76</strong> Antenna  <strong>CLIP-24</strong> Belt Clip  <strong>CN-3</strong> BNC-to-SMA Adapter </p>
+</li>
+<li>
+<p>“ <strong>B</strong> ” suffix is for use with 100-120 VAC, “ <strong>C</strong> ” is for use with 230-240 VAC, and “ <strong>F</strong> is for use with 220 VAC. </p>
+</li>
+</ul>
+<p><em>Availability of accessories may vary. Some accessories are supplied as standard per local requirements, while others may be unavailable in some regions. This product is designed to perform optimally when used with genuine YAESU accessories. YAESU shall not be liable for any damage to this product and/or accidents such as fire, leakage or explosion of a battery pack, etc., caused by the malfunction of non- YAESU accessories. Consult your YAESU dealer for details regarding these and any newly-available options. Connection of any non-YAESU-approved accessory, should it cause damage, may void the Limited Warranty on this apparatus.</em></p><h2 id="controls-connectors"><strong>Controls &amp; Connectors</strong></h2>
+<h2 id="antenna-jack">[ Antenna Jack]</h2>
+<p>Connect the supplied rubber flex antenna (or another antenna presenting a 50-Ohm impedance) here. </p>
+<ul>
+<li><strong>DIAL</strong>[ Knob] </li>
+</ul>
+<p>The main tuning Dial is used to set the operating frequency. It is also used for menu selections and other adjustments. </p>
+<p><strong>==&gt; picture [67 x 66] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p> 
+<strong>----- End of picture text -----</strong></p>
+<ul>
+<li>[ Speaker] </li>
+</ul>
+<p>The internal speaker is located here. </p>
+<ul>
+<li><strong>PTT</strong>[ (Push To Talk) Switch] </li>
+</ul>
+<p>Press this switch to transmit, and release it (to receive) after your transmission is completed. </p>
+<ul>
+<li>
+<p>[ LCD (Liquid Crystal Display)] </p>
+</li>
+<li>
+<p>The display shows the current operating conditions, as described on the next page. </p>
+</li>
+<li>
+<p>[ Keypad] </p>
+</li>
+</ul>
+<p>These 9 keys select many of most important operating features on the <strong>FT-257</strong> . </p>
+<ul>
+<li>[ MIC] </li>
+</ul>
+<p>The internal microphone is located here. </p>
+<h2 id="ext-dc-jack">� <strong>EXT DC</strong>[ Jack]</h2>
+<p>This coaxial DC jack allows connection to an external DC power source (5-10V DC). The center pin of this jack is the Positive (+) connection. </p>
+<p><em><strong>Do not allow the FT257 to become submerged in water while the rubber cap over the EXT DC jack is removed.</strong></em> </p>
+<p><strong>==&gt; picture [198 x 250] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>
+
+
+
+
+
+<strong>----- End of picture text -----</strong></p><p><strong>==&gt; picture [345 x 177] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>Memory Channel Number
+Skip Memory Channel or Pref- Repeater Shift Direction
+erential Memory Channel
+CTCSS/DSC Operation
+Bell Alarm Active
+Priority Channel
+Memory Bank Active
+Operating Frequency Automatic Power-Off Active
+BUSY Indicator
+Battery Indicator
+TX Indicator
+Low TX Power Selected Battery Saver Active
+Secondary Keypad Active Dual Watch Active
+DTMF Autodial Active S- &amp; PO Meter
+<strong>----- End of picture text -----</strong></p><h2 id="antenna-installation"><strong>Antenna Installation</strong></h2>
+<p>The supplied antenna provides good results over the entire frequency range of the transceiver. However, for enhanced reception on certain non-Amateur frequencies, you may wish to connect an antenna designed specifically for that frequency range, as the supplied antenna is necessarily a compromise outside the Amateur band, and cannot be expected to provide high performance at all frequencies. </p>
+<p>To install the supplied antenna, hold the bottom end of the antenna, then screw it onto the mating connector on the transceiver until it is snug. Do not over-tighten by use of extreme force. </p>
+<h2 id="notes"><em><strong>Notes:</strong></em></h2>
+<p><strong>==&gt; picture [97 x 44] intentionally omitted &lt;==</strong></p>
+<ul>
+<li>
+<p>Never transmit without having an antenna connected. </p>
+</li>
+<li>
+<p>When installing the supplied antenna, never hold the <em>upper</em> part of the a ~~n~~ tenna ~~w~~ hile screwing it onto the mating connector on the transceiver. </p>
+</li>
+<li>
+<p>If using an external antenna for transmission, ensure that the SWR presented to the transceiver is 1.5:1 or lower, to avoid excessive feedline loss. </p>
+</li>
+</ul>
+<h2 id="installation-of-fnb-124li-batter-y-pack"><strong>Installation of FNB-124LI Batter</strong> ~~<strong>y</strong>~~ <strong>Pack</strong></h2>
+<p>The <strong>FNB-124LI</strong> is a high performance Li-ion battery providing hig ~~h~~ capacity in a compa ~~c~~ t package. Recharging can be completed while the pack is installed inside the <strong>FT-257</strong> . Installation of the battery is easy and quick: </p>
+<p><strong>==&gt; picture [119 x 234] intentionally omitted &lt;==</strong></p>
+<ul>
+<li>
+<p>Release the Battery Cover Latch and remove the Battery Cover from the radio by lifting the top of the Cover. </p>
+</li>
+<li>
+<p>Connect the 3-pin plug from the Battery pack to the battery jack on the transceiver. </p>
+</li>
+<li>
+<p>Install the <strong>FNB-124LI</strong> Battery Pack into the radio. </p>
+</li>
+<li>
+<p>Replace the Battery Cover by carefully aligning the two tabs on the bottom of the cover with the slots on the radio, then gently press the top side of the Battery Cover. Confirm that a Rubber Gasket of the Battery Cover is installed correctly. </p>
+</li>
+<li>
+<p>Close the Battery Cover Latch until it locks in place with a “Click”. </p>
+</li>
+</ul>
+<h2 id="caution"><em><strong>Caution:</strong></em></h2>
+<p>To insure the <strong>FT-257</strong> will not be damaged by water intrusion, make sure the battery cover is properly installed and the battery latch is closed.</p><h2 id="battery-charging"><strong>Battery Charging</strong></h2>
+<p>If the battery has never been used, or its charge is depleted, it may be charged by connecting the <strong>SAD-11B</strong> or <strong>PA-48</strong> AC Wall Charger, as shown in the illustration, to the <strong>EXT DC</strong> jack. If only 12 ~ 14 Volt DC power is available, the optional <strong>SDD-11</strong> DC/DC Converter (with its cigarette lighter plug) or <strong>E-DC-6</strong> DC Cable may also be used for charging the battery. </p>
+<p>The display will indicate “CHRG”, while the battery is being charged. When charging is completed, the “CHRG” indication disappears from the display. </p>
+<p>A fully-discharged pack will be charged completely in 5 hours. Disconnect the <strong>SAD11B</strong> or <strong>PA-48</strong> from the <strong>EXT DC</strong> jack and the AC line outlet. </p>
+<p><strong>==&gt; picture [31 x 17] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>CD-57
+(option)
+<strong>----- End of picture text -----</strong></p>
+<h2 id="important-note"><em><strong>Important Note</strong></em></h2>
+<ul>
+<li>
+<p>The <strong>SAD-11B</strong> and <strong>PA-48</strong> is not designed to power the transceiver for operation (reception or transmission). </p>
+</li>
+<li>
+<p>Please be advised that the <strong>SAD-11B</strong> and <strong>PA-48</strong> may contribute noise to TV and radio reception in the immediate vicinity, so we do not recommend its use adjacent to such devices. </p>
+</li>
+</ul>
+<h2 id="low-battery-indication"><strong>Low Battery Indication</strong></h2>
+<dl>
+<dt>When the battery charge is almost depleted, a “ ” icon will appear on the display. When the “ ” icon appears, it is recommended that you charge the battery soon. No Icon: Sufficient Operating Battery Power </dt>
+<dd>
+<p>Lower Battery Power (Blinking): Prepare to charge (or replace) the Battery</p>
+</dd>
+</dl><h2 id="belt-clip-installation-removal"><strong>Belt Clip Installation / Removal</strong></h2>
+<ul>
+<li>
+<p>To install the Belt Clip: Align the Belt Clip to the groove above the Battery compartment, then press the Belt Clip downward until it locks in place with a “Click”. </p>
+</li>
+<li>
+<p>To remove the Belt Clip: Press the Belt Clip tab away from the transceiver to unlock the Belt Clip, then slide the Belt Clip up-ward to remove it. </p>
+</li>
+</ul>
+<p><strong>==&gt; picture [81 x 222] intentionally omitted &lt;==</strong></p>
+<h2 id="belt-clip-tab"><strong>Belt Clip Tab</strong></h2>
+<p><strong>==&gt; picture [90 x 222] intentionally omitted &lt;==</strong></p><h2 id="switching-power-on-and-off"><strong>Switching Power ON and OFF</strong></h2>
+<ul>
+<li>Be sure the Battery Pack is installed, and the battery is fully charged. Connect the antenna to the top panel <strong>ANTENNA</strong> jack. </li>
+</ul>
+<p><strong>==&gt; picture [89 x 65] intentionally omitted &lt;==</strong></p>
+<ul>
+<li>
+<p>Press and hold the[[] <strong>POWER</strong>[(] )] key for two seconds to turn the radio on. The current DC supply voltage will be indicated on the display for 2 seconds. After this 2 second interval, the display will resume its normal indication of the operating frequency. </p>
+</li>
+<li>
+<p>To turn the radio off, press and hold the[[] <strong>POWER</strong>[(] </p>
+</li>
+<li>
+<p>)] key f ~~o~~ r two seco ~~n~~ ds. </p>
+</li>
+</ul>
+<h2 id="adjusting-the-audio-volume-level"><strong>Adjusting the Audio Volume Level</strong></h2>
+<p>Press the [ <strong>VOL/SQL</strong> ] key to enter the receiver audio adjustment mode. When “ <strong>VOL</strong> ” is displayed, rotate the <strong>DIAL</strong> knob or press the [p]/[q] key until the noise or audio from the speaker is at a comfortable level. </p>
+<p><strong>==&gt; picture [97 x 81] intentionally omitted &lt;==</strong></p>
+<h2 id="squelch-adjustment"><strong>Squelch Adjustment</strong></h2>
+<p>Press the [ <strong>VOL/SQL</strong> ] key twice to enter the squelch level adjustment mode. When “ <strong>SQL</strong> ” is displayed, rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to set the Squelch so that the background noise is just silenced. This state is known as the “Squelch Threshold”. </p>
+<p><strong>==&gt; picture [97 x 80] intentionally omitted &lt;==</strong></p>
+<ul>
+<li>
+<p><em><strong>1) A special “RF Squelch” feature is provided on this radio. This feature allows you to set the squelch so that only signals exceeding a certain S-meter level will open the squelch. See page 13 for details.</strong></em> </p>
+</li>
+<li>
+<p><em><strong>2) If you’re operating in an area of high RF interference, you may need to consider “Tone Squelch” operation using the built-in CTCSS Decoder. This feature will keep your radio quiet until a call is received from a station sending a carrier which contains a matching (subaudible) CTCSS tone. If your friends have radios equipped with DCS (Digital Coded Squelch) like your FT-257, you may try using that mode for silent monitoring of busy channels.</strong></em></p>
+</li>
+</ul><h2 id="frequency-navigation"><strong>Frequency Navigation</strong></h2>
+<p>The <strong>FT-257</strong> will initially be operating in the “VFO” mode, a channelized system which allows free tuning throughout the operating band. </p>
+<p>Two basic frequency navigation methods are available on the <strong>FT-257</strong> : </p>
+<h2 id="1-tuning-dial"><strong>1) Tuning Dial</strong></h2>
+<p>Rotation of the <strong>DIAL</strong> allows tuning in the pre-programmed steps established for the operating band. Clockwise rotation of the <strong>DIAL</strong> causes the <strong>FT-257</strong> to be tuned upward in frequency, while counter-clockwise rotation will lower the operating frequency. </p>
+<p>If you press the [ <strong>F/MW</strong> ] key momentarily, then rotate the <strong>DIAL</strong> , frequency steps of 1 MHz will be selected. This feature is extremely useful for moving rapidly over the wide tuning range of the <strong>FT-257</strong> . </p>
+<h2 id="2-scanning"><strong>2) Scanning</strong></h2>
+<p>Press and hold in either the [] or [] key for one second to initiate upward or downward scanning (Manual VFO Scan). </p>
+<p>If you wish to reverse the direction of the scan (i.e. toward a lower frequency, instead of a higher frequency), just rotate the <strong>DIAL</strong> one click in the counter-clockwise direction <em><strong>while the FT-257 is scanning</strong></em> . The scanning direction will be reversed. To revert to scanning toward a higher frequency once more, rotate the <strong>DIAL</strong> one click clockwise. </p>
+<p>The scanner will stop when it receives a signal strong enough to break through the Squelch threshold. The <strong>FT-257</strong> will then hold on that frequency according to the setting of the “RESUME” mode (Set Mode Item 29: RESUME). Press the <strong>PTT</strong> switch momentarily to cancel the scanning. This only stops the scan; it does not cause transmission to occur. See page 28 for details regarding Scan Operation.</p><h2 id="operation"><strong>Operation</strong></h2>
+<h2 id="transmission"><strong>Transmission</strong></h2>
+<p>Once you have set up an appropriate frequency inside the 430 MHz Amateur band on which the <strong>FT-257</strong> can transmit, you’re ready to go on the air! These are the most basic steps; more advanced aspects of transmitter operation will be discussed later. </p>
+<ul>
+<li>
+<p>To transmit, press the <strong>PTT</strong> switch, and speak into the front panel microphone (located in the lower right-hand corner of the speaker grille) in a normal voice level. The “ <strong>TX</strong> ” indicator will appears on the LCD during transmission. </p>
+</li>
+<li>
+<p>To return to the receive mode, release the <strong>PTT</strong> switch. </p>
+</li>
+<li>
+<p>During transmission, the relative power level will be indicated on the bar graph at the bottom of the LCD; full scale indication confirms “ <em><strong>High Power</strong></em> ” operation, while a display of two bars indicates “ <em><strong>Low Power</strong></em> ” operation. Six bars indicate “ <em><strong>Medium Power</strong></em> ” operation. Additionally, the “ <strong>LOW</strong> ” icon will appear at the display while operating on the “ <em><strong>Low Power</strong></em> ” “ <strong>Low</strong> ” <strong>Power</strong> and “ <em><strong>Medium Power</strong></em> ” settings. </p>
+</li>
+<li>
+<p><em><strong>1) If you’re just talking to friends in the immediate area, you’ll get much longer battery life by switching to Low Power operation, described in the next chapter. And don’t forget: always have an antenna connected when you transmit.</strong></em> </p>
+</li>
+<li>
+<p><em><strong>2) Transmission is possible only on the 430 MHz amateur band.</strong></em> </p>
+</li>
+</ul>
+<p><strong>==&gt; picture [96 x 69] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>“ Mid ”  Power
+“ High ”  Power
+<strong>----- End of picture text -----</strong></p>
+<h2 id="changing-the-transmitter-power-level"><strong>Changing the Transmitter Power Level</strong></h2>
+<p>To change the power level: </p>
+<ul>
+<li>
+<p>Press the[[] <strong>LOW</strong>[]] key. The LCD shows the current power output level. </p>
+</li>
+<li>
+<p>Press the[[] <strong>LOW</strong>[]] key (repeatedly, if necessary) to select the desired power output level. Available selections are “HIGH” (5 W), “MID” (2 W), and “LOW” (0.5 W). </p>
+</li>
+<li>
+<p>When you have made your choice, press the <strong>PTT</strong> switch to save the new setting and return to normal operation. </p>
+</li>
+<li>
+<p><em><strong>1) The FT-257 is smart! When you store memories, you can store the power output settings separately in each memory, so you don’t waste battery power when using very close-in repeaters!</strong></em> </p>
+</li>
+<li>
+<p><em><strong>2) When you are operating on the “Low” or “Medium” power setting, you can press the [F/MW] key, then press the PTT switch, to cause the FT-257 to transmit (temporarily) on High power. After one transmission, the power level will revert to the previously-selected (“Low” or “Medium” power) setting.</strong></em></p>
+</li>
+</ul><h2 id="advanced-operation"><strong>Advanced Operation</strong></h2>
+<p>Now that you have mastered the basics of <strong>FT-257</strong> operation, let’s learn more about some of the really neat features. </p>
+<h2 id="keyboard-locking"><strong>Keyboard Locking</strong></h2>
+<p>To activate the locking feature, press the [ <strong>POWER</strong> ( )] key momentarily. To cancel locking press the [ <strong>POWER</strong> ( )] key momentarily again. </p>
+<p>In order to prevent accidental frequency change or inadvertent transmission, various aspects of the <strong>FT-257</strong> ’s <strong>DIAL</strong> and keypad may be locked out. You may change the lockout combinations. </p>
+<p>To lock out some or all of the keys: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 22: LOCK. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the desired locking scheme as listed below: </li>
+</ol>
+<p>LK KEY: Just the front panel keypad is locked out </p>
+<p>LKDIAL: Just the top panel <strong>DIAL</strong> is locked out </p>
+<ul>
+<li>
+<p>LK K+D: Both the keypad and <strong>DIAL</strong> are locked out (factory default) </p>
+</li>
+<li>
+<p>LK PTT: The <strong>PTT</strong> switch is locked out (TX not possible) </p>
+</li>
+<li>
+<p>LK P+K: Both the <strong>PTT</strong> switch and keypad are locked out </p>
+</li>
+<li>
+<p>LK P+D: Both the <strong>PTT</strong> switch and <strong>DIAL</strong> are locked out </p>
+</li>
+</ul>
+<p>LK ALL: All of the above are locked out </p>
+<ol start="5">
+<li>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and return to normal operation.</li>
+</ol><h2 id="lcd-illumination"><strong>LCD Illumination</strong></h2>
+<p>Your <strong>FT-257</strong> includes a reddish illumination lamp which aids in nighttime operation. The reddish illumination yields clear viewing of the display in a dark environment, with minimal degradation of your night vision. </p>
+<p>Three options for activating the lamp are provided: </p>
+<p>KEY Mode: Illuminates the LCD lamp for five seconds when you rotate the <strong>DIAL</strong> knob or press the keypad or any switch (except <strong>PTT</strong> switch). This is the factory-programmed default setting. </p>
+<p>CONT Mode: Illuminates the LCD lamp continuously. OFF Mode: Disables the LCD lamp. </p>
+<p>Here is the procedure for setting up the Lamp operating mode: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 21: LAMP. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select one of the three modes described above. </p>
+</li>
+<li>
+<p>When you have made your choice, press the <strong>PTT</strong> switch to save the new setting and return to normal operation. </p>
+</li>
+</ol>
+<h2 id="disabling-the-keypad-beeper"><strong>Disabling the Keypad Beeper</strong></h2>
+<p>A keypad beeper provides useful audible feedback whenever a key button is pressed. </p>
+<p>If you want to turn the beep off: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 7: BEEP. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 48] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to change the setting to “OFF.” </p>
+</li>
+<li>
+<p>Press the <strong>PTT</strong> switch to save the new setting and return to normal operation. </p>
+</li>
+<li>
+<p>To turn the beep back on again, select “KEY” or “KEY+SC (factory default)” in step 4 above. </p>
+</li>
+</ol>
+<p>KEY:     The beeper sounds when you press the keypad. </p>
+<ul>
+<li>KEY+SC:  The beeper sounds when you press the keypad, or when the scanner stops.</li>
+</ul><h2 id="advanced-operation-2"><strong>Advanced Operation</strong></h2>
+<h2 id="rf-squelch"><strong>RF Squelch</strong></h2>
+<p>A special RF Squelch feature is provided on this radio. This feature allows you to set the squelch so that only signals exceeding a certain S-meter level will open the squelch. </p>
+<p>To set up the RF squelch circuit for operation, use the following procedure: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 31: RF SQL. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the desired signal strength level for the squelch threshold (S-1, S-2, S-3, S-4, S-5, S-7, S-FULL, or OFF). </p>
+</li>
+<li>
+<p>Press the <strong>PTT</strong> switch to save the new setting and return to normal operation. </p>
+</li>
+</ol>
+<h2 id="checking-the-battery-voltage"><strong>Checking the Battery Voltage</strong></h2>
+<p>The <strong>FT-257</strong> includes feature which will display the current battery voltage. </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 12: DC VLT. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to display the current DC voltage being supplied. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 48] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>Press the [ <strong>SET/ATS</strong> ] key, followed by the <strong>PTT</strong> switch to return to normal operation.</li>
+</ol><h2 id="repeater-operation"><strong>Repeater Operation</strong></h2>
+<p>Repeater stations, usually located on mountaintops or other high locations, provide a dramatic extension of the communication range for low-powered hand-held or mobile transceivers. The <strong>FT-257</strong> includes a number of features which make repeater operation simple and enjoyable. </p>
+<h2 id="repeater-shifts"><strong>Repeater Shifts</strong></h2>
+<p>The <strong>FT-257</strong> has been configured, at the factory, with the repeater shift set to 600 kHz. </p>
+<p>Depending on the part of the band in which you are operating, the repeater shift may be either downward (–) or upward (+), and one of these icons will appear at the top of the LCD when repeater shifts have been enabled. </p>
+<p><strong>==&gt; picture [196 x 49] intentionally omitted &lt;==</strong></p>
+<h2 id="automatic-repeater-shift-ars"><strong>Automatic Repeater Shift (ARS)</strong></h2>
+<p>The <strong>FT-257</strong> provides a convenient Automatic Repeater Shift feature, which causes the appropriate repeater shift to be applied automatically whenever you tune into the designated repeater sub-bands in your country. These sub-bands are shown below. </p>
+<p>If the ARS feature does not appear to be working, you may have accidentally disabled it. </p>
+<p>To re-enable ARS: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 5: ARS. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select “ARS. ON”. </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and return to normal operation. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [206 x 87] intentionally omitted &lt;==</strong></p><h2 id="manual-repeater-shift-activation"><strong>Manual Repeater Shift Activation</strong></h2>
+<p>If the ARS feature has been disabled, or if you need to set a repeater shift direction other than that established by the ARS, you may set the direction of the repeater shift manually. </p>
+<p>To do this: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 32: RPT.MOD. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the desired shift among “RPT.–”, “RPT.+”, and “RPT.OFF.” </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and return to normal operation. </p>
+</li>
+</ol>
+<p><em><strong>If you manually change the shift direction, but still have Automatic Repeater Shift engaged (see previous section), when you change frequency (by rotating the DIAL knob, for example) the ARS will over-ride your manual setting of the shift direction. Turn ARS off if you do not wish this to happen.</strong></em> </p>
+<p>If you manually change the repeater shift on a memory channel that you have already stored, the radio will consider this a “temporary” change, unless you store the memory once more, this time with the desired repeater shift engaged. </p>
+<h2 id="changing-the-default-repeater-shifts"><strong>Changing the Default Repeater Shifts</strong></h2>
+<p>If you travel to a different region, you may need to change the default repeater shift to ensure compatibility with local operating requirements. </p>
+<p>To do this, follow the procedure below: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 28: R SHIFT. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the new repeater shift magnitude. </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and return to normal operation. </p>
+</li>
+</ol>
+<p><em><strong>If you have only one “odd” split that you need to program, don’t change the “default” repeater shifts using this Set Mode Item. Instead, enter the transmit and receive frequencies separately, as shown on page 22.</strong></em></p><h2 id="manual-repeater-shift-activation-2"><strong>Manual Repeater Shift Activation</strong></h2>
+<h2 id="checking-the-repeater-uplink-input-frequency"><strong>Checking the Repeater Uplink (Input) Frequency</strong></h2>
+<p>It often is helpful to be able to check the uplink (input) frequency of a repeater, to see if the calling station is within direct (“Simplex”) range. </p>
+<p>To do this, just press the [ <strong>REV</strong> ] key. You’ll notice that the display has shifted to the repeater uplink frequency. Press the [ <strong>REV</strong> ] key again to cause operation to revert to normal monitoring of the repeater downlink (output) frequency. While you are listening on the input frequency to the repeater using the [ <strong>REV</strong> ] key, the repeater offset icon will blink. </p>
+<p><em><strong>The configuration of this key may be set either to “REV” (for checking the input frequency of a repeater), or “HOME” (for instant switching to the “Home” channel for the band you are operating on). To change the configuration of this key, use Set Mode Item 30: REV/HM. See page 57.</strong></em></p><h2 id="ctcss-dcs-operation"><strong>CTCSS/DCS Operation</strong></h2>
+<h2 id="ctcss-operation"><strong>CTCSS Operation</strong></h2>
+<p>Many repeater systems require that a very-low-frequency audio tone be superimposed on your FM carrier in order to activate the repeater. This helps prevent false activation of the repeater by radar or spurious signals from other transmitters. This tone system, called “CTCSS” (Continuous Tone Coded Squelch System), is included in your <strong>FT-257</strong> , and is very easy to activate. </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 40: SQL.TYP. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key so that “TONE” indication appears on the display; this activates the CTCSS Encoder, for access to repeaters requiring a CTCSS tone. </p>
+</li>
+<li>
+<p>Rotation of the <strong>DIAL</strong> knob one more “click” or pressing the [p]/[q] key one more “press” in step “4” above will cause the “TSQL” notation to appear. When “TSQL” is displayed, this means that the Tone Squelch system is ac- </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 151] intentionally omitted &lt;==</strong></p>
+<p>tive and will mute the <strong>FT-257</strong> receiver until it receives a call from another radio that is sending a matching CTCSS tone. This can help keep your radio quiet until a specific call is received; this may be helpful while operating in congested areas of the band. </p>
+<ul>
+<li>
+<p><em><strong>1) You may notice a “REV TN” indication on the display while you rotate the DIAL knob in this step; this means that the Reverse Tone Squelch system is active, which mutes your FT-257’s receiver (instead of opening the squelch) when it receives a call from any radio sending a matched CTCSS tone. The</strong></em> </p>
+<ul>
+<li><em><strong>“ ” icon will blink on the display when the Reverse Tone Squelch system is activated.</strong></em> </li>
+</ul>
+</li>
+<li>
+<p><em><strong>2) You may notice the “DCS” indications on the display while you rotate the DIAL knob still more. We’ll discuss the Digital Code Squelch system (DCS) later.</strong></em> </p>
+</li>
+</ul>
+<ol start="6">
+<li>
+<p>When you have made your selection of the CTCSS tone mode, press the <strong>PTT</strong> switch to save the new setting. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 42: TN FRQ. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 48] intentionally omitted &lt;==</strong></p><ol start="10">
+<li>Rotate the <strong>DIAL</strong> knob until the display indicates the Tone Frequency required by the repeater you are using (if you don’t know the tone frequency, ask the repeater owner/ operator). </li>
+</ol>
+<p>|operator).
+11. When you have made your selection,
+press the[<strong>SET/ATS</strong>]key, then press
+the<strong>PTT</strong>switch to save the new set-
+tings and exit to normal operation. This
+is different than the usual method of
+restoring normal operation, and it ap-
+plies only to the configuration of the
+CTCSS/DCS frequencies.|<strong>CTCSS TONE FREQUENCY</strong>(<strong>Hz</strong>)|<strong>CTCSS TONE FREQUENCY</strong>(<strong>Hz</strong>)|<strong>CTCSS TONE FREQUENCY</strong>(<strong>Hz</strong>)|<strong>CTCSS TONE FREQUENCY</strong>(<strong>Hz</strong>)|<strong>CTCSS TONE FREQUENCY</strong>(<strong>Hz</strong>)|
+|---|---|---|---|---|---|
+||67.0|69.3|71.9   74.4|77.0|79.7|
+||82.5|85.4|88.5   91.5|94.8|97.4|
+||100.0|103.5|107.2
+110.9|
+114.8|118.8|
+||123.0|127.3|131.8 136.5|141.3|146.2|
+||151.4|156.7|159.8 162.2|165.5|167.9|
+||171.3|173.8|177.3 179.9|183.5|186.2|
+||189.9|192.8|196.6 199.5|203.5|206.5|
+||210.7|218.1|225.7 229.1|233.6|241.8|
+||250.3|254.1|–
+–|–|–|
+|||||||</p>
+<p><em><strong>Your repeater may or may not re-transmit a CTCSS tone - some systems just use CTCSS to control access to the repeater, but don’t pass it along when transmitting. If the S-Meter deflects, but the FT-257 is not passing audio, repeat steps “1” through “4” above, but rotate the DIAL so that “TSQ” disappears - this will allow you to hear all traffic on the channel being utilized.</strong></em> </p>
+<p>Another form of tone access control is Digital Code Squelch, or DCS. It is a newer, more advanced tone system which generally provides more immunity from false paging than does CTCSS. The DCS Encoder/Decoder is built into your <strong>FT-257</strong> , and operation is very similar to that just described for CTCSS. Your repeater system may be configured for DCS; if not, DCS is frequently quite useful in Simplex operation if your friend(s) use transceivers equipped with this advanced feature. </p>
+<p><em><strong>Just as in CTCSS operation, DCS requires that you set the Tone Mode to DCS and that you select a tone code.</strong></em> </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 40: SQL.TYP. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key so that “DCS” indication appears on the display; this activates the DCS Encoder/Decoder. </p>
+</li>
+<li>
+<p>Press the <strong>PTT</strong> switch to save the new setting. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 13: DCS.COD. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<h2 id="ctcss-operation-2"><strong>CTCSS Operation</strong></h2>
+<h2 id="dcs-operation"><strong>DCS Operation</strong></h2><h2 id="dcs-operation-2"><strong>DCS Operation</strong></h2>
+<ol start="9">
+<li>Rotate the <strong>DIAL</strong> knob to select the desired DCS Code (a three-digit number). Ask the repeater owner/operator if you don’t know DCS Code; if you are working simplex, just set up the DCS Code to be the same as that used by your friend(s). </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><strong>DCS CODE</strong></th>
+<th><strong>DCS CODE</strong></th>
+<th><strong>DCS CODE</strong></th>
+<th><strong>DCS CODE</strong></th>
+<th><strong>DCS CODE</strong></th>
+<th><strong>DCS CODE</strong></th>
+<th><strong>DCS CODE</strong></th>
+<th><strong>DCS CODE</strong></th>
+<th><strong>DCS CODE</strong></th>
+<th><strong>DCS CODE</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>023</td>
+<td>025</td>
+<td>026</td>
+<td>031</td>
+<td>032</td>
+<td>036</td>
+<td>043</td>
+<td>047</td>
+<td>051</td>
+<td>053</td>
+</tr>
+<tr>
+<td>054</td>
+<td>065</td>
+<td>071</td>
+<td>072</td>
+<td>073</td>
+<td>074</td>
+<td>114</td>
+<td>115</td>
+<td>116</td>
+<td>122</td>
+</tr>
+<tr>
+<td>125</td>
+<td>131</td>
+<td>132</td>
+<td>134</td>
+<td>143</td>
+<td>145</td>
+<td>152</td>
+<td>155</td>
+<td>156</td>
+<td>162</td>
+</tr>
+<tr>
+<td>165</td>
+<td>172</td>
+<td>174</td>
+<td>205</td>
+<td>212</td>
+<td>223</td>
+<td>225</td>
+<td>226</td>
+<td>243</td>
+<td>244</td>
+</tr>
+<tr>
+<td>245</td>
+<td>246</td>
+<td>251</td>
+<td>252</td>
+<td>255</td>
+<td>261</td>
+<td>263</td>
+<td>265</td>
+<td>266</td>
+<td>271</td>
+</tr>
+<tr>
+<td>274</td>
+<td>306</td>
+<td>311</td>
+<td>315</td>
+<td>325</td>
+<td>331</td>
+<td>332</td>
+<td>343</td>
+<td>346</td>
+<td>351</td>
+</tr>
+<tr>
+<td>356</td>
+<td>364</td>
+<td>365</td>
+<td>371</td>
+<td>411</td>
+<td>412</td>
+<td>413</td>
+<td>423</td>
+<td>431</td>
+<td>432</td>
+</tr>
+<tr>
+<td>445</td>
+<td>446</td>
+<td>452</td>
+<td>454</td>
+<td>455</td>
+<td>462</td>
+<td>464</td>
+<td>465</td>
+<td>466</td>
+<td>503</td>
+</tr>
+<tr>
+<td>506</td>
+<td>516</td>
+<td>523</td>
+<td>526</td>
+<td>532</td>
+<td>546</td>
+<td>565</td>
+<td>606</td>
+<td>612</td>
+<td>624</td>
+</tr>
+<tr>
+<td>627</td>
+<td>631</td>
+<td>632</td>
+<td>654</td>
+<td>662</td>
+<td>664</td>
+<td>703</td>
+<td>712</td>
+<td>723</td>
+<td>731</td>
+</tr>
+<tr>
+<td>732</td>
+<td>734</td>
+<td>743</td>
+<td>754</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<ol start="10">
+<li>When you have made your selection, press the [ <strong>SET/ATS</strong> ] key, then press the <strong>PTT</strong> switch to save the new settings and exit to normal operation. </li>
+</ol>
+<p><em><strong>Remember that the DCS is an Encode/Decode system, so your receiver will remain muted until a matching DCS code is received on an incoming transmission. Switch the DCS off when you’re just tuning around the band!</strong></em> </p>
+<h2 id="ctcss-dcs-bell-operation"><strong>CTCSS/DCS Bell Operation</strong></h2>
+<p>During CTCSS Decode or DCS operation, you may set up the <strong>FT-257</strong> such that a ringing “bell” sound alerts you to the fact that a call is coming in. Here is the procedure for activating the CTCSS/DCS Bell: </p>
+<ol>
+<li>
+<p>Set the transceiver up for CTCSS Decode (“Tone Squelch”) or DCS operation, as described previously. </p>
+</li>
+<li>
+<p>Adjust the operating frequency to the desired channel. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 8: BELL. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to set the desired number of rings of the Bell. The available choices are “1 T,” “3 T,” “5 T,” or “8 T” rings, CONT (continuous ringing), or OFF. </p>
+</li>
+<li>
+<p>Press the <strong>PTT</strong> switch momentarily to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<p>When you are called by a station whose transceiver is sending a CTCSS tone or DCS code which matches that set into your Decoder, the Bell will ring in accordance with this programming. When the CTCSS/DCS Bell is activated, the “ ” icon will appear at the upper right corner on the LCD.</p><h2 id="ctcss-dcs-operation-2"><strong>CTCSS/DCS Operation</strong></h2>
+<h2 id="split-tone-operation"><strong>Split Tone Operation</strong></h2>
+<p>The <strong>FT-257</strong> can be operated in a Split Tone configuration via the Set mode. </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 39: SPLIT. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select ON (to enable the Split Tone feature). </p>
+</li>
+<li>
+<p>Press the <strong>PTT</strong> switch momentarily to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<p>When the Split Tone feature is activated, you can see the following additional parameters following the “DCS” parameter (while selecting the tone mode by Set Mode Item 40: SQL.TYP): </p>
+<p>D: DCS Encode only (the <em><strong>“ ”</strong></em> icon will appear during operation) T DCS: Encodes a CTCSS Tone and Decodes a DCS code (the “ ” icon will blink and the <em><strong>“ ”</strong></em> icon will appear during operation) D TSQL: Encodes a DCS code and Decodes a CTCSS Tone (the <em><strong>“ ”</strong></em> icon will appear and the <em><strong>“ ”</strong></em> icon will blink during operation) </p>
+<p>Select the desired operating mode from the selections shown above.</p><h2 id="tone-calling-1750-hz"><strong>Tone Calling</strong>[(] <strong>1750 Hz</strong>[)]</h2>
+<p>If the repeaters in your country require a 1750-Hz burst tone for access (typically in Europe), you can set the [ <strong>VOL/SQL</strong> ] key to serve as a “Tone Call” switch instead. To change the configuration of this switch, we again use the Set Mode to help us. </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 23: M <strong>/</strong> T-CAL. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select “T-CALL” on the display. </p>
+</li>
+<li>
+<p>Press the <strong>PTT</strong> switch to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<p>To access a repeater, press and hold in the [ <strong>VOL/SQL</strong> ] key for the amount of time specified by the repeater owner/operator. The transmitter will automatically be activated, and a 1750-Hz audio tone will be superimposed on the carrier. Once access to the repeater has been gained, you may release the [ <strong>VOL/SQL</strong> ] key for activating the transmitter thereafter.</p><h2 id="memory-mode"><strong>Memory Mode</strong></h2>
+<p>The <strong>FT-257</strong> provides a wide variety of memory system resources. These include: </p>
+<ul>
+<li>
+<p>200 “Standard” memory channels, numbered “1” through “200.” </p>
+</li>
+<li>
+<p>A “Home” channel, providing storage and quick recall of one prime frequency. </p>
+</li>
+<li>
+<p>10 sets of band-edge memories, also known as “Programmable Memory Scan” channels, labeled “L1 <strong>/</strong> U1” through “L10 <strong>/</strong> U10.” </p>
+</li>
+<li>
+<p>10 Memory Banks, labeled “BANK 1” through “BANK10.” Each Memory Bank can be assigned up to 200 channels from the “standard” memory channels. </p>
+</li>
+<li>
+<p>10 “Weather Broadcast” Channels. </p>
+</li>
+</ul>
+<h2 id="memory-storage"><strong>Memory Storage</strong></h2>
+<ol>
+<li>
+<p>Select the desired frequency, while operating in the VFO mode. Be <em><strong>sure</strong></em> to set up any desired CTCSS or DCS tones, as well as any desired repeater offset, before saving to memory. The power level is stored in the memory and may also be set at this time, if you wish to change it. </p>
+</li>
+<li>
+<p>Press and hold in the [ <strong>F/MW</strong> ] key for one second. </p>
+</li>
+<li>
+<p>Within ten seconds of releasing the [ <strong>F/MW</strong> ] key, you need to make a decision regarding channel storage. The microprocessor will automatically select the next-available “free” channel (a memory register on which no data has been stored), so you may not wish to make any change; if this is the case, proceed to step 4. If you wish to select a different channel number into which to store the data, rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the desired memory channel. </p>
+</li>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key once more to store the frequency into memory. </p>
+</li>
+<li>
+<p>You will still be operating in the “VFO” mode, so you may now enter other frequencies, and store them into additional memory locations, by repeating the above process. </p>
+</li>
+</ol>
+<h2 id="storing-independent-transmit-frequencies-odd-splits"><strong>Storing Independent Transmit Frequencies (“Odd Splits”)</strong></h2>
+<p>All memories can store an independent transmit frequency, for operation on repeaters with non-standard shift. To do this: </p>
+<ol>
+<li>
+<p>Store the receive frequency using the method already described under MEMORY STORAGE (it doesn’t matter if a repeater offset is active). </p>
+</li>
+<li>
+<p>Tune to the desired transmit frequency, then press and hold in the [ <strong>F/MW</strong> ] key for one second. </p>
+</li>
+<li>
+<p>Within ten seconds of releasing the [ <strong>F/MW</strong> ] key, rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the same memory channel number as used in step “1” above. </p>
+</li>
+<li>
+<p>Press and hold in the <strong>PTT</strong> switch. Then while holding the <strong>PTT</strong> switch in, momentarily press the [ <strong>F/MW</strong> ] key once more. (This does not key the transmitter). </p>
+</li>
+</ol>
+<p><em><strong>Whenever you recall a memory which contains independently-stored transmit and receive frequencies, the “ ” indication will appear in the display.</strong></em></p><h2 id="memory-recall"><strong>Memory Recall</strong></h2>
+<ol>
+<li>
+<p>While operating in the VFO mode, press the [ <strong>V/M</strong> ] key to enter the Memory mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the desired memory channel. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="3">
+<li>To return to the VFO mode, press the [ <strong>V/M</strong> ] key. </li>
+</ol>
+<h2 id="home-channel-memory"><strong>HOME Channel Memory</strong></h2>
+<p>A special one-touch “HOME” channel is available, to allow quick recall of a favorite operating frequency. </p>
+<p>Home Channel storage is simple to accomplish: </p>
+<ol>
+<li>
+<p>Change the setting of Set Mode Item 30: REV / HM from “REV” to “HOME,” if it is not already set to this option (see page 57). </p>
+</li>
+<li>
+<p>Select the desired frequency, while operating in the VFO mode. Be sure to set up any desired CTCSS or DCS tones, as well as any desired repeater offset. The power level may also be set at this time, if you wish to store it. </p>
+</li>
+<li>
+<p>Press and hold in the [ <strong>F/MW</strong> ] key for one second. </p>
+</li>
+<li>
+<p>While the memory channel number is blinking, just press the [ <strong>REV</strong> ] key. The frequency and other data (if any) will now be stored in the special HOME channel register. </p>
+</li>
+<li>
+<p>To recall the HOME channel, press the [ <strong>REV</strong> ] key momentarily while operating either in the VFO or MR mode.</p>
+</li>
+</ol><h2 id="labeling-memories"><strong>Labeling Memories</strong></h2>
+<p>You may wish to append an alpha-numeric “Tag” (label) to a memory or memories, to aid in recollection of the channel’s use (such as a club name, etc.). This is easily accomplished using the Set Mode. </p>
+<ol>
+<li>
+<p>Recall the memory channel on which you wish to append a label. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 24: MEM.TAG. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to display the previously stored label (if any). </p>
+</li>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key to clear any previous label. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob to select the first digit of the desired label. </p>
+</li>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key to move to the next character. </p>
+</li>
+<li>
+<p>If you make a mistake, press the [q] key to back-space the cursor, then re-enter the correct letter, number, or symbol. </p>
+</li>
+<li>
+<p>Repeat steps 5 through 7 to program the remaining letters, numbers, or symbols of the desired label. A total of six characters may be used in the creation of a label. </p>
+</li>
+<li>
+<p>When you have programmed a label which is under 6 characters, press and hold in the [ <strong>F/MW</strong> ] key for one second to confirm the label (if the label is exactly 6 characters in length, you do not need to press and hold in [ <strong>F/MW</strong> ] key). </p>
+</li>
+<li>
+<p>When you have completed the creation of the label, press the <strong>PTT</strong> switch to save the label and return to the memory recall mode. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 302] intentionally omitted &lt;==</strong></p>
+<h2 id="enable-the-memory-alpha-numeric-tag-display"><strong>Enable the Memory Alpha-Numeric Tag display</strong></h2>
+<p>There are two methods to enable/disable the Alpha-Numeric Tag display. Set Mode Item 24 may be used to enable/disable the tags for all memory channels. Alternately, the tags may be enabled/disabled directly for each memory channel individually. </p>
+<h2 id="1-set-mode-setting"><strong>1) Set Mode Setting:</strong></h2>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 25: NAME. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 47] intentionally omitted &lt;==</strong></p><ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to set this to “ALPHA” (enabling the alpha-numeric “Tag” display). </p>
+</li>
+<li>
+<p>To display the frequency again, just repeat the above procedure. </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the setting and exit to normal operation. </p>
+</li>
+</ol>
+<p>To display the frequency again on all memory channels, just repeat the above procedure, rotating the <strong>DIAL</strong> knob or press the [p]/[q] key to select “FREQ” in step 4 above. </p>
+<h2 id="2-direct-setting"><strong>2) Direct Setting:</strong></h2>
+<ol>
+<li>
+<p>Set the <strong>FT-257</strong> to the “MR” (Memory Recall) mode, and recall the memory channel on which you wish to enable the alpha-numeric Tag. </p>
+</li>
+<li>
+<p>Press and hold the [ <strong>F/MW</strong> ] key for one second. </p>
+</li>
+<li>
+<p>To display the frequency again, just repeat the above procedure. </p>
+</li>
+</ol>
+<p><em><strong>This procedure is only applied directly to the memory channel on which you are currently operating (all other memory channels are unchanged).</strong></em> </p>
+<h2 id="memory-offset-tuning"><strong>Memory Offset Tuning</strong></h2>
+<p>Once you have recalled a particular memory channel, you may easily tune off that channel, as though you were in the “VFO” mode. </p>
+<ol>
+<li>
+<p>With the <strong>FT-257</strong> in the “MR” (Memory Recall) mode, select the desired memory channel. </p>
+</li>
+<li>
+<p>Press and hold the [ <strong>REV</strong> ] key for one second to activate the “Memory Tuning” feature. The Memory Channel number will be replaced by “tun.” And if you have an alpha-numeric Tag displayed on the memory channel, the display will automatically revert to display of the operating frequency, so you can navigate without having to enter the Menu to change the display configuration. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob, as desired, to tune to a new frequency. The synthesizer steps selected for VFO operation will be the steps used during Memory Tuning. </p>
+</li>
+<li>
+<p>If you wish to return to the original memory frequency, just press the [ <strong>V/M</strong> ] key momentarily. The display will revert to display of the alpha-numeric Tag (if any) that may have originally appeared on the LCD. </p>
+</li>
+<li>
+<p>If you wish to store a new frequency set during Memory Tuning, just press and hold in the [ <strong>F/W</strong> ] key for one second, per normal memory storage procedure. The microprocessor will automatically set itself to the next-available clear memory location, and you then press [ <strong>F/W</strong> ] again to lock in the new frequency. </p>
+</li>
+</ol>
+<p><em><strong>1) If you want to replace the original memory contents with those of the new frequency, be sure to rotate the DIAL knob to the original memory channel number! 2) Any required CTCSS/DCS changes, or repeater offset modifications, must be done before storing the data into the new (or original) memory channel location.</strong></em></p><h2 id="memory-mode-2"><strong>Memory Mode</strong></h2>
+<h2 id="deleting-memories"><strong>Deleting Memories</strong></h2>
+<p>You may delete any of the memories (except for Memory Channel “1” and the Home Channel). The procedure for deleting a channel is quite simple. </p>
+<ol>
+<li>
+<p>Press the [ <strong>V/M</strong> ] key, if needed, to enter the VFO mode. </p>
+</li>
+<li>
+<p>Press and hold in the [ <strong>F/MW</strong> ] key for one second, then rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the memory channel to be deleted. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key for one second. The display will revert to memory channel #1. The previously-selected memory will be deleted. </p>
+</li>
+</ol>
+<p><em><strong>Important Notice! Once deleted, the channel data cannot be recovered!</strong></em> </p>
+<h2 id="memory-bank-operation"><strong>Memory Bank Operation</strong></h2>
+<p>The large number of memories available in the <strong>FT-257</strong> could be difficult to utilize without some means of organizing them. Fortunately, the <strong>FT-257</strong> includes provision for dividing the memories into as many as ten Memory Groups, so you can categorize the memories in a manner convenient to you. </p>
+<h2 id="assigning-memories-to-a-memory-bank"><strong>Assigning Memories to a Memory Bank</strong></h2>
+<ol>
+<li>
+<p>Recall the memory channel to be assigned to a Memory Bank. </p>
+</li>
+<li>
+<p>Press and hold in the [ <strong>V/M</strong> ] key for one second, then rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the Memory Bank number you want as the Memory Bank for this channel (“BANK 1” ~ “BANK10”). </p>
+</li>
+<li>
+<p>Press and hold in the [ <strong>F/MW</strong> ] key for one second to copy the memory channel data into the Memory Bank. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 99] intentionally omitted &lt;==</strong></p>
+<ul>
+<li>
+<p><em><strong>1) You may assign the same memory channel into multiple Memory Banks.</strong></em> </p>
+</li>
+<li>
+<p><em><strong>2) The PMS memory channels (L1/U1 through L10/U10) may not be assigned to a Memory Bank.</strong></em> </p>
+</li>
+</ul>
+<h2 id="memory-bank-recall"><strong>Memory Bank Recall</strong></h2>
+<ol>
+<li>
+<p>Press the [ <strong>V/M</strong> ] key, if needed, to enter the Memory Recall mode. </p>
+</li>
+<li>
+<p>Press and hold in the [ <strong>V/M</strong> ] key, then rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the desired Memory Bank (“BANK 1” through “BANK10”). </p>
+</li>
+<li>
+<p>Press the [ <strong>V/M</strong> ] key momentarily; now, as you rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select memories, you will observe that you can only select memory channels in the current memory bank. The “ ” indication will appear at the left side of the frequency display while operating within a Memory Bank. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 102] intentionally omitted &lt;==</strong></p><h2 id="memory-mode-3"><strong>Memory Mode</strong></h2>
+<ol start="4">
+<li>
+<p>To change to another Memory Bank, press and hold in the [ <strong>V/M</strong> ] key, rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the new Memory Bank, then press the [ <strong>V/M</strong> ] key momentarily. </p>
+</li>
+<li>
+<p>To exit from Memory Bank operation, select “NOBANK” in step 4 above and then press [ <strong>F/MW</strong> ] . You are now in the “standard” Memory Recall mode, without utilization of the Memory Banks. The memories stored in the various Banks will remain in those banks, however; you do not need to store them again. </p>
+</li>
+</ol>
+<h2 id="removing-memories-from-a-memory-bank"><strong>Removing Memories from a Memory Bank</strong></h2>
+<ol>
+<li>
+<p>Recall the memory channel to be removed from a Memory Bank. </p>
+</li>
+<li>
+<p>Press and hold in the [ <strong>V/M</strong> ] key for one second, then press and hold in the [ <strong>F/MW</strong> ] key to remove the memory channel data from the Memory Bank. </p>
+</li>
+</ol>
+<h2 id="moving-memory-data-to-the-vfo"><strong>Moving Memory Data to the VFO</strong></h2>
+<p>Data stored on memory channels can easily be moved to the VFO, if you like. </p>
+<ol>
+<li>
+<p>Select the memory channel containing the frequency data to be moved to the VFO. </p>
+</li>
+<li>
+<p>Press and hold the [ <strong>V/M</strong> ] key to activate the “Memory Tune” feature temporarily, then press and hold in the [ <strong>V/M</strong> ] key for one second. The data will now have been copied to the VFO, although the original memory contents will remain intact on the previously-stored channel. </p>
+</li>
+</ol>
+<p><em><strong>If a Split Frequency Memory channel was transferred, the TX frequency will be ignored (you will be set up for Simplex operation on the Receive frequency).</strong></em> </p>
+<h2 id="memory-only-mode"><strong>Memory Only Mode</strong></h2>
+<p>Once memory channel programming has been completed, you may place the radio in a “Memory Only” mode, whereby VFO operation is impossible. This may be particularly useful during public-service events, where a number of operators may be using the radio for first time, and ultimate simplicity of channel selection is desired. </p>
+<p>To place the radio into the Memory Only mode: </p>
+<ol>
+<li>
+<p>Turn the radio off. </p>
+</li>
+<li>
+<p>Press and hold in the [ <strong>V/M</strong> ] key while turning the radio on. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob to select the “F5 M-ONLY” option, then press the [ <strong>SET/ATS</strong> ] key. </p>
+</li>
+</ol>
+<p>To return to normal operation, repeat the above power-on procedure. </p>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p><h2 id="scanning"><strong>Scanning</strong></h2>
+<p>The <strong>FT-257</strong> allows you to scan just the memory channels, the entire operating band, or a portion of that band. It will halt on signals encountered, so you can talk to the station(s) on that frequency, if you like. </p>
+<p>Scanning operation is basically the same in each of the above modes. Before you begin, take a moment to select the way in which you would like the scanner to resume scanning after it halts on a signal. </p>
+<h2 id="setting-the-scan-resume-technique"><strong>Setting the Scan-Resume Technique</strong></h2>
+<p>Three options for the Scan-Resume mode are available: </p>
+<ul>
+<li>
+<p>BUSY: In this mode, the scanner will halt on a signal it encounters. Two seconds after the carrier has dropped because the other station(s) ceased transmission, the scanner will resume. In the case of constant-carrier signals like Weather Station broadcasts, the scanner will likely remain on this frequency indefinitely. </p>
+</li>
+<li>
+<p>HOLD: In this mode, the scanner will halt on a signal it encounters. It will not restart automatically; you must manually re-initiate scanning if you wish to resume. </p>
+</li>
+<li>
+<p>TIME: In this mode, the scanner will halt on a signal it encounters, and will hold there for five seconds. If you do not take action to disable the scanner within that time period, the scanner will resume even if the stations are still active. </p>
+</li>
+</ul>
+<p>To set the Scan-Resume mode: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 29: RESUME. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 48] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the desired scan-resume mode. </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<h2 id="the-default-condition-for-this-set-mode-item-is-time"><em><strong>The default condition for this Set Mode Item is “TIME”.</strong></em></h2>
+<ul>
+<li>
+<p><strong>Setting the Squelch Level during Active Scanning Operation</strong> </p>
+</li>
+<li>
+<p>The <strong>FT-257</strong> allows adjustment of the Squelch level “on the fly” while you are scanning. </p>
+</li>
+</ul>
+<ol>
+<li>
+<p>While the scanner is engaged, press the [ <strong>VOL/SQL</strong> ] key twice (the current squelch level (e.g. “LVL 1”) will appear in fine print above the frequency display). </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the desired Squelch level. </p>
+</li>
+<li>
+<p>Press the <strong>PTT</strong> switch momentarily to save the new setting and exit to normal operation. In this case, pressing the <strong>PTT</strong> switch this one time will not causing scanning to stop.</p>
+</li>
+</ol><h2 id="vfo-scanning"><strong>VFO Scanning</strong></h2>
+<p>The <strong>FT-257</strong> provides two VFO scanning functions: “Manual VFO Scanning” and “Programmed VFO Scanning.” </p>
+<h2 id="manual-vfo-scan"><strong>Manual VFO Scan</strong></h2>
+<ol>
+<li>
+<p>Select the VFO mode by pressing the [ <strong>V/M</strong> ] key, if necessary. </p>
+</li>
+<li>
+<p>Press and hold in either the [p] or [q] key for one second to initiate upward or downward scanning, respectively. </p>
+</li>
+<li>
+<p>If and when the scanner encounters a signal strong enough to open the squelch, the scanner will halt temporarily; the decimal point of the frequency display will blink during this “Pause” condition. </p>
+</li>
+<li>
+<p>The scanner will then resume according to the Scan-Resume mode selected in the previous section. </p>
+</li>
+<li>
+<p>To cancel scanning, press the <strong>PTT</strong> switch or [ <strong>V/M</strong> ] key. </p>
+</li>
+</ol>
+<h2 id="programmed-vfo-scan"><strong>Programmed VFO Scan</strong></h2>
+<ol>
+<li>
+<p>Select the VFO mode by pressing the [ <strong>V/M</strong> ] key, if necessary. </p>
+</li>
+<li>
+<p>Press and hold the [ <strong>REV</strong> ] key, then rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the bandwidth for the Programmed VFO scanner. Available selections are ±1 MHz, ±2 MHz, ±5 MHz, PMS-x, and ALL. </p>
+</li>
+</ol>
+<p>±1 MHz, ±2 MHz, ±5 MHz: </p>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<p>The scanner will sweep frequencies within the selected bandwidth. </p>
+<p>PMS-x: The scanner will sweep frequencies within the currently-selected PMS frequency pair. See page 33 for details. ALL: The scanner will sweep all frequencies. </p>
+<ol start="3">
+<li>
+<p>Press the <strong>PTT</strong> switch momentarily to save the new setting and exit to normal operation. </p>
+</li>
+<li>
+<p>Press and hold in the [ <strong>V/M</strong> ] key for one second to start scanning. </p>
+</li>
+<li>
+<p>If and when the scanner encounters a signal strong enough to open the squelch, the scanner will halt temporarily; the decimal point of the frequency display will blink during this “Pause” condition. </p>
+</li>
+<li>
+<p>The scanner will then resume according to the Scan-Resume mode selected in the previous section. </p>
+</li>
+<li>
+<p>To cancel scanning, press the <strong>PTT</strong> switch. </p>
+</li>
+</ol>
+<p><em><strong>When you start the Programmed VFO Scanner, the FT-257 will be changing frequency in the upward direction. If you want to change direction of the scan while it is underway, rotate the DIAL knob one click in the opposite direction (in this case, one click counter-clockwise). You’ll see the scanner turn around and change frequency downward!</strong></em></p><h2 id="memory-scanning"><strong>Memory Scanning</strong></h2>
+<p>Memory scanning is similarly easy to initiate: </p>
+<ol>
+<li>
+<p>Select the Memory mode by pressing the [ <strong>V/M</strong> ] key, if necessary. </p>
+</li>
+<li>
+<p>Press and hold in either the [p] or [q] key for one second to initiate upward or downward scanning, respectively. </p>
+</li>
+<li>
+<p>If and when the scanner encounters a signal strong enough to open the squelch, the scanner will halt temporarily; the decimal point of the frequency display will blink during this “Pause” condition. </p>
+</li>
+<li>
+<p>The scanner will then resume according to the Scan-Resume mode selected in the previous section. </p>
+</li>
+<li>
+<p>To cancel scanning, press the <strong>PTT</strong> switch. </p>
+</li>
+</ol>
+<h2 id="how-to-skip-omit-a-channel-during-memory-scan-operation"><strong>How to Skip (Omit) a Channel during Memory Scan Operation</strong></h2>
+<p>As mentioned previously, some continuous-carrier stations like a Weather Broadcast station will seriously impede scanner operation if you are using the “Carrier Drop” ScanResume mode, as the incoming signal will not pause long enough for the transceiver to resume scanning. Such channels may be “Skipped” during scanning, if you like: </p>
+<ol>
+<li>
+<p>Recall the Memory Channel to be skipped during scanning. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 38: SKIP. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily enter the “Skip” channel-selection mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select “SKIP”. The current Memory Channel will now be ignored during scanning. The “ONLY” selection is used for “Preferential Memory Scan,” described in the next section. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 48] intentionally omitted &lt;==</strong></p>
+<ol start="6">
+<li>When you have made your selection, press the <strong>PTT</strong> switch to save the setting and exit to normal operation. </li>
+</ol>
+<p>When you recall the “skipped” memory channel manually, a small “  ” icon will appear at the left of the memory channel number, indicating it is to be ignored during scanning. </p>
+<p><strong>==&gt; picture [96 x 47] intentionally omitted &lt;==</strong></p>
+<p>To re-institute a channel into the scanning loop, select “OFF” in step 5 above (the “Skipped” channel will, of course, still be accessible via manual channel selection methods using the <strong>DIAL</strong> knob in the MR mode, whether or not it is locked out of the scanning loop).</p><h2 id="memory-scanning-2"><strong>Memory Scanning</strong></h2>
+<h2 id="preferential-memory-scan"><strong>Preferential Memory Scan</strong></h2>
+<p>The <strong>FT-257</strong> also allows you to set up a “Preferential Scan List” of channels which you can “flag” within the memory system. These channels are designated by a blinking “  ” icon when you have selected them, one by one, for the Preferential Scan List. </p>
+<p>When you initiate memory scanning, beginning on a channel with the blinking “  ” icon appended, only those channels <em>bearing</em> the blinking “ u ” icon will be scanned. If you initiate scanning on a channel which does not have the blinking “  ” icon appended, you will scan all channels including those with the blinking “  ” icon appended. </p>
+<p>Here is the procedure for setting up and using the Preferential Scan List: </p>
+<ol>
+<li>
+<p>Recall the Memory Channel which you wish to add to the Preferential Scan List. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 38: SKIP. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily enter the “Skip” channel-selection mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select “ONLY”. </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the setting and exit to normal operation. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="7">
+<li>To remove a channel from the Preferential Scan List, just repeat the above procedure, rotating the <strong>DIAL</strong> knob to select “OFF” in step 5 above. </li>
+</ol>
+<p>To initiate Preferential Memory Scan: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 36: SCN MD. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Set Mode Item. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select “ONLY”. </p>
+</li>
+<li>
+<p>Press the <strong>PTT</strong> switch to save the setting and exit to normal operation. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 99] intentionally omitted &lt;==</strong></p>
+<ol start="6">
+<li>
+<p>Now, press and hold in either the [p] or [q] key for one second to initiate the Preferential Memory Scan. Only the channels which have the blinking “  ” icon appended to the channel number will be scanned. </p>
+</li>
+<li>
+<p>To cancel the Preferential Memory Scan, just repeat the above procedure, rotating the <strong>DIAL</strong> knob or press the [p]/[q] key to select “MEM” in step 4 above.</p>
+</li>
+</ol><h2 id="memory-scanning-3"><strong>Memory Scanning</strong></h2>
+<h2 id="memory-bank-scan"><strong>Memory Bank Scan</strong></h2>
+<p>When the Memory Bank feature is engaged, the scanner sweeps only memory channels in the current Memory Bank. However, if the Memory Bank Link Scan feature is enabled, you may sweep the memory channels in several Memory Banks which you have selected. </p>
+<p>To enable the Memory Bank Link Scan feature: </p>
+<ol>
+<li>
+<p>Set the radio to the Memory mode by pressing the [ <strong>V/M</strong> ] key, if necessary. </p>
+</li>
+<li>
+<p>Press and hold in the [ <strong>V/M</strong> ] key  for one second, then rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the first Memory Bank (“BANK 1” ~ “BANK10”) you wish to sweep using Memory Bank Link Scan. </p>
+</li>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key momentarily. The current Memory Bank will now be swept during Memory Bank Scan. A “decimal point” will be appended between the “N” and “K” of the Memory Bank number indication (such as BAN.K 2). </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Repeat steps 2 and 3 above, to append the “decimal point” to any other Memory Banks you wish to sweep. </p>
+</li>
+<li>
+<p>Now, press and hold in the [p] or [q] key for one second to initiate the Memory Bank Link Scan. </p>
+</li>
+<li>
+<p>To remove a Memory Bank from the Memory Bank Link Scan, repeat steps 2 and 3 above, to delete the “decimal point” from the Memory Bank number indication.</p>
+</li>
+</ol><h2 id="programmable-band-limit-memory-scan-pms"><strong>Programmable</strong>[(] <strong>Band Limit</strong>[)] <strong>Memory Scan</strong>[(] <strong>PMS</strong>[)]</h2>
+<p>This feature allows you to set sub-band limits for either scanning or manual VFO operation. For example, you might wish to set up a limit (in North America) of 435.100 MHz to 439.900 MHz to prevent encroachment into the SSB/CW “Weak Signal” portion of the band below 435.100 MHz. Here’s how to do this </p>
+<ol>
+<li>
+<p>Set the radio to the VFO mode by pressing the [ <strong>V/M</strong> ] key, if necessary. </p>
+</li>
+<li>
+<p>Using the techniques learned earlier, store (per the above concept) 435.100 MHz into Memory Channel #L1 (the “L” designates the Lower sub-band limit). </p>
+</li>
+<li>
+<p>Likewise, store 439.900 MHz into Memory Channel #U1 (the “U” designates the Upper sub-band limit) </p>
+</li>
+<li>
+<p>Confirm the radio is in the VFO mode, press and hold in the [ <strong>REV</strong> ] key for one second, and rotate the <strong>DIAL</strong> knob to select the desired PMS frequency pair (PMSxx), then press the <strong>PTT</strong> switch. </p>
+</li>
+<li>
+<p>Now, press and hold in the [ <strong>V/M</strong> ] key for one second to initiate Programmable (Band Limit) Memory Scan. Scanning will now be limited within the just-programmed range. </p>
+</li>
+<li>
+<p>10 pairs of Band Limit memories, labeled L1/U1 through L10/U10 are available. You therefore can set upper and lower operation limits in multiple segments on the band, if you like.</p>
+</li>
+</ol><h2 id="scanning-2"><strong>Scanning</strong></h2>
+<h2 id="priority-channel-scanning-dual-watch">“ <strong>Priority Channel</strong> ” <strong>Scanning</strong>[(] <strong>Dual Watch</strong>[)]</h2>
+<p>The <strong>FT-257</strong> ’s scanning features include a two-channel scanning capability which allows you to operate on a VFO or Memory channel, while periodically checking a user-defined Memory Channel for activity. If a station is received on the Memory Channel which is strong enough to open the Squelch, the scanner will pause on that station in accordance with the Scan-Resume mode set via Set Mode Item 29: RESUME. See page 28. </p>
+<p>Here is the procedure for activating Priority Channel Dual Watch operation: </p>
+<h2 id="vfo-priority"><strong>VFO Priority</strong></h2>
+<ol>
+<li>
+<p>Recall the memory channel you wish to use as the “Priority” frequency. </p>
+</li>
+<li>
+<p>Now, set the radio to the VFO mode by pressing the [ <strong>V/M</strong> ] key. </p>
+</li>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key, then press the [ <strong>VOL/SQL</strong> ] key to activate the VFO Priority mode. The display will remain on the VFO frequency, but every five seconds the radio will check the Priority Channel (memory channel) for activity. </p>
+</li>
+<li>
+<p>Press [ <strong>F/MW</strong> ]  [ <strong>VOL/SQL</strong> ] again to disable the VFO Priority mode. </p>
+</li>
+</ol>
+<h2 id="memory-channel-priority"><strong>Memory Channel Priority</strong></h2>
+<ol>
+<li>
+<p>Store the frequency you wish to be the “Priority” Channel into memory channel “1”. </p>
+</li>
+<li>
+<p>Now, set the radio for operation on another memory channel. </p>
+</li>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key, then press the [ <strong>VOL/SQL</strong> ] key to activate the Memory Priority mode. The display will remain on the current memory channel frequency, but every five seconds the radio will check the Priority Channel (memory channel “1”) for activity. </p>
+</li>
+<li>
+<p>Press [ <strong>F/MW</strong> ]  [ <strong>VOL/SQL</strong> ] again to disable the Memory Priority mode. </p>
+</li>
+</ol>
+<p><em><strong>When the Memory Bank feature is activated, the FT-257 will check the lowest numbered memory channel in the current Memory Bank as the Priority Channel.</strong></em> </p>
+<h2 id="home-channel-priority"><strong>HOME Channel Priority</strong></h2>
+<ol>
+<li>
+<p>Recall the memory channel you wish to use as the “Priority” frequency. </p>
+</li>
+<li>
+<p>Now set the radio for operation on the HOME channel by pressing the [ <strong>F/MW</strong> ] key followed by [ <strong>REV</strong> ] . </p>
+</li>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key, then press the [ <strong>VOL/SQL</strong> ] key to activate the HOME Priority mode. The display will remain on the HOME channel frequency, but every five seconds the radio will check the Priority Channel (memory channel) for activity. </p>
+</li>
+<li>
+<p>Press [ <strong>F/MW</strong> ]  [ <strong>VOL/SQL</strong> ] again to disable the HOME Priority mode.</p>
+</li>
+</ol><h2 id="priority-channel-scanning-dual-watch-2">“ <strong>Priority Channel</strong> ” <strong>Scanning</strong>[(] <strong>Dual Watch</strong>[)]</h2>
+<h2 id="priority-revert-mode"><strong>Priority Revert Mode</strong></h2>
+<p>During Priority channel operation (Dual Watch), a special feature is available which will allow you to move to the Priority channel instantly, without waiting for activity to appear on the Priority channel. </p>
+<p>When this feature is enabled, and Priority monitoring is engaged, just press the <strong>PTT</strong> switch; operation will instantly revert to the Priority channel. </p>
+<p>To enable the Priority Revert operation: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 33: PRI.RVT. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Set Mode Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 48] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to set this Set Mode Item to “RVT. ON.” </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the setting and exit to normal operation. </p>
+</li>
+<li>
+<p>To disable the Priority Revert operation, just repeat the above procedure, rotating the <strong>DIAL</strong> knob to select “RVT.OFF” in step 4 above.</p>
+</li>
+</ol><h2 id="scanning-3"><strong>Scanning</strong></h2>
+<h2 id="automatic-lamp-illumination-on-scan-stop"><strong>Automatic Lamp Illumination on Scan Stop</strong></h2>
+<p>The <strong>FT-257</strong> will automatically illuminate the LCD/Keypad Lamp whenever the scanner stops on a signal; this allows you to see the frequency of the incoming signal better at night. Note that this will, of course, increase the battery consumption, so be sure to switch it off during the day (the default condition for this feature is “ON”). </p>
+<p>The procedure for disabling the Scan Lamp is: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 37: SCN.LMP. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Set Mode Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to set this Set Mode Item to “OFF.” </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the setting and exit to normal operation. </p>
+</li>
+</ol>
+<h2 id="band-edge-beeper"><strong>Band Edge Beeper</strong></h2>
+<p>The <strong>FT-257</strong> will automatically “beep” when a band edge is encountered during scanning (either in standard VFO scanning or during PMS operation). You may also enable this feature (band edge beeper) to operate when the frequency reaches the band edge while tuning using the DIAL knob. </p>
+<p>The procedure for enabling the Band-Edge Beeper is: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 18: EDG.BEP. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Set Mode Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to set this Set Mode Item to “BEP. ON.” </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the setting and exit to normal operation.</p>
+</li>
+</ol><h2 id="emergency-channel-operation"><strong>Emergency Channel Operation</strong></h2>
+<p>The <strong>FT-257</strong> includes an “Emergency” feature which may be useful if you have someone monitoring on the same frequency as your transceiver’s “Home” channel. See page 23 for details on setting up the Home channel. </p>
+<p>The “Emergency” feature is activated by pressing and holding in the [ <strong>SET/ATS</strong> ] key for one second. When this is done, (A) the radio is placed on the Home channel, (B) it emits a loud “Alarm” sound, (C) it flashes the LCD lamp, (D) if you press the <strong>PTT</strong> switch, you will disable the Emergency feature temporarily; you can then transmit on the Home channel, and (E) two seconds after the <strong>PTT</strong> switch release, the Emergency feature will resume. </p>
+<p>To disable the “Emergency” feature, press the [ <strong>F/MW</strong> ] key momentarily or turn the radio off by pressing the [ <strong>POWER</strong> ( )] key. </p>
+<p>Use this feature if you are out for a walk and want a quick way of alerting a family member as to a dangerous situation. The alarm sound may discourage an attacker and allow you to escape. </p>
+<ul>
+<li>
+<p><em><strong>1) Be sure to arrange with a friend or family member to be monitoring on the same frequency, as there will be no identification sent via the Emergency alarm sound. Do not transmit the alarm tone except in a true emergency!</strong></em> </p>
+</li>
+<li>
+<p><em><strong>2) The “Emergency” feature may be changed to another function via Set Mode Item 19: EMG S; see page 55 for details.</strong></em></p>
+</li>
+</ul><h2 id="smart-search-operation"><strong>Smart Search Operation</strong></h2>
+<p>The Smart Search feature allows you to load frequencies automatically according to where activity is encountered by your radio. When Smart Search is engaged, the transceiver will search above and below your current frequency, storing active frequencies as it goes (without stopping on them even momentarily); these frequencies are stored into a special Smart Search memory bank, consisting of 31 memories (15 above the current frequency, 15 below the current frequency, plus the current frequency itself). </p>
+<p>Two basic operating modes for Smart Search are available: </p>
+<ul>
+<li>SINGLE: In this mode, the transceiver will sweep the current band once in each direction starting on the current frequency. All channels where activity is present will be loaded into the Smart Search memories; whether or not all 31 memories are filled, the search will stop after one sweep in each direction. </li>
+</ul>
+<p>CONT: In this mode, the transceiver will make one pass in each direction as with OneShot searching; if all 31 channels are not filled after the first sweep, however, the radio will continue sweeping until they are all filled. </p>
+<h2 id="setting-the-smart-search-mode"><strong>Setting the Smart Search Mode</strong></h2>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 35: S SRCH. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Set Mode Item. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the desired Smart Search mode (see above). </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the setting and exit to normal operation. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 100] intentionally omitted &lt;==</strong></p>
+<h2 id="storing-smart-search-memories"><strong>Storing Smart Search Memories</strong></h2>
+<ol>
+<li>
+<p>Set the radio to the VFO mode. Be sure that you have the Squelch adjusted properly (so that band noise is quieted). </p>
+</li>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key, then press the [ <strong>LOW</strong> ] key to begin the Smart Search scanning. </p>
+</li>
+<li>
+<p>As active channels are detected, you will observe the number of “loaded” channels increasing in the regular memory channel window. </p>
+</li>
+<li>
+<p>Depending on the mode you set for Smart Search operation (“SINGLE” or “CONT”), the Smart Search scan will eventually terminate, and the LCD will revert to Smart Search Memory Channel “C.” </p>
+</li>
+<li>
+<p>To recall the Smart Search memories, rotate the <strong>DIAL</strong> knob to choose from among the frequencies stored by Smart Search. </p>
+</li>
+<li>
+<p>To return to normal operation, press the [ <strong>VFO</strong> ( <strong>PRI</strong> )] key.</p>
+</li>
+</ol><p>The ATS feature uses DCS signaling to inform both parties when you and another ATS equipped station are within communications range. This may be particularly useful during Search-and Rescue situations, where is important to stay in contact with other members of your group. </p>
+<p>Activate their ATS feature using the command appropriate for their radio. Alert ringers may be activated, if desired. </p>
+<p>Whenever you push the <strong>PTT</strong> switch, or every 20 seconds after ATS is activated, your radio will transmit a signal which includes a (subaudible) DCS signal for about 1 second. If the other radio is in range, the beeper will sound (if enabled) and the display will show “IN. RNG” as opposed to the out of range display “OUT.RNG” in which ATS operation begins. </p>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<p>Whether you talk or not, the polling every 30 seconds will continue until you de-activate ATS. Every 10 minutes, moreover, you can have your radio transmit your callsign via CW, in order to comply with identification requirements. </p>
+<p>If you move out of range for more than one minute (four pollings), your radio will sense that no signal has been received, beeps will sound, and the display will revert to “OUT. RNG.” If you move back into range, your radio will again beeps, and the display will change back to the “IN.RNG” indication. </p>
+<p>During ATS operation, your operating frequency will continue to be displayed, but no changes may be made to it or other settings; you must terminate ATS in order to resume normal operation. This is a safety feature designed to prevent accidental loss of contact due to channel change, etc. </p>
+<h2 id="basic-ats-setup-and-operation"><strong>Basic ATS Setup and Operation</strong></h2>
+<ol>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key, then press the [ <strong>SET/ATS</strong> ] key. You will observe the “SYNC” display on the LCD below the operating frequency. ATS operation has now commenced. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key, your radio will transmit a “polling” call to the other station. When that station responds with its own ATS polling signal, the display will change to “IN.RNG” to confirm that the other station’s polling code was received in response to yours. </p>
+</li>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key, then press the [ <strong>SET/ATS</strong> ] key to exit ATS operation and resume normal functioning of the transceiver. </p>
+</li>
+</ol>
+<p><em><strong>ATS constitutes a form of “remote control” operation that may be restricted to certain frequencies. U.S. users should confirm the current status of §97.201(b) of the FCC’s rules governing the 430 MHz band of the Amateur service before utilizing this feature.</strong></em></p><h2 id="ats-alert-beep-options"><strong>ATS Alert Beep Options</strong></h2>
+<p>The ATS feature allows two kinds of alert beeps (with the additional option of turning them off), so as to alert you to the current status of ATS operation. Depending on your location and the potential annoyance associated with frequent beeps, you may choose the Beep mode which best suits your needs. The choices are: </p>
+<p>INRANG: The beeps are issued only when the radio first confirms that you are within range, but does not re-confirm with beeps thereafter. </p>
+<p>ALWAYS: Every time a polling transmission is received from the other station, the alert beeps will be heard. OFF: No alert beeps will be heard; you must look at the display to confirm current ATS status. </p>
+<p>To set the ATS Beep mode, use the following procedure: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 4: AR BEP. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Set Mode Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the desired ATS Beep mode (see above). </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and exit to normal operation.</p>
+</li>
+</ol><h2 id="dtmf-operation"><strong>DTMF Operation</strong></h2>
+<h2 id="dtmf-autodialer"><strong>DTMF Autodialer</strong></h2>
+<p>Nine DTMF Autodial memories are provided, allowing you to store telephone numbers for autopatch use. You can also store short autopatch or Internet-link access code streams so as to avoid having to send them manually. </p>
+<p>Here is the DTMF Autodial storage procedure: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 17: DT WRT. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Set Mode Item. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob to select the DTMF Memory register (“d1” ~ “d9”) into which you wish to store this DTMF string. </p>
+</li>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key momentarily to begin DTMF Memory entry into the selected register. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob to select the first digit of the DTMF string. Selectable entries are 0 - 9, and A - F, with E and F representing DTMF “  ” and “#” tones respectively. </p>
+</li>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key to accept the first digit and move to the next digit of the DTMF string. </p>
+</li>
+<li>
+<p>Repeat steps 5 and 6 until you have completed the telephone number. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 208] intentionally omitted &lt;==</strong></p>
+<ol start="9">
+<li>
+<p>If you make a mistake, press the [q] key to move back to the previous digit, then reselect the correct number. </p>
+</li>
+<li>
+<p>If the telephone number made up of numbers only, you may key in the telephone number directly from the keypad. </p>
+</li>
+<li>
+<p>Press and hold in the [ <strong>F/L</strong> ] key for one second to save the setting. </p>
+</li>
+<li>
+<p>If you store other numbers, repeat steps 4- 10 above, using a different DTMF memory register. </p>
+</li>
+<li>
+<p>When all required DTMF memories are filled to your satisfaction, press the <strong>PTT</strong> switch to save the settings and exit to normal operation.</p>
+</li>
+</ol><h2 id="dtmf-operation-2"><strong>DTMF Operation</strong></h2>
+<h2 id="to-send-the-telephone-number"><strong>To send the telephone number:</strong></h2>
+<ol>
+<li>Press and hold the <strong>PTT</strong> switch to continue transmitting during following steps. A. Press the [p] or [q] key to select the DTMF Memory register ([ <strong>d 1</strong> ] through [ <strong>d 9</strong> ]) you wish to send. </li>
+</ol>
+<ul>
+<li>
+<p>B. Press the [ <strong>F/L</strong> ] key momentarily to transmit the tone string. </p>
+<ul>
+<li>Once the string begins, you may release the <strong>PTT</strong> switch, as the transmitter will be held “on the air” until the DTMF string is completed. </li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>You can change the DTMF Autodialer sending speed, using Set Mode Item 16: DT SPD. See page 55 for details. </p>
+</blockquote>
+<p>You can also set a longer delay between the time you press the numerical key (corresponding to the DTMF memory string; with <strong>PTT</strong> switch pressed) and the instant when the first DTMF digit is sent, using Set Mode Item 15: DT  DLY. See page 54 for details. When you activate the ANI (Automatic Number Identification) feature during DTMF operation, the DTMF tones stored in ANI memory will automatically be sent whenever you press the <strong>PTT</strong> switch.</p><h2 id="dtmf-operation-3"><strong>DTMF Operation</strong></h2>
+<h2 id="storing-the-ani-code"><strong>Storing the ANI code</strong></h2>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 2: ANI.WRT. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to display any previously-stored ANI code. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 48] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key again to clear any previous ANI code. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob to select the first number/letter (0-9, A, B, C, D, E (substitute for “  ”), and F (substitute for “#”), then press the [ <strong>F/MW</strong> ] key momentarily to save the first letter/number and move on to the next character. </p>
+</li>
+<li>
+<p>Repeat the previous step, as many times as necessary (up to 16 characters), to complete ANI code. If you make a mistake, press the [q] key to move back to the previous letter/number’s slot, then re-select the correct letter/number. </p>
+</li>
+<li>
+<p>When you have finished entering the ANI code and it contains less than 16 characters, press and hold in the [ <strong>F/MW</strong> ] key for one second to confirm the callsign. (if the ANI code has exactly 16 characters, you do not need to press and hold in [ <strong>F/MW</strong> ] in this step). </p>
+</li>
+<li>
+<p>Press the <strong>PTT</strong> switch to save the settings and exit to normal operation. </p>
+</li>
+</ol>
+<h2 id="activating-the-ani-feature"><strong>Activating the ANI feature</strong></h2>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 1: ANI. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Set Mode Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 48] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select “ON.” </p>
+</li>
+<li>
+<p>Press the <strong>PTT</strong> switch to save the new setting and activate the ANI feature. </p>
+</li>
+<li>
+<p>Press the <strong>PTT</strong> switch to send the DTMF tones stored in ANI memory. </p>
+</li>
+<li>
+<p>To disable the ANI feature, just repeat the above procedure, rotating the <strong>DIAL</strong> knob or press the [p]/[q] key to select “OFF” in step 4 above.</p>
+</li>
+</ol><h2 id="cw-identifier-setup"><strong>CW Identifier Setup</strong></h2>
+<p>The ATS feature and Emergency channel operation includes a CW identifier, as discussed previously. Every ten minutes during ATS operation or every one minute during Emergency channel operation, the radio can be instructed to send “DE (your callsign) K” (ATS feature) and “SOS DE (your callsign)” (Emergency channel operation) if this feature is enabled. The callsign field may contain up to 6 characters. </p>
+<p>Here’s how to program the CW Identifier: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 10: CW WRT. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to display any previously-stored callsign. </p>
+</li>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key again to <em>clear</em> any previous callsign. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob to select the first letter/number of your callsign, then press the [ <strong>F/MW</strong> ] key momentarily to save the first letter/number and move on to the next character. </p>
+</li>
+<li>
+<p>Repeat the previous step, as many times as necessary, to complete your callsign. If you make a mistake, press the [q] key to move back to the previous letter/number’s slot, then re-select the correct letter/number. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 153] intentionally omitted &lt;==</strong></p>
+<ol start="7">
+<li>
+<p>When you have finished entering your entire callsign and it contains less than 6 characters, press and hold in the [ <strong>F/ MW</strong> ] key for one second to confirm the callsign. (if you callsign has exactly 6 characters, you do not need to press and hold in [ <strong>F/MW</strong> ] in this step). </p>
+</li>
+<li>
+<p>Press the <strong>PTT</strong> switch to save the settings and exit to normal operation. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 11: CWID. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily, then rotate the <strong>DIAL</strong> knob to set this Item to “TX ON” (to enable the CW ID function). </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="12">
+<li>Press the <strong>PTT</strong> switch to save the settings and exit to normal operation.</li>
+</ol><h2 id="password"><strong>Password</strong></h2>
+<p>The <strong>FT-257</strong> provides a security password feature which can minimize the chance that your transceiver could be used by an unauthorized party. </p>
+<p>When the password feature is activated, the radio will ask for the four digit password to be entered when the radio is first turned on. You must enter the four digit password from the keypad. If the wrong password is entered, the microprocessor will shut down the radio automatically. </p>
+<p><strong>==&gt; picture [95 x 48] intentionally omitted &lt;==</strong></p>
+<p>To enter the password , use the following procedure: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 27: PSWD W. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 151] intentionally omitted &lt;==</strong></p>
+<ol start="3">
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key, then press the [ <strong>F/MW</strong> ] key again to clear any previous password. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob to select the first digit of the desired number/letter (0-9, A, B, C, D, E, and F). </p>
+</li>
+<li>
+<p>Press the [ <strong>F/MW</strong> ] key to move to the next digit. </p>
+</li>
+<li>
+<p>Repeat steps 4 and 5 to program the remaining numbers/ letters of the desired password. </p>
+</li>
+<li>
+<p>If you make a mistake, press the [q] key to move back to the previous digit, then re-select the correct number/letter. </p>
+</li>
+<li>
+<p>When you have finished entering the password, press the <strong>PTT</strong> switch to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<p><em><strong>We recommend that you write down the password, and keep it in a safe place so you can easily find it if you happen to forget.</strong></em> </p>
+<p>To Activate the Password feature: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 26: PASSWD. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to set this Set Mode Item to “PWD. ON.” </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and exit to normal operation. </p>
+</li>
+<li>
+<p>If you wish to disable the Password feature, just repeat the above procedure, rotating the <strong>DIAL</strong> knob to select “PWD.OFF” in step 4 above. </p>
+</li>
+</ol>
+<p><em><strong>If you forget the password, you number, you may turn on the transceiver by performing the “All Reset” procedure (see page 50). However, the FT-257 will clear the password, as well as all memories, and will restore all other settings to factory defaults.</strong></em></p><h2 id="miscellaneous-settings"><strong>Miscellaneous Settings</strong></h2>
+<h2 id="changing-the-channel-steps"><strong>Changing the Channel Steps</strong></h2>
+<p>The <strong>FT-257</strong> ’s synthesizer provides the option of utilizing channel steps of 5/10/12.5/15/20/25/50/100 kHz per step, as well as an automatic step selection based on the current operating frequency (“AUTO”), any number of which may be important to your operating requirements. The <strong>FT-257</strong> is set up at the factory in the “AUTO” configuration, which probably is satisfactory for most operation. However, if you need to change the channel step increments, the procedure to do so is very easy. </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 20: F STEP. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the new channel step size. </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and return to normal operation. </p>
+</li>
+</ol>
+<h2 id="receive-battery-saver-setup"><strong>Receive Battery Saver Setup</strong></h2>
+<p>An important feature of the <strong>FT-257</strong> is its Receive Battery Saver, which “puts the radio to sleep” for a time interval, periodically “waking it up” to check for activity. If somebody is talking on the channel, the <strong>FT-257</strong> will remain in the “active” mode, then resume its “sleep” cycles. This feature significantly reduces quiescent battery drain, and you may change the amount of “sleep” time between activity checks using the Set Mode: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 34: RXSAVE. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the desired “sleep” duration. The selections available are 200 ms, 300 ms, 500 ms, 1 second, 2 seconds, or OFF. The default value is 200 ms. </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and exit to normal operation.</p>
+</li>
+</ol><h2 id="tx-battery-saver"><strong>TX Battery Saver</strong></h2>
+<p>The <strong>FT-257</strong> also includes a useful Transmit Battery Saver, which will automatically lower the power output level when the last signal received was very strong. For example, when you are in the immediate vicinity of a repeater station, there generally is no reason to use the High Power output in order to achieve full-quieting access to the repeater. With the Transmit Battery Saver, the automatic selection of Low Power operation conserves battery drain significantly. </p>
+<p>To activate the Transmit Battery Saver: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 44: TXSAVE. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Set Mode Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to set this Set Mode Item to “SAV. ON” (thus activating the Transmit Battery Saver). </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<h2 id="transmitter-time-out-timer-tot"><strong>Transmitter Time-Out Timer</strong> ( <strong>TOT</strong> )</h2>
+<p>The TOT feature provides a safety switch which limits transmission time to a preprogrammed value. This will promote battery conservation by not allowing you to make excessively-long transmissions, and in the event of a stuck <strong>PTT</strong> switch (perhaps if the radio is wedged between car seats) it can prevent interference to other users as well as battery depletion. As configured at the factory the TOT feature is set to “6 minutes”. The timer may be set from 1 up to 30 minutes, or off: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 43: TOT. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Set Mode Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to set the Time-Out Timer to the desired “Maximum TX” time (between 1 and 30 minutes), or OFF. </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<ul>
+<li>
+<p><em><strong>1) When your transmission time is within 10 seconds of the Time-Out Timer expiration, an Alert bell will provide an audible warning from the speaker.</strong></em> </p>
+</li>
+<li>
+<p><em><strong>2) Since brief transmissions are the mark of a good operator, try setting up your radio’s TOT feature for a maximum transmission time of one minute. This will significantly improve battery life, too!</strong></em></p>
+</li>
+</ul><h2 id="miscellaneous-settings-2"><strong>Miscellaneous Settings</strong></h2>
+<h2 id="busy-channel-lock-out-bclo"><strong>Busy Channel Lock-Out</strong>[(] <strong>BCLO</strong>[)]</h2>
+<p>The BCLO feature prevents the radio’s transmitter from being activated if a signal strong enough to break through the “noise” squelch is present. On a frequency where stations using different CTCSS or DCS codes may be active, BCLO prevents you from disrupting their communications accidentally (because your radio may be muted by its own Tone Decoder). The default setting for the BCLO is OFF, and here is how to change that setting: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 6: BCLO. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Set Mode Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [96 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to set this Set Mode Item to “BCL. ON” (thus activating the BCLO feature). </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<h2 id="dcs-code-inversion"><strong>DCS Code Inversion</strong></h2>
+<p>The DCS system was first introduced in the commercial LMR (Land Mobile Radio) service, where it is now in widespread use. DCS is sometime referred to by its different proprietary names, such as DPL® (Digital Private Line®, a registered trademark of Motorola, Inc.). </p>
+<p>DCS uses a codeword consisting of a 23-bit frame, transmitted (subaudible) at a data rate of 134.4 bps (bit/sec). Occasionally, signal inversion can result in the complement of a code to be sent or received. This prevents the receiver’s squelch from opening with DCS enabled, as the decoded bit sequence would not match that selected for operation. </p>
+<p>Typical situations that might cause inversion to occur are: </p>
+<ul>
+<li>
+<p>Connection of an external receiver preamplifier. </p>
+</li>
+<li>
+<p>Operating through a repeater. </p>
+</li>
+<li>
+<p>Connection of an external linear amplifier. </p>
+</li>
+</ul>
+<p>Note that code inversion does not mean that any of the above listed equipment is defective! </p>
+<p>In certain amplifier configurations, the output signal (phase) is inverted from the input. Small signal or power amplifiers having an odd number (1, 3, 5, etc.) of amplification stages may result in inversion of a transmitted or received DCS code. </p>
+<p>While under most circumstances this should not occur (amplifier designs and industry</p><h2 id="miscellaneous-settings-3"><strong>Miscellaneous Settings</strong></h2>
+<p>standards take this into account), if you find that your receiver squelch does not open when both you and the other station are using a common DCS code, you or the other station (but not both) can try the following: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 14: DCS.N <strong>/</strong> R. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily, then rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select one of the following modes: </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<ul>
+<li>T <strong>/</strong> RX N: Encoder, Normal; Decoder, Normal </li>
+</ul>
+<p>RX R: Encoder, Normal; Decoder, Reverse (Inverted) </p>
+<ul>
+<li>
+<p>TX R: Encoder, Reverse (Inverted); Decoder, Normal </p>
+</li>
+<li>
+<p>T <strong>/</strong> RX R: Encoder, Reverse (Inverted); Decoder, Reverse (Inverted) </p>
+</li>
+</ul>
+<ol start="4">
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and exit to normal operation. </p>
+</li>
+<li>
+<p>Remember to restore the default setting to “T <strong>/</strong> RX N” (Encoder; Normal, Decoder; Normal) when done. </p>
+</li>
+</ol>
+<h2 id="changing-the-tx-deviation-level"><strong>Changing the TX Deviation Level</strong></h2>
+<p>In many areas of the world, channel congestion has required that operating channels be closely spaced. In such operating environments, it often is required that operators use reduced deviation levels, to reduce the potential for interference to users on adjacent channels. The <strong>FT-257</strong> includes a simple method of accomplishing this: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select Set Mode Item 45: WID.NAR. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of this Set Mode Item. </p>
+</li>
+</ol>
+<p><strong>==&gt; picture [95 x 47] intentionally omitted &lt;==</strong></p>
+<ol start="4">
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to set this Set Mode Item to “NARROW.” In this configuration (HALF DEVIATION active), the transmitter’s deviation will be approximately ±2.5 kHz, and the received audio output level will be increased, for easier listening on the narrow signal. </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> switch to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<p><em><strong>The “normal” setting for the deviation (when this Menu Item is set to WIDE) is ±5 kHz.</strong></em></p><h2 id="reset-procedures"><strong>Reset Procedures</strong></h2>
+<p>In the event of erratic operation of the transceiver, it is possible that data on the microprocessor may have become corrupted. While this is a highly unusual situation, the only path to recovery may involve resetting of the microprocessor. Here’s how to do this: </p>
+<ol>
+<li>
+<p>Turn the radio off. </p>
+</li>
+<li>
+<p>Press and hold in the [ <strong>V/M</strong> ] key while turning the radio on. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob to select one of the choices from the reset menu: </p>
+</li>
+</ol>
+<ul>
+<li>
+<p>F1 SETRST: Resets the Set (Menu) mode settings to their factory defaults. </p>
+</li>
+<li>
+<p>F2 MEMRST: Clears the Memory settings to factory defaults. </p>
+</li>
+<li>
+<p>F3 MB RST:  Clears the Memory Bank Assignments. </p>
+</li>
+<li>
+<p>F4 ALLRST: Clears all memories and other settings to factory defaults. </p>
+</li>
+<li>
+<p>F5 M-ONLY:  Memory only mode, VFO operation is not possible. </p>
+</li>
+</ul>
+<ol start="4">
+<li>Press the [ <strong>SET/ATS</strong> ] key momentarily to complete the reset procedure. </li>
+</ol>
+<p><em><strong>The “F5” option is used for setting up the “Memory Only” mode. See page 27 for details regarding the memory Only mode.</strong></em></p><p>The <strong>FT-257</strong> Set Mode, already described in parts of many previous chapters, is easy to activate and set. It may be used for configuration of a wide variety of transceiver parameters, some of which have not been detailed previously. Use the following procedure to activate the Set Mode: </p>
+<ol>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to select the Set Mode Item to be adjusted. </p>
+</li>
+<li>
+<p>Press the [ <strong>SET/ATS</strong> ] key momentarily to enable adjustment of the Set Mode Item. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> knob or press the [p]/[q] key to adjust or select the parameter to be changed on the Set Mode Item selected in above step. </p>
+</li>
+<li>
+<p>After completing your selection and adjustment, press the <strong>PTT</strong> switch momentarily to save the new setting and exit to normal operation. </p>
+</li>
+</ol>
+<p><em><strong>Some Set Mode Items (like Set Mode Item 42: TN FRQ) require that the [SET/ATS] key be pressed after setting of the parameter, and before exiting to normal operation.</strong></em> </p>
+<p>|<strong>Set Mode Item</strong>|<strong>Function</strong>|<strong>Available Values</strong>
+(<strong>Default: <strong><strong><em>Bold Italic</em></strong>)|
+|---|---|---|
+|1[ANI]|Enables/Disables the ANI function. Settingof the Automatic
+|**</strong><em>ANI.OFF</em></strong>/ANI. ON|
+|2[ANI.WRT]|Program the ANI Identifer.|---|
+|3[APO]|Power-Off feature.|<strong><em>OFF</em></strong>/ 0.5H - 12.0 H|
+|4[AR BEP]|Selects the Beepoption duringARTS operation.|<strong><em>INRANG</em></strong>/ ALWAYS / OFF|
+|5[ARS]|Enables/Disables the Automatic Repeater Shift function.|<strong><em>ARS. ON</em></strong>/ ARS.OFF|
+|6[BCLO]|Enables/Disables the BusyChannel Lock-Out feature.|BCL. ON /<strong><em>BCL.OFF</em></strong>|
+|7[BEEP]|Enables/Disables the beeper.|KEY+SC /<strong><em>KEY</em></strong>/ OFF|
+|8 [BELL]|Selects the number of CTCSS/DCS Bell ringer repetitions.|<strong><em>OFF</em></strong>/ 1T / 3T /
+5T / 8T / CONT|
+|9[CLK.SFT]|Shiftingof the CPU clock frequency.
+|<strong><em>SFT.OFF</em></strong>/ SFT. ON|
+|10[CW WRT]|Programs and activates the CW Identifer.
+|---|
+|11[CWID]|Enables/disables the CW identifer duringARTS operation.|<strong><em>TX OFF</em></strong>/ TX ON|
+|12[DC VLT]|
+Indicates the DC SupplyVoltage.|---|
+|13[DCS.COD]|Settingof the DCS code.|104 DCS codes(<strong><em>023</em></strong>)|
+|14 [DCS.N/R]|Enables/Disables “Inverted” DCS code decoding.|<strong><em>T/RX N</em></strong>, RX R,
+TX R,T/RX R|
+|15 [DT DLY]|Setting of the DTMF Autodialer Delay Time.|50MS / 100MS / 250MS /
+<strong><em>450MS</em></strong>/ 750MS / 1000MS|
+|16[DT SPD]|Settingof the DTMF Autodialer SendingSpeed.|<strong><em>50MS</em></strong>/ 100MS|
+|17[DT WRT]|Programmingof the DTMF Autodialer.|---|
+|18 [EDG.BEP]|Enables/Disables the Band-edge beeper while selecting the
+frequencyvia the<strong>DIAL</strong>knob.|<strong><em>BEP.OFF</em></strong>/ BEP. ON|
+|19 [EMG S]|Selects the alarm(s) utilized when the Emergency function is
+engaged.|EMG.BEP / EMG.LMP /<strong><em>EMG.</em></strong>
+<strong><em>B+L</em></strong>/ EMG.CWT / EMG.C+B
+/ EMG.C+L / EMG.ALL / OFF|
+|20 [F STEP]|Setting of the synthesizer steps.|5 / 10 / 12.5 / 15 / 20 / 25 / 50
+/ 100 kHz,or<strong><em>AUTO</em></strong>|
+|21[LAMP]|Selects the LCD/Keypad Lampmode.|<strong><em>KEY</em></strong>/ CONT / OFF|
+|22 [LOCK]|Selects the Control Locking lockout combination.|LK KEY / LKDIAL /<strong><em>LK K+D</em></strong>/
+LK PTT / LK P+K /
+LK P+D / LK ALL|
+|23[M/TCAL]|Selects the[<strong>VOL/SQL</strong>]keyfunction.|<strong><em>MONI</em></strong>/ T-CALL|</p>
+<h2 id="set-menu-mode"><strong>Set</strong> ( <strong>Menu</strong> ) <strong>Mode</strong></h2><h2 id="set-menu-mode-2"><strong>Set</strong> ( <strong>Menu</strong> ) <strong>Mode</strong></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Set Mode Item</strong></td>
+<td><strong>Function</strong></td>
+<td><strong>Available Values</strong></td>
+</tr>
+<tr>
+<td>(**Default: **<strong><em>Bold Italic</em></strong>)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>24[MEM.TAG]</td>
+<td>Stores Alpha-Numeric “Tags” for the Memorychannels.</td>
+<td>---</td>
+</tr>
+<tr>
+<td>25 [NAME]</td>
+<td>Toggles the display indication between “frequency” and the</td>
+<td></td>
+</tr>
+<tr>
+<td>channel’s “Alpha/Numeric Tag.”</td>
+<td><strong><em>FREQ</em></strong>/ ALPHA</td>
+<td></td>
+</tr>
+<tr>
+<td>26[PASSWD]</td>
+<td>Enables/disables the Password feature.</td>
+<td><strong><em>PWD.OFF</em></strong>/ PWD. ON</td>
+</tr>
+<tr>
+<td>27[PSWD W]</td>
+<td>Stores thepassword.</td>
+<td>---</td>
+</tr>
+<tr>
+<td>28[R SHFT]</td>
+<td>Sets the magnitude of the repeater Shift.</td>
+<td>0.00 - 99.95 MHz</td>
+</tr>
+<tr>
+<td>29[RESUME]</td>
+<td>Selects the Scan Resume mode.</td>
+<td>BUSY / HOLD /<strong><em>TIME</em></strong></td>
+</tr>
+<tr>
+<td>30[REV/HM]</td>
+<td>Selects the function of the[<strong>HM/RV</strong>]key.</td>
+<td>&lt;<strong><em>REV</em></strong>&gt;/<home></home></td>
+</tr>
+<tr>
+<td>31 [RF SQL]</td>
+<td>Adjusts the RF Squelch threshold level.</td>
+<td>S-1 / S-2 / S-3 / S-4 / S-5 /</td>
+</tr>
+<tr>
+<td>S-7 / S-FULL /<strong><em>OFF</em></strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>32[RPT.MOD]</td>
+<td>Sets the Repeater Shift Direction.</td>
+<td>RPT.OFF / RPT.–/ RPT. +</td>
+</tr>
+<tr>
+<td>33[PRI.RVT]</td>
+<td>Enables/disables the PriorityRevert feature.</td>
+<td><strong><em>RVT.OFF</em></strong>/ RVT. ON</td>
+</tr>
+<tr>
+<td>34 [RXSAVE]</td>
+<td>Selects the Receive-mode Battery Saver interval (“sleep” ratio)</td>
+<td><strong><em>200 MS</em></strong>/ 300 MS /500 MS /</td>
+</tr>
+<tr>
+<td>1 SEC / 2 SSEC / OFF</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>35[S SRCH]</td>
+<td>Selects the Smart Search Sweepmode.</td>
+<td><strong><em>SINGLE</em></strong>/ CONT</td>
+</tr>
+<tr>
+<td>36[SCN MD]</td>
+<td>Selects the MemoryScan channel-selection mode.</td>
+<td>ONLY /<strong><em>MEM</em></strong></td>
+</tr>
+<tr>
+<td>37[SCN.LMP]</td>
+<td>Enables/Disables the Scan lampwhilepaused.</td>
+<td><strong><em>ON</em></strong>/ OFF</td>
+</tr>
+<tr>
+<td>38[SKIP]</td>
+<td>Selects the MemoryScan “Skip” channel-selection mode.</td>
+<td><strong><em>OFF</em></strong>/ SKIP / ONLY</td>
+</tr>
+<tr>
+<td>39[SPLIT]</td>
+<td>Enables or disables “VFO Split” operation.</td>
+<td><strong><em>SPL.OFF</em></strong>/ SPL. ON</td>
+</tr>
+<tr>
+<td>40 [SQL.TYP]</td>
+<td>Selects the Tone Encoder and/or Decoder mode.</td>
+<td><strong><em>OFF</em></strong>/ TONE / TSQL /</td>
+</tr>
+<tr>
+<td>REV TN / DCS / ECS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>41[TEMP]</td>
+<td>Indicate the current temperature inside the transceiver’s case.</td>
+<td>---</td>
+</tr>
+<tr>
+<td>42[TN FRQ]</td>
+<td>Settingof the CTCSS Tone Frequency.</td>
+<td>50 CTCSS tones(<strong><em>100 Hz</em></strong>)</td>
+</tr>
+<tr>
+<td>43[TOT]</td>
+<td>Settingof the TOT time.</td>
+<td>1MIN - 30MIN or<strong><em>OFF</em></strong></td>
+</tr>
+<tr>
+<td>44[TXSAVE]</td>
+<td>Enables/Disables the Transmitter BatterySaver.</td>
+<td><strong><em>SAV.OFF</em></strong>/ SAV. ON</td>
+</tr>
+<tr>
+<td>45[WID.NAR]</td>
+<td>Select Wide(±5 kHz)or Narrow(±2.5 kHz)TX Deviation.</td>
+<td><strong><em>WIDE</em></strong>/ NARROW</td>
+</tr>
+</tbody>
+</table><h2 id="set-mode-item-1-ani"><strong>Set Mode Item 1</strong> [ <strong>ANI</strong> ]</h2>
+<p><strong>Function</strong> : Enables/Disables the ANI function. <strong>Available Values</strong> : ANI.OFF/ANI. ON <strong>Default</strong> : ANI. OFF </p>
+<p><strong>Set Mode Item 2</strong> [ <strong>ANI.WRT</strong> ] <strong>Function</strong> : Program the ANI Identifier. See page 43 for details. </p>
+<h2 id="set-mode-item-3-apo"><strong>Set Mode Item 3</strong> [ <strong>APO</strong> ]</h2>
+<p><strong>Function</strong> : Setting of the Automatic Power-Off feature. <strong>Available Values</strong> : OFF/0.5H - 12.0 H in 0.5 hour multiples <strong>Default</strong> : OFF </p>
+<p><strong>Set Mode Item 4</strong> [ <strong>AR BEP</strong> ] </p>
+<p><strong>Function</strong> : Selects the Beep option during ARTS operation. <strong>Available Values</strong> : INRANG/ALWAYS/OFF <strong>Default</strong> : INRANG INRANG: Beeps sound only when the radio first detects that you are within range. ALWAYS: Beeps sound every time a polling transmission is received from the other station (every 15 or 25 seconds when in range). OFF: No alert beeps sound. </p>
+<p><strong>Set Mode Item 5</strong> [ <strong>ARS</strong> ] </p>
+<p><strong>Function</strong> : Enables/Disables the Automatic Repeater Shift function. <strong>Available Values</strong> : ARS. ON/ARS.OFF <strong>Default</strong> : ARS. ON </p>
+<h2 id="set-mode-item-6-bclo"><strong>Set Mode Item 6</strong> [ <strong>BCLO</strong> ]</h2>
+<p><strong>Function</strong> : Enables/Disables the Busy Channel Lock-Out feature. <strong>Available Values</strong> : BCL. ON/BCL.OFF Default: BCL.OFF </p>
+<p><strong>Set Mode Item 7</strong> [ <strong>BEEP</strong> ] </p>
+<p><strong>Function</strong> : Enables/Disables the beeper. <strong>Available Values</strong> : KEY+SC/KEY/OFF <strong>Default</strong> : KEY KEY+SC: The beeper sounds when you press any key, or when the scanner stops. KEY:    The beeper sounds when you press any key. OFF:     Beeper is disabled.</p><h2 id="set-menu-mode-3"><strong>Set</strong> ( <strong>Menu</strong> ) <strong>Mode</strong></h2>
+<h2 id="set-mode-item-8-bell"><strong>Set Mode Item 8</strong> [ <strong>BELL</strong> ]</h2>
+<p><strong>Function</strong> : Selects the number of CTCSS/DCS Bell ringer repetitions. <strong>Available Values</strong> : OFF/1T/3T/5T/8T/CONT (Continuous ringing) <strong>Default</strong> : OFF </p>
+<h2 id="set-mode-item-9-clk-sft"><strong>Set Mode Item 9</strong> [ <strong>CLK.SFT</strong> ]</h2>
+<p><strong>Function</strong> : Shifting of the CPU clock frequency. <strong>Available Values</strong> : SFT.OFF/SFT. ON <strong>Default</strong> : SFT.OFF </p>
+<p>This function is only used to move a spurious response “birdie,” should it fall on a desired frequency. </p>
+<h2 id="set-mode-item-10-cw-wrt"><strong>Set Mode Item 10</strong> [ <strong>CW WRT</strong> ]</h2>
+<p><strong>Function</strong> : Programs and activates the CW Identifier (used during ATS operation and Emergency Channel Operation). See page 44 for details. </p>
+<h2 id="set-mode-item-11-cwid"><strong>Set Mode Item 11</strong> [ <strong>CWID</strong> ]</h2>
+<p><strong>Function</strong> : Enables/disables the CW identifier during ATS operation and Emergency Channel Operation. <strong>Available Values</strong> : TX OFF/TX ON <strong>Default</strong> : TX OFF </p>
+<h2 id="set-mode-item-12-dc-vlt"><strong>Set Mode Item 12</strong> [ <strong>DC VLT</strong> ]</h2>
+<p><strong>Function</strong> : Indicates the DC Supply Voltage. </p>
+<h2 id="set-mode-item-13-dcs-cod"><strong>Set Mode Item 13</strong> [ <strong>DCS.COD</strong> ]</h2>
+<p>|<strong>Function</strong>: Setting of the DCS code.
+<strong>Available</strong>Values: 104 standard DCS codes
+<strong>Default</strong>: DCS.023
+<strong>Set Mode Item 14</strong>[<strong>DCS.N/R</strong>]
+<strong>Function</strong>: Enables/Disables “Inverted” DCS
+code decoding.
+<strong>Available Values</strong>: T/RX N, RX R, TX R,
+T/RX R
+<strong>Default</strong>: T/RX N|<strong>DCS CODE</strong>|<strong>DCS CODE</strong>|<strong>DCS CODE</strong>|<strong>DCS CODE</strong>|<strong>DCS CODE</strong>|<strong>DCS CODE</strong>|<strong>DCS CODE</strong>|<strong>DCS CODE</strong>|<strong>DCS CODE</strong>|<strong>DCS CODE</strong>|
+|---|---|---|---|---|---|---|---|---|---|---|
+||023|025|026|031|032|036|043|047|051|053|
+||054|065|071|072|073|074|114|115|116|122|
+||125|131|132|134|143|145|152|155|156|162|
+||165|172|174|205|212|223|225|226|243|244|
+||245|246|251|252|255|261|263|265|266|271|
+||274|306|311|315|325|331|332|343|346|351|
+||356|364|365|371|411|412|413|423|431|432|
+||445|446|452|454|455|462|464|465|466|503|
+||506|516|523|526|532|546|565|606|612|624|
+||627|631|632|654|662|664|703|712|723|731|
+||732|734|743|754|–|–|–|–|–|–|</p>
+<h2 id="set-mode-item-15-dt-dly"><strong>Set Mode Item 15</strong> [ <strong>DT DLY</strong> ]</h2>
+<p><strong>Function</strong> : Setting of the DTMF Autodialer Delay Time. <strong>Available Values</strong> : 50MS/100MS/250MS/450MS750MS/1000MS <strong>Default</strong> : 450MS</p><h2 id="set-mode-item-16-dt-spd"><strong>Set Mode Item 16</strong> [ <strong>DT SPD</strong> ]</h2>
+<p><strong>Function</strong> : Setting of the DTMF Autodialer Sending Speed. <strong>Available Values</strong> : 50MS (high speed)/100MS (low speed) <strong>Default</strong> : 50MS </p>
+<p><strong>Set Mode Item 17</strong> [ <strong>DT WRT</strong> ] </p>
+<p><strong>Function</strong> : Programming of the DTMF Autodialer. See page 41 for details. </p>
+<h2 id="set-mode-item-18-edg-bep"><strong>Set Mode Item 18</strong> [ <strong>EDG.BEP</strong> ]</h2>
+<p><strong>Function</strong> : Enables/Disables the Band-edge beeper while selecting the frequency via the <strong>DIAL</strong> knob. <strong>Available Values</strong> : BEP.OFF/ BEP. ON <strong>Default</strong> : BEP.OFF </p>
+<h2 id="set-mode-item-19-emg-s"><strong>Set Mode Item 19</strong> [ <strong>EMG S</strong> ]</h2>
+<p><strong>Function</strong> : Selects the alarm(s) utilized when the Emergency function is engaged. <strong>Available Values</strong> : EMG.BEP/EMG.LMP/EMG.B+L/EMG.CWT/EMG.C+B/EMG. C+L/EMG.ALL/OFF <strong>Default</strong> : EMG.B+L EMG.BEP: Loud “Alarm” sounds. EMG.LMP: The LCDs lamp flashes. EMG.B+L: Loud “Alarm” sounds and the LCD/Keypad lamp flashes. EMG.CWT: Transmits the Morse Code “SOS” (• • • <strong>– – –</strong> • • •) message on the air beginning one minute after activation of the Emergency function. EMG.C+B: Loud “Alarm” sounds and the Morse Code “SOS” (• • • <strong>– – –</strong> • • •) message is transmitted on the air beginning one minute after activation of the Emergency function. EMG.C+L: The LCD lamp flashes, and the Morse Code “SOS” (• • • <strong>– – –</strong> • • •) message is transmitted on the air beginning one minute after activation of the Emergency function. EMG.ALL: All of the above are activated. OFF: Disables the Emergency function. </p>
+<p>When the radio is set to the EMG.CWT, EMG.C+B, EMG.C+L, or EMG.ALL mode, the radio will be instructed to send “DE (your callsign)” after the sending of the SOS message, if your callsign is entered via Set Mode Item 11: CWID. </p>
+<h2 id="set-mode-item-20-f-step"><strong>Set Mode Item 20</strong> [ <strong>F STEP</strong> ]</h2>
+<p><strong>Function</strong> : Setting of the synthesizer steps. <strong>Available Values</strong> : 5/10/12.5/15/20/25/50/100 kHz, or AUTO Default: AUTO (Step automatically changes according to operating frequency.)</p><h2 id="set-menu-mode-4"><strong>Set</strong> ( <strong>Menu</strong> ) <strong>Mode</strong></h2>
+<h2 id="set-mode-item-21-lamp"><strong>Set Mode Item 21</strong> [ <strong>LAMP</strong> ]</h2>
+<p><strong>Function</strong> : Selects the LCD/Keypad Lamp mode. <strong>Available Values</strong> : KEY/CONT/OFF <strong>Default</strong> : KEY KEY: Illuminates the Keypad/LCD lamp for five seconds when you rotate the <strong>DIAL</strong> knob or press the keypad or any switch (except <strong>PTT</strong> switch). This is the factory-programmed default setting. </p>
+<p>CONT: Illuminates the Keypad/LCD lamp continuously. OFF: Disables the Keypad/LCD lamp. </p>
+<h2 id="set-mode-item-22-lock"><strong>Set Mode Item 22</strong> [ <strong>LOCK</strong> ]</h2>
+<p><strong>Function</strong> : Selects the Control Locking lockout combination. <strong>Available Values</strong> : LK KEY/LKDIAL/LK K+D/LK PTT/LK P+K/LK P+D/LK ALL <strong>Default</strong> : LK K+D <em><strong>Note</strong></em> : “K” = “Key;” “D” = “Dial;” and “P” = “PTT.” </p>
+<h2 id="set-mode-item-23-m-tcal"><strong>Set Mode Item 23</strong> [ <strong>M/TCAL</strong> ]</h2>
+<p><strong>Function</strong> : Selects the [ <strong>VOL/SQL</strong> ] key function. <strong>Available Values</strong> : MONI/T-CALL <strong>Default</strong> : Depends on the transceiver version. MONI: Pressing the [ <strong>VOL/SQL</strong> ] key causes the Noise/Tone Squelch to be overridden, allowing you to listen for weak (or non-encoded) signals. </p>
+<p>T-CALL: Pressing the [ <strong>VOL/SQL</strong> ] key activates a 1750-Hz burst tone, used for repeater access in many countries (especially in Europe). </p>
+<h2 id="set-mode-item-24-mem-tag"><strong>Set Mode Item 24</strong> [ <strong>MEM.TAG</strong> ]</h2>
+<p><strong>Function</strong> : Stores Alpha-Numeric “Tags” for the Memory channels. See page 24 for details. </p>
+<h2 id="set-mode-item-25-name"><strong>Set Mode Item 25</strong> [ <strong>NAME</strong> ]</h2>
+<p><strong>Function</strong> : Toggles the display indication between “frequency” and the channel’s “Alpha/ Numeric Tag.” <strong>Available Values</strong> : FREQ/ALPHA <strong>Default</strong> : FREQ </p>
+<h2 id="set-mode-item-26-passwd"><strong>Set Mode Item 26</strong> [ <strong>PASSWD</strong> ]</h2>
+<p><strong>Function</strong> : Enables/disables the Password feature. <strong>Available Values</strong> : PWD.OFF/PWD. ON <strong>Default</strong> : PWD.OFF </p>
+<h2 id="set-mode-item-27-pswd-w"><strong>Set Mode Item 27</strong> [ <strong>PSWD W</strong> ]</h2>
+<p><strong>Function</strong> : Stores the password. Available entries are 0-9, A, B, C, D, E, and F.</p><h2 id="set-mode-item-28-r-shift"><strong>Set Mode Item 28</strong> [ <strong>R SHIFT</strong> ]</h2>
+<p><strong>Function</strong> : Sets the magnitude of the repeater Shift. <strong>Available Values</strong> : 0.00 - 99.95 MHz (50 kHz increments) <strong>Default</strong> : Depends on the operating band and transceiver version. </p>
+<h2 id="set-mode-item-29-resume"><strong>Set Mode Item 29</strong> [ <strong>RESUME</strong> ]</h2>
+<p><strong>Function</strong> : Selects the Scan Resume mode. <strong>Available Values</strong> : BUSY/HOLD/TIME <strong>Default</strong> : TIME BUSY: The scanner will hold until the signal disappears, then will resume when the carrier drops. HOLD: The scanner will stop when a signal is received, and will not restart. TIME : The scanner will hold for the five seconds, then resume whether or not the other station is still transmitting. </p>
+<h2 id="set-mode-item-30-rev-hm"><strong>Set Mode Item 30</strong> [ <strong>REV/HM</strong> ]</h2>
+<p><strong>Function</strong> : Selects the function of the [ <strong>REV</strong> ( <strong>HOME</strong> )] key. <strong>Available Values</strong> : <rev>/<home> <strong>Default</strong> : <rev> <rev>: Pressing the [ <strong>REV</strong> ( <strong>HOME</strong> )] key reverses the transmit and receive frequencies during repeater operation. <home>: Pressing the [ <strong>REV</strong> ( <strong>HOME</strong> )] key instantly recalls a favorite “Home” channel. </home></rev></rev></home></rev></p>
+<p><strong>Set Mode Item 31</strong> [ <strong>RF SQL</strong> ] </p>
+<p><strong>Function</strong> : Adjusts the RF Squelch threshold level. <strong>Available Values</strong> : S-1/S-2/S-3/S-4/S-5/S-7/S-FULL/OFF <strong>Default</strong> : OFF </p>
+<p><strong>Set Mode Item 32</strong> [ <strong>RPT.MOD</strong> ] </p>
+<p><strong>Function</strong> : Sets the Repeater Shift Direction. <strong>Available Values</strong> : RPT.OFF/RPT. –/RPT. + </p>
+<p><strong>Default</strong> : Depends on the transceiver version, as well as the setting of Set Mode Item 5: ARS. </p>
+<h2 id="set-mode-item-33-pri-rvt"><strong>Set Mode Item 33</strong> [ <strong>PRI.RVT</strong> ]</h2>
+<p><strong>Function</strong> : Enables/disables the Priority Revert feature. <strong>Available Values</strong> : RVT.OFF/RVT. ON <strong>Default</strong> : RVT.OFF See page 35 for details. </p>
+<h2 id="set-mode-item-34-rxsave"><strong>Set Mode Item 34</strong> [ <strong>RXSAVE</strong> ]</h2>
+<p><strong>Function</strong> : Selects the Receive-mode Battery Saver interval (“sleep” ratio) <strong>Available Values</strong> : 200 MS(1:1)/300 MS(1:1.5)/500 MS(1:2.5)/1 S(1:5)/2 S(1:10)/OFF <strong>Default</strong> : 200 MS</p><h2 id="set-mode-item-35-s-srch"><strong>Set Mode Item 35</strong> [ <strong>S SRCH</strong> ]</h2>
+<p><strong>Function</strong> : Selects the Smart Search Sweep mode. </p>
+<p><strong>Available Values</strong> : SINGLE/CONT </p>
+<p><strong>Default</strong> : SINGLE </p>
+<ul>
+<li>
+<p>SINGLE: The transceiver sweeps the current band once in each direction, starting on the current frequency. All channels where activity is present (up to 15 in each direction) are loaded into the Smart Search memories. Whether or not all 31 memories are filled, the search stops after one sweep in each direction. </p>
+</li>
+<li>
+<p>CONT: The transceiver makes a sweep in each direction as with the “SINGLE” mode, but if all 31 channels are not filled after the first sweep, the radio continues sweeping until they <em>are</em> all filled. </p>
+</li>
+</ul>
+<h2 id="set-mode-item-36-scn-md"><strong>Set Mode Item 36</strong> [ <strong>SCN MD</strong> ]</h2>
+<p><strong>Function</strong> : Selects the Memory Scan channel-selection mode. <strong>Available Values</strong> : ONLY/MEM </p>
+<p><strong>Default</strong> : MEM </p>
+<p>ONLY: The scanner will only scan channels that are flagged (Preferential Scan List). MEM:  The scanner will “skip” the flagged channels during scanning. </p>
+<h2 id="set-mode-item-37-scn-lmp"><strong>Set Mode Item 37</strong> [ <strong>SCN.LMP</strong> ]</h2>
+<p><strong>Function</strong> : Enables/Disables the Scan lamp while paused. <strong>Available Values</strong> : ON/OFF <strong>Default</strong> : ON </p>
+<h2 id="set-mode-item-38-skip"><strong>Set Mode Item 38</strong> [ <strong>SKIP</strong> ]</h2>
+<p><strong>Function</strong> : Selects the Memory Scan “Skip” channel-selection mode. <strong>Available Values</strong> : OFF/SKIP/ONLY </p>
+<p><strong>Default</strong> : OFF SKIP:  The scanner will “skip” the flagged channels during scanning. ONLY: The scanner will only scan channels that are flagged (Preferential Scan List). OFF:   All memory channels will be scanned (the “flag” will be ignored). </p>
+<h2 id="set-mode-item-39-split"><strong>Set Mode Item 39</strong> [ <strong>SPLIT</strong> ]</h2>
+<p><strong>Function</strong> : Enables/Disables split CTCSS/DCS coding. <strong>Available Values</strong> : SPL.OFF/SPL. ON <strong>Default</strong> : SPL.OFF When this Set Mode Item is set to “SPL. ON,” you will see the following additional parameters after the “DCS” parameter while configuring Set Mode Item 40: SQL.TYP. D:      DCS Encode only. T DCS:  Encodes a CTCSS tone and Decodes a DCS code. D TSQL: Encodes a DCS code and Decodes a CTCSS tone. Select the desired operating mode from the selections shown above.</p><h2 id="set-mode-item-40-sql-typ"><strong>Set Mode Item 40</strong> [ <strong>SQL.TYP</strong> ]</h2>
+<p><strong>Function</strong> : Selects the Tone Encoder and/or Decoder mode. <strong>Available Values</strong> : OFF/TONE/TSQL/REV TN/DCS/ECS <strong>Default</strong> : OFF TONE:  CTCSS Encoder TSQL:  CTCSS Encoder/Decoder REV TN: Reverse CTCSS Decoder (Mutes receiver when matching tone is received) DCS:   Digital Coded Encoder/Decoder ECS:    Enhanced Paging &amp; &amp; Code Squelch <em><strong>Note</strong></em> : See also Set Mode Item 39: SPLIT regarding additional selections available during “Split Tone” operation. </p>
+<h2 id="set-mode-item-41-temp"><strong>Set Mode Item 41</strong> [ <strong>TEMP</strong> ]</h2>
+<p><strong>Function</strong> : Indicate the current temperature inside the transceiver’s case. </p>
+<h2 id="set-mode-item-42-tn-frq"><strong>Set Mode Item 42</strong> [ <strong>TN FRQ</strong> ]</h2>
+<p>|<strong>Function</strong>: Setting of the CTCSS Tone Fre-
+quency.
+<strong>Available Values</strong>: 50 standard CTCSS tones
+<strong>Default</strong>: 100.0 Hz
+<strong>Set Mode Item 43</strong>[<strong>TOT</strong>]
+<strong>Function</strong>: Setting of the TOT time
+<strong>Available Values</strong>: 1MIN - 30MIN or OFF
+<strong>Default</strong>: OFF|<strong>CTCSS TONE FREQUENCY</strong>~~(~~<strong>Hz</strong>~~)~~|<strong>CTCSS TONE FREQUENCY</strong>~~(~~<strong>Hz</strong>~~)~~|<strong>CTCSS TONE FREQUENCY</strong>~~(~~<strong>Hz</strong>~~)~~|<strong>CTCSS TONE FREQUENCY</strong>~~(~~<strong>Hz</strong>~~)~~|<strong>CTCSS TONE FREQUENCY</strong>~~(~~<strong>Hz</strong>~~)~~|<strong>CTCSS TONE FREQUENCY</strong>~~(~~<strong>Hz</strong>~~)~~|
+|---|---|---|---|---|---|---|
+||67.0|69.3|71.9|74.4|77.0|79.7|
+||82.5|85.4|88.5|91.5|94.8|97.4|
+||100.0|103.5|107.2|110.9|114.8|118.8|
+||123.0|127.3|131.8|136.5|141.3|146.2|
+||151.4|156.7|159.8|162.2|165.5|167.9|
+||171.3|173.8|177.3|179.9|183.5|186.2|
+||189.9|192.8|196.6|199.5|203.5|206.5|
+||210.7|218.1|225.7|229.1|233.6|241.8|
+||250.3|254.1|–|–|–|–|
+||||||||</p>
+<p>The time-out timer shuts off the transmitter after continuous transmission of the programmed time. </p>
+<h2 id="set-mode-item-44-txsave"><strong>Set Mode Item 44</strong> [ <strong>TXSAVE</strong> ]</h2>
+<p><strong>Function</strong> : Enables/Disables the Transmitter Battery Saver. <strong>Available Values</strong> : SAV.OFF/ SAV. ON <strong>Default</strong> : SAV.OFF </p>
+<h2 id="set-mode-item-45-wid-nar"><strong>Set Mode Item 45</strong> [ <strong>WID.NAR</strong> ]</h2>
+<p><strong>Function</strong> : Select Wide (±5 kHz) or Narrow (±2.5 kHz) TX Deviation. <strong>Available Values</strong> : WIDE/NARROW <strong>Default</strong> : WIDE Note: If “Narrow” is selected, the receiver audio level is increased slightly to compensate for the reduced deviation. The receiver IF filter bandwidth is not changed via this setting.</p><h2 id="specifications"><strong>Specifications</strong></h2>
+<h2 id="general"><strong>General</strong></h2>
+<p><strong>Frequency Ranges</strong> :      RX 400 - 480 MHz TX 430 - 440 (450) MHz <strong>Channel Steps</strong> :         5/10/12.5/15/20/25/100 kHz <strong>Frequency Stability</strong> :     ±5 ppm @ 14º to 140º F (–10° to +60° C) <strong>Repeater Shift</strong> :         ±1.6 MHz, ±5 MHz, ±7.6 MHz <strong>Emission Type</strong> :         F2 , F3 <strong>Antenna Impedance</strong> :     50  <strong>Supply Voltage</strong> :         Nominal:  7.4 V DC (Negative Ground)       Operating: 5.0 ~ 10.0 V DC (EXT DC Jack) <strong>Current Consumption</strong> :   200 mA (Receive, 200 mW output) (Approx. @7.4 V)       70 mA (Standby, Saver Off) 25 mA (Standby, Saver On) 0.5 mA (Auto Power Off) 1.8 A (5 W TX) <strong>Operating Temperature</strong> :  –4º to 140º F (–20 °C to +60 °C) <strong>Case Size</strong> :             2.45” (W) x 4.74” (H) x 1.52” (D) (62  x 120.5  x 38.5  mm) (W/O knob, antenna, &amp; belt clip) <strong>Weight</strong> :              9.9 Oz (280 g) with FNB-124LI, antenna, and belt clip </p>
+<h2 id="transmitter"><strong>Transmitter</strong></h2>
+<p><strong>RF Power Output</strong> :      5.0 W (High) / 2.0 W (Middle) / 0.5 W (Low)  (@7.4 V) <strong>Modulation Type</strong> :       Variable Reactance F2, F3 <strong>Maximum Deviation</strong> :    ±5.0 kHz (F2, F3) <strong>Spurious Emission</strong> :      At least 60 dB down (@ High and Middle power) At least 40 dB down (@ Low power) <strong>Microphone Impedance</strong> :  2 k  </p>
+<h2 id="receiver"><strong>Receiver</strong></h2>
+<p><strong>Circuit Type</strong> :          Direct-Conversion <strong>Sensitivity</strong> :            0.2 µV for 12 dB SINAD (430-450 MHz) <strong>Selectivity</strong> :            12 kHz/35 kHz (–6 dB /–60 dB) <strong>AF Output</strong> : 800 mW @ 16  for 10 % THD (@7.4 V) (Internal Speaker) </p>
+<p><em><strong>Specifications are subject to change without notice, and are guaranteed within the 430 MHz amateur band only. Frequency ranges and functions will vary according to transceiver version; check with your dealer.</strong></em></p><ol>
+<li>
+<p>Changes or modifications to this device not expressly approved by YAESU MUSEN could void the user’s authorization to operate this device. </p>
+</li>
+<li>
+<p>This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) This device may not cause harmful interference, and (2) this device must accept any interference including received, interference that may cause undesired operation. </p>
+</li>
+<li>
+<p>The scanning receiver in this equipment is incapable of tuning, or readily being altered, by the User to operate within the frequency bands allocated to the Domestic public Cellular Telecommunications Service in Part 22. </p>
+</li>
+</ol>
+<h2 id="declaration-by-manufacturer"><strong>DECLARATION BY MANUFACTURER</strong></h2>
+<p>The Scanner receiver is not a digital scanner and is incapable of being converted or modified to a digital scanner receiver by any user. </p>
+<p><strong>WARNING</strong> : MODIFICATION OF THIS DEVICE TO RECEIVE CELLULAR RADIOTELEPHONE SERVICE SIGNALS IS PROHIBITED UNDER FCC RULES AND FEDERAL LAW.</p><p><strong>==&gt; picture [130 x 35] intentionally omitted &lt;==</strong></p>
+<p>Copyright 2013 YAESU MUSEN CO., LTD. All rights reserved. No portion of this manual may be reproduced without the permission of YAESU MUSEN CO., LTD. </p>
+<p>Printed in Japan</p><figure><button aria-label="Enlarge Figure from page 64" class="zoom" data-dialog="fig-3" type="button"><img alt="Figure from page 64" src="nav-comms_manual_yaesu_ft-257-275e0faf/nav-comms_manual_yaesu_ft-257-275e0faf-page63-0.png"/></button><figcaption>Figure from page 64</figcaption><dialog id="fig-3"><img alt="Figure from page 64" src="nav-comms_manual_yaesu_ft-257-275e0faf/nav-comms_manual_yaesu_ft-257-275e0faf-page63-0.png"/><p>Figure from page 64</p><form method="dialog"><button>Close</button></form></dialog></figure>
+    </main>
+  </div>
+  <script>document.querySelectorAll('button.zoom').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var d = document.getElementById(b.getAttribute('data-dialog'));
+    if (d && d.showModal) d.showModal();
+  });
+});</script>
+</body>
+</html>

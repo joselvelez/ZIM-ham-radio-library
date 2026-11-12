@@ -1,0 +1,2243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>VX-110 OPERATING MANUAL</title>
+  <meta name="title" content="VX-110 OPERATING MANUAL">
+<meta name="category" content="manuals">
+<meta name="source" content="pdfs/public/basic/nav-comms_manual_yaesu_vx-110.pdf">
+<meta name="sha256" content="4ef1b58cf935">
+<meta name="pipeline" content="pymupdf4llm">
+<meta name="generated" content="2026-11-12T22:48:06.748362Z">
+  <style>
+    :root { color-scheme: light; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
+.layout { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
+.layout:has(nav.toc) { grid-template-columns: 16rem 1fr; }
+nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
+nav.toc .toc-title { color: #1a1a1a; font-weight: 600; margin: 0 0 0.5rem; }
+nav.toc ul { list-style: none; padding: 0; margin: 0; }
+nav.toc li { margin: 0.25rem 0; }
+nav.toc a { color: #0b57d0; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+main { max-width: none; }
+h1 { font-size: 1.8rem; color: #1a1a1a; margin: 0 0 0.5rem; }
+h2, h3, h4, h5, h6 { color: #1a1a1a; margin-top: 1.8rem; font-size: 1.15rem; }
+a { color: #0b57d0; }
+.meta { font-size: 0.8rem; color: #555; }
+figure { margin: 1.5rem 0; background: #f6f6f6; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; }
+figure img { max-width: 100%; height: auto; background: #fff; cursor: zoom-in; }
+figcaption { font-size: 0.85rem; color: #555; margin-top: 0.5rem; }
+button.zoom { background: none; border: 0; padding: 0; display: block; width: 100%; cursor: zoom-in; }
+dialog { max-width: 90vw; max-height: 90vh; background: #fff; color: #1a1a1a; border: 1px solid #ccc; border-radius: 8px; padding: 1rem; }
+dialog img { max-width: 100%; max-height: 75vh; background: #fff; }
+dialog::backdrop { background: rgba(0,0,0,0.5); }
+ul { padding-left: 1.2rem; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #bbb; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f0f0f0; font-weight: 600; }
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  nav.toc { position: static; max-height: 16rem; }
+}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav class="toc" aria-label="Contents"><p class="toc-title">Contents</p><ul><li><a href="#controls-connectors">Controls &amp; Connectors — 2</a></li><li><a href="#battery-pack-installation-and-removal">Battery Pack Installation and Removal — 4</a></li><li><a href="#antenna-installation">Antenna Installation — 5</a></li><li><a href="#switching-power-on-and-off">Switching Power ON and OFF — 6</a></li><li><a href="#adjusting-the-volume-level">Adjusting the Volume Level — 6</a></li><li><a href="#squelch-setup">Squelch Setup — 6</a></li><li><a href="#transmitting">Transmitting — 6</a></li><li><a href="#frequency-navigation">Frequency Navigation — 7</a></li><li><a href="#changing-the-transmitter-power-level">Changing the Transmitter Power Level — 7</a></li><li><a href="#changing-the-channel-steps">Changing the Channel Steps — 7</a></li><li><a href="#repeater-operation">Repeater Operation — 8</a></li><li><a href="#setting-repeater-tx-offset">Setting Repeater Tx Offset — 9</a></li></ul></nav>
+    <main>
+      <p><a href="../../index.html">← Back to index</a></p>
+      <h1>VX-110 OPERATING MANUAL</h1>
+      <p class="meta">Category: manuals · Source: pdfs/public/basic/nav-comms_manual_yaesu_vx-110.pdf · SHA: 4ef1b58cf935</p>
+      <h2 id="operating-manual"><strong>OPERATING MANUAL</strong></h2>
+<p><strong>==&gt; picture [106 x 122] intentionally omitted &lt;==</strong></p>
+<p><strong>YAESU MUSEN CO., LTD.</strong> 4-8-8 Nakameguro, Meguro-Ku, Tokyo 153-8644, Japan </p>
+<h2 id="yaesu-u-s-a"><strong>YAESU U.S.A.</strong></h2>
+<p>17210 Edwards Rd., Cerritos, CA 90703, U.S.A. <strong>YAESU EUROPE B.V.</strong> </p>
+<p><strong>==&gt; picture [106 x 86] intentionally omitted &lt;==</strong></p>
+<p>P.O. Box 75525 1118 ZN, Schiphol, The Netherlands </p>
+<h2 id="yaesu-uk-ltd"><strong>YAESU UK LTD.</strong></h2>
+<p>Unit 12, Sun Valley Business Park, Winnall Close Winchester, Hampshire, SO23 0LB, U.K. </p>
+<h2 id="yaesu-germany-gmbh"><strong>YAESU GERMANY GmbH</strong></h2>
+<p>Am Kronberger Hang 2, D-65824 Schwalbach, Germany </p>
+<p><strong>YAESU HK LTD.</strong> </p>
+<p>11th Floor Tsim Sha Tsui Centre, 66 Mody Rd., Tsim Sha Tsui East, Kowloon, Hong Kong</p><figure><button aria-label="Enlarge Figure from page 1" class="zoom" data-dialog="fig-1" type="button"><img alt="Figure from page 1" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page0-0.png"/></button><figcaption>Figure from page 1</figcaption><dialog id="fig-1"><img alt="Figure from page 1" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page0-0.png"/><p>Figure from page 1</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 1" class="zoom" data-dialog="fig-2" type="button"><img alt="Figure from page 1" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page0-1.png"/></button><figcaption>Figure from page 1</figcaption><dialog id="fig-2"><img alt="Figure from page 1" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page0-1.png"/><p>Figure from page 1</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 1" class="zoom" data-dialog="fig-3" type="button"><img alt="Figure from page 1" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page0-2.png"/></button><figcaption>Figure from page 1</figcaption><dialog id="fig-3"><img alt="Figure from page 1" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page0-2.png"/><p>Figure from page 1</p><form method="dialog"><button>Close</button></form></dialog></figure><h2 id="contents"><strong>Contents</strong></h2>
+<p><strong>==&gt; picture [171 x 500] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Introduction — 1</li>
+<li><a href="#controls-connectors">Controls &amp; Connectors — 2</a></li>
+<li>Accessories &amp; Options — 3</li>
+<li>Basic Operation| — 4</li>
+<li><a href="#battery-pack-installation-and-removal">Battery Pack Installation and Removal — 4</a></li>
+<li><a href="#antenna-installation">Antenna Installation — 5</a></li>
+<li><a href="#switching-power-on-and-off">Switching Power ON and OFF — 6</a></li>
+<li><a href="#adjusting-the-volume-level">Adjusting the Volume Level — 6</a></li>
+<li><a href="#squelch-setup">Squelch Setup — 6</a></li>
+<li><a href="#transmitting">Transmitting — 6</a></li>
+<li><a href="#frequency-navigation">Frequency Navigation — 7</a></li>
+<li><a href="#changing-the-transmitter-power-level">Changing the Transmitter Power Level — 7</a></li>
+<li><a href="#changing-the-channel-steps">Changing the Channel Steps — 7</a></li>
+<li><a href="#repeater-operation">Repeater Operation — 8</a></li>
+<li>Automatic Repeater Shift (ARS)| — 8</li>
+<li>Manual Repeater Shift Activation| — 8</li>
+<li><a href="#setting-repeater-tx-offset">Setting Repeater Tx Offset — 9</a></li>
+</ul>
+<p>|Checking the Repeater|</p>
+<ul>
+<li>Uplink (Input) Frequency — 9</li>
+<li>Keyboard Locking| — 9</li>
+<li>Advanced Operation| — 10</li>
+<li><a href="#receive-battery-saver-setup">Receive Battery Saver Setup — 10</a></li>
+<li><a href="#tx-battery-saver">Tx Battery Saver — 10</a></li>
+<li><a href="#keypad-lcd-illumination">Keypad/LCD Illumination — 10</a></li>
+<li>Automatic Power-Off (APO) Feature — 11</li>
+<li><a href="#busy-channel-lock-out-bclo">Busy Channel Lock-Out (BCLO) — 11</a></li>
+<li><a href="#disabling-the-busy-tx-led">Disabling the BUSY/TX LED — 12</a></li>
+<li><a href="#checking-the-battery-voltage">Checking the Battery Voltage — 12</a></li>
+<li>Disabling the Key pad Beeper — 12</li>
+<li>Tone Calling (1750 Hz) — 12</li>
+<li>Transmitter Time-Out Timer (TOT) — 13</li>
+</ul>
+<p>|ANI Operation (Automatic|</p>
+<ul>
+<li>Number Identification) — 13</li>
+<li><a href="#ctcss-operation">CTCSS Operation — 14</a></li>
+<li>DCS Operation| — 15</li>
+<li>Tone Search Scanning| — 16</li>
+<li>To scan for the tone in use — 16</li>
+<li>CTCSS/DCS Bell Operation| — 17</li>
+<li><a href="#memory-operation">Memory Operation — 18</a></li>
+<li>Memory Storage| — 18</li>
+</ul>
+<p>|Storing Independent Trasmit|</p>
+<ul>
+<li>Frequencies (“Odd Splits”) — 18</li>
+<li>Memory Recall| — 18</li>
+<li>HOME Channel Memory| — 19</li>
+<li><a href="#labeling-memories">Labeling Memories — 19</a></li>
+</ul>
+<p><strong>----- End of picture text -----</strong></p>
+<ul>
+<li><a href="#masking-memories">Masking Memories — 20</a></li>
+<li><a href="#memory-only-mode">Memory Only Mode — 20</a></li>
+<li><a href="#scanning">Scanning — 21</a></li>
+</ul>
+<p>|---|</p>
+<ul>
+<li><a href="#setting-the-scan-resume-technique">Setting the Scan Resume Technique — 21</a></li>
+<li><a href="#to-set-the-scan-resume-mode">To set the Scan-Resume mode — 21</a></li>
+<li><a href="#vfo-scanning">VFO Scanning — 21</a></li>
+<li><a href="#memory-scanning">Memory Scanning — 22</a></li>
+</ul>
+<p>How to Skip (Omit) a Channel</p>
+<ul>
+<li>During Memory Scan Operatin — 22</li>
+</ul>
+<p>Automatic Lamp Illumination</p>
+<ul>
+<li>on Scan Stop — 22</li>
+<li><a href="#band-edge-beeper">Band Edge Beeper — 23</a></li>
+<li><a href="#smart-search-operation">Smart Search Operation — 23</a></li>
+<li><a href="#setting-the-smart-search-mode">Setting the Smart Search Mode — 23</a></li>
+<li><a href="#storing-smart-search-memories">Storing Smart Search Memories — 23</a></li>
+</ul>
+<p>Priority Channel Scanning</p>
+<ul>
+<li>(Dual Watch) — 24</li>
+<li>DTMF Operation — 25</li>
+<li><a href="#dtmf-autodialer">DTMF Autodialer — 25</a></li>
+<li>To send the telephone number — 25</li>
+<li>ARTS Operation — 26</li>
+<li><a href="#basic-arts-setup-and-operation">Basic ARTS Setup and Operation — 26</a></li>
+<li><a href="#arts-polling-time-options">ARTS Polling Time Options — 27</a></li>
+<li><a href="#arts-alert-beep-options">ARTS Alert Beep Options — 27</a></li>
+<li><a href="#cw-identifier-setup">CW Identifier Setup — 27</a></li>
+<li>To activate the CW identifier — 28</li>
+<li>Interface of Packet TNCs — 29</li>
+<li>Reset — 29</li>
+<li><a href="#cloning">Cloning — 30</a></li>
+<li><a href="#set-mode">Set Mode — 31</a></li>
+<li><a href="#specifications">Specifications — 37</a></li>
+</ul><p>The <strong>VX-110</strong> is an ultra compact FM hand-held providing up to five watts of RF power and a wealth of new features for the 2m amateur band. The <strong>VX-110</strong> has rubber gasket seals around all external controls and connectors keep out dust and rain or spray, assuring years of reliable operation even in harsh environments. </p>
+<p>Eight multi-function keys provide the ultimate in programmability, with 209 freely tunable memories. and one instant-recall “Home” channel memory. All memories store repeater shifts or separate tx/rx frequencies, CTCSS (Continuous Tone Controlled Squelch System) or DCS status. Busy channel band or selective memory scanning is provided along with priority channel monitoring; 1 MHz up/down stepping; ARS (automatic repeater shift) when tuned to repeater subbands; plus a top panel rotary dial for memory and frequency selection, and up to 9 DTMF memories can store 16 digits each for quick playback of commonly used numbers. </p>
+<p>The liquid crystal display shows seven frequency digits, memory selection, CTCSS tone frequency, and includes a bargraph S/PO meter. Yaesu’s power saver system can be set by the operator for optimum sampling/standby ratio, or can be turned off for packet operation. And our new APO (Automatic Power Off) system shuts off the transceiver to avoid dead batteries if you doze off or are called away unexpectedly. </p>
+<p>Operation under difficult conditions is simplified by a lamp button illuminating the display and backlit translucent keypad, diatonically assigned function-dependent keypad beeps. Please read this manual carefully to gain a clear understanding of the features of the <strong>VX110</strong> .</p><h2 id="controls-connectors"><strong>Controls &amp; Connectors</strong></h2>
+<p><strong>==&gt; picture [347 x 298] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>VOL/OFF  Control BUSY/TX  Indicator Lamp
+ANTENNA  Jack DIAL  Rotary Selector
+LCD  (Liquid Crystal Display) SQL  Control
+PTT  Button
+MIC/SP  Jack
+Monitor  (Burst) Button
+EXT DC
+LAMP  Button
+Speaker
+Mic
+Keypad
+Battery Pack Latch
+<strong>----- End of picture text -----</strong></p>
+<p><strong>==&gt; picture [347 x 127] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<p>Tone Encoder/Squelch Enabled Digital Coded Squelch
+Repeater Shift Memory Skip
+BELL
+Memory Mode
+Memory Number Frequency
+Auto Power OFF Active
+Alt Key Active S- and TX Power Meter
+LOCK Feature Active
+LOW Power
+<strong>----- End of picture text -----</strong></p><figure><button aria-label="Enlarge Figure from page 4. Battery Pack Latch BUSY/TX Indicator Lamp" class="zoom" data-dialog="fig-4" type="button"><img alt="Figure from page 4. Battery Pack Latch BUSY/TX Indicator Lamp" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page3-0.png"/></button><figcaption>Figure from page 4. Battery Pack Latch BUSY/TX Indicator Lamp</figcaption><dialog id="fig-4"><img alt="Figure from page 4. Battery Pack Latch BUSY/TX Indicator Lamp" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page3-0.png"/><p>Figure from page 4. Battery Pack Latch BUSY/TX Indicator Lamp</p><form method="dialog"><button>Close</button></form></dialog></figure><h2 id="accessories-supplied-with-the-vx-110"><strong>ACCESSORIES SUPPLIED WITH THE VX-110</strong></h2>
+<p><strong>FNB-64</strong> Ni-Cd Battery Pack (7.2 V, 700 mAh) <strong>NC-72A/B/C/F/U</strong> Battery Chareger Belt Clip Antenna Operating Manual Warranty Card </p>
+<h2 id="available-options-for-your-vx-110"><strong>AVAILABLE OPTIONS FOR YOUR VX-110</strong></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>AVAILABLE OPTIONS FOR YOUR VX-110</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FNB-V57</strong></td>
+<td>7.2 V, 1100 mAh Ni-Cd Battery Pack</td>
+</tr>
+<tr>
+<td><strong>FNB-64</strong></td>
+<td>7.2 V, 700 mAh Ni-Cd Battery Pack</td>
+</tr>
+<tr>
+<td><strong>FBA-25</strong></td>
+<td>Compact Dry Cell Battery Case for 6 AA-size cells</td>
+</tr>
+<tr>
+<td><strong>CD-16</strong></td>
+<td>Desktop Rapid Charger (requires<strong>CA-24</strong>and<strong>PA-23</strong>)</td>
+</tr>
+<tr>
+<td><strong>NC-72A</strong></td>
+<td>100 VAC Compact Wall Charger for FNB-64</td>
+</tr>
+<tr>
+<td><strong>NC-72B</strong></td>
+<td>120 VAC Compact Wall Charger for FNB-64</td>
+</tr>
+<tr>
+<td><strong>NC-72C</strong></td>
+<td>230-240 VAC Compact Wall Charger for FNB-64</td>
+</tr>
+<tr>
+<td><strong>NC-72F</strong></td>
+<td>220 VAC Compact Wall Charger for FNB-64</td>
+</tr>
+<tr>
+<td><strong>NC-72U</strong></td>
+<td>230 VAC Compact Wall Charger for FNB-64</td>
+</tr>
+<tr>
+<td><strong>NC-73</strong></td>
+<td>Desktop Rapid Charger</td>
+</tr>
+<tr>
+<td><strong>MH-34B4B</strong></td>
+<td>External Hand Speaker/Microphone</td>
+</tr>
+<tr>
+<td><strong>MH-37A4B</strong></td>
+<td>Earpiece/Microphone</td>
+</tr>
+<tr>
+<td><strong>VC-25</strong></td>
+<td>VOX Headset</td>
+</tr>
+<tr>
+<td><strong>E-DC-5B</strong></td>
+<td>DC Cable w/Noise Filter</td>
+</tr>
+<tr>
+<td><strong>E-DC-6</strong></td>
+<td>DC Cable; plug and wire only</td>
+</tr>
+<tr>
+<td><strong>CA-24</strong></td>
+<td>Charger Sleeve</td>
+</tr>
+<tr>
+<td><strong>PA-23</strong></td>
+<td>AC Adapter</td>
+</tr>
+<tr>
+<td><strong>CN-3</strong></td>
+<td>BNC-to-SMA Adapter</td>
+</tr>
+<tr>
+<td><strong>CT-44</strong></td>
+<td>Microphone Adapter</td>
+</tr>
+<tr>
+<td><strong>YHA-62</strong></td>
+<td>Rubber flex antenna</td>
+</tr>
+<tr>
+<td><strong>CT-27</strong></td>
+<td>Cloning Cable</td>
+</tr>
+</tbody>
+</table>
+<p>Availability of accessories may vary: some accessories are supplied as standard per local regulations and requirements, others may be unavailable in some regions. Check with your Yaesu dealer for additions to the above list.</p><h2 id="basic-operation"><strong>Basic Operation</strong></h2>
+<h2 id="battery-pack-installation-and-removal"><strong>BATTERY PACK INSTALLATION AND REMOVAL</strong></h2>
+<p>To install the battery, hold the transceiver with your left hand, so your palm is over the speaker and your thumb is on the top of the belt clip. Insert the battery pack into the battery compartment on the back of the radio while tilting the Belt Clip outward, then close the Battery Pack Latch until it locks in place with a “Click.” To remove the battery, turn the radio off and remove any protective cases. Open the Battery Pack Latch on the bottom of the radio, then slide the battery downward and out from the radio while unfolding the Belt Clip. </p>
+<p>Do not attempt to open any of the rechargeable Ni-Cd packs, as they could explode if accidentally short-circuited. </p>
+<p>If the battery has never been used, or its charge is depleted, it may be charged by connecting the <strong>NC-72A/B/C/F/U</strong> Battery Charger, as shown in the illustration, to the <strong>EXT DC</strong> jack. If only 12 ~ 16 Volt DC power is available, the optional <strong>E-DC-5B</strong> (with its cigarette lighter plug) or <strong>E-DC-6</strong> DC Adapter may also be used for charging the battery. </p>
+<p>The optional <strong>FNB-V57</strong> high-capacity battery can not be charged using the <strong>NC-72</strong> ; please use the optional <strong>CD-16</strong> . </p>
+<p><strong>==&gt; picture [132 x 225] intentionally omitted &lt;==</strong></p><h2 id="antenna-installation"><strong>ANTENNA INSTALLATION</strong></h2>
+<p>The supplied antenna provides good results over the entire frequency range of the transceiver. However, for enhanced coverage in remote areas, an external mobile or base station antenna may prove beneficial. </p>
+<h2 id="to-install-the-supplied-antenna"><strong>To install the supplied antenna</strong></h2>
+<p>Hold the bottom end of the antenna, then screw it onto the mating connector on the transceiver until it is snug. Do not over-tighten by use of extreme force. </p>
+<h2 id="notes"><em><strong>Notes:</strong></em></h2>
+<ul>
+<li>
+<p>Never transmit without having an antenna connected. </p>
+</li>
+<li>
+<p>When installing the supplied antenna, never hold the upper part of the antenna while screwing it onto the mating connector on the transceiver. </p>
+</li>
+</ul>
+<p><strong>==&gt; picture [74 x 63] intentionally omitted &lt;==</strong></p>
+<ul>
+<li>Remember that a large base-station antenna will have considerably more gain than the supplied rubber flex antenna, and this added gain may degrade the ability of the <strong>VX-110</strong> to resist intermodulation-type interference. The installation of a suitable 144-148 MHz bandpass filter in the coaxial line to a base station will usually eliminate such interference, if encountered.</li>
+</ul><h2 id="basic-operation-2"><strong>Basic Operation</strong></h2>
+<h2 id="switching-power-on-and-off"><strong>SWITCHING POWER ON AND OFF</strong></h2>
+<ul>
+<li>
+<p>[Be sure the battery pack is installed.] </p>
+</li>
+<li>
+<p>[Connect the antenna to the top panel ] <strong>[ANTENNA]</strong> jack. </p>
+</li>
+<li>
+<p>[Switch on the transceiver by rotating the ] <strong>[VOL]</strong>[ con-] trol clockwise out of the click-stop (a momentary beep will sound). </p>
+</li>
+</ul>
+<p><strong>==&gt; picture [131 x 76] intentionally omitted &lt;==</strong></p>
+<h2 id="adjusting-the-volume-level"><strong>ADJUSTING THE VOLUME LEVEL</strong></h2>
+<p>Rotate the <strong>VOL</strong> control (immediately to the right of the Antenna) to set the desired audio level. Clockwise rotation increases the volume level. </p>
+<h2 id="squelch-setup"><strong>SQUELCH SETUP</strong></h2>
+<p>Set the <strong>SQL</strong> control fully counterclockwise, rotate the <strong>VOL</strong> control out of the click-stop and adjust it for a comfortable volume on the noise or a received signal. The <strong>BUSY/TX</strong> indicator LED should glow green. If a signal is present, rotate the <strong>DIAL</strong> selector on the top panel to a channel where only noise is heard. </p>
+<p><strong>==&gt; picture [131 x 76] intentionally omitted &lt;==</strong></p>
+<p>Adjust the <strong>SQL</strong> control just to the point where the noise is silenced and the Green LED is extinguished. If the <strong>SQL</strong> control is set further clockwise, sensitivity to weak signals will be reduced. Now, whenever a signal reaches the receiver that is strong enough to open the squelch, the indicator will glow green. </p>
+<h2 id="transmitting"><strong>TRANSMITTING</strong></h2>
+<p>When you wish to transmit, wait until the channel is clear ( <strong>BUSY/TX</strong> lamp off), and squeeze the <strong>PTT</strong> switch. During transmission the <strong>BUSY/TX</strong> indicator glows red, and relative transmitter power output is indicated graphically along the bottom of the display. Release the <strong>PTT</strong> switch to receive. </p>
+<p>If using a version “B” (in Europe), press the <strong>T-CALL</strong> switch (just below the <strong>PTT</strong> switch) to transmit a 1750 Hz tone to access repeaters that require it. </p>
+<p><strong>==&gt; picture [172 x 130] intentionally omitted &lt;==</strong></p><h2 id="basic-operation-3"><strong>Basic Operation</strong></h2>
+<h2 id="frequency-navigation"><strong>FREQUENCY NAVIGATION</strong></h2>
+<p>Make sure the keypad is unlocked, and press the [ <strong>M/V</strong> ( <strong>SET</strong> )] button, if necessary, to select the VFO mode. </p>
+<p>You have several ways to tune the <strong>VX-110</strong> : in selectable channel steps or 1 MHz steps with the[[] �[]] /[[] �[]] keys; and the <strong>DIAL</strong> knob. </p>
+<p>Use the <strong>DIAL</strong> knob to tune the displayed VFO frequency at the current channel step rate. You can also press the [�] / [�] keys momentarily to do this, but if you press the [�] or [�] key for more than 1/2-second, scanning will start. This is described later, so for now, just press the [�] or [�] key again to stop (if you have to). </p>
+<p>To change the MHz range of the VFO, you can press the [ <strong>F</strong> ] key followed by the [�] or [�] key (or turn the <strong>DIAL</strong> knob). Note the beeps when using the [�] / [�] keys when moving up or down. When done press [ <strong>F</strong> ] again, or just wait five seconds. </p>
+<h2 id="changing-the-transmitter-power-level"><strong>CHANGING THE TRANSMITTER POWER LEVEL</strong></h2>
+<p>You can select between a total of three transmitter power levels on your <strong>VX-110</strong> . The exact power output will vary somewhat, depending on the voltage supplied to the transceiver. With the standard <strong>FNB-64</strong> Battery Pack, the power output levels available are: </p>
+<p>����: 5 W     ���: 2 W     ���: 0.5 W </p>
+<h2 id="to-change-the-power-level"><strong>To change the power level:</strong></h2>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then immediately press the [] <strong>[LOW]</strong>[(] <strong>[SKIP]</strong>[)] key.] </p>
+</li>
+<li>
+<p>[Now rotate the ] <strong>[DIAL]</strong>[ knob to select “][���][”, “][���][,” or “][����][”.] </p>
+</li>
+<li>
+<p>[Press the ] <strong>[PTT]</strong>[ key to save the new setting and exit to normal operation.] </p>
+</li>
+</ul>
+<h2 id="changing-the-channel-steps"><strong>CHANGING THE CHANNEL STEPS</strong></h2>
+<p>To change the frequency steps used during manual tuning, follow the procedure below: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then immediately press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #5 (“][����][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable modification of the current setting.] </p>
+</li>
+<li>
+<p>[Now rotate the ] <strong>[DIAL]</strong>[ knob to select 5, 10, 12.5, 15, 20, 25, or 50 kHz steps.] </p>
+</li>
+<li>
+<p>[Press the ] <strong>[PTT]</strong>[ key to save the new setting and exit to normal operation.]</p>
+</li>
+</ul><h2 id="basic-operation-4"><strong>Basic Operation</strong></h2>
+<h2 id="repeater-operation"><strong>REPEATER OPERATION</strong></h2>
+<p>The ARS (Automatic Repeater Shift) feature in the <strong>VX-110</strong> provides repeater shift of the transmit frequency whenever you are tuned to a standard repeater subband (see diagram below). When enabled, a small “ <strong>–</strong> ” or “ <strong>+</strong> ” will be displayed in the upper left-hand corner of the display, signifying that repeater shift is active, and closing the push-to-talk switch changes the display to the (shifted) transmit frequency. </p>
+<p><strong>==&gt; picture [165 x 72] intentionally omitted &lt;==</strong></p>
+<h2 id="automatic-repeater-shift-ars"><strong>Automatic Repeater Shift (ARS)</strong></h2>
+<p>To re-enable ARS: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then immediately press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #2 (“][���][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable modification of the current setting.] </p>
+</li>
+<li>
+<p>[Now rotate the ] <strong>[DIAL]</strong>[ to select “ON” (to enable Automatic Repeater Shift).] </p>
+</li>
+<li>
+<p>[Press the ] <strong>[PTT]</strong>[ key to save the new setting and exit to normal operation.] </p>
+</li>
+</ul>
+<h2 id="tone-burst"><strong>Tone Burst</strong></h2>
+<p>For repeaters using 1750-Hz burst tone access, you can configure the switch below the PTT to send the access tone when this switch is pressed. See page 12 for details. </p>
+<h2 id="manual-repeater-shift-activation"><strong>Manual Repeater Shift Activation</strong></h2>
+<p>When a repeater shift is active, either “ <strong>–</strong> ” or “ <strong>+</strong> ” appears in the display. If neither appears when tuned to a repeater output frequency, you can activate the shift manually: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then immediately press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #3 (“][���][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable modification of the current setting.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select the desired repeater shift direction (][����][, ][����][ or ][����][).] </p>
+</li>
+<li>
+<p>[Press the ] <strong>[PTT]</strong>[ key to save the new setting and exit to normal operation.]</p>
+</li>
+</ul><figure><button aria-label="Enlarge Figure from page 10" class="zoom" data-dialog="fig-5" type="button"><img alt="Figure from page 10" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page9-0.png"/></button><figcaption>Figure from page 10</figcaption><dialog id="fig-5"><img alt="Figure from page 10" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page9-0.png"/><p>Figure from page 10</p><form method="dialog"><button>Close</button></form></dialog></figure><h2 id="basic-operation-5"><strong>Basic Operation</strong></h2>
+<h2 id="setting-repeater-tx-offset"><strong>Setting repeater Tx Offset</strong></h2>
+<p>Although you should keep the repeater offset programmed to that used in your area, you can change the default repeater offset for special applications: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then immediately press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #4 (“][�����][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable modification of the current setting.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select the new shift offset frequency (selectable in 50-kHz incre-] ments only). </p>
+</li>
+<li>
+<p>[Press the ] <strong>[PTT]</strong>[ key to save the new setting and exit to normal operation.] </p>
+</li>
+</ul>
+<h2 id="checking-the-repeater-uplink-input-frequency"><strong>Checking the Repeater Uplink (Input) Frequency</strong></h2>
+<p>It often is helpful to be able to check the uplink (input) frequency of a repeater, to see if the calling station is within direct (“Simplex”) range. </p>
+<p>To do this, just press the [ <strong>REV</strong> ( <strong>DTMF</strong> )] key momentarily. To return to the normal uplink/ downlink frequency relationship, repeat this step. </p>
+<h2 id="keyboard-locking"><strong>KEYBOARD LOCKING</strong></h2>
+<p>In order to prevent accidental frequency change or inadvertent transmission, various aspects of the <strong>VX-110</strong> ’s keys and switches may be locked out. The possible lockout combinations are: </p>
+<p>���: Just the front panel keys are locked out ����: Just the top panel <strong>DIAL</strong> is locked out � + �: Both the <strong>DIAL</strong> and Keys are locked out ���: The <strong>PTT</strong> switch is locked (TX not possible) � + �: Both the keys and <strong>PTT</strong> switch are locked out � + �: Both the <strong>DIAL</strong> and <strong>PTT</strong> switch are locked out ���: All of the above are locked out </p>
+<p>To lock out some or all of the keys: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #30 (“][�������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable setting of the Lock mode (which defines which keys/func-] tions are to be locked out). </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to choose between one of the locking schemes as outlined above.] </p>
+</li>
+<li>
+<p>[Once you have made your selection, press the ] <strong>[PTT]</strong>[ key momentarily to save the new] setting and resume normal operation. </p>
+</li>
+<li>
+<p>[To activate the locking feature, press the [] <strong>[F]</strong>[] key, then press the [] <strong>[RPT]</strong>[(] <strong>[LOCK]</strong>[)] key.] The “ ” icon will appear on the LCD. To cancel keyboard locking, again press the [ <strong>F</strong> ] key, followed by the [ <strong>RPT</strong> ( <strong>LOCK</strong> )] key.</p>
+</li>
+</ul><h2 id="advanced-operation"><strong>Advanced Operation</strong></h2>
+<h2 id="receive-battery-saver-setup"><strong>RECEIVE BATTERY SAVER SETUP</strong></h2>
+<p>An important feature of the <strong>VX-110</strong> is its Receive Battery Saver, which “puts the radio to sleep” for a time interval, periodically “waking it up” to check for activity. This feature significantly reduces quiescent battery drain, and you may change the amount of “sleep” time between activity checks using the Menu System: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #8 (“][�������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable adjustment of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select the desired “Sleep” duration. The selections available are] 200 ms, 300 ms, 500 ms, 1 second, and 2 seconds, or OFF. The default value is 200 ms. </p>
+</li>
+<li>
+<p>[When you have made your selection, press the ] <strong>[PTT]</strong>[ key to save the new setting and exit] to normal operation. </p>
+</li>
+</ul>
+<p><em><strong>When you are operating on Packet, switch the Receive Battery Saver OFF, as the sleep cycle may “Collide” with the beginning of an incoming Packet transmission, causing your TNC not to receive the full data burst. Likewise, during voice operation, part of the first word of an incoming transmission maybe cut off during (normal) Battery Saver operation.</strong></em> </p>
+<h2 id="tx-battery-saver"><strong>TX BATTERY SAVER</strong></h2>
+<p>The <strong>VX-110</strong> also includes a useful Transmit Battery Saver, which will automatically lower the power output level when the last signal received was very strong. With the Transmit Battery Saver, the automatic selection of Low Power operation conserves battery drain significantly. </p>
+<p>To activate the Transmit Battery Saver: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #9 (“][�������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable adjustment of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ so as to select ON (thus activating the Transmit Battery Saver).] </p>
+</li>
+<li>
+<p>[When you have completed your selection, press the ] <strong>[PTT]</strong>[ key to save the new setting] and exit to normal operation. </p>
+</li>
+</ul>
+<h2 id="keypad-lcd-illumination"><strong>KEYPAD/LCD ILLUMINATION</strong></h2>
+<p>Your <strong>VX-110</strong> includes a reddish illumination lamp which aids in nighttime operation. Three options for activating the lamp are provided: </p>
+<ul>
+<li>��� : Pressing any key (except <strong>PTT</strong> ) causes the lamp to provide illumination for 5 seconds, after which the lamp will automatically shut off. </li>
+</ul>
+<p>���� : Pressing the <strong>LAMP</strong> switch momentarily causes the lamp to provide illumination for 5 seconds, after which the lamp will automatically shut off. </p>
+<p><em><strong>10</strong></em> </p>
+<p><em><strong>VX-110 OPERATING MANUAL</strong></em></p><h2 id="advanced-operation-2"><strong>Advanced Operation</strong></h2>
+<ul>
+<li>������ : Pressing the <strong>LAMP</strong> switch momentarily “Toggles” the lamp on and off. The lamp will stay illuminated until you press the <strong>LAMP</strong> switch once more. </li>
+</ul>
+<p>Here is the procedure for setting up the Lamp mode: </p>
+<ul>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key, then immediately press the[[] <strong>M/V</strong>[(] <strong>SET</strong>[)]] key to activate the Set mode. </p>
+</li>
+<li>
+<p>Now rotate the <strong>DIAL</strong> to select Menu Item #19 (“�������”). </p>
+</li>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key to enable modification of the current setting. </p>
+</li>
+<li>
+<p>Next, rotate the <strong>DIAL</strong> to select one of the three modes described above. </p>
+</li>
+<li>
+<p>When you have made your choice, press the <strong>PTT</strong> key to save the new setting for Menu Item #21. The transceiver will now return to normal operation. </p>
+</li>
+</ul>
+<h2 id="automatic-power-off-apo-feature"><strong>AUTOMATIC POWER-OFF[(] APO[)] FEATURE</strong></h2>
+<p>The APO feature helps conserve battery life by automatically turning the radio off after a user-defined period of time within which there has been no dial or key activity. The available selections for the time before power-off are 0.5/1/3/5/8 hours, as well as APO Off. The default condition for the APO is OFF, and here is the procedure for activating it: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #10 (“][���][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[]][ key to enable adjustment of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select the desired time period after which the radio will automati-] cally shut down. </p>
+</li>
+<li>
+<p>[Once you have made your selection, press the ] <strong>[PTT]</strong>[ key to save the new setting and exit] to normal operation. </p>
+</li>
+</ul>
+<h2 id="busy-channel-lock-out-bclo"><strong>BUSY CHANNEL LOCK-OUT (BCLO)</strong></h2>
+<p>The BCLO feature <em>prevents</em> the radio’s transmitter from being activated if a signal strong enough to break through the “Noise” squelch is present. The default setting for the BCLO is OFF, and here is how to change that setting: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #21 (“][����][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable adjustment of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to set the BCLO feature to the “ON” position.] </p>
+</li>
+<li>
+<p>[Press the ] <strong>[PTT]</strong>[ key to save the new setting and resume normal operation.]</p>
+</li>
+</ul><h2 id="advanced-operation-3"><strong>Advanced Operation</strong></h2>
+<h2 id="disabling-the-busy-tx-led"><strong>DISABLING THE BUSY/TX LED</strong></h2>
+<p>Further battery conservation may be accomplished by disabling the <strong>BUSY/TX</strong> LED. Use the following procedure: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #11 (“][�������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[]][ key to enable adjustment of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to set this Menu item to OFF (thus disabling the ] <strong>[BUSY/TX]</strong>[ LED).] </p>
+</li>
+<li>
+<p>[Press the ] <strong>[PTT]</strong>[ key to save the new setting and exit to normal operation.] </p>
+</li>
+</ul>
+<h2 id="checking-the-battery-voltage"><strong>CHECKING THE BATTERY VOLTAGE</strong></h2>
+<p>The <strong>VX-110</strong> is capable of measuring the current battery voltage. To do this: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #35 (“][����][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to check the battery voltage.] </p>
+</li>
+<li>
+<p>[To return to normal operation, press the [] <strong>[F]</strong>[] key, then press the ] <strong>[PTT]</strong>[ key.] </p>
+</li>
+</ul>
+<h2 id="disabling-the-keypad-beeper"><strong>DISABLING THE KEYPAD BEEPER</strong></h2>
+<p>If the keypad’s Beeper creates an inconvenience, it may easily be disabled. </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #15 (“][������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable adjustment of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to change the setting from ON to OFF.] </p>
+</li>
+<li>
+<p>[When you have made your selection, press the ] <strong>[PTT]</strong>[ key to save the new setting and exit] to normal operation. </p>
+</li>
+</ul>
+<p>If you wish to re-enable the Beeper, just repeat the above procedure, rotating the <strong>DIAL</strong> to select ON in step � above. </p>
+<h2 id="tone-calling-1750-hz"><strong>TONE CALLING[(] 1750 Hz[)]</strong></h2>
+<p>If the repeaters in your country require a 1750-Hz burst tone for access (typically in Europe), you can set the <strong>MONI</strong> key to serve as a “ <strong>TONE CALL</strong> ” switch instead. To change the configuration of this switch, we again use the Menu to help us. </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #18 (“][���] <strong>[/]</strong>[���][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable adjustment of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select “][������][” on the display.] </p>
+</li>
+<li>
+<p>[Press the ] <strong>[PTT]</strong>[ key to save the new setting and exit to normal operation.]</p>
+</li>
+</ul><h2 id="transmitter-time-out-timer-tot"><strong>TRANSMITTER TIME-OUT TIMER[(] TOT[)]</strong></h2>
+<p>The TOT feature provides a safety switch which limits transmission to a pre-programmed value. This will promote battery conservation by not allowing you to make excessivelylong transmissions, and in the event of a stuck <strong>PTT</strong> switch (perhaps if the radio or a Speaker/ Mic is wedged between car seats) it can prevent interference to other users as well as battery depletion. As configured at the factory the TOT feature is set to OFF, and here is the procedure for activating it: </p>
+<ul>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key, then press the[[] <strong>M/V</strong>[(] <strong>SET</strong>[)]] key to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> to select Menu Item #20 (“���”). </p>
+</li>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key to enable adjustment of this Menu item. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> to set the Time-Out Timer to the desired “Maximum TX” time (1 minute, 2.5 minutes, 5 minutes, or 10 minutes). </p>
+</li>
+<li>
+<p>Once you’ve made the selection you wish to use, press the <strong>PTT</strong> key to save the new setting and exit to normal operation. </p>
+</li>
+</ul>
+<h2 id="ani-operation-automatic-number-identification"><strong>ANI OPERATION[(] AUTOMATIC NUMBER IDENTIFICATION[)]</strong></h2>
+<p>When you activate the ANI feature, the DTMF tones stored in ANI memory will automatically be sent whenever you press the <strong>PTT</strong> button. </p>
+<p>Here is the ANI storage procedure: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu #34 (“][���][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable changing of this Menu item.] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[F]</strong>[] key again, to begin entry of the letters and numbers] in the ANI code. </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select the first letter or number in the ANI code. When the correct] character has been selected, press the [�] key to move on to the next character. </p>
+</li>
+<li>
+<p>[Repeat step ] �[ as many times as necessary to complete the ANI code.] </p>
+</li>
+<li>
+<p>[When you have completed entry of the ANI code, press the [] <strong>[F]</strong>[] key.] </p>
+</li>
+<li>
+<p>[Press the ] <strong>[PTT]</strong>[ key to save the settings and exit to normal operation.] </p>
+</li>
+</ul>
+<h2 id="to-activate-the-ani-identifier"><strong>To activate the ANI identifier:</strong></h2>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu #34 (“][���][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable changing of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to set the ANI function ON.] </p>
+</li>
+<li>
+<p>[When you have made your selection, press the ] <strong>[PTT]</strong>[ key to save the new setting and exit] to normal operation.</p>
+</li>
+</ul><h2 id="ctcss-operation"><strong>CTCSS OPERATION</strong></h2>
+<p>Many repeater systems require that a very-low-frequency audio tone be superimposed on your FM carrier in order to activate the repeater. This helps prevent false activation of the repeater by radar or spurious signals from other transmitters. This tone system, called “CTCSS” ( <strong>C</strong> ontinuous <strong>T</strong> one <strong>C</strong> oded <strong>S</strong> quelch <strong>S</strong> ystem), is included in your <strong>VX-110</strong> , and is very easy to activate. </p>
+<p><em><strong>CTCSS setup involves two actions: setting the Tone Frequency and then setting of the Tone Mode. These actions are set up by using Menu Items #23 and #24.</strong></em> </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #23 (“][�������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable modification of the current setting.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select “][�][” on the display.] </p>
+</li>
+<li>
+<p>[Rotation of the ] <strong>[DIAL]</strong>[ in step ] �[ above will occasionally cause “][��][” to appear adjacent] to the “�” icon. When “����” appears, this means that the Tone SQuelch system is active, which mutes your <strong>VX-110</strong> ’s receiver until it receives a call from another radio sending out a matching CTCSS tone. This can help keep your radio quiet until a specific call is received, which may be helpful while operating in congested areas. </p>
+</li>
+<li>
+<p>[When you have made your selection of the CTCSS tone mode, press the ] <strong>[PTT]</strong>[ key.] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then immediately press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #24 (“][������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable modification of the current setting.] </p>
+</li>
+<li>
+<p>[This Menu selection allows setting of the CTCSS tone frequency to be used.] Rotate the <strong>DIAL</strong> until the display indicates the Tone Frequency you need to be using (ask the repeater owner/operator if you don’t know the tone frequency). Press the [ <strong>F</strong> ] key, then press the <strong>PTT</strong> key to save the new settings and exit to normal operation. </p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>����������������������</th>
+<th>����������������������</th>
+<th>����������������������</th>
+<th>����������������������</th>
+<th>����������������������</th>
+<th>����������������������</th>
+<th>����������������������</th>
+<th>����������������������</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>67.0</td>
+<td>69.3</td>
+<td>71.9</td>
+<td>74.4</td>
+<td>77.0</td>
+<td>79.7</td>
+<td>82.5</td>
+<td>85.4</td>
+</tr>
+<tr>
+<td>88.5</td>
+<td>91.5</td>
+<td>94.8</td>
+<td>97.4</td>
+<td>100.0</td>
+<td>103.5</td>
+<td>107.2</td>
+<td>110.9</td>
+</tr>
+<tr>
+<td>114.8</td>
+<td>118.8</td>
+<td>123.0</td>
+<td>127.3</td>
+<td>131.8</td>
+<td>136.5</td>
+<td>141.3</td>
+<td>146.2</td>
+</tr>
+<tr>
+<td>151.4</td>
+<td>156.7</td>
+<td>162.2</td>
+<td>167.9</td>
+<td>173.8</td>
+<td>179.9</td>
+<td>186.2</td>
+<td>192.8</td>
+</tr>
+<tr>
+<td>203.5</td>
+<td>210.7</td>
+<td>218.1</td>
+<td>225.7</td>
+<td>233.6</td>
+<td>241.8</td>
+<td>250.3</td>
+<td>-</td>
+</tr>
+</tbody>
+</table><h2 id="dcs-operation"><strong>DCS OPERATION</strong></h2>
+<p>Another form of tone access control is <strong>D</strong> igital <strong>C</strong> ode <strong>S</strong> quelch, or DCS. It is a newer, more advanced tone system which generally provides more immunity from false paging than does CTCSS. The DCS Encoder/Decoder is built into your <strong>VX-110</strong> , and operation is very similar to that just described for CTCSS. Your repeater system may be configured for DCS; if not, it is frequently quite useful in Simplex operation if your friend(s) use transceivers equipped with this advanced feature. </p>
+<p><em><strong>Just as in CTCSS operation, DCS requires that you set the Tone Mode to DCS and that you select a tone code.</strong></em> </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then immediately press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #23 (“][�������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable modification of the current setting.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ until “][���][” appears on the display; this activates the DCS Encoder/] Decoder. </p>
+</li>
+<li>
+<p>[When you have made your selection of the DCS mode, press the ] <strong>[PTT]</strong>[ key.] </p>
+</li>
+<li>
+<p>[Re-enter the Set mode, then rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #25 (“][�������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable modification of the current setting.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select the desired DCS Code (a three-digit number). Ask the re-] peater owner/operator if you don’t know DCS Code; if you are working simplex, just set up the DCS Code to be the same as that used by your friend(s). </p>
+</li>
+<li>
+<p>[When you have made your selection, press the [] <strong>[F]</strong>[] key, then press the ] <strong>[PTT]</strong>[ key to save] the new settings and exit to normal operation. </p>
+</li>
+</ul>
+<p><em><strong>Remember that the DCS is an Encode/Decode system, so your receiver will remain muted until a matching DCS code is received on an incoming transmission. Switch the DCS off when you’re just tuning around the band!</strong></em> </p>
+<table>
+<thead>
+<tr>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+<th>�������</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>023</td>
+<td>025</td>
+<td>026</td>
+<td>031</td>
+<td>032</td>
+<td>036</td>
+<td>043</td>
+<td>047</td>
+<td>051</td>
+<td>053</td>
+<td>054</td>
+<td>065</td>
+<td>071</td>
+<td>072</td>
+<td>073</td>
+<td>074</td>
+<td>114</td>
+<td>115</td>
+</tr>
+<tr>
+<td>116</td>
+<td>122</td>
+<td>125</td>
+<td>131</td>
+<td>132</td>
+<td>134</td>
+<td>143</td>
+<td>145</td>
+<td>152</td>
+<td>155</td>
+<td>156</td>
+<td>162</td>
+<td>165</td>
+<td>172</td>
+<td>174</td>
+<td>205</td>
+<td>212</td>
+<td>223</td>
+</tr>
+<tr>
+<td>225</td>
+<td>226</td>
+<td>243</td>
+<td>244</td>
+<td>245</td>
+<td>246</td>
+<td>251</td>
+<td>252</td>
+<td>255</td>
+<td>261</td>
+<td>263</td>
+<td>265</td>
+<td>266</td>
+<td>271</td>
+<td>274</td>
+<td>306</td>
+<td>311</td>
+<td>315</td>
+</tr>
+<tr>
+<td>325</td>
+<td>331</td>
+<td>332</td>
+<td>343</td>
+<td>346</td>
+<td>351</td>
+<td>356</td>
+<td>364</td>
+<td>365</td>
+<td>371</td>
+<td>411</td>
+<td>412</td>
+<td>413</td>
+<td>423</td>
+<td>431</td>
+<td>432</td>
+<td>445</td>
+<td>446</td>
+</tr>
+<tr>
+<td>452</td>
+<td>454</td>
+<td>455</td>
+<td>462</td>
+<td>464</td>
+<td>465</td>
+<td>466</td>
+<td>503</td>
+<td>506</td>
+<td>516</td>
+<td>523</td>
+<td>526</td>
+<td>532</td>
+<td>546</td>
+<td>565</td>
+<td>606</td>
+<td>612</td>
+<td>624</td>
+</tr>
+<tr>
+<td>627</td>
+<td>631</td>
+<td>632</td>
+<td>654</td>
+<td>662</td>
+<td>664</td>
+<td>703</td>
+<td>712</td>
+<td>723</td>
+<td>731</td>
+<td>732</td>
+<td>734</td>
+<td>743</td>
+<td>754</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><h2 id="advanced-operation-4"><strong>Advanced Operation</strong></h2>
+<h2 id="tone-search-scanning"><strong>TONE SEARCH SCANNING</strong></h2>
+<p>In operating situations where you don’t know the CTCSS or DCS tone being used by another station or stations, you can command the radio to listen to the incoming signal and scan in search of the tone being used. Two things must be remembered in this regard: </p>
+<ul>
+<li>
+<p>You must be sure that your repeater uses the same tone type (CTCSS vs. DCS). </p>
+</li>
+<li>
+<p>Some repeaters do not pass the CTCSS tone; you may have to listen to the station(s) transmitting on the repeater <em>uplink</em> (input) frequency in order to allow Tone Search Scanning to work. </p>
+</li>
+</ul>
+<h2 id="to-scan-for-the-tone-in-use"><strong>To scan for the tone in use:</strong></h2>
+<ul>
+<li>
+<p>[Set the radio up for either CTCSS or DCS Decoder operation (see the previous discus-] sions). In the case of CTCSS, “����” will appear on the display; in the case of DCS, “���” will appear on the display. </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then immediately press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>�[Rotate the ] <strong>[DIAL]</strong>[ to select the “][������][” Menu item (when TONE SQL is selected) or] “�������” (during DCS operation). </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press and hold in the [][�][] or [][�][] key to start scanning for the] incoming CTCSS or DCS tone/code. </p>
+</li>
+<li>
+<p>[When the radio detects the correct tone or code, it will halt on that tone/code, and audio] will be allowed to pass. Press the [ <strong>F</strong> ] key to lock in that tone/code. </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the ] <strong>[PTT]</strong>[ key to save the new settings and exit to normal] operation. </p>
+</li>
+</ul>
+<p><em><strong>If the Tone Scan feature does not detect a tone or code, it will continue to scan indefinitely. When this happens, it may be that the other station is not sending any tone. You can press the</strong></em> <strong>PTT</strong> <em><strong>switch to halt the scan at any time.</strong></em> </p>
+<p><em><strong>You also can press the</strong></em> <strong>MONI</strong> <em><strong>key during Tone Scanning to listen to the (muted) signal from the other station. When you release the</strong></em> <strong>MONI</strong> <em><strong>key, Tone Scanning will resume after about a second.</strong></em></p><h2 id="ctcss-dcs-bell-operation"><strong>CTCSS/DCS BELL OPERATION</strong></h2>
+<p>During CTCSS Decode or DCS operation, you may set the <strong>VX-110</strong> up such that a ringing “Bell” sound alerts you to the fact that a call is coming in. Here is the procedure for activating the Bell will ring in accordance with this programming. </p>
+<ul>
+<li>
+<p>[Set the transceiver up for CTCSS Decode (“TONE SQL” or DCS operation, as de-] scribed previously. </p>
+</li>
+<li>
+<p>[Adjust the operating frequency to the desired channel.] </p>
+</li>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key, then press the[[] <strong>M/V</strong>[(] <strong>SET</strong>[)]] key to activate the Set mode. </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #17 (“][����][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable adjustment of the Bell ringer.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to set the desired number of rings of the Bell. The available choices] are 1, 3, 5, or 8 rings, REPEAT (continuous ringing), or OFF. </p>
+</li>
+<li>
+<p>Press the <strong>PTT</strong> key momentarily to save the new setting and exit to normal operation. </p>
+</li>
+</ul>
+<p>When a station calls you whose transceiver is sending a CTCSS tone or DCS code which matches that set into your Decoder, the Bell will ring in accordance to this programming.</p><h2 id="memory-operation"><strong>Memory Operation</strong></h2>
+<p>The <strong>VX-110</strong> provides a wide variety of memory system resources. These include: </p>
+<ul>
+<li>
+<p>209 “Standard” memory channels, numbered “�” through “���,” and labeled “��” ~ “��” and “��” ~ “��”. </p>
+</li>
+<li>
+<p>A Home channel, allowing storage and quick recall of one prime frequency. </p>
+</li>
+</ul>
+<h2 id="memory-storage"><strong>MEMORY STORAGE</strong></h2>
+<ul>
+<li>
+<p>Select the desired frequency, while operating in the VFO mode. Be sure to set up any desired CTCSS or DCS tones, as well as any desired repeater offset. The power level may also be set at this time, if you wish to store it. </p>
+</li>
+<li>
+<p>Press and hold the[[] <strong>F</strong>[]] key for 1/2 second. </p>
+</li>
+<li>
+<p>Within five seconds of releasing the[[] <strong>F</strong>[]] key, rotate the <strong>DIAL</strong> to select the desired memory channel number. </p>
+</li>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key once more to store the frequency into memory. </p>
+</li>
+<li>
+<p>You still will be operating in the “VFO” mode, so you may now enter other frequencies, and store them into additional memory locations, by repeating the above process. </p>
+</li>
+</ul>
+<h2 id="storing-independent-transmit-frequencies-odd-splits"><strong>STORING INDEPENDENT TRANSMIT FREQUENCIES[(] “ODD SPLITS”[)]</strong></h2>
+<p>All memories can store an independent transmit frequency, for operation on repeaters with non-standard shift. To do this: </p>
+<ul>
+<li>
+<p>Store the receive frequency using the method already described under <em><strong>MEMORY STORAGE</strong></em> (it doesn’t matter if a repeater offset is active). </p>
+</li>
+<li>
+<p>Turn to the desired transmit frequency, then press and hold the[[] <strong>F</strong>[]] key for 1/2 second. </p>
+</li>
+<li>
+<p>With in five seconds of releasing the[[] <strong>F</strong>[]] key, rotate the <strong>DIAL</strong> to select the same memory channel number as used in step � above. </p>
+</li>
+<li>
+<p><em><strong>Press and hold the</strong></em> <strong>PTT</strong> <em><strong>switch</strong></em> , then press the[[] <strong>F</strong>[]] key once more momentarily (this does not key the transmitter). </p>
+</li>
+</ul>
+<p><em><strong>Whenever you recall a memory which contains independently-stored transmit and receive frequencies, the “</strong></em> [ <strong>–</strong> ][ <strong>+</strong> ] <em><strong>” indication will appear in the display.</strong></em> </p>
+<h2 id="memory-recall"><strong>MEMORY RECALL</strong></h2>
+<ul>
+<li>
+<p>[While operating in the VFO mode, press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key. The “][��][” indicator will] show that you are now in the Memory Recall mode. </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select the desired channel.] </p>
+</li>
+<li>
+<p>[To return to the VFO mode, press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key.]</p>
+</li>
+</ul><h2 id="home-channel-memory"><strong>HOME CHANNEL MEMORY</strong></h2>
+<p>A special one-touch “HOME” channel is available to allow quick recall of a favorite operating frequency. Memory storage is simple to accomplish: </p>
+<ul>
+<li>
+<p>Select the desired frequency, while operating in the VFO mode. Be sure to set up any desired CTCSS or DCS tones, as well as any desired repeater offset. The power level may also be set at this time, if you like. </p>
+</li>
+<li>
+<p>Press and hold the[[] <strong>F</strong>[]] key for 1/2 second. </p>
+</li>
+<li>
+<p>While the memory channel number is blinking, just press the[[] <strong>HM</strong>[(] <strong>PRI</strong>[)]] key. The frequency and other data (if any) will now be stored in the special HOME channel register. </p>
+</li>
+<li>
+<p>To recall the HOME channel, press the[[] <strong>HM</strong>[(] <strong>PRI</strong>[)]] key momentarily while operating in the VFO or MR mode. </p>
+</li>
+</ul>
+<h2 id="labeling-memories"><strong>LABELING MEMORIES</strong></h2>
+<p>You may wish to append an alpha-numeric “Tag” (label) to a memory or memories, to aid in recollection of the channel’s use (such as a club name, etc.). This is easily accomplished using the Set mode. </p>
+<ul>
+<li>
+<p>[Recall the memory channel on which you wish to append a label.] </p>
+</li>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key, then press the[[] <strong>M/V</strong>[(] <strong>SET</strong>[)]] key, to enter the Menu mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> to select Menu #1 (“�����”). </p>
+</li>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key to enable changing of this Menu item. </p>
+</li>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key, then press the[[] <strong>F</strong>[]] key again, to begin entry of the label. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> to select the first digit of the desired label. When you have made your selection, press the[[] �[]] key momentarily to move to the next character. </p>
+</li>
+<li>
+<p>Repeat the previous step to program the remaining letters, numbers, or symbols of the desired label. A total of seven characters may be used in the creation of a label. </p>
+</li>
+<li>
+<p>When you have completed the creation of the label, press the[[] <strong>F</strong>[]] key, then press the <strong>PTT</strong> key to save the label and exit to normal operation. </p>
+</li>
+</ul>
+<h2 id="to-activate-alphanumeric-tags"><strong>To activate Alphanumeric Tags:</strong></h2>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu #1 (“][�����][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable changing of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to set the “][�����][”.] </p>
+</li>
+<li>
+<p>[When you have made your selection, press the ] <strong>[PTT]</strong>[ key to save the new setting and exit] to normal operation.</p>
+</li>
+</ul><h2 id="masking-memories"><strong>MASKING MEMORIES</strong></h2>
+<p>There may be situations where you want to “Mask” memories so they are not visible during memory selection or scanning. For example, several memories used only in a city you visit infrequently may be stored, then “Masked” until you visit that city, at which time you can “Unmask” them for normal use. </p>
+<ul>
+<li>
+<p>Press the[[] <strong>M/V</strong>[(] <strong>SET</strong>[)]] key, if needed, to enter the MR mode. </p>
+</li>
+<li>
+<p>Press and hold in the[[] <strong>F</strong>[]] key for 1/2 second, then rotate the <strong>DIAL</strong> to select the memory channel to be “Masked” from view. </p>
+</li>
+<li>
+<p>Press the[[] <strong>M/V</strong>[(] <strong>SET</strong>[)]] key. The display will revert to memory channel #1. If you rotate the <strong>DIAL</strong> to the location you just “Masked,” you will observe that it is now invisible. </p>
+</li>
+<li>
+<p>To Unmask the hidden memory, repeat the above procedure: press and hold in the[[] <strong>F</strong>[]] key for 1/2 second, rotate the <strong>DIAL</strong> to select the masked memory’s number, then press [ <strong>M/V</strong> ( <strong>SET</strong> )] to restore the memory channel’s data. </p>
+</li>
+</ul>
+<h2 id="memory-only-mode"><strong>MEMORY ONLY MODE</strong></h2>
+<p>This allows operation only on stored memories, which are displayed by name (if any) at the right, and the memory channel number to the left. No frequency is displayed, and only “�����” will appear if you haven’t assigned an Alphanumeric name to a memory. </p>
+<p>Repeater shift and tone setting indicators are displayed in the Memory Only mode, although they cannot be changed. </p>
+<p>Here is the procedure for activating the Memory Only mode: </p>
+<ul>
+<li>
+<p>[Turn the radio off.] </p>
+</li>
+<li>
+<p>[Press and hold the [] <strong>[PTT]</strong>[] and [] <strong>[LAMP]</strong>[] key while turning the radio on.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select “][��������][”.] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key momentarily to initialize the radio.] </p>
+</li>
+<li>
+<p>[Repeat the previous step to return to normal operation.]</p>
+</li>
+</ul><p>The <strong>VX-110</strong> allows you to scan just the memory channels, the operating band, or a portion of that band. It will halt on signals encountered, so you can talk to the station(s) on that frequency, if you like. </p>
+<p>Scanning operation is basically the same in each of the above modes. Before you begin, take a moment to select the way in which you would like the scanner to resume scanning after it halts on a signal. </p>
+<h2 id="setting-the-scan-resume-technique"><strong>Setting the Scan Resume Technique</strong></h2>
+<p>Three options for the Scan-Resume mode are available: </p>
+<ul>
+<li>
+<p>�����: In this mode, the scanner will halt on a signal it encounters, and will hold there for 5 seconds. If you do not take action to disable the scanner within that time period, the scanner will resume even if the stations are still active. </p>
+</li>
+<li>
+<p>����: In this mode, the scanner will halt on a signal it encounters. Two seconds after the carrier has dropped because the other station(s) ceased transmission, the scanner will resume. </p>
+</li>
+<li>
+<p>����: In this mode, the scanner will halt on a signal it encounters. It will not restart automatically; you must manually re-initiate scanning if you wish to resume. </p>
+</li>
+</ul>
+<h2 id="to-set-the-scan-resume-mode"><strong>To set the Scan-Resume mode</strong></h2>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu #6 (“][������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable changing of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select the desired scan-resume mode.] </p>
+</li>
+<li>
+<p>[When you have made your selection, press the ] <strong>[PTT]</strong>[ key to save the new setting and exit] to normal operation. </p>
+</li>
+</ul>
+<p><em><strong>The default condition for this Menu Item is “5 SEC.”</strong></em> </p>
+<h2 id="vfo-scanning"><strong>VFO SCANNING</strong></h2>
+<p>This mode allows you to scan the entire current operating band. </p>
+<ul>
+<li>
+<p>[Select the VFO mode by pressing the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, if necessary.] </p>
+</li>
+<li>
+<p>[Press and hold in the [][�][] or [][�][] key for 1/2 second to start scanning.] </p>
+</li>
+<li>
+<p>[If and when the scanner encounters a signal strong enough to open the squelch, the] scanner will halt temporarily; the decimal point of the frequency display will blink during this “Pause” condition. </p>
+</li>
+<li>
+<p>[The scanner will then resume according to the Scan Resume selected in the previous] section. </p>
+</li>
+<li>
+<p>[To cancel scanning, press the ] <strong>[PTT]</strong>[, or [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key.] </p>
+</li>
+</ul>
+<p><em><strong>If you want to change direction of  the scan while it is underway, rotate the</strong></em> <strong>DIAL</strong> <em><strong>one click in the opposite direction (in this case, one click counter-clockwise).</strong></em></p><h2 id="scanning"><strong>Scanning</strong></h2>
+<h2 id="memory-scanning"><strong>MEMORY SCANNING</strong></h2>
+<p>Memory scanning is similarly easy to initiate: </p>
+<ul>
+<li>
+<p>[Set the radio to the Memory mode by pressing the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, if necessary.] </p>
+</li>
+<li>
+<p>Press and hold in the[[] �[]] /[[][�][]] key for 1/2 second to initiate scanning. </p>
+</li>
+<li>
+<p>As with VFO scanning, the scanner will halt on any signal encountered that is strong enough to open the squelch; it will then resume scanning according to the Scan-Resume mode set previously. </p>
+</li>
+<li>
+<p>[To cancel scanning, press the ] <strong>[PTT]</strong>[, or [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key.] </p>
+</li>
+</ul>
+<h2 id="how-to-skip-omit-a-channel-during-memory-scan-operation"><strong>HOW TO SKIP[(] OMIT[)] A CHANNEL DURING MEMORY SCAN OPERATION</strong></h2>
+<p>When you have some very active channels stored in memories, you may wish to skip them when scanning, but still have them available for manual selection. </p>
+<p>Such channels may be “Skipped” during scanning, if you like: </p>
+<ul>
+<li>
+<p>[Set the radio to the Memory Mode by pressing the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, if necessary.] </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> to select the Memory Channel to be skipped during scanning. </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key ] <em>[momentarily]</em>[ (not for 1/2 second), then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key] (momentarily). A small “ SKIP ” will appear to the LCD. indicating it is to be ignored during scanning. </p>
+</li>
+</ul>
+<p>To re-institute the channel into the scanning loop, repeat the above three steps (the “Skipped” channel will, of course, still be accessible via manual channel selection methods using the <strong>DIAL</strong> in the MR mode). </p>
+<h2 id="automatic-lamp-illumination-on-scan-stop"><strong>AUTOMATIC LAMP ILLUMINATION ON SCAN STOP</strong></h2>
+<p>The <strong>VX-110</strong> will automatically illuminate the LCD Lamp whenever the scanner stops on a signal (the default condition for this feature is “ON”). </p>
+<p>The procedure for disabling the Scan Lamp is: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu #7 (“][�������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable changing of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to set this Menu item to OFF.] </p>
+</li>
+<li>
+<p>[When you have made your selection, press the ] <strong>[PTT]</strong>[ key to save the new setting and exit] to normal operation.</p>
+</li>
+</ul><h2 id="band-edge-beeper"><strong>BAND EDGE BEEPER</strong></h2>
+<p>The <strong>VX-110</strong> will automatically “beep” when a band edge is encountered during scanning (either in standard VFO scanning). You may disable this feature, if it is annoying, without disabling the keypad beeper (the default condition for this feature is “ON”. </p>
+<p>The procedure for disabling the Band-Edge Beeper is: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu #16 (“][�������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable changing of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to set this Menu item to OFF.] </p>
+</li>
+<li>
+<p>[When you have made your selection, press the ] <strong>[PTT]</strong>[ key to save the new setting and exit] to normal operation. </p>
+</li>
+</ul>
+<h2 id="smart-search-operation"><strong>SMART SEARCH OPERATION</strong></h2>
+<p>The Smart Search feature allows you to load frequencies automatically according to where activity is encountered by your radio. When Smart Search is engaged, the transceiver will search above and below your current frequency, storing active frequencies as it goes (without stopping on them even momentarily); these frequencies are stored into a special Smart Search memory bank, consisting of 31 memories (15 above the current frequency, 15 below the current frequency, plus the current frequency itself). </p>
+<p>Two basic operating modes for Smart Search are available: </p>
+<ul>
+<li>
+<p>������: In this mode, the transceiver will sweep the current band once in each direction starting on the current frequency. All channels where activity is present will be loaded into the Smart Search memories; whether or not all 31 memories are filled, the search will stop after one sweep in each direction. </p>
+</li>
+<li>
+<p>��������: In this mode, the transceiver will make one pass in each direction as with One-Shot searching; if all 31 channels are not filled after the first sweep, however, the radio will continue sweeping until they are all filled. </p>
+</li>
+</ul>
+<h2 id="setting-the-smart-search-mode"><strong>Setting the Smart Search Mode</strong></h2>
+<ul>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key, then press the[[] <strong>M/V</strong>[(] <strong>SET</strong>[)]] key, to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> to select Menu #29 (“�������”). </p>
+</li>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key to enable changing of this Menu item. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> to select the desired Smart Search mode (see above). </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> key to save the new setting and exit to normal operation. </p>
+</li>
+</ul>
+<h2 id="storing-smart-search-memories"><strong>Storing Smart Search Memories</strong></h2>
+<ul>
+<li>
+<p>[Set the radio to the VFO mode.] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, to enter the Set mode.]</p>
+</li>
+</ul><h2 id="scanning-2"><strong>Scanning</strong></h2>
+<ul>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu #28 (“][������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key momentarily, then press the [][�][] or [][�][] key to begin the Smart Search] scanning. </p>
+</li>
+<li>
+<p>[As active channels are detected, you will observe the number of “loaded” channels] increasing in the regular memory channel window. </p>
+</li>
+<li>
+<p>[Depending on the mode you set for Smart Search operation (SINGLE or CONTINUE),] the Smart Search scan will eventually terminate, and the LCD will revert to Smart Search Memory Channel 0. </p>
+</li>
+<li>
+<p>[To recall Smart Search memories, rotate the ] <strong>[DIAL]</strong>[ to choose from among the Smart] Search memories. </p>
+</li>
+<li>
+<p>[To return to normal operation, press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key.] </p>
+</li>
+</ul>
+<h2 id="priority-channel-scanning-dual-watch"><strong>PRIORITY CHANNEL SCANNING[(] DUAL WATCH[)]</strong></h2>
+<p>The <strong>VX-110</strong> scanning features include a two-channel scanning capability which allows you to operate on a VFO or Memory channel, while periodically checking a user-selectable Priority Channel for activity. </p>
+<p>Here is the procedure for activating Priority Channel Dual Watch operation: </p>
+<h2 id="vfo-or-home-memory"><strong>VFO (or HOME) - Memory</strong></h2>
+<ul>
+<li>
+<p>[Recall the memory channel you wish to be the “Priority” Channel.] </p>
+</li>
+<li>
+<p>[Set the radio to the VFO mode or HOME channel by pressing the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] or] [ <strong>HM</strong> ( <strong>PRI</strong> )] key. </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key momentarily (not for 1/2 second), then press the [] <strong>[HM]</strong>[(] <strong>[PRI]</strong>[)] key] (momentarily). A small “ <strong>PRI</strong> ” notation will appear on the LCD. </p>
+</li>
+</ul>
+<h2 id="memory-memory-mode"><strong>Memory-Memory mode</strong></h2>
+<ul>
+<li>
+<p>Store a frequency that you want to use as the Dual Watch “Priority” channel into memory “�.” </p>
+</li>
+<li>
+<p>Set the radio to the Memory mode by pressing the[[] <strong>M/V</strong>[(] <strong>SET</strong>[)]] key, if needed. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> to select the channel on which you wish to operate while periodically checking for activity on channel “�” during Dual Watch operation. </p>
+</li>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key momentarily (not for 1/2 second), then press the[[] <strong>HM</strong>[(] <strong>PRI</strong>[)]] key (momentarily). A small “ <strong>PRI</strong> ” notation will appear on the LCD.</p>
+</li>
+</ul><h2 id="dtmf-autodialer"><strong>DTMF AUTODIALER</strong></h2>
+<p>Nine DTMF Autodial memories are provided, allowing you to store telephone numbers for autopatch use. You can also store short autopatch access code streams so as to avoid having to send them manually. </p>
+<p>Here is the DTMF Autodial storage procedure: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu Item #26 (“][����][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable adjustment of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select the DTMF Memory register (“][��][” through “][��][”) into which] you wish to store this DTMF string. </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[F]</strong>[] key again, to begin DTMF Memory entry into the] selected register. </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select the first digit of the desired telephone number. When you] have made your selection, press the [�] key momentarily to move to the next digit. </p>
+</li>
+<li>
+<p>[Repeat the previous step to program the remaining numbers of the desired number. A] total of 16 digits may be used in the creation of a telephone number. </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the ] <strong>[PTT]</strong>[ switch to save the setting. To store other numbers,] repeat this process, using a different DTMF memory register. </p>
+</li>
+</ul>
+<h2 id="to-send-the-telephone-number"><strong>To send the telephone number:</strong></h2>
+<ul>
+<li>
+<p>[Press the ] <strong>[PTT]</strong>[ switch to begin transmission.] </p>
+</li>
+<li>
+<p>[Press the [][�][] or [][�][] key, to select the DTMF Memory (“][��][” to “][��][”) in which the] number is stored that you wish to dial. </p>
+</li>
+<li>
+<p>[Press the [] <strong>[REV]</strong>[(] <strong>[DTMF]</strong>[)] key to begin sending the DTMF string. Once the string be-] gins, you may release the <strong>PTT</strong> key, as the transmitter will be held “on the air” until the DTMF string is completed.</p>
+</li>
+</ul><h2 id="arts-automatic-range-transponder-system-operation"><strong>ARTS (Automatic Range Transponder System) Operation</strong></h2>
+<p>The ARTS feature uses DCS signaling to inform both parties when you and another ARTSequipped station are within communications range. This may be particularly useful during Search-and Rescue situations, where is important to stay in contact with other members of your group. </p>
+<p>If the other radio is in range, the beeper will sound (if enabled) and the display will show “������” as opposed to the out of range display “�������” in which ARTS operation begins. </p>
+<p>If you move out of range for more than one minute (four pollings), your radio will sense that no signal has been received, three beeps will sound, and the display </p>
+<p><strong>==&gt; picture [132 x 44] intentionally omitted &lt;==</strong></p>
+<p><strong>==&gt; picture [132 x 43] intentionally omitted &lt;==</strong></p>
+<p>will revert to “�������.” If you move back into range, your radio will again beep, and the display will change back to the “������” indication. </p>
+<p>You must terminate ARTS in order to resume normal operation. This is a safety feature designed to prevent accidental loss of contact due to channel change, etc. </p>
+<p>Here is how to activate ARTS: </p>
+<h2 id="basic-arts-setup-and-operation"><strong>BASIC ARTS SETUP AND OPERATION</strong></h2>
+<ul>
+<li>
+<p>[Set your radio and the other radio(s) to the same DCS code number, per the discussion] on page 15. </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu #12 (“][����][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable adjustment of this Menu item.] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key. You will observe the “][�������][” display on the LCD. ARTS opera-] tion has now commenced. </p>
+</li>
+<li>
+<p>[Every 15 seconds, your radio will transmit a “polling” call to the other station. When  that] station responds with its own ARTS polling signal, the display will change to “������” to confirm that the other station “polling” code was received in response to yours. </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key again to exit ARTS operation and resume normal functioning of the] transceiver.</p>
+</li>
+</ul><h2 id="arts-polling-time-options"><strong>ARTS POLLING TIME OPTIONS</strong></h2>
+<p>The ARTS feature may be programmed to poll every 15 seconds (default value) or 25 seconds. The default value provides maximum battery conservation, because the polling signal is sent out less frequently. To change the polling interval: </p>
+<ul>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key, then press the[[] <strong>M/V</strong>[(] <strong>SET</strong>[)]] key, to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> to select Menu #14 (“�������”). </p>
+</li>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key to enable changing of this Menu item. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> to select the desired polling interval (15 or 25 seconds). </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> key to save the new setting and exit to normal operation. </p>
+</li>
+</ul>
+<h2 id="arts-alert-beep-options"><strong>ARTS ALERT BEEP OPTIONS</strong></h2>
+<p>The ARTS feature allows two kinds of alert beeps (with the additional option of turning them off), so as to alert you to the current status of ARTS operation. Depending on your location and the potential annoyance associated with frequent beeps, you may choose the Beep mode which best suits your needs. The choices are: </p>
+<p>�������: The beeps are issued only when the radio first confirms that you are within range, but does not re-confirm with beeps thereafter. </p>
+<p>������: Every time a polling transmission is received from the other station, the alert beeps will be heard. </p>
+<p>�������: No alert beeps will be heard; you must look at the display to confirm current ARTS status. </p>
+<p>To set the ARTS Beep mode, use the following procedure: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu #13 (“][�������][”).] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable changing of this Menu item.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select the desired ARTS Beep mode (see above).] </p>
+</li>
+<li>
+<p>[When you have made your selection, press the ] <strong>[PTT]</strong>[ key to save the new setting and exit] to normal operation. </p>
+</li>
+</ul>
+<h2 id="cw-identifier-setup"><strong>CW IDENTIFIER SETUP</strong></h2>
+<p>The ARTS feature includes a CW identifier. Every ten minutes during ARTS operation, the radio can be instructed to send “ <strong>DE (</strong> <em><strong>your callsign</strong></em> <strong>) K</strong> ” if this feature is enabled. The callsign field may contain up to 16 characters. </p>
+<p>Here’s how to program the CW Identifier: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, to enter the Set mode.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select Menu #27 (“][�����][”).]</p>
+</li>
+</ul><h2 id="arts-automatic-range-transponder-system-operation-2"><strong>ARTS (Automatic Range Transponder System) Operation</strong></h2>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key to enable changing of this Menu item.] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[F]</strong>[] key again, to begin entry of the letters and numbers] in your callsign. </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select the first letter or number in your callsign. When the correct] character has been selected, press the [�] key to move on to the next character. </p>
+</li>
+<li>
+<p>[Repeat step ] �[ as many times as necessary to complete your callsign. Note that the] “slant bar” (– • • – •) is among the available characters, should you be a “portable” station. </p>
+</li>
+<li>
+<p>[When you have entered your entire callsign, press the [] <strong>[F]</strong>[] key.] </p>
+</li>
+<li>
+<p>[Press the ] <strong>[PTT]</strong>[ key to save the settings and exit to normal operation.] </p>
+</li>
+</ul>
+<p><em><strong>Note that the “DE”</strong></em> <strong>(– • •  •)</strong> <em><strong>preceding your callsign is already programmed; you only need to program your callsign, and the “DE” will be appended at the time of transmission.</strong></em> </p>
+<h2 id="to-activate-the-cw-identifier"><strong>To activate the CW identifier:</strong></h2>
+<ul>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key, then press the[[] <strong>M/V</strong>[(] <strong>SET</strong>[)]] key, to enter the Set mode. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> to select Menu #27 (“�����”). </p>
+</li>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key to enable changing of this Menu item. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> to set the CW ID function ON. </p>
+</li>
+<li>
+<p>When you have made your selection, press the <strong>PTT</strong> key to save the new setting and exit to normal operation.</p>
+</li>
+</ul><h2 id="interface-of-packet-tncs-reset"><strong>Interface of Packet TNCs &amp; Reset</strong></h2>
+<p>The <strong>VX-110</strong> may be used for Packet operation, using the optional <strong>CT-44</strong> microphone adapter (available from your Yaesu dealer) for easy interconnection to commonly-available connectors wired to your TNC. You may also build your own cable using a fourconductor miniature phone plug, per the diagram below. </p>
+<p>The audio level from the receiver to the TNC may be adjusted by using the <strong>VOL</strong> knob, as with voice operation. The input level to the <strong>VX-110</strong> from the TNC should be adjusted at the TNC side; the optimum input voltage is approximately 5 mV at 2 k-Ohms. </p>
+<p>Be sure to turn the transceiver and TNC off before connecting the cables, so as to prevent voltage spikes from possibly damaging your transceiver. Also, be certain to turn off the Receiver Battery Saver, if activated (see page 10). </p>
+<p><strong>==&gt; picture [50 x 136] intentionally omitted &lt;==</strong></p>
+<p><strong>==&gt; picture [143 x 86] intentionally omitted &lt;==</strong></p>
+<h2 id="microprocessor-resetting"><strong>MICROPROCESSOR RESETTING</strong></h2>
+<p>In the event that erratic, unpredictable transceiver operation is encountered, it is possible that the microprocessor has sustained a static burst or other condition that has caused corruption of some of its data. If this should happen, resetting of the microprocessor should clear up the problem. Here is the procedure for resetting the microprocessor (this will restore all factory defaults, and will erase all memories): </p>
+<ul>
+<li>
+<p>Turn the radio off. </p>
+</li>
+<li>
+<p>Press and hold the[[] <strong>PTT</strong>[]] and[[] <strong>LAMP</strong>[]] key while turning the radio on. </p>
+</li>
+<li>
+<p>Rotate the <strong>DIAL</strong> to select “�������” on the LCD. </p>
+</li>
+<li>
+<p>Press the[[] <strong>F</strong>[]] key momentarily to initialize the radio. </p>
+</li>
+</ul>
+<h2 id="set-mode-resetting"><strong>SET MODE RESETTING</strong></h2>
+<p>This “Reset” procedure restores the Menu (“Set mode”) settins to their factory defaults, without affecting your regular memories. </p>
+<ul>
+<li>
+<p>[Turn the radio off.] </p>
+</li>
+<li>
+<p>[Press and hold the [] <strong>[PTT]</strong>[] and [] <strong>[LAMP]</strong>[] key while turning the radio on.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select “][�������][” on the LCD.] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key momentarily to initialize the Set mode.]</p>
+</li>
+</ul><figure><button aria-label="Enlarge Figure from page 31" class="zoom" data-dialog="fig-6" type="button"><img alt="Figure from page 31" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page30-0.png"/></button><figcaption>Figure from page 31</figcaption><dialog id="fig-6"><img alt="Figure from page 31" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page30-0.png"/><p>Figure from page 31</p><form method="dialog"><button>Close</button></form></dialog></figure><h2 id="cloning"><strong>Cloning</strong></h2>
+<p>The <strong>VX-110</strong> includes a convenient “Clone” feature, which allows the memory and configuration data from one transceiver to be transferred to another <strong>VX-110</strong> . This can be particularly useful when configuring a number of transceivers for a public service operation. Here is the procedure for Cloning one radio’s data to another: </p>
+<ul>
+<li>
+<p>[Turn both radios off.] </p>
+</li>
+<li>
+<p>[Connect the optional ] <strong>[CT-27]</strong>[ cloning cable between the ] <strong>[MIC/SP]</strong>[ jacks of the two ra-] dios. </p>
+</li>
+<li>
+<p>[Press and hold the ] <strong>[PTT]</strong>[ and ] <strong>[LAMP]</strong>[ key while turning the radio on.] </p>
+</li>
+<li>
+<p>[Rotate the ] <strong>[DIAL]</strong>[ to select “][�����][.”] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, to enter the CLONE mode. “][�����][” will appear on the displays of] both radios when the Clone mode is successfully activated in this step. </p>
+</li>
+<li>
+<p>[On the Destination radio, press the ] <strong>[MONI]</strong>[ key (“][������][” will appear on the LCD).] </p>
+</li>
+<li>
+<p>[Press the ] <strong>[PTT]</strong>[ key on the Source radio; “][�������][” will appear on  the Source radio,] and the data is transferred. </p>
+</li>
+<li>
+<p>[If there is a problem during the cloning process, “][�������][” will be displayed. Check] your cable connections and battery voltage, and try again. </p>
+</li>
+<li>
+<p>[If the data transfer is successful, the Destination radio will return to normal operation;] Turn both radios off and disconnect the <strong>CT-27</strong> . You can then turn the radios back on, and begin normal operation. </p>
+</li>
+</ul>
+<p><strong>Optional Cloning Cable "CT-27"</strong></p><figure><button aria-label="Enlarge Figure from page 32" class="zoom" data-dialog="fig-7" type="button"><img alt="Figure from page 32" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page31-0.png"/></button><figcaption>Figure from page 32</figcaption><dialog id="fig-7"><img alt="Figure from page 32" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page31-0.png"/><p>Figure from page 32</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 32" class="zoom" data-dialog="fig-8" type="button"><img alt="Figure from page 32" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page31-1.png"/></button><figcaption>Figure from page 32</figcaption><dialog id="fig-8"><img alt="Figure from page 32" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page31-1.png"/><p>Figure from page 32</p><form method="dialog"><button>Close</button></form></dialog></figure><figure><button aria-label="Enlarge Figure from page 32" class="zoom" data-dialog="fig-9" type="button"><img alt="Figure from page 32" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page31-2.png"/></button><figcaption>Figure from page 32</figcaption><dialog id="fig-9"><img alt="Figure from page 32" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page31-2.png"/><p>Figure from page 32</p><form method="dialog"><button>Close</button></form></dialog></figure><p>The <strong>VX-110</strong> Set (Menu) mode is easy to activate and set. Use the following procedure: </p>
+<ul>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key, then press the [] <strong>[M/V]</strong>[(] <strong>[SET]</strong>[)] key, to activate the Set mode.] </p>
+</li>
+<li>
+<p>[Turn the ] <strong>[DIAL]</strong>[ to select the Menu item number to be adjusted.] </p>
+</li>
+<li>
+<p>[Press the [] <strong>[F]</strong>[] key momentarily, then rotate the ] <strong>[DIAL]</strong>[ to adjust or select the parameter to] be changed on the Menu item selected in above step. </p>
+</li>
+<li>
+<p>[After completing your selection and adjustment, press the ] <strong>[PTT]</strong>[ switch momentarily to] exit the Set mode and exit to normal operation. </p>
+</li>
+</ul>
+<h2 id="set-mode-summary"><strong>Set Mode Summary</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Item #</strong></th>
+<th><strong>Menu Item</strong></th>
+<th><strong>Function</strong></th>
+<th><strong>Available Values</strong></th>
+<th><strong>Default</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ALPHA</td>
+<td>Store Alpha-Numeric “Tags”</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ARS</td>
+<td>Enable/disable Automatic Repeater Shift</td>
+<td>ON/OFF</td>
+<td>ON</td>
+</tr>
+<tr>
+<td>3</td>
+<td>RPT</td>
+<td>Set the Repeater Shift Direction</td>
+<td>-RPT/SIMP/+RPT</td>
+<td>SIMP</td>
+</tr>
+<tr>
+<td>4</td>
+<td>SHIFT</td>
+<td>Set the magnitude of the Repeater Shift</td>
+<td>0 - 99.9MHz</td>
+<td>0.6MHz</td>
+</tr>
+<tr>
+<td>5</td>
+<td>STEP</td>
+<td>Settingof the synthesizer steps</td>
+<td>5/10/12.5/15/20/25/50 kHz</td>
+<td>�</td>
+</tr>
+<tr>
+<td>6</td>
+<td>RESUME</td>
+<td>Select the Scan Resume mode</td>
+<td>5SEC/BUSY/HOLD</td>
+<td>5SEC</td>
+</tr>
+<tr>
+<td>7</td>
+<td>SCN LMP</td>
+<td>Enable/disable the Scan lamp</td>
+<td>ON/OFF</td>
+<td>ON</td>
+</tr>
+<tr>
+<td>8</td>
+<td>RX SAVE</td>
+<td>Select the Rx-mode BatterySaver interval</td>
+<td>OFF/200ms/300ms/500ms/1s/2s</td>
+<td>200ms</td>
+</tr>
+<tr>
+<td>9</td>
+<td>TX SAVE</td>
+<td>Enable/disable the Transmit BatterySaver</td>
+<td>ON/OFF</td>
+<td>OFF</td>
+</tr>
+<tr>
+<td>10</td>
+<td>APO</td>
+<td>Set the Automatic Power-Off time</td>
+<td>OFF/30min/1h/3h/5h/8h</td>
+<td>OFF</td>
+</tr>
+<tr>
+<td>11</td>
+<td>TRX LED</td>
+<td>Enable/disable the BUSY/TX LED</td>
+<td>ON/OFF</td>
+<td>ON</td>
+</tr>
+<tr>
+<td>12</td>
+<td>ARTS</td>
+<td>Activate ARTS operation</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>13</td>
+<td>ARTS BP</td>
+<td>Select the Beepoption duringARTS operation</td>
+<td>OFF/INRANGE/ALWAYS</td>
+<td>INRANGE</td>
+</tr>
+<tr>
+<td>14</td>
+<td>AR ITVL</td>
+<td>Select the Polling Interval during ARTS opera-</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tion</td>
+<td>15 SEC/25 SEC</td>
+<td>15 SEC</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>KEY BP</td>
+<td>Enable/disable the Keypad beeper</td>
+<td>ON/OFF</td>
+<td>ON</td>
+</tr>
+<tr>
+<td>16</td>
+<td>EDGE BP</td>
+<td>Enable/disable the Band-edge beeper</td>
+<td>ON/OFF</td>
+<td>ON</td>
+</tr>
+<tr>
+<td>17</td>
+<td>BELL</td>
+<td>Select the CTCSS Bell ringer repetitions</td>
+<td>OFF/1/3/5/8/REPEAT</td>
+<td>OFF</td>
+</tr>
+<tr>
+<td>18</td>
+<td>MON/TCL</td>
+<td>Select the MON keyfunction</td>
+<td>MON/T-CALL</td>
+<td>�</td>
+</tr>
+<tr>
+<td>19</td>
+<td>LMP MOD</td>
+<td>Select the LCD/Keypad Lampmode</td>
+<td>KEY/5SEC/TOGGLE</td>
+<td>KEY</td>
+</tr>
+<tr>
+<td>20</td>
+<td>TOT</td>
+<td>Set the TOT time</td>
+<td>OFF/1min/2.5min/5min/10min</td>
+<td>OFF</td>
+</tr>
+<tr>
+<td>21</td>
+<td>BCLO</td>
+<td>Enable/disable the Busy Channel Lock-out fea-</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ture</td>
+<td>ON/OFF</td>
+<td>OFF</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>CLK SFT</td>
+<td>Shiftingof the CPU clock frequency</td>
+<td>ON/OFF</td>
+<td>OFF</td>
+</tr>
+<tr>
+<td>23</td>
+<td>SQL TYP</td>
+<td>Select the Tone Encoder and/or Decoder mode</td>
+<td>OFF/TONE/TONESQL/DCS</td>
+<td>OFF</td>
+</tr>
+<tr>
+<td>24</td>
+<td>TN SET</td>
+<td>Settingof the CTCSS Tone Frequency</td>
+<td>39 Standard CTCSS tones</td>
+<td>100 Hz</td>
+</tr>
+<tr>
+<td>25</td>
+<td>DCS SET</td>
+<td>Settingof the DCS code</td>
+<td>104 standard DCS codes</td>
+<td>023</td>
+</tr>
+<tr>
+<td>26</td>
+<td>DTMF</td>
+<td>Programmingthe DTMF Autodialer</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>27</td>
+<td>CW ID</td>
+<td>Programming/activation of the CW Ider</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>28</td>
+<td>S SRCH</td>
+<td>Activate the Smart Search</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>29</td>
+<td>SMT MOD</td>
+<td>Select the Smart Search Sweepmode</td>
+<td>SINGLE/CONTINUE</td>
+<td>SINGLE</td>
+</tr>
+<tr>
+<td>30</td>
+<td>LK MODE</td>
+<td>Select the Control Locking lockout combination</td>
+<td>KEY/DIAL/KEY+DIAL/PTT/</td>
+<td></td>
+</tr>
+<tr>
+<td>KEY+PTT/DIAL+PTT/ALL</td>
+<td>KEY</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>NAR/WID</td>
+<td>Select the Operatingband width</td>
+<td>NARROW/WIDE</td>
+<td>WIDE</td>
+</tr>
+<tr>
+<td>32</td>
+<td>DTMF SP</td>
+<td>Select the DTMF Autodialer sendingspeed</td>
+<td>50 ms/100 ms</td>
+<td>50 ms</td>
+</tr>
+<tr>
+<td>33</td>
+<td>DT DLY</td>
+<td>Select the DTMF Autodialer delaytime</td>
+<td>450 ms/750 ms</td>
+<td>450 ms</td>
+</tr>
+<tr>
+<td>34</td>
+<td>ANI</td>
+<td>Program and activate the ANI Identifier</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table><h2 id="set-mode"><strong>Set Mode</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Set Mode</strong></th>
+<th><strong>Set Mode</strong></th>
+<th><strong>Set Mode</strong></th>
+<th><strong>Set Mode</strong></th>
+<th><strong>Set Mode</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Item #</strong></td>
+<td><strong>Menu Item</strong></td>
+<td><strong>Function</strong></td>
+<td><strong>Available Values</strong></td>
+<td><strong>Default</strong></td>
+</tr>
+<tr>
+<td>35</td>
+<td>BATT</td>
+<td>Indication of the SupplyVoltage</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>36</td>
+<td>SKIP</td>
+<td>Enable/Disable skipping of a memory during</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>scanning</td>
+<td>ON/OFF</td>
+<td>–</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="set-item-1-alpha"><strong>Set Item 1</strong>[[] <strong>ALPHA</strong>[]]</h2>
+<p><strong>Function:</strong> Store Alpha-Numeric “Tags” for the Memory channels. See page 19 for details. </p>
+<h2 id="set-item-2-ars"><strong>Set Item 2</strong> [ <strong>ARS</strong> ]</h2>
+<p><strong>Function:</strong> Enable/disable the Automatic Repeater Shift function. <strong>Available Values:</strong> ON/OFF <strong>Default:</strong> ON </p>
+<h2 id="set-item-3-rpt"><strong>Set Item 3</strong> [ <strong>RPT</strong> ]</h2>
+<p><strong>Function:</strong> Set the Repeater Shift Direction <strong>Available Values:</strong> -RPT/SIMP/+RPT <strong>Default:</strong> SIMP </p>
+<h2 id="set-item-4-shift"><strong>Set Item 4</strong> [ <strong>SHIFT</strong> ]</h2>
+<p><strong>Function:</strong> Set the magnitude of the Repeater Shift. <strong>Available Values:</strong> 0.00 ~ 99.9 MHz </p>
+<p><strong>Default:</strong> Depends on the transceiver version, as well as the setting of Menu #2 (ARS). </p>
+<h2 id="set-item-5-step"><strong>Set Item 5</strong> [ <strong>STEP</strong> ]</h2>
+<p><strong>Function:</strong> Setting of the synthesizer steps. <strong>Available Values:</strong> 5/10/12.5/15/20/25/50 kHz <strong>Default:</strong> Depends on the transceiver version. </p>
+<h2 id="set-item-6-resume"><strong>Set Item 6</strong> [ <strong>RESUME</strong> ]</h2>
+<p><strong>Function:</strong> Select the Scan Resume mode. <strong>Available Values:</strong> 5 SEC/BUSY/HOLD <strong>Default:</strong> 5 SEC </p>
+<h2 id="set-item-7-scn-lmp"><strong>Set Item 7</strong> [ <strong>SCN LMP</strong> ]</h2>
+<p><strong>Function:</strong> Enable/disable the Scan lamp while paused. <strong>Available Values:</strong> ON/OFF <strong>Default:</strong> ON </p>
+<h2 id="set-item-8-rx-save"><strong>Set Item 8</strong>[[] <strong>RX SAVE</strong>[]]</h2>
+<p><strong>Function:</strong> Select the Receive-mode Battery Saver interval (“Sleep” ratio). <strong>Available Values:</strong> OFF/200ms(1:1)/300ms(1:1.5)/500ms(1:2.5)/1s(1:5)/2s(1:10) <strong>Default:</strong> 200ms(1:1) </p>
+<p>�Depends on the transceiver version </p>
+<h2 id="set-mode-details"><strong>Set Mode Details</strong></h2><h2 id="set-item-9-tx-save"><strong>Set Item 9</strong> [ <strong>TX SAVE</strong> ]</h2>
+<p><strong>Function:</strong> Enable/disable the Transmit Battery Saver. <strong>Available Values:</strong> ON/OFF <strong>Default:</strong> OFF </p>
+<h2 id="set-item-10-apo"><strong>Set Item 10</strong> [ <strong>APO</strong> ]</h2>
+<p><strong>Function:</strong> Set the Automatic Power-Off time. <strong>Available Values:</strong> OFF/30 min/1 hour/3 hour/5 hour/8 hour <strong>Default:</strong> OFF </p>
+<h2 id="set-item-11-trx-led"><strong>Set Item 11</strong>[[] <strong>TRX LED</strong>[]]</h2>
+<p><strong>Function:</strong> Enable/ disable the <strong>BUSY/TX</strong> LED while the Squelch is open or during transmission. </p>
+<p><strong>Available Values:</strong> ON/OFF <strong>Default:</strong> ON (Lamp active) </p>
+<h2 id="set-item-12-arts"><strong>Set Item 12</strong> [ <strong>ARTS</strong> ]</h2>
+<p><strong>Function:</strong> Activate the ARTS feature. See page 26 for details. </p>
+<h2 id="set-item-13-arts-bp"><strong>Set Item 13</strong> [ <strong>ARTS BP</strong> ]</h2>
+<p><strong>Function:</strong> Select the Beep option during ARTS operation. <strong>Available Values:</strong> OFF/INRANGE/ALWAYS </p>
+<p><strong>Default:</strong> INRANGE </p>
+<h2 id="set-item-14-ar-itvl"><strong>Set Item 14</strong>[[] <strong>AR ITVL</strong>[]]</h2>
+<p><strong>Function:</strong> Select the Polling Interval during ARTS operation. <strong>Available Values:</strong> 15 SEC/25 SEC </p>
+<p><strong>Default:</strong> 15 SEC </p>
+<h2 id="set-item-15-key-bp"><strong>Set Item 15</strong> [ <strong>KEY BP</strong> ]</h2>
+<p><strong>Function:</strong> Enable/disable the Keypad beeper. <strong>Available Values:</strong> ON/OFF <strong>Default:</strong> ON </p>
+<h2 id="set-item-16-edge-bp"><strong>Set Item 16</strong> [ <strong>EDGE BP</strong> ]</h2>
+<p><strong>Function:</strong> Enable/disable the Band-edge beeper while scanning. <strong>Available Values:</strong> ON/OFF <strong>Default:</strong> ON </p>
+<h2 id="set-item-17-bell"><strong>Set Item 17</strong> [ <strong>BELL</strong> ]</h2>
+<p><strong>Function:</strong> Select the number of CTCSS Bell ringer repetitions. <strong>Available Values:</strong> OFF/1/3/5/8/REPEAT <strong>Default:</strong> OFF</p><h2 id="set-mode-2"><strong>Set Mode</strong></h2>
+<h2 id="set-item-18-mon-tcl"><strong>Set Item 18</strong> [ <strong>MON/TCL</strong> ]</h2>
+<p><strong>Function:</strong> Select the <strong>MONI</strong> key (just below the <strong>PTT</strong> switch) function. <strong>Available Values:</strong> MONI/T.CALL </p>
+<p><strong>Default:</strong> Depends on the transceiver version. </p>
+<p>MONI: Pressing the <strong>MONI</strong> key causes the noise/tone Squelch to be over-ridden, allowing you to listen for weak (or non-encoded) signals. </p>
+<p>T.CALL: Pressing the <strong>MONI</strong> key activates a 1750-Hz burst tone, used for repeater access in many countries. </p>
+<h2 id="set-item-19-lmp-mod"><strong>Set Item 19</strong> [ <strong>LMP MOD</strong> ]</h2>
+<p><strong>Function:</strong> Select the LCD/Keypad Lamp mode. <strong>Available Values:</strong> KEY/5SEC/TOGGLE <strong>Default:</strong> KEY </p>
+<h2 id="set-item-20-tot"><strong>Set Item 20</strong> [ <strong>TOT</strong> ]</h2>
+<p><strong>Function:</strong> Set the TOT (Time-Out Timer) time. <strong>Available Values:</strong> OFF/1 min/2.5 min/5 min/10 min <strong>Default:</strong> OFF </p>
+<h2 id="set-item-21-bclo"><strong>Set Item 21</strong>[[] <strong>BCLO</strong>[]]</h2>
+<p><strong>Function:</strong> Enable/disable the Busy Channel Lock-Out feature. <strong>Available Values:</strong> ON/OFF </p>
+<p><strong>Default:</strong> OFF </p>
+<h2 id="set-item-22-clk-sft"><strong>Set Item 22</strong> [ <strong>CLK SFT</strong> ]</h2>
+<p><strong>Function:</strong> Shifting of CPU clock frequency. <strong>Available Values:</strong> ON/OFF <strong>Default:</strong> OFF </p>
+<p>This function is only used to move a spurious response “birdie” should it fall on a desired frequency. </p>
+<h2 id="set-item-23-sql-typ"><strong>Set Item 23</strong> [ <strong>SQL TYP</strong> ]</h2>
+<p><strong>Function:</strong> Select the Tone Encoder and/or Decoder mode. <strong>Available Values:</strong> OFF/T/TSQ/DCS <strong>Default:</strong> OFF </p>
+<p>T: CTCSS Encoder </p>
+<p>TSQ: CTCSS Encoder/Decoder DCS: Digital Coded Squelch Encoder/Decoder</p><h2 id="set-item-24-tn-set"><strong>Set Item 24</strong> [ <strong>TN SET</strong> ]</h2>
+<p><strong>Function:</strong> Setting of the CTCSS Tone Frequency <strong>Available Values:</strong> 39 standard CTCSS tones </p>
+<p><strong>Default:</strong> 100 Hz </p>
+<p>In this mode, press the[[] <strong>F</strong>[]] key, then press the <strong>PTT</strong> key, to save the new setting and exit to normal operation. </p>
+<h2 id="set-item-25-dcs-set"><strong>Set Item 25</strong> [ <strong>DCS SET</strong> ]</h2>
+<p><strong>Function:</strong> Setting of the DCS code. <strong>Available Values:</strong> 104 standard DCS codes. </p>
+<p><strong>Default:</strong> 023 </p>
+<p>In this mode, press the[[] <strong>F</strong>[]] key, then press the <strong>PTT</strong> key, to save the new setting and exit to normal operation. </p>
+<h2 id="set-item-26-dtmf"><strong>Set Item 26</strong> [ <strong>DTMF</strong> ]</h2>
+<p><strong>Function:</strong> Programming the DTMF Autodialer. See page 25 for details. </p>
+<h2 id="set-item-27-cw-id"><strong>Set Item 27</strong> [ <strong>CW ID</strong> ]</h2>
+<p><strong>Function:</strong> Program and activate the CW Identifier (used during ARTS operation). See page 27 for details. </p>
+<h2 id="set-item-28-s-srch"><strong>Set Item 28</strong>[[] <strong>S SRCH</strong>[]]</h2>
+<p><strong>Function:</strong> Activate the Smart Search feature. See page 23 for details. </p>
+<h2 id="set-item-29-smt-mod"><strong>Set Item 29</strong> [ <strong>SMT MOD</strong> ]</h2>
+<p><strong>Function:</strong> Select the Smart Search sweep mode. <strong>Available Values:</strong> SINGLE/CONT </p>
+<p><strong>Default:</strong> SINGLE </p>
+<p>SINGLE:The transceiver sweeps the current band once in each direction starting on the current frequency. All channels where activity is present (up to 15 in each direction) are loaded into the Smart Search memories. Whether or not all 31 memories are filled, the search stops after one sweep in each direction. </p>
+<ul>
+<li>CONT: The transceiver makes a sweep in each direction as with the “SINGLE” mode, but if all 31 channels are not filled after the first sweep, the radio continues sweeping until they are all filled. </li>
+</ul>
+<h2 id="set-item-30-lk-mode"><strong>Set Item 30</strong>[[] <strong>LK MODE</strong>[]]</h2>
+<p><strong>Function:</strong> Select the Control Locking lockout combination. <strong>Available Values:</strong> KEY/DIAL/K+D(KEY+DIAL)/PTT/K+P(KEY+PTT)/ D+P(DIAL+PTT)/ALL </p>
+<p><strong>Default:</strong> KEY</p><h2 id="set-mode-3"><strong>Set Mode</strong></h2>
+<h2 id="set-item-31-nar-wid"><strong>Set Item 31</strong> [ <strong>NAR/WID</strong> ]</h2>
+<p><strong>Function:</strong> Select the Operating band width. <strong>Available Values:</strong> NARROW/WIDE <strong>Default:</strong> WIDE </p>
+<h2 id="set-item-32-dtmf-sp"><strong>Set Item 32</strong> [ <strong>DTMF SP</strong> ]</h2>
+<p><strong>Function:</strong> Select the DTMF Autodialer sending speed. <strong>Available Values:</strong> 50 ms/100 ms <strong>Default:</strong> 50 ms (High speed) </p>
+<h2 id="set-item-33-dt-dly"><strong>Set Item 33</strong>[[] <strong>DT DLY</strong>[]]</h2>
+<p><strong>Function:</strong> Select the DTMF Autodialer delay time. <strong>Available Values:</strong> 450 ms/750 ms </p>
+<p><strong>Default:</strong> 450 ms </p>
+<h2 id="set-item-34-ani"><strong>Set Item 34</strong> [ <strong>ANI</strong> ]</h2>
+<p><strong>Function:</strong> Program and activate the ANI Identifier See page 13 for details. </p>
+<h2 id="set-item-35-batt"><strong>Set Item 35</strong> [ <strong>BATT</strong> ]</h2>
+<p><strong>Function:</strong> Indication of the Supply Voltage. </p>
+<p>In this mode, press the [ <strong>F</strong> ] key, then press the <strong>PTT</strong> key, to exit to normal operation. </p>
+<h2 id="set-item-36-skip"><strong>Set Item 36</strong>[[] <strong>SKIP</strong>[]]</h2>
+<p><strong>Function:</strong> Enable/disable skipping of a memory during scanning. <strong>Available Values:</strong> ON/OFF </p>
+<p><strong>Default:</strong> OFF (Scanner stops when the channel is busy)</p><h2 id="specifications"><strong>Specifications</strong></h2>
+<h2 id="general"><strong>GENERAL</strong></h2>
+<p><strong>==&gt; picture [361 x 355] intentionally omitted &lt;==</strong></p>
+<p><strong>----- Start of picture text -----</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frequency coverage (MHz):</td>
+<td>144 to 147.995 (version A)</td>
+</tr>
+<tr>
+<td>144 to 145.995 (version B)</td>
+<td></td>
+</tr>
+<tr>
+<td>Channel steps:</td>
+<td>5, 10, 12.5, 15, 20, 25 &amp; 50 kHz</td>
+</tr>
+<tr>
+<td>Standard repeater shift:</td>
+<td>600 kHz</td>
+</tr>
+<tr>
+<td>Emission type:</td>
+<td>G3E</td>
+</tr>
+<tr>
+<td>Supply voltage:</td>
+<td>6.0 to 16.0 VDC</td>
+</tr>
+<tr>
+<td>Current consumption:</td>
+<td>Receive: 130 mA;</td>
+</tr>
+<tr>
+<td>Transmit</td>
+<td>(HIGH:5W) : 1.3 A;</td>
+</tr>
+<tr>
+<td>(MID:2 W) : 800 mA;</td>
+<td></td>
+</tr>
+<tr>
+<td>(LOW:0.5 W) : 500 mA;</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto Power Off : 8 mA</td>
+<td></td>
+</tr>
+<tr>
+<td>Antenna (BNC jack):</td>
+<td>YHA-62 rubber flex antenna</td>
+</tr>
+<tr>
+<td>Case size (WHD):</td>
+<td>58 (W) x 108.5 (H) x 26.5 (D) mm (w/o knob &amp; antenna)</td>
+</tr>
+<tr>
+<td>Weight (approx.):</td>
+<td>325g w/FNB-64 &amp; antenna</td>
+</tr>
+<tr>
+<td>RECEIVER</td>
+<td></td>
+</tr>
+<tr>
+<td>Circuit type:</td>
+<td>Double-conversion superheterodyne</td>
+</tr>
+<tr>
+<td>Sensitivity (for 12dB SINAD):</td>
+<td>better than 0.16µV</td>
+</tr>
+<tr>
+<td>Adjacent channel selectivity:</td>
+<td>better than 70 dB</td>
+</tr>
+<tr>
+<td>Intermodulation:</td>
+<td>better than 70 dB</td>
+</tr>
+<tr>
+<td>Audio output:</td>
+<td>0.4 W @8 ohms for 10% THD (@7.2V)</td>
+</tr>
+<tr>
+<td>TRANSMITTER</td>
+<td></td>
+</tr>
+<tr>
+<td>Power output:</td>
+<td>5 W (@ 7.2 V &amp; 13.8 V EXT DC IN)</td>
+</tr>
+<tr>
+<td>Frequency stability:</td>
+<td>better than ±5 ppm</td>
+</tr>
+<tr>
+<td>Modulation system:</td>
+<td>variable reactance</td>
+</tr>
+<tr>
+<td>Maximum deviation:</td>
+<td>±5 kHz</td>
+</tr>
+<tr>
+<td>Spurious emissions:</td>
+<td>better than 60 dB below carrier</td>
+</tr>
+<tr>
+<td>Audio distortion (@ 1 kHz):</td>
+<td>less than 5 %, w/3 kHz deviation</td>
+</tr>
+<tr>
+<td>Microphone type:</td>
+<td>2-kilohm condenser</td>
+</tr>
+<tr>
+<td>Burst tone:</td>
+<td>1750 Hz (except version A)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>----- End of picture text -----</strong></p>
+<h2 id="receiver"><strong>RECEIVER</strong></h2>
+<h2 id="transmitter"><strong>TRANSMITTER</strong></h2>
+<p>Specifications may be subject to change without notice or obligation. </p>
+<ol>
+<li>
+<p>Changes or modifications to this device not expressly approved by Yaesu Musen could void the user’s authorization to operate this device. </p>
+</li>
+<li>
+<p>This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions; (1) this device may not cause harmful interference, and (2) this device must accept any interference including interference that may cause undesired operation. </p>
+</li>
+<li>
+<p>The scanning receiver in this equipment is incapable of tuning, or readily being altered, by the User to operate within the frequency bands allocated to the Domestic public Cellular Telecommunications Service in Part 22. </p>
+</li>
+</ol>
+<p>This device complies with RSS-210 of Industry Canada. Operation is subject to the following two conditions; (1) this device may not cause interference, and (2) this device must accept any interference, including interference that may cause undesirable operation of the device.</p><p>Copyright 1999 Yaesu Musen Co., Ltd. All rights reserved. </p>
+<p>No portion of this manual may be reproduced without the permission of Yaesu Musen Co., Ltd. </p>
+<p>Printed in Japan </p>
+<p>0001B-AS </p>
+<p>E 1 4 0 1 1 1 0 0</p><figure><button aria-label="Enlarge Figure from page 40" class="zoom" data-dialog="fig-10" type="button"><img alt="Figure from page 40" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page39-0.png"/></button><figcaption>Figure from page 40</figcaption><dialog id="fig-10"><img alt="Figure from page 40" src="nav-comms_manual_yaesu_vx-110-4ef1b58c/nav-comms_manual_yaesu_vx-110-4ef1b58c-page39-0.png"/><p>Figure from page 40</p><form method="dialog"><button>Close</button></form></dialog></figure>
+    </main>
+  </div>
+  <script>document.querySelectorAll('button.zoom').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var d = document.getElementById(b.getAttribute('data-dialog'));
+    if (d && d.showModal) d.showModal();
+  });
+});</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>dB. That isn&#x27;t all that bad.</title>
+  <meta name="title" content="dB. That isn&#x27;t all that bad.">
+<meta name="category" content="operating">
+<meta name="source" content="pdfs/public/basic/nav-comms_tutorial_how-much-power-do-i-need.pdf">
+<meta name="sha256" content="b3e74904b659">
+<meta name="pipeline" content="pymupdf4llm">
+<meta name="generated" content="2026-11-12T22:54:02.420416Z">
+  <style>
+    :root { color-scheme: light; }
+body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
+.layout { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
+.layout:has(nav.toc) { grid-template-columns: 16rem 1fr; }
+nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
+nav.toc .toc-title { color: #1a1a1a; font-weight: 600; margin: 0 0 0.5rem; }
+nav.toc ul { list-style: none; padding: 0; margin: 0; }
+nav.toc li { margin: 0.25rem 0; }
+nav.toc a { color: #0b57d0; text-decoration: none; }
+nav.toc a:hover { text-decoration: underline; }
+main { max-width: none; }
+h1 { font-size: 1.8rem; color: #1a1a1a; margin: 0 0 0.5rem; }
+h2, h3, h4, h5, h6 { color: #1a1a1a; margin-top: 1.8rem; font-size: 1.15rem; }
+a { color: #0b57d0; }
+.meta { font-size: 0.8rem; color: #555; }
+figure { margin: 1.5rem 0; background: #f6f6f6; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; }
+figure img { max-width: 100%; height: auto; background: #fff; cursor: zoom-in; }
+figcaption { font-size: 0.85rem; color: #555; margin-top: 0.5rem; }
+button.zoom { background: none; border: 0; padding: 0; display: block; width: 100%; cursor: zoom-in; }
+dialog { max-width: 90vw; max-height: 90vh; background: #fff; color: #1a1a1a; border: 1px solid #ccc; border-radius: 8px; padding: 1rem; }
+dialog img { max-width: 100%; max-height: 75vh; background: #fff; }
+dialog::backdrop { background: rgba(0,0,0,0.5); }
+ul { padding-left: 1.2rem; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #bbb; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f0f0f0; font-weight: 600; }
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  nav.toc { position: static; max-height: 16rem; }
+}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    
+    <main>
+      <p><a href="../../index.html">← Back to index</a></p>
+      <h1>dB. That isn&#x27;t all that bad.</h1>
+      <p class="meta">Category: operating · Source: pdfs/public/basic/nav-comms_tutorial_how-much-power-do-i-need.pdf · SHA: b3e74904b659</p>
+      <h2 id="how-do-i"><strong>How Do I…</strong></h2>
+<h2 id="an-occasional-series"><strong>An Occasional Series</strong></h2>
+<h2 id="this-week-how-much-power-do-i-really-need"><strong>This Week:  How Much Power Do I Really Need?</strong></h2>
+<p>The really amazing thing about QRP levels is that 1 watt (30 dBm) is only 20 dB below 100 watts, and only 30 dB below 1,000 watts. </p>
+<p>That means, while it's a shock to think you could possibly pick up a signal as seemingly small as 1 watt at all, it turns out that today, along with what we know about antennas, propagation and what has been achieved in receiver design and software - which is surely nothing short of a miracle, it ain't all that hard to do. </p>
+<p>We have $30 SDR receivers that can easily receive signals as low as -175 dBm (0.04 micro-volts) or less with a signal-to-noise ratio of greater than 10 dB, which is all that is required for SSB, not to mention FT8. </p>
+<p>So the question is... How much power do I really need to transmit a decipherable signal 1000 kilometers (620 miles)? </p>
+<p>It turns out, the free-air path loss of a 7.175 MHz signal at 1000 kilometers is [only] 110 dB.  That isn't all that bad. </p>
+<p>And that means if I can put out a 1 Watt (30 dBm) signal into a plain-ole dipole at one end, and have a cheapie $30 SDR receiver with a plain-old dipole at the other, I can, <em><strong>in theory</strong></em> , with a modest noise floor of about -140 dBm, get a communication link that works pretty well, with a fade margin of 30 dB.  Holy cow! </p>
+<p>Note the dipole antennas have a 2.15 dB gain each over the isotropic zero gain antenna, but the losses of the coax and connectors would likely be close to that.  So we can zero that out of the calculations. </p>
+<p>In other words...it works!  Or at least, it <em>can work, in a line-of-sight path, and assuming atmospheric conditions are favorable enough.</em> </p>
+<p>Obviously, in real life, propagation conditions control the whole thing.  The curvature of the earth, trees, humidity, dust, clouds, your LED light bulbs, your neighbor's solar inverters, sunspots or lack thereof, and whatever mother nature throws at us become the factors. </p>
+<p>But it does work and we do experience it.</p><p>Even more exciting, is the crazy idea of communicating at ten times that distance with the same setup. </p>
+<p>The free-air path loss for this signal at 10,000 kilometers, or 6,200 miles, would be 130 dB, which eats up 20 dB of this model, giving us a fade margin of only 10 dB.  And at that level, given any propagation "issues", the odds are slim or rare for SSB, but doable on FT8 or CW. </p>
+<p>However we can compensate with beam antennas high in the air, with 8 to 15 dB gain on each end.  You can do the math.  That really makes it doable under nearly all conditions.  Amazing. </p>
+<p>And 100 milliwatts is next. </p>
+<p>So now we see how a 22.4 watt (43.5 dBm) transmitter aboard the 41 year-old Voyager 2, a deep space probe, now located 12.57 billion miles (20.23 billion kilometers) away, can still be sending images and data all the way back to Earth. </p>
+<p><strong>==&gt; picture [472 x 285] intentionally omitted &lt;==</strong></p>
+<p>Although I must admit, the received signal is a bit lower than what we've discussed here. </p>
+<p>Heck, the signal was at -245 dBm when Voyager 2 was at Jupiter in our solar system. </p>
+<p>Now, at nearly 13 billion miles away, its signals are received at thousandths of a femtowatt, which is so low I can't find a calculator that can tell me how many dBm that equals.  It's less than 0.0000000000000001 of a milliwatt, or 20 orders of magnitude less than 22.4 watts.  You get the point.  It's really, really, low.</p><p>Now if you wish to see how NASA can receive that 160 bit-per-second (effective data rate) digital signal from 13 billion miles, go research NASA's Deep Space Network.  But look out... it's a real Rabbit Hole of an adventure. </p>
+<p>They use 70, 34 and 26 meter dish antennas in four locations distributed across the globe, and they cool the preamplifiers to within a few degrees of absolute zero (-273.15 degrees Celsius) in order to eliminate shot noise and thermal noise.  (I have no idea how they do that.) </p>
+<p>It's really <em><strong>cool</strong></em> stuff. </p>
+<p>And that's what makes Amateur Radio so compelling to me. </p>
+<h2 id="resources-used-include"><strong>Resources used include:</strong></h2>
+<p>https://www.everythingrf.com/rf-calculators/free-space-path-loss-calculator </p>
+<p>https://www.rapidtables.com/convert/power/Watt_to_dBm.html </p>
+<p>Wikipedia </p>
+<p>NASA </p>
+<p>https://www.emc-directory.com/calculators/dbm-to-vrms-calculator </p>
+<p>https://www.convertunits.com/from/500+km/to/miles </p>
+<p>https://search.brave.com/search?q=how+far+away+is+voyager+2&amp;source=desktop&amp;su mmary=1&amp;summary_og=8a21c2b39f5d2f29915386 </p>
+<p>Brave Browser Search </p>
+<p>David B. Donaldson</p>
+    </main>
+  </div>
+  <script>document.querySelectorAll('button.zoom').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var d = document.getElementById(b.getAttribute('data-dialog'));
+    if (d && d.showModal) d.showModal();
+  });
+});</script>
+</body>
+</html>
