@@ -185,6 +185,9 @@ def make_scan_html(record: Dict[str, Any], extracted: Dict[str, Any], figures: l
 </body>
 </html>
 '''
+
+
+def make_poster_html(record: Dict[str, Any], extracted: Dict[str, Any], page_image: dict) -> str:
     """A one-page chart or poster. The page image is the article.
 
     Extracted text is placed under the image so search and the RAG can
