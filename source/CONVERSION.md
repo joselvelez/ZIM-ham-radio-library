@@ -160,27 +160,38 @@ python3 source/pipeline/run.py <path> [--category NAME] [--pages N] [--html-root
 `<path>` is a single PDF or a drop-zone directory. A directory processes every PDF in it (flat; no category subfolders).
 
 ```bash
-# every PDF already in basic/, using each file's stored category
+# every PDF in basic/; category comes from the filename prefix
 python3 source/pipeline/run.py source/pdfs/public/basic/
 
-# first time you see a file: set its category once (triage)
-python3 source/pipeline/run.py source/pdfs/public/basic/some-manual.pdf --category manuals
-
-# move an existing file; old files are removed automatically, empty dir is removed
+# override one file
 python3 source/pipeline/run.py source/pdfs/public/basic/some-manual.pdf --category operating
-
-# prototype limit: only the first 5 pages
-python3 source/pipeline/run.py source/pdfs/public/basic/ --pages 5
 ```
 
 ### Flags
 
 - **positional `<path>`** — a PDF file, or a drop zone (`source/pdfs/public/basic/`, `.../extensive/`, or `source/pdfs/paid/`). Drop PDFs flat in one of those three. Do not create category subdirectories.
-- **`--category NAME`** — sets or changes the topic and stores it in the manifest. Use it the first time you see a file, or again to move a file. On a move, the pipeline removes that document's files from the old category and deletes the old directory only if it is empty. Valid names: `manuals`, `band-plans`, `operating`, `antennas`, `digital`, `reference`, `emergency`. There is no default. A new file with no category stops and asks you to re-run with this flag.
+- **`--category NAME`** — optional override. Sets or changes the topic and stores it in the manifest. On a change, the pipeline removes that document's files from the old category and deletes the old directory only if it is empty. Valid names: `manuals`, `band-plans`, `operating`, `antennas`, `digital`, `reference`, `emergency`.
+
+Category comes from the filename prefix when `--category` is omitted. The map lives in `source/pipeline/categories.py`:
+
+| Prefix | Category |
+|--------|----------|
+| `manual` | `manuals` |
+| `tutorial` | `operating` |
+| `reference` | `reference` |
+| `book` | `reference` |
+| `article` | `reference` |
+
+`nav-comms_manual_yaesu_ft-857.pdf` is `manuals`. A file that does not match `nav-comms_<prefix>_…`, or whose prefix is not in the map, stops. Pass `--category` to override. The manifest still wins for a file that already has a category, unless `--category` is passed.
 - **`--pages N`** — max pages to extract per PDF. Default is 5 (prototype). Omit only when you want the full document.
 - **`--html-root DIR`** — where finished HTML is written. Default is `html/`.
 
-Category is not a folder and not a flag you pass every time. It lives in the manifest. `--category` is how you set it the first time.
+A directory run skips a file that already has an article. Drop new PDFs in and run the same command; only the new ones are processed. To rerun one file, pass that file and `--force`. `--force` on a directory reprocesses every file. A `--category` change still reprocesses that file so the article moves.
+
+```bash
+# rerun one file
+python3 source/pipeline/run.py source/pdfs/public/basic/nav-comms_manual_yaesu_ft-857.pdf --force
+```
 
 
 ## Document title

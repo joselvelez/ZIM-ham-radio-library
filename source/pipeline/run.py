@@ -25,6 +25,7 @@ from source.pipeline.quality import score_document, enqueue_if_low
 from source.pipeline.index import rebuild_index
 from source.pipeline.sources import write_sources_page
 from source.pipeline.title import document_title, variant_qualifier, disambiguate
+from source.pipeline.categories import category_from_filename
 import pymupdf as fitz
 
 
@@ -150,9 +151,10 @@ def main():
         sys.exit(1)
 
     for pdf in pdfs:
-        # Category comes from the manifest if already set.
-        # --category is only the triage assignment for files that lack one.
-        process_one(pdf, args.category, args.html_root, args.pages)
+        # --category is an explicit override. Otherwise the filename prefix is the triage.
+        # The manifest still wins for a file that already has a category.
+        category = args.category or category_from_filename(pdf)
+        process_one(pdf, category, args.html_root, args.pages)
 
     rebuild_index(args.html_root)
     src = write_sources_page(args.html_root, Path("source/manifest.json"))

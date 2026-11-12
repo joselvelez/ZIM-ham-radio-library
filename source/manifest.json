@@ -68,6 +68,42 @@
       "title": "US Amateur Radio Bands (grayscale, 11x8)",
       "status": "ingested",
       "canonical": true
+    },
+    "nav-comms_article_radars-dc7704b0": {
+      "id": "nav-comms_article_radars-dc7704b0",
+      "path": "pdfs/public/basic/nav-comms_article_radars.pdf",
+      "sha256": "dc7704b06ea891f38b00d6219204c7aecf318cdc5ce9d61ae3915a535ce2b1eb",
+      "fingerprint": "sz1070857-h494f19404ac2dfbf",
+      "size": 1070857,
+      "category": "reference",
+      "location": "basic",
+      "title": "Snooping on Radars: A History of Soviet/Russian Global Signals Intelligence Satellites",
+      "status": "ingested",
+      "canonical": true
+    },
+    "nav-comms_article_rand_pe273-7c22de90": {
+      "id": "nav-comms_article_rand_pe273-7c22de90",
+      "path": "pdfs/public/basic/nav-comms_article_rand_pe273.pdf",
+      "sha256": "7c22de9086d117e689e350f0b5c67c94e2b72be8123575d2ae73f0ed043b6e6d",
+      "fingerprint": "sz140065-h4d500a361520c077",
+      "size": 140065,
+      "category": "reference",
+      "location": "basic",
+      "title": "Perspective",
+      "status": "ingested",
+      "canonical": true
+    },
+    "nav-comms_book_1996-fiedler-near-vertical-incidence-skywave-communication-73e30aa6": {
+      "id": "nav-comms_book_1996-fiedler-near-vertical-incidence-skywave-communication-73e30aa6",
+      "path": "pdfs/public/basic/nav-comms_book_1996-fiedler-near-vertical-incidence-skywave-communication.pdf",
+      "sha256": "73e30aa6a721165e7d1313602470565789d0be0d11812aa4a5514621c02f7c99",
+      "fingerprint": "sz33830243-had1ab6aae064b648",
+      "size": 33830243,
+      "category": "reference",
+      "location": "basic",
+      "title": "nav-comms_book_1996-fiedler-near-vertical-incidence-skywave-communication",
+      "status": "ingested",
+      "canonical": true
     }
   },
   "version": 1
