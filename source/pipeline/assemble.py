@@ -81,6 +81,7 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
     body = str(soup.find(id="body").decode_contents())
 
     meta = (
+        f'<meta name="title" content="{html.escape(title)}">\n'
         f'<meta name="category" content="{html.escape(category)}">\n'
         f'<meta name="source" content="{html.escape(source_pdf)}">\n'
         f'<meta name="sha256" content="{sha}">\n'
@@ -154,6 +155,7 @@ def make_scan_html(record: Dict[str, Any], extracted: Dict[str, Any], figures: l
     wrap_figures(soup)
 
     meta = (
+        f'<meta name="title" content="{html.escape(title)}">\n'
         f'<meta name="category" content="{html.escape(category)}">\n'
         f'<meta name="source" content="{html.escape(source_pdf)}">\n'
         f'<meta name="sha256" content="{sha}">\n'
@@ -213,6 +215,7 @@ def make_poster_html(record: Dict[str, Any], extracted: Dict[str, Any], page_ima
     figure = str(soup.find("figure"))
 
     meta = (
+        f'<meta name="title" content="{html.escape(title)}">\n'
         f'<meta name="category" content="{html.escape(category)}">\n'
         f'<meta name="source" content="{html.escape(source_pdf)}">\n'
         f'<meta name="sha256" content="{sha}">\n'

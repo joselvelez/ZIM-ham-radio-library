@@ -186,7 +186,11 @@ Category comes from the filename prefix when `--category` is omitted. The map li
 - **`--pages N`** — max pages to extract per PDF. Default is 5 (prototype). Omit only when you want the full document.
 - **`--html-root DIR`** — where finished HTML is written. Default is `html/`.
 
-A directory run skips a file that already has an article. Drop new PDFs in and run the same command; only the new ones are processed. To rerun one file, pass that file and `--force`. `--force` on a directory reprocesses every file. A `--category` change still reprocesses that file so the article moves.
+A directory run skips a file that already has an article. Drop new PDFs in and run the same command; only the new ones are processed. To set a specific title, pass `--title`. It is stored on the manifest with `title_source: manual` and is not overwritten by later runs. The article `<title>`, `<h1>`, `<meta name="title">`, the index, and the sources page all use it.
+
+```bash
+python3 source/pipeline/run.py source/pdfs/public/basic/nav-comms_manual_atas-120.pdf --title "Yaesu ATAS-120 Active Tuning Antenna System"
+```
 
 ```bash
 # rerun one file

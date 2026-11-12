@@ -35,7 +35,7 @@ def ai_vectorize_stub(rendered_path: Path) -> str | None:
     return None
 
 
-def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None, force: bool = False) -> None:
+def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None, force: bool = False, title_override: str | None = None) -> None:
     print(f"\n=== Processing {pdf.name} ===")
     record = ingest_pdf(pdf, category=category)
     if not record.get("category"):
@@ -43,30 +43,45 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
 
     article = html_root / "articles" / record["category"] / f"{record['id']}.html"
     category_changed = bool(record.get("_previous_category"))
-    if article.exists() and not force and not category_changed:
+    if article.exists() and not force and not category_changed and not title_override:
         print(f"Already done: {article}")
         return
 
-    title = document_title(pdf)
-    qualifier = variant_qualifier(pdf)
     manifest = load_manifest()
     docs = manifest.setdefault("documents", {})
-    base = title
-    others = [
-        (did, rec) for did, rec in docs.items()
-        if did != record["id"] and (rec.get("title") or "").split(" (")[0] == base
-    ]
-    if others:
-        title = disambiguate(base, qualifier)
-        for did, rec in others:
-            other_path = Path(rec.get("path", ""))
-            other_q = variant_qualifier(other_path) if other_path.name else ""
-            if other_q:
-                rec["title"] = disambiguate(base, other_q)
-    if record.get("title") != title:
+    stored = docs.get(record["id"], record)
+
+    if title_override:
+        title = title_override.strip()
+        if not title:
+            raise SystemExit("--title cannot be empty")
         record["title"] = title
-        if record["id"] in docs:
-            docs[record["id"]]["title"] = title
+        record["title_source"] = "manual"
+    elif stored.get("title_source") == "manual" and stored.get("title"):
+        title = stored["title"]
+        record["title"] = title
+        record["title_source"] = "manual"
+    else:
+        title = document_title(pdf)
+        qualifier = variant_qualifier(pdf)
+        base = title
+        others = [
+            (did, rec) for did, rec in docs.items()
+            if did != record["id"] and (rec.get("title") or "").split(" (")[0] == base
+        ]
+        if others:
+            title = disambiguate(base, qualifier)
+            for did, rec in others:
+                other_path = Path(rec.get("path", ""))
+                other_q = variant_qualifier(other_path) if other_path.name else ""
+                if other_q:
+                    rec["title"] = disambiguate(base, other_q)
+        record["title"] = title
+        record["title_source"] = "resolved"
+
+    if record["id"] in docs:
+        docs[record["id"]]["title"] = record["title"]
+        docs[record["id"]]["title_source"] = record.get("title_source", "resolved")
         save_manifest(manifest)
     print(f"Title: {title}")
 
@@ -152,6 +167,11 @@ def main():
         action="store_true",
         help="Reprocess a file that already has an article. On a directory, reprocess every file.",
     )
+    ap.add_argument(
+        "--title",
+        default=None,
+        help="Set the document title. Stored on the manifest and used for the article, index, and sources page. Not overwritten by later runs.",
+    )
     args = ap.parse_args()
 
     if args.pages is not None and not args.debug:
@@ -176,7 +196,7 @@ def main():
         # --category is an explicit override. Otherwise the filename prefix is the triage.
         # The manifest still wins for a file that already has a category.
         category = args.category or category_from_filename(pdf)
-        process_one(pdf, category, args.html_root, args.pages, force=args.force)
+        process_one(pdf, category, args.html_root, args.pages, force=args.force, title_override=args.title)
 
     rebuild_index(args.html_root)
     src = write_sources_page(args.html_root, Path("source/manifest.json"))
