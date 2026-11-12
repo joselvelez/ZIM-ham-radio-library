@@ -24,7 +24,78 @@ PAGE_MARGINS = (0, 50, 0, 50)
 FIGURE_DPI = 200
 
 
-# A single page is a chart or poster, not a reflowable manual.
+def is_scan(pdf_path: Path) -> bool:
+    """True when the early pages have no text layer. A scan, not a reflowable PDF."""
+    doc = fitz.open(pdf_path)
+    try:
+        for i in range(min(6, doc.page_count)):
+            if doc[i].get_text().strip():
+                return False
+        return True
+    finally:
+        doc.close()
+
+
+def _require_tessdata() -> None:
+    """Fail Fast with the install command if Tesseract language data is missing."""
+    import shutil
+    if shutil.which("tesseract") is None:
+        raise SystemExit(
+            "This is a scan. OCR needs Tesseract.\n"
+            "  macOS: brew install tesseract\n"
+            "Then re-run this file with --force."
+        )
+    try:
+        page = fitz.open()  # not used; probe via a known tessdata path
+    except Exception:
+        pass
+    candidates = [
+        Path("/opt/homebrew/share/tessdata/eng.traineddata"),
+        Path("/usr/local/share/tessdata/eng.traineddata"),
+        Path("/usr/share/tesseract-ocr/5/tessdata/eng.traineddata"),
+        Path("/usr/share/tesseract-ocr/4.00/tessdata/eng.traineddata"),
+    ]
+    if not any(p.exists() for p in candidates):
+        raise SystemExit(
+            "This is a scan. Tesseract is installed but the English language data is missing.\n"
+            "  macOS: brew install tesseract\n"
+            "Then re-run this file with --force."
+        )
+
+
+def extract_scan(pdf_path: Path, out_dir: Path, stem: str, max_pages: int | None = None) -> Dict[str, Any]:
+    """A scanned document. Each page is an image. OCR text is the searchable body.
+
+    Fail Fast if Tesseract language data is not installed.
+    """
+    _require_tessdata()
+    doc = fitz.open(pdf_path)
+    total = doc.page_count
+    limit = total if max_pages is None else min(max_pages, total)
+    chunks = []
+    figures = []
+    print(f"Scan: rendering and OCR of {limit} pages...")
+    for i in range(limit):
+        if i == 0 or (i + 1) % 10 == 0 or i + 1 == limit:
+            print(f"  page {i + 1}/{limit}")
+        page = doc[i]
+        image = render_page_png(page, out_dir, f"{stem}-page{i}")
+        figures.append(image)
+        try:
+            text = page.get_textpage_ocr(language="eng").extractText().strip()
+        except Exception as exc:
+            doc.close()
+            raise SystemExit(f"OCR failed on page {i + 1} of {pdf_path.name}: {exc}")
+        chunks.append({"text": text, "metadata": {"page": i + 1}})
+    doc.close()
+    return {
+        "path": str(pdf_path),
+        "page_count": total,
+        "pages_extracted": len(chunks),
+        "chunks": chunks,
+        "figures": figures,
+        "scan": True,
+    }
 def is_poster(page_count: int) -> bool:
     """True when the document is one page. Reflow would destroy it."""
     return page_count == 1

@@ -209,7 +209,16 @@ The resolved title is stored on the manifest record and used for the article `<h
 
 When two documents resolve to the same title, the filename's variant is appended so they stay distinguishable: `US Amateur Radio Bands (bw, 11x8)` and `US Amateur Radio Bands (color, 11x8)`. The other document is updated at the same time. Fail Fast if the titles collide and the filename has no variant.
 
-## Charts and posters
+## Scans
+
+A PDF whose early pages have no text layer is a scan. It is not reflowed.
+
+- Each page is rendered at high DPI and is the page content.
+- Each page is OCR'd. The OCR text is the searchable body for the RAG.
+- Fail Fast if Tesseract or its English language data is missing, with the install command. On macOS: `brew install tesseract`.
+- Re-run the file with `--force` after installing.
+
+A text PDF is unchanged.
 
 A one-page PDF is a chart or poster, not a reflowable manual. Reflowing it into paragraphs destroys the chart.
 

@@ -18,7 +18,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from source.pipeline.ingest import ingest_pdf, load_manifest, save_manifest
-from source.pipeline.extract import extract_pdf, extract_diagram_pngs, is_poster, render_page_png
+from source.pipeline.extract import extract_pdf, extract_diagram_pngs, is_poster, is_scan, extract_scan, render_page_png
 from source.pipeline.figures import figure_regions
 from source.pipeline.assemble import write_article, retire_other_copies
 from source.pipeline.quality import score_document, enqueue_if_low
@@ -69,6 +69,17 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
             docs[record["id"]]["title"] = title
         save_manifest(manifest)
     print(f"Title: {title}")
+
+    notes = Path("source/notes")
+    notes.mkdir(parents=True, exist_ok=True)
+
+    if is_scan(pdf):
+        extracted = extract_scan(pdf, notes, record["id"], max_pages=max_pages)
+        print(f"Pages: {extracted['page_count']}, extracted: {extracted['pages_extracted']}")
+        retire_other_copies(record, html_root)
+        article = write_article(record, extracted, html_root, figures=extracted["figures"])
+        print(f"Article: {article}")
+        return
 
     if max_pages is None:
         print("Extracting (full document)...")
