@@ -114,7 +114,77 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
 '''
 
 
-def make_poster_html(record: Dict[str, Any], extracted: Dict[str, Any], page_image: dict) -> str:
+def make_scan_html(record: Dict[str, Any], extracted: Dict[str, Any], figures: list) -> str:
+    """A scanned document. Each page image is the content.
+
+    Full width, no sidebar. OCR text sits in a closed block under each
+    page so search and the RAG can index it without a wall of noise.
+    """
+    title = record.get("title")
+    if not title:
+        raise ValueError("record has no title; title resolution must run before assembly")
+    category = record["category"]
+    source_pdf = record.get("path", "unknown")
+    sha = record.get("sha256", "")[:12]
+    slug = record["id"]
+    chunks = extracted.get("chunks") or []
+
+    soup = BeautifulSoup('<div id="body"></div>', "html.parser")
+    body = soup.find(id="body")
+    for i, fig in enumerate(figures):
+        rel = f"{slug}/{Path(fig['path']).name}"
+        page_no = fig.get("page", i) + 1
+        figure = soup.new_tag("figure", attrs={"class": "scan-page"})
+        img = soup.new_tag("img", src=rel, alt=f"Page {page_no}")
+        figure.append(img)
+        cap = soup.new_tag("figcaption")
+        cap.string = f"Page {page_no}"
+        figure.append(cap)
+        body.append(figure)
+        text = chunks[i].get("text", "").strip() if i < len(chunks) else ""
+        if text:
+            details = soup.new_tag("details", attrs={"class": "scan-text"})
+            summary = soup.new_tag("summary")
+            summary.string = f"Page {page_no} text"
+            details.append(summary)
+            pre = soup.new_tag("pre")
+            pre.string = text
+            details.append(pre)
+            body.append(details)
+    wrap_figures(soup)
+
+    meta = (
+        f'<meta name="category" content="{html.escape(category)}">\n'
+        f'<meta name="source" content="{html.escape(source_pdf)}">\n'
+        f'<meta name="sha256" content="{sha}">\n'
+        f'<meta name="pipeline" content="scan-ocr">\n'
+        f'<meta name="generated" content="{datetime.utcnow().isoformat()}Z">'
+    )
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{html.escape(title)}</title>
+  {meta}
+  <style>
+    {STYLE_CSS}
+    .scan-page {{ max-width: 90rem; margin: 0 auto; padding: 1.5rem; }}
+    .scan-page img {{ width: 100%; height: auto; }}
+    .scan-text {{ max-width: 90rem; margin: 0 auto 2rem; padding: 0 1.5rem; }}
+    .scan-text pre {{ white-space: pre-wrap; font-size: 0.85rem; }}
+  </style>
+</head>
+<body>
+  <div class="scan-page">
+    <p><a href="../../index.html">← Back to index</a></p>
+    <h1>{html.escape(title)}</h1>
+    <p class="meta">Category: {html.escape(category)} · Source: {html.escape(source_pdf)} · SHA: {sha}</p>
+    {str(body.decode_contents())}
+  </div>
+  <script>{LIGHTBOX_JS}</script>
+</body>
+</html>
+'''
     """A one-page chart or poster. The page image is the article.
 
     Extracted text is placed under the image so search and the RAG can
@@ -218,6 +288,12 @@ def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: 
         out.write_text(make_poster_html(record, extracted, page_image))
         dest = asset_dir / Path(page_image["path"]).name
         shutil.copy(page_image["path"], dest)
+        return out
+    if extracted.get("scan"):
+        figs = [f for f in (figures or []) if Path(f["path"]).exists()]
+        out.write_text(make_scan_html(record, extracted, figs))
+        for fig in figs:
+            shutil.copy(fig["path"], asset_dir / Path(fig["path"]).name)
         return out
     figs = [f for f in (figures or []) if Path(f["path"]).exists()]
     out.write_text(make_article_html(record, extracted, figs))
