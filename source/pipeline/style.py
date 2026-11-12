@@ -31,14 +31,16 @@ def slugify(text: str) -> str:
 def add_heading_ids(soup: BeautifulSoup) -> Dict[str, str]:
     """Assign a unique id to every heading. Returns title -> id.
 
-    Fail Fast if a heading has no text.
+    A heading with no text is not a heading. OCR noise produces these.
+    It is removed. A heading that has text always gets an id.
     """
     seen: Dict[str, int] = {}
     index: Dict[str, str] = {}
     for tag in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6"]):
         text = tag.get_text(" ", strip=True)
         if not text:
-            raise ValueError("heading has no text")
+            tag.decompose()
+            continue
         base = slugify(text)
         n = seen.get(base, 0)
         seen[base] = n + 1
