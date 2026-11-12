@@ -25,7 +25,7 @@ Extensive and paid sources are local-only inputs; the rest of the pipeline does 
 
 See `pipeline/` and `CONVERSION.md`.
 
-Category comes from the filename prefix (`manual` → `manuals`, `tutorial` → `operating`, `reference`/`book`/`article` → `reference`). A directory run skips a file that already has an article. `--force` reruns one file or the whole directory.
+Category comes from the filename prefix (`manual` → `manuals`, `tutorial` → `operating`, `reference`/`book`/`article` → `reference`). A directory run skips a file that already has an article. `--force` reruns one file or the whole directory. `--title` sets a specific title; it is stored on the manifest and not overwritten by later runs.
 
 ## Setup (required after clone)
 
@@ -43,6 +43,9 @@ python3 source/pipeline/run.py source/pdfs/public/basic/
 
 # rerun one file
 python3 source/pipeline/run.py source/pdfs/public/basic/some-manual.pdf --force
+
+# set a specific title (sticks; not overwritten later)
+python3 source/pipeline/run.py source/pdfs/public/basic/nav-comms_manual_atas-120.pdf --title "Yaesu ATAS-120 Active Tuning Antenna System"
 ```
 
 Debug-only page limit (requires `--debug`):

@@ -154,7 +154,7 @@ Single source of truth in `source/pipeline/figures.py`:
 ## Running the pipeline
 
 ```bash
-python3 source/pipeline/run.py <path> [--category NAME] [--pages N] [--html-root DIR]
+python3 source/pipeline/run.py <path> [--category NAME] [--title TEXT] [--force] [--pages N] [--html-root DIR]
 ```
 
 `<path>` is a single PDF or a drop-zone directory. A directory processes every PDF in it (flat; no category subfolders).
@@ -209,7 +209,9 @@ The title is the largest specific line that identifies the document, not the fir
 - Fail Fast if a text PDF has no specific line on the first six pages.
 - A scan with no text layer is OCR'd. If Tesseract data is not installed, the title is a cleaned form of the filename.
 
-The resolved title is stored on the manifest record and used for the article `<h1>`, the `<title>`, and the index. The index therefore shows `FT-857 Operating Manual`, not `OPERATING MANUAL`.
+The resolved title is stored on the manifest record and used for the article `<title>`, `<h1>`, `<meta name="title">`, the index, and the sources page. The index therefore shows `FT-857 Operating Manual`, not `OPERATING MANUAL`.
+
+`--title` sets a specific title. It is stored with `title_source: manual` and is not overwritten by later runs. Passing `--title` also rewrites the article so every place the title appears is updated.
 
 When two documents resolve to the same title, the filename's variant is appended so they stay distinguishable: `US Amateur Radio Bands (bw, 11x8)` and `US Amateur Radio Bands (color, 11x8)`. The other document is updated at the same time. Fail Fast if the titles collide and the filename has no variant.
 

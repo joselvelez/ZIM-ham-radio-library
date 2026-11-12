@@ -111,6 +111,9 @@ python3.13 -m venv .venv
 ./source/setup.sh
 source .venv/bin/activate
 python3 source/pipeline/run.py source/pdfs/public/basic/
+
+# set a specific title on one file
+python3 source/pipeline/run.py source/pdfs/public/basic/nav-comms_manual_atas-120.pdf --title "Yaesu ATAS-120 Active Tuning Antenna System"
 ```
 
 See `source/README.md` and `source/CONVERSION.md` for details.
