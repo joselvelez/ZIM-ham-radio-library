@@ -35,11 +35,17 @@ def ai_vectorize_stub(rendered_path: Path) -> str | None:
     return None
 
 
-def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None) -> None:
+def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None, force: bool = False) -> None:
     print(f"\n=== Processing {pdf.name} ===")
     record = ingest_pdf(pdf, category=category)
     if not record.get("category"):
         raise SystemExit(f"No category for {pdf.name}. Re-run with --category to triage it.")
+
+    article = html_root / "articles" / record["category"] / f"{record['id']}.html"
+    category_changed = bool(record.get("_previous_category"))
+    if article.exists() and not force and not category_changed:
+        print(f"Already done: {article}")
+        return
 
     title = document_title(pdf)
     qualifier = variant_qualifier(pdf)
@@ -130,6 +136,11 @@ def main():
         action="store_true",
         help="Allow --pages. Without this flag, --pages is rejected (Fail Fast).",
     )
+    ap.add_argument(
+        "--force",
+        action="store_true",
+        help="Reprocess a file that already has an article. On a directory, reprocess every file.",
+    )
     args = ap.parse_args()
 
     if args.pages is not None and not args.debug:
@@ -154,7 +165,7 @@ def main():
         # --category is an explicit override. Otherwise the filename prefix is the triage.
         # The manifest still wins for a file that already has a category.
         category = args.category or category_from_filename(pdf)
-        process_one(pdf, category, args.html_root, args.pages)
+        process_one(pdf, category, args.html_root, args.pages, force=args.force)
 
     rebuild_index(args.html_root)
     src = write_sources_page(args.html_root, Path("source/manifest.json"))

@@ -202,7 +202,8 @@ The title is the largest specific line that identifies the document, not the fir
 - The first heading is often a generic cover word (`OPERATING MANUAL`) that is the same on every manual of a series.
 - A line that appears on more than one early page is a running title. That is preferred, because it identifies the document rather than a section.
 - Generic cover words (`OPERATING MANUAL`, `INTRODUCTION`, `CONTENTS`, `SPECIFICATIONS`) are skipped.
-- Fail Fast if no specific line is found on the first six pages.
+- Fail Fast if a text PDF has no specific line on the first six pages.
+- A scan with no text layer is OCR'd. If Tesseract data is not installed, the title is a cleaned form of the filename.
 
 The resolved title is stored on the manifest record and used for the article `<h1>`, the `<title>`, and the index. The index therefore shows `FT-857 Operating Manual`, not `OPERATING MANUAL`.
 

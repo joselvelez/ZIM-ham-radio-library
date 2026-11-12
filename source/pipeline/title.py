@@ -83,16 +83,63 @@ def disambiguate(base: str, qualifier: str) -> str:
     return f"{base} ({qualifier})"
 
 
+def _has_text(doc: fitz.Document) -> bool:
+    """True if any of the early pages has a text layer."""
+    for i in range(min(TITLE_PAGES, doc.page_count)):
+        if doc[i].get_text().strip():
+            return True
+    return False
+
+
+def _ocr_lines(page: fitz.Page) -> list[str]:
+    """OCR one page. Empty if Tesseract data is not installed."""
+    try:
+        text = page.get_textpage_ocr(language="eng").extractText()
+    except Exception:
+        return []
+    return [ln.strip() for ln in text.splitlines() if ln.strip()]
+
+
+def _filename_title(pdf_path: Path) -> str:
+    """A readable title from the filename when the scan cannot be read."""
+    stem = pdf_path.stem
+    parts = stem.split("_")
+    # Drop the nav-comms_<prefix> triage prefix.
+    rest = parts[2:] if len(parts) >= 3 and parts[0] == "nav-comms" else parts
+    words = " ".join(rest).replace("-", " ").replace("_", " ")
+    return " ".join(w.capitalize() for w in words.split())
+
+
+def _title_from_ocr(doc: fitz.Document, pdf_path: Path) -> str:
+    """Title from the cover of a scan. Filename if OCR is unavailable."""
+    lines: list[str] = []
+    for i in range(min(TITLE_PAGES, doc.page_count)):
+        lines.extend(_ocr_lines(doc[i]))
+        if lines:
+            break
+    specific = [" ".join(ln.split()) for ln in lines if _specific(ln)]
+    # A cover OCR line is a title only when it is a real phrase.
+    # Short OCR noise ("Skywave aed") is rejected.
+    usable = [ln for ln in specific if len(ln) >= 20 and len(ln.split()) >= 3]
+    if usable:
+        return max(usable, key=len)
+    print(f"  OCR found no usable title for {pdf_path.name}; using the filename")
+    return _filename_title(pdf_path)
+
+
 def document_title(pdf_path: Path) -> str:
-    """Largest specific line that identifies the document. Fail Fast if none.
+    """Largest specific line that identifies the document.
 
     A line that appears on more than one early page is a running title.
-    That is preferred over a single large section heading, which is
-    specific to a section and not to the document.
-    If nothing repeats, the largest specific line is used.
+    That is preferred over a single large section heading.
+    A scan with no text layer is OCR'd. If OCR is unavailable, the
+    filename is the title. A text PDF with only generic cover words
+    still stops.
     """
     doc = fitz.open(pdf_path)
     try:
+        if not _has_text(doc):
+            return _title_from_ocr(doc, pdf_path)
         counts: dict[str, int] = {}
         sizes: dict[str, float] = {}
         for i in range(min(TITLE_PAGES, doc.page_count)):
