@@ -110,7 +110,7 @@ The PDF → HTML pipeline under `source/` needs **Python 3.10–3.13** (the layo
 python3.13 -m venv .venv
 ./source/setup.sh
 source .venv/bin/activate
-python3 source/pipeline/run.py source/pdfs/public/basic/ --category band-plans
+python3 source/pipeline/run.py source/pdfs/public/basic/
 ```
 
 See `source/README.md` and `source/CONVERSION.md` for details.

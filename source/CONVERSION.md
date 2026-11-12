@@ -1,4 +1,4 @@
-# PDF → HTML + SVG conversion
+# PDF → HTML conversion
 
 Document the pipeline here. All major design decisions below are locked.
 
@@ -45,8 +45,8 @@ Filenames stable and descriptive. Index (and future category pages) provide navi
 html/articles/manuals/
   {slug}.html
   {slug}/
-    {slug}-page0-0.svg
-    {slug}-page12-1.svg
+    {slug}-page0-0.png
+    {slug}-page12-1.png
 ```
 
 The HTML references them as `{slug}/filename.png`. This keeps the category folder flat (one HTML per source) and scales to thousands of documents × dozens of figures. A document id has exactly one article. On a category change the old article and its asset directory are deleted; the new ones are written in the new category. An empty old category directory is removed.
@@ -270,14 +270,19 @@ Install via `./source/setup.sh` (it is in `source/requirements.txt`).
 Run with `./source/graphify.sh` or `graphify extract source/pipeline`.  
 Output: `source/pipeline/graphify-out/graph.json`.
 
-## Prototype status (updated)
+## Current status
 
-- `layout.py` — column-aware reading order (single source of truth).
-- `svg_optimize.py` — conservative SVG cleanup (SVGO safe subset).
-- `extract.py` — full-document extraction by default; uses `column_order`; optimizes SVGs; returns figure metadata (path, page, bbox, labels).
-- `assemble.py` — per-page ordered sequence of text and figures; semantic captions.
-- `run.py` — `--pages` is debug-only and requires `--debug`.
-- `structure.py` — font-size headings (h2/h3), page-chrome removal, dehyphenation, button-cluster caption filter. Fail Fast if body font cannot be determined.
+What the pipeline does today:
+
+- Body text, headings, reading order, and tables come from `pymupdf4llm` with the `pymupdf-layout` engine. We do not hand-roll layout.
+- Figures are high-DPI PNG of each diagram region. Clipped SVG is incomplete; a pixmap is the usable output. SVG remains the long-term preference; it is not the current output.
+- Category comes from the filename prefix. `--category` overrides. The manifest is the source of truth.
+- A directory run skips a file that already has an article. `--force` reruns it.
+- A one-page PDF is a poster: the page image is the article.
+- A PDF with no text layer is a scan: each page is an image, OCR text is closed under it for search.
+- Title is the largest specific line on the early pages. A scan is OCR'd, then falls back to a cleaned filename.
+- The sidebar column is reserved only when a TOC exists. No TOC means one full-width column.
+- A document id has exactly one article. A category change deletes the old copy.
 
 ## Body extraction (2026-11-08)
 

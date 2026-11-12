@@ -21,10 +21,11 @@ Original PDFs and conversion work live here.
 GitHub rejects files > 100 MB. The 95 MB cutoff stays just under that hard limit so basic content can be committed with ordinary git.  
 Extensive and paid sources are local-only inputs; the rest of the pipeline does not distinguish them.
 
-## Prototype pipeline
+## Pipeline
 
-See `pipeline/` and the "Prototype status" section in `CONVERSION.md`.
-A minimal end-to-end slice (ingest → extract → SVG → HTML) is available for validation.
+See `pipeline/` and `CONVERSION.md`.
+
+Category comes from the filename prefix (`manual` → `manuals`, `tutorial` → `operating`, `reference`/`book`/`article` → `reference`). A directory run skips a file that already has an article. `--force` reruns one file or the whole directory.
 
 ## Setup (required after clone)
 
@@ -38,7 +39,10 @@ source .venv/bin/activate
 Then process PDFs (full document by default):
 
 ```bash
-python3 source/pipeline/run.py source/pdfs/public/basic/ --category band-plans
+python3 source/pipeline/run.py source/pdfs/public/basic/
+
+# rerun one file
+python3 source/pipeline/run.py source/pdfs/public/basic/some-manual.pdf --force
 ```
 
 Debug-only page limit (requires `--debug`):
@@ -57,4 +61,4 @@ graphify extract source/pipeline
 
 `.venv/` is gitignored. Re-run `./source/setup.sh` after pulling if `source/requirements.txt` changes.
 
-See CONVERSION.md for the public source list (`html/sources.html`) and the locked implementation decisions (reading order, figure placement, SVG cleanup, captions, `--pages` flag).
+See CONVERSION.md for the public source list (`html/sources.html`) and the locked decisions (title, category from filename, posters, scans, figures as PNG, `--force`).
