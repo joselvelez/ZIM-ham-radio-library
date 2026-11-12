@@ -287,4 +287,4 @@ Figures are high-DPI PNG of each diagram region (`page.get_pixmap(clip=…, dpi=
 
 ## Article style (2026-11-09)
 
-The assembler post-processes the HTML: headings get stable ids, TOC list items become links to those ids, a sticky sidebar nav is built from the TOC, and each figure opens a native dialog lightbox. No external CSS or JS. Body text stays in the main flow so Kiwix and the NOMAD extractor still see the full article.
+The assembler post-processes the HTML: headings get stable ids, TOC list items become links to those ids, a sticky sidebar nav is built from the TOC, and each figure opens a native dialog lightbox. No external CSS or JS. Body text stays in the main flow so Kiwix and the NOMAD extractor still see the full article. The sidebar column is only reserved when a TOC exists. With no TOC the article is a single full-width column.

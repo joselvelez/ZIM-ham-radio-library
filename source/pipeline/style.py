@@ -148,7 +148,8 @@ document.querySelectorAll('button.zoom').forEach(function (b) {
 STYLE_CSS = """
 :root { color-scheme: light; }
 body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
-.layout { display: grid; grid-template-columns: 16rem 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
+.layout { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
+.layout:has(nav.toc) { grid-template-columns: 16rem 1fr; }
 nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
 nav.toc .toc-title { color: #1a1a1a; font-weight: 600; margin: 0 0 0.5rem; }
 nav.toc ul { list-style: none; padding: 0; margin: 0; }
