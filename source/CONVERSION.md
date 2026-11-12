@@ -213,7 +213,7 @@ The resolved title is stored on the manifest record and used for the article `<t
 
 `--title` sets a specific title. It is stored with `title_source: manual` and is not overwritten by later runs. Passing `--title` also rewrites the article so every place the title appears is updated.
 
-When two documents resolve to the same title, the filename's variant is appended so they stay distinguishable: `US Amateur Radio Bands (bw, 11x8)` and `US Amateur Radio Bands (color, 11x8)`. The other document is updated at the same time. Fail Fast if the titles collide and the filename has no variant.
+When two documents resolve to the same title, a qualifier is appended. The filename variant is preferred (`bw`, `color`, size). If the filename has no variant, the filename stem is used so a batch does not stop. Section headings (`GENERAL DESCRIPTION`, `INTRODUCTION`, `SPECIFICATIONS`) are skipped.
 
 ## Scans
 

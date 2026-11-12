@@ -25,6 +25,15 @@ GENERIC = frozenset({
     "warning",
     "caution",
     "notice",
+    "general description",
+    "description",
+    "overview",
+    "features",
+    "installation",
+    "operation",
+    "controls",
+    "front panel",
+    "rear panel",
 })
 
 # How many early pages to scan. Covers live on page 1; the real title
@@ -76,11 +85,16 @@ def variant_qualifier(pdf_path: Path) -> str:
     return ", ".join(tokens)
 
 
-def disambiguate(base: str, qualifier: str) -> str:
-    """Append the qualifier when the base title is shared. Fail Fast if empty."""
-    if not qualifier:
-        raise ValueError(f"title {base!r} collides and the filename has no variant")
-    return f"{base} ({qualifier})"
+def disambiguate(base: str, qualifier: str, fallback: str = "") -> str:
+    """Append a qualifier when the base title is shared.
+
+    Prefer the filename variant. If there is none, use the fallback
+    (the filename stem) so a batch does not stop.
+    """
+    tag = qualifier or fallback
+    if not tag:
+        raise ValueError(f"title {base!r} collides and there is nothing to distinguish it")
+    return f"{base} ({tag})"
 
 
 def _has_text(doc: fitz.Document) -> bool:

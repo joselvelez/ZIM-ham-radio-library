@@ -70,12 +70,14 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
             if did != record["id"] and (rec.get("title") or "").split(" (")[0] == base
         ]
         if others:
-            title = disambiguate(base, qualifier)
+            fallback = pdf.stem
+            title = disambiguate(base, qualifier, fallback)
             for did, rec in others:
                 other_path = Path(rec.get("path", ""))
                 other_q = variant_qualifier(other_path) if other_path.name else ""
-                if other_q:
-                    rec["title"] = disambiguate(base, other_q)
+                other_fallback = other_path.stem
+                if other_q or other_fallback:
+                    rec["title"] = disambiguate(base, other_q, other_fallback)
         record["title"] = title
         record["title_source"] = "resolved"
 
