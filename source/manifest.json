@@ -19,7 +19,8 @@
       "category": "manuals",
       "status": "ingested",
       "canonical": true,
-      "title": "FT-857 Operating Manual"
+      "title": "Yaesu FT-857 Operating Manual",
+      "title_source": "manual"
     },
     "nav-comms_P2_hambands4_bw_11x8_5-50110f1f": {
       "id": "nav-comms_P2_hambands4_bw_11x8_5-50110f1f",
@@ -149,9 +150,10 @@
       "size": 1430612,
       "category": "manuals",
       "location": "basic",
-      "title": "STP 31-18E34-SM-TG",
+      "title": "MOS 18E Soldiers Manual and Trainers Guide",
       "status": "ingested",
-      "canonical": true
+      "canonical": true,
+      "title_source": "manual"
     },
     "nav-comms_manual_atas-120-57a00966": {
       "id": "nav-comms_manual_atas-120-57a00966",
@@ -174,10 +176,10 @@
       "size": 3575258,
       "category": "manuals",
       "location": "basic",
-      "title": "UV-5RA",
+      "title": "Baofeng UV5RA Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_buddipole_trsb2008-7658937d": {
       "id": "nav-comms_manual_buddipole_trsb2008-7658937d",
@@ -187,10 +189,10 @@
       "size": 35564,
       "category": "manuals",
       "location": "basic",
-      "title": "TRSB",
+      "title": "Buddipole Triple Ratio Switch Balun",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_frg-100-87ab75ea": {
       "id": "nav-comms_manual_yaesu_frg-100-87ab75ea",
@@ -200,10 +202,10 @@
       "size": 3174582,
       "category": "manuals",
       "location": "basic",
-      "title": "Accessories & Options",
+      "title": "Yaesu FRG-100 Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ft-1000mp-mkvFieldManual-fecf0c91": {
       "id": "nav-comms_manual_yaesu_ft-1000mp-mkvFieldManual-fecf0c91",
@@ -1396,10 +1398,10 @@
       "size": 819827,
       "category": "manuals",
       "location": "basic",
-      "title": "PL-PLUS DMC OWNER\u2019S MANUAL",
+      "title": "Furman PL-Plus DMC Power Conditioner",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     }
   },
   "version": 1
