@@ -1374,6 +1374,32 @@
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
+    },
+    "nav-comms_book_itu-NIFOG_2.02_508_FINAL_VERSION_12_03 2024-45c2f5d9": {
+      "id": "nav-comms_book_itu-NIFOG_2.02_508_FINAL_VERSION_12_03 2024-45c2f5d9",
+      "path": "pdfs/public/basic/nav-comms_book_itu-NIFOG_2.02_508_FINAL_VERSION_12_03 2024.pdf",
+      "sha256": "45c2f5d94861b3ed1b80f7ce5962a160fdd56092211586bdee711b68ca3d3142",
+      "fingerprint": "sz6735362-h63f7b82b991daf2d",
+      "size": 6735362,
+      "category": "reference",
+      "location": "basic",
+      "title": "Cybersecurity and Infrastructure Security Agency",
+      "status": "ingested",
+      "canonical": true,
+      "title_source": "resolved"
+    },
+    "nav-comms_manual_furman_PL-PLUS-DMC-4268a4ad": {
+      "id": "nav-comms_manual_furman_PL-PLUS-DMC-4268a4ad",
+      "path": "pdfs/public/basic/nav-comms_manual_furman_PL-PLUS-DMC.pdf",
+      "sha256": "4268a4ad5568a85158c664a39fbd04ab449ed2088ccf359b07777cd43419300d",
+      "fingerprint": "sz819827-h0658fdc5dc6b16fb",
+      "size": 819827,
+      "category": "manuals",
+      "location": "basic",
+      "title": "PL-PLUS DMC OWNER\u2019S MANUAL",
+      "status": "ingested",
+      "canonical": true,
+      "title_source": "resolved"
     }
   },
   "version": 1
