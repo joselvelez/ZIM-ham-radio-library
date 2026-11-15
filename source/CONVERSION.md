@@ -23,7 +23,7 @@ Equipment photos may stay optimized raster when pure vector adds no value.
 ### Processing model
 Default path is unattended batch:
 
-**Page-image documents.** A PDF whose early pages are each dominated by a single image covering ≥ 85% of the page (typical of scanned manuals that also carry an OCR text layer) is treated as a scan. Each page is rendered as a high-DPI PNG and embedded in the HTML; the existing text layer is used for search/RAG. Pure scans with no text layer still OCR via Tesseract.
+**Page-image documents.** A PDF is treated as a scan when at least 80% of its pages contain a single image covering ≥ 85% of the page area. Every page is examined. Each page is rendered as a high-DPI PNG and embedded in the HTML; the existing text layer is used for search/RAG when present. Pure scans with no text layer still OCR via Tesseract.
 
  extract → (OCR if needed) → AI vectorize figures → assemble semantic HTML → quality checks.  
 Emit confidence / quality scores at figure and document level.  

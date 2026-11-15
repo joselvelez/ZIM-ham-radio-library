@@ -37,21 +37,23 @@ def is_scan(pdf_path: Path) -> bool:
 
 
 def is_page_image_document(pdf_path: Path) -> bool:
-    """True when early pages are dominated by a single full-page image.
+    """True when the document is dominated by full-page images.
 
-    Some scanned manuals ship with an OCR text layer over the page image.
-    is_scan returns False for those, so the normal diagram path runs and
-    the page images are dropped. This catches that case so the scan path
-    (page PNG + text) is used instead.
+    Examines every page. A page counts when a single image covers at least
+    85% of its area. The document counts when at least 80% of its pages
+    meet that test.
+
+    This catches scanned manuals that also carry an OCR text layer (so
+    is_scan returns False) without being fooled by a cover page, a TOC,
+    or a few large figures in an otherwise reflowable PDF.
     """
     doc = fitz.open(pdf_path)
     try:
-        sample = min(6, doc.page_count)
-        if sample == 0:
+        total = doc.page_count
+        if total == 0:
             return False
         hits = 0
-        for i in range(sample):
-            page = doc[i]
+        for page in doc:
             area = page.rect.width * page.rect.height
             if area <= 0:
                 continue
@@ -61,7 +63,7 @@ def is_page_image_document(pdf_path: Path) -> bool:
                 if ia / area >= 0.85:
                     hits += 1
                     break
-        return hits >= max(1, (sample * 4) // 5)  # at least 80% of sample
+        return hits / total >= 0.80
     finally:
         doc.close()
 
