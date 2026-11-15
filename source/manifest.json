@@ -225,10 +225,10 @@
       "size": 3358300,
       "category": "manuals",
       "location": "basic",
-      "title": "DOWN",
+      "title": "Yaesu FT-1000MP Mark-V Field Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ft-1000mp-mkvOperatingManual-9f4bfc32": {
       "id": "nav-comms_manual_yaesu_ft-1000mp-mkvOperatingManual-9f4bfc32",
