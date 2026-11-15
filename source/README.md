@@ -36,6 +36,8 @@ The pipeline needs Python 3.10–3.13 (onnxruntime has no wheel for 3.14+) and a
 source .venv/bin/activate
 ```
 
+`source/pipeline/run.py` checks for the required packages (`pymupdf`, `pymupdf4llm`, etc.) at startup. If they are missing it exits immediately with a message that tells you to run the setup steps above, instead of a raw `ModuleNotFoundError`.
+
 Then process PDFs (full document by default):
 
 ```bash

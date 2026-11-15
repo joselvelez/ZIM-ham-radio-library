@@ -107,7 +107,6 @@ The ZIM build (`./install.sh`) only needs `zim-tools` and `python3`.
 The PDF → HTML pipeline under `source/` needs **Python 3.10–3.13** (the layout engine depends on `onnxruntime`, which has no wheel for 3.14+) and a virtualenv:
 
 ```bash
-python3.13 -m venv .venv
 ./source/setup.sh
 source .venv/bin/activate
 python3 source/pipeline/run.py source/pdfs/public/basic/
@@ -115,6 +114,8 @@ python3 source/pipeline/run.py source/pdfs/public/basic/
 # set a specific title on one file
 python3 source/pipeline/run.py source/pdfs/public/basic/nav-comms_manual_atas-120.pdf --title "Yaesu ATAS-120 Active Tuning Antenna System"
 ```
+
+If you run the pipeline without the virtualenv, `source/pipeline/run.py` fails fast with a clear message pointing you back to these steps instead of a raw `ModuleNotFoundError`.
 
 See `source/README.md` and `source/CONVERSION.md` for details.
 

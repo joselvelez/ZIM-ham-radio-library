@@ -17,6 +17,42 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
+
+def check_pipeline_deps() -> None:
+    """Fail fast with a clear setup message if required packages are missing.
+
+    The pipeline depends on packages installed by ./source/setup.sh into a
+    local virtualenv. Running the script with the system Python (or without
+    activating the venv) produces an opaque ModuleNotFoundError. This check
+    surfaces the fix immediately.
+    """
+    required = ("pymupdf", "pymupdf4llm", "markdown", "bs4")
+    missing = []
+    for name in required:
+        try:
+            __import__(name)
+        except ModuleNotFoundError:
+            missing.append(name)
+    if missing:
+        print(
+            "Error: missing required pipeline dependencies: "
+            + ", ".join(missing),
+            file=sys.stderr,
+        )
+        print(
+            "\nThe PDF → HTML conversion pipeline requires a virtual environment.\n"
+            "From the repository root, run:\n\n"
+            "  ./source/setup.sh\n"
+            "  source .venv/bin/activate\n\n"
+            "Then re-run this command.\n"
+            "See source/README.md and README.md (Pipeline setup) for details.",
+            file=sys.stderr,
+        )
+        raise SystemExit(1)
+
+
+check_pipeline_deps()
+
 from source.pipeline.ingest import ingest_pdf, load_manifest, save_manifest
 from source.pipeline.extract import extract_pdf, extract_diagram_pngs, is_poster, is_scan, extract_scan, render_page_png
 from source.pipeline.figures import figure_regions
