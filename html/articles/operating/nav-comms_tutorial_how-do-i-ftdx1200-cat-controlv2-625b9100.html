@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>This week: Yaesu FT DX1200 and WSJT-X, N3FJP and flrig</title>
-  <meta name="title" content="This week: Yaesu FT DX1200 and WSJT-X, N3FJP and flrig">
+  <title>An occasional series (ftdx1200)</title>
+  <meta name="title" content="An occasional series (ftdx1200)">
 <meta name="category" content="operating">
 <meta name="source" content="pdfs/public/basic/nav-comms_tutorial_how-do-i-ftdx1200-cat-controlv2.pdf">
 <meta name="sha256" content="625b9100f098">
 <meta name="pipeline" content="pymupdf4llm">
-<meta name="generated" content="2026-11-12T22:54:00.039052Z">
+<meta name="generated" content="2026-11-15T14:32:47.198025Z">
   <style>
     :root { color-scheme: light; }
 body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
@@ -47,71 +47,62 @@ th { background: #f0f0f0; font-weight: 600; }
     
     <main>
       <p><a href="../../index.html">← Back to index</a></p>
-      <h1>This week: Yaesu FT DX1200 and WSJT-X, N3FJP and flrig</h1>
+      <h1>An occasional series (ftdx1200)</h1>
       <p class="meta">Category: operating · Source: pdfs/public/basic/nav-comms_tutorial_how-do-i-ftdx1200-cat-controlv2.pdf · SHA: 625b9100f098</p>
-      <h2 id="how-do-i"><em><strong>How do I?</strong></em></h2>
-<h2 id="an-occasional-series"><em><strong>An occasional series</strong></em></h2>
-<h2 id="this-week-yaesu-ft-dx1200-and-wsjt-x-n3fjp-and-flrig"><em><strong>This week:   Yaesu  FT DX1200 and  WSJT-X, N3FJP and  flrig</strong></em></h2>
-<p>We have discussed <strong>Computer Assisted Transceiver (CAT) control</strong> elsewhere in this series. In this example, we will use a Yaesu FTDX-1200 HF transceiver and set up <strong>flrig, N3FJP AC Log, and WSTJ-X with JT Alert</strong> to help us accurately log contacts and have some fun with FT8 and the other digital modes in the WSTJ-X suite. </p>
-<p>Start by setting up the radio and a Windows PC running at least Windows XP.  These examples were done on a Windows 10 machine, but the software is the same. </p>
-<p>Download the WSTJ-X software from https://physics.princeton.edu/pulsar/k1jt/wsjtx-2.2.2win64.exe </p>
-<p>If you need the 32 bit version it is at the same webpage.  Download the manual as well! </p>
-<p>Download flrig (might as well grab the rest of the fast light digital modem goodies while you are there from https://sourceforge.net/projects/fldigi/files/flrig/flrig-1.3.53_setup.exe/download </p>
-<p>Download or purchase and download the N3FJP call log software from https://www.n3fjp.com/ </p>
-<p>Download the current version of JT Alert from https://dnl.hamapps.com/JTAlert/eda319ab9017e7af6f5962d54a823a94 </p>
-<p>Install everything.   I’ll get a cup of coffee and be back soon. </p>
-<p>Done yet? </p>
-<p>Let’s start with <strong>flrig.</strong> </p>
-<p>Open it and go to the Configuration menu </p>
-<p>From the drop down box, select FTdx1200 as the rig and select a COM port.  Mine is 9, yours may vary.  Baud of 19200 seems to work well.  Just make sure the radio menu setting #39 CAT Rate matches.  The default is 4800. Select 2 stop bits and RTS/CTS.</p><p><strong>==&gt; picture [472 x 31] intentionally omitted &lt;==</strong></p>
-<p><strong>==&gt; picture [472 x 31] intentionally omitted &lt;==</strong></p>
-<p><strong>==&gt; picture [472 x 30] intentionally omitted &lt;==</strong></p>
-<p><strong>==&gt; picture [472 x 31] intentionally omitted &lt;==</strong></p>
-<p><strong>==&gt; picture [472 x 31] intentionally omitted &lt;==</strong></p>
-<p><strong>==&gt; picture [472 x 31] intentionally omitted &lt;==</strong></p>
-<p><strong>==&gt; picture [472 x 30] intentionally omitted &lt;==</strong></p>
-<h2 id="what-is-rts">What is RTS?</h2>
-<p>RTS / CTS Flow Control is another flow control mechanism that is part of the RS-232 standard. </p>
-<p>It makes use of two further pins on the RS232 connector, RTS (Request to Send) and CTS (Clear to Send). These two lines allow the receiver and the transmitter to alert each other to their state.  A transmitter raises its RTS line, which causes an interrupt on the receiver, i.e - hey can I send some data?  If the receiver is in a position to receive the data it will assert its CTS line, i.e - yes you can start sending.  The raising and lowering of these lines allows device drivers which implement hardware flow control code to maintain a reliable data connection between transmitter and receiver. The advantage to this approach is that damaging data in transit does not affect the flow control mechanism (as in Xon/Xoff). </p>
-<p>From http://us.brainboxes.com/faq/items/w hat-is-rts--cts-hardware-flow-control- </p>
-<p>Your screen should look like the above.  Click the INIT button in the bottom right corner and it should connect to radio and display the frequency from the radio in flrig. </p>
-<p>That was easy? Right? </p>
-<p>Let’s go to N3FJP. </p>
-<p>Open up the program and go to SETTINGS&gt;RIG INTERFACE. </p>
-<p>The screen will look like the below. The FTDX1200 does not have its own settings in N3FJP so use Yaesu-Newer, 19200 Baud, 2 stop bits.  Mode determined by rig; 2 second polling and RTS connection power.  When done, close the FLRIG application and click TEST.  The frequency and mode should change to the test items in N3FJP. </p>
-<p>That was easy right? </p>
-<p>Restart flrig. Go to CONFIGURATIONS &gt;TCP/IP. </p>
-<p>Open N3FJP SETTINGS&gt;SERVER.  Check the box for API  there and enter the server address 127.0.0.1 port 4001 into flrig. </p>
-<p>Flrig and N3FJP should now play well and if you downloaded <strong>FLDIGI</strong> , you can use flrig for cat control and log your PSK31, RTTY, Olivia, Domino, etc contacts directly to N3FJP.</p><p><strong>==&gt; picture [456 x 34] intentionally omitted &lt;==</strong></p>
-<p><strong>==&gt; picture [456 x 34] intentionally omitted &lt;==</strong></p>
-<p><strong>==&gt; picture [456 x 33] intentionally omitted &lt;==</strong></p>
-<p><strong>==&gt; picture [456 x 34] intentionally omitted &lt;==</strong></p>
-<p><strong>==&gt; picture [456 x 34] intentionally omitted &lt;==</strong></p>
-<p><strong>==&gt; picture [456 x 33] intentionally omitted &lt;==</strong></p>
-<p>Now open WSJT-X and go to SETTINGS&gt;RADIO  and select FLRIG as the transceiver.  If you do not plan on using <strong>fldigi</strong> , you can simplify things by selecting the FTDX9000 here as a stand in for the FTDX1200, but we are trying to maximize play value!  If you select RTS for the :PTT method, set the DTR Force Control to HIGH.  Leave RTS blank. When done, test CAT and the radio should change frequency. </p>
-<p>See below for the WSJT X screen, </p>
-<p>With flrig open start WSJT-X, N3FJP and finally JTAlert in that sequence.  N3FJP and WSJTX do not talk well to each other.  It may be said they are barely on speaking terms, but fortunately JT Alert gets along with both and acts as the bridge to log your WSJT-X contact in N3FJP. </p>
-<p>There, that wasn’t so bad was it?  And while CAT control is not necessary outside the WSJTX modes for the most part, it sure is fun, especially in contests! </p>
-<p>When all done, take screen shots of the setup.  Windows has a habit of changing things.</p><p><strong>==&gt; picture [394 x 420] intentionally omitted &lt;==</strong></p>
-<p><strong>----- Start of picture text -----</strong></p>
-<p>© Settings ? x
-General Radia Audio Tx Macros Reporting Frequencies Colors Advanced
-Rig Poll Interval
-CAT Control PTT Method
-Serial Port Parameters ©) CAT ©) RTS
-Baud Rate: | 19200 w Port: |COMS
-Serial port data rate which must match the setting of your radio.
-Data Bits
-Default Seven Eight Rearcaries/Dat Front)ronMi
-Stop Bits Mode
-Default One Two ©) None ©) use (@) Data/Pkt
-Handshake
-Default None Splitplit  OperationOpe
-XON/MOFF Hardware © None O Rig © Foke It
-Force Control Lines
-DTR: ) RIS: et Test CAT Test PTT
-[ox|
-<strong>----- End of picture text -----</strong></p>
+      <h1 id="how-do-i-an-occasional-series-this-week-yaesu-ft-dx1200-and-wsjt-x-n3fjp-and-flrig"><strong><em>How do I?</em></strong> <strong><em>An occasional series</em></strong> <strong><em>This week:  Yaesu FT DX1200 and WSJT-X, N3FJP and flrig</em></strong></h1>
+<p>We have discussed <strong>Computer Assisted Transceiver (CAT) control</strong> elsewhere in this series.
+In this example, we will use a Yaesu FTDX-1200 HF transceiver and set up <strong>flrig, N3FJP AC</strong>
+<strong>Log, and WSTJ-X with JT Alert</strong> to help us accurately log contacts and have some fun with
+FT8 and the other digital modes in the WSTJ-X suite.</p>
+<p>Start by setting up the radio and a Windows PC running at least Windows XP. These
+examples were done on a Windows 10 machine, but the software is the same.</p>
+<p>Download the WSTJ-X software from https://physics.princeton.edu/pulsar/k1jt/wsjtx-2.2.2win64.exe</p>
+<p>If you need the 32 bit version it is at the same webpage. Download the manual as well!</p>
+<p>Download flrig (might as well grab the rest of the fast light digital modem goodies while you
+are there from https://sourceforge.net/projects/fldigi/files/flrig/flrig-1.3.53_setup.exe/download</p>
+<p>Download or purchase and download the N3FJP call log software from https://www.n3fjp.com/</p>
+<p>Download the current version of JT Alert from
+https://dnl.hamapps.com/JTAlert/eda319ab9017e7af6f5962d54a823a94</p>
+<p>Install everything.  I’ll get a cup of coffee and be back soon.</p>
+<p>Done yet?</p>
+<p>Let’s start with <strong>flrig.</strong></p>
+<p>Open it and go to the Configuration menu</p>
+<p>From the drop down box, select FTdx1200 as the rig and select a COM port. Mine is 9, yours
+may vary. Baud of 19200 seems to work well. Just make sure the radio menu setting #39
+CAT Rate matches. The default is 4800. Select 2 stop bits and RTS/CTS.</p><p>Your screen should look like the above. Click the
+INIT button in the bottom right corner and it should
+connect to radio and display the frequency from
+the radio in flrig.</p>
+<p>That was easy? Right?</p>
+<p>Let’s go to N3FJP.
+Open up the program and go to SETTINGS&gt;RIG
+INTERFACE.</p>
+<p>The screen will look like the below. The FTDX1200
+does not have its own settings in N3FJP so use
+Yaesu-Newer, 19200 Baud, 2 stop bits. Mode
+determined by rig; 2 second polling and RTS
+connection power. When done, close the FLRIG
+application and click TEST. The frequency and
+mode should change to the test items in N3FJP.</p>
+<p>That was easy right?</p>
+<p>Restart flrig. Go to CONFIGURATIONS &gt;TCP/IP.</p>
+<p>Open N3FJP SETTINGS&gt;SERVER. Check the
+box for API there and enter the server address
+127.0.0.1 port 4001 into flrig.</p>
+<p>Flrig and N3FJP should now play well and if you
+downloaded <strong>FLDIGI</strong>, you can use flrig for cat
+control and log your PSK31, RTTY, Olivia, Domino,
+etc contacts directly to N3FJP.</p><p>Now open WSJT-X and go to SETTINGS&gt;RADIO and select FLRIG as the transceiver. If
+you do not plan on using <strong>fldigi</strong>, you can simplify things by selecting the FTDX9000 here as a
+stand in for the FTDX1200, but we are trying to maximize play value! If you select RTS for
+the :PTT method, set the DTR Force Control to HIGH. Leave RTS blank. When done, test
+CAT and the radio should change frequency.</p>
+<p>See below for the WSJT X screen,</p>
+<p>With flrig open start WSJT-X, N3FJP and finally JTAlert in that sequence. N3FJP and WSJTX do not talk well to each other. It may be said they are barely on speaking terms, but
+fortunately JT Alert gets along with both and acts as the bridge to log your WSJT-X contact in
+N3FJP.</p>
+<p>There, that wasn’t so bad was it? And while CAT control is not necessary outside the WSJTX modes for the most part, it sure is fun, especially in contests!</p>
+<p>When all done, take screen shots of the setup. Windows has a habit of changing things.</p>
     </main>
   </div>
   <script>document.querySelectorAll('button.zoom').forEach(function (b) {
