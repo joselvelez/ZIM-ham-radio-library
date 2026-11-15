@@ -21,7 +21,11 @@ Raster diagrams / schematics / band plans / patterns / wiring → AI vectorizati
 Equipment photos may stay optimized raster when pure vector adds no value.
 
 ### Processing model
-Default path is unattended batch: extract → (OCR if needed) → AI vectorize figures → assemble semantic HTML → quality checks.  
+Default path is unattended batch:
+
+**Page-image documents.** A PDF whose early pages are each dominated by a single image covering ≥ 85% of the page (typical of scanned manuals that also carry an OCR text layer) is treated as a scan. Each page is rendered as a high-DPI PNG and embedded in the HTML; the existing text layer is used for search/RAG. Pure scans with no text layer still OCR via Tesseract.
+
+ extract → (OCR if needed) → AI vectorize figures → assemble semantic HTML → quality checks.  
 Emit confidence / quality scores at figure and document level.  
 Items below threshold or explicitly flagged high-value go to a review queue for approve / reject / targeted re-run.
 

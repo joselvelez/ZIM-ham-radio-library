@@ -36,6 +36,36 @@ def is_scan(pdf_path: Path) -> bool:
         doc.close()
 
 
+def is_page_image_document(pdf_path: Path) -> bool:
+    """True when early pages are dominated by a single full-page image.
+
+    Some scanned manuals ship with an OCR text layer over the page image.
+    is_scan returns False for those, so the normal diagram path runs and
+    the page images are dropped. This catches that case so the scan path
+    (page PNG + text) is used instead.
+    """
+    doc = fitz.open(pdf_path)
+    try:
+        sample = min(6, doc.page_count)
+        if sample == 0:
+            return False
+        hits = 0
+        for i in range(sample):
+            page = doc[i]
+            area = page.rect.width * page.rect.height
+            if area <= 0:
+                continue
+            for info in page.get_image_info():
+                b = info.get("bbox") or (0, 0, 0, 0)
+                ia = max(0.0, b[2] - b[0]) * max(0.0, b[3] - b[1])
+                if ia / area >= 0.85:
+                    hits += 1
+                    break
+        return hits >= max(1, (sample * 4) // 5)  # at least 80% of sample
+    finally:
+        doc.close()
+
+
 def _require_tessdata() -> None:
     """Fail Fast with the install command if Tesseract language data is missing."""
     import shutil
@@ -64,28 +94,35 @@ def _require_tessdata() -> None:
 
 
 def extract_scan(pdf_path: Path, out_dir: Path, stem: str, max_pages: int | None = None) -> Dict[str, Any]:
-    """A scanned document. Each page is an image. OCR text is the searchable body.
+    """A scanned or page-image document. Each page is rendered as a PNG.
 
-    Fail Fast if Tesseract language data is not installed.
+    Prefer the existing text layer when it is present (OCR already done by
+    the producer). Fall back to Tesseract OCR only when a page has no text.
+    Fail Fast if OCR is required and Tesseract language data is missing.
     """
-    _require_tessdata()
     doc = fitz.open(pdf_path)
     total = doc.page_count
     limit = total if max_pages is None else min(max_pages, total)
     chunks = []
     figures = []
-    print(f"Scan: rendering and OCR of {limit} pages...")
+    needs_ocr = False
+    print(f"Scan: rendering {limit} pages...")
     for i in range(limit):
         if i == 0 or (i + 1) % 10 == 0 or i + 1 == limit:
             print(f"  page {i + 1}/{limit}")
         page = doc[i]
         image = render_page_png(page, out_dir, f"{stem}-page{i}")
         figures.append(image)
-        try:
-            text = page.get_textpage_ocr(language="eng").extractText().strip()
-        except Exception as exc:
-            doc.close()
-            raise SystemExit(f"OCR failed on page {i + 1} of {pdf_path.name}: {exc}")
+        text = page.get_text().strip()
+        if not text:
+            if not needs_ocr:
+                _require_tessdata()
+                needs_ocr = True
+            try:
+                text = page.get_textpage_ocr(language="eng").extractText().strip()
+            except Exception as exc:
+                doc.close()
+                raise SystemExit(f"OCR failed on page {i + 1} of {pdf_path.name}: {exc}")
         chunks.append({"text": text, "metadata": {"page": i + 1}})
     doc.close()
     return {

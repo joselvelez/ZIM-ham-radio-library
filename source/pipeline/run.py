@@ -54,7 +54,7 @@ def check_pipeline_deps() -> None:
 check_pipeline_deps()
 
 from source.pipeline.ingest import ingest_pdf, load_manifest, save_manifest
-from source.pipeline.extract import extract_pdf, extract_diagram_pngs, is_poster, is_scan, extract_scan, render_page_png
+from source.pipeline.extract import extract_pdf, extract_diagram_pngs, is_poster, is_scan, is_page_image_document, extract_scan, render_page_png
 from source.pipeline.figures import figure_regions
 from source.pipeline.assemble import write_article, retire_other_copies
 from source.pipeline.quality import score_document, enqueue_if_low
@@ -126,7 +126,7 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
     notes = Path("source/notes")
     notes.mkdir(parents=True, exist_ok=True)
 
-    if is_scan(pdf):
+    if is_scan(pdf) or is_page_image_document(pdf):
         extracted = extract_scan(pdf, notes, record["id"], max_pages=max_pages)
         print(f"Pages: {extracted['page_count']}, extracted: {extracted['pages_extracted']}")
         retire_other_copies(record, html_root)
