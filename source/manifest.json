@@ -251,10 +251,10 @@
       "size": 2226570,
       "category": "manuals",
       "location": "basic",
-      "title": "FT-1802M OPERATING MANUAL",
+      "title": "Yaesu FT-1802M Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ft-1900e-ba67d696": {
       "id": "nav-comms_manual_yaesu_ft-1900e-ba67d696",
