@@ -109,15 +109,32 @@ The PDF → HTML pipeline under `source/` needs **Python 3.10–3.13** (the layo
 ```bash
 ./source/setup.sh
 source .venv/bin/activate
-python3 source/pipeline/run.py source/pdfs/public/basic/
-
-# set a specific title on one file
-python3 source/pipeline/run.py source/pdfs/public/basic/nav-comms_manual_atas-120.pdf --title "Yaesu ATAS-120 Active Tuning Antenna System"
 ```
 
 If you run the pipeline without the virtualenv, `source/pipeline/run.py` fails fast with a clear message pointing you back to these steps instead of a raw `ModuleNotFoundError`.
 
-See `source/README.md` and `source/CONVERSION.md` for details.
+### Running the pipeline
+
+Process a single PDF or an entire directory (full document by default).  
+A directory run **skips** any PDF that already has an article. Use `--force` to reprocess.
+
+```bash
+# Process everything in a directory (skips files that already have articles)
+python3 source/pipeline/run.py source/pdfs/public/basic/
+
+# Force reprocess one file
+python3 source/pipeline/run.py source/pdfs/public/basic/some-manual.pdf --force
+
+# Force reprocess an entire directory (every PDF, even if an article already exists)
+python3 source/pipeline/run.py source/pdfs/public/basic/ --force
+
+# Set a specific title (stored on the manifest; not overwritten by later runs)
+python3 source/pipeline/run.py source/pdfs/public/basic/nav-comms_manual_atas-120.pdf --title "Yaesu ATAS-120 Active Tuning Antenna System"
+```
+
+`--force` works on both a single file and a directory. On a directory it reprocesses every PDF.
+
+See `source/README.md` and `source/CONVERSION.md` for the full pipeline definition, category rules, and locked decisions.
 
 After deploy the ZIM is on disk, but it is **not yet usable by the LLM** until you ingest it:
 
@@ -150,7 +167,9 @@ Everything stays in this repo. Conversion work lives under `source/` and is neve
    - `source/pdfs/public/basic/` (≤ 95 MB, tracked)  
    - `source/pdfs/public/extensive/` (> 95 MB; user supplies and converts)  
    - `source/pdfs/paid/` (any size; user supplies and converts)
-2. Convert them (via the pipeline documented in `source/CONVERSION.md`) to clean, self-contained HTML with accurate figures (prefer SVG/vector).
+2. Convert them with the pipeline (`source/pipeline/run.py`).  
+   A directory run skips PDFs that already have articles. Add `--force` to reprocess one file or the whole directory.  
+   See the Pipeline setup section above for exact commands.
 3. Save finished articles under `html/articles/` (preserve useful structure/categories).
 4. Link them from `html/index.html` so the library is browsable in Kiwix.
 5. Rebuild the ZIM with `./install.sh` (only `html/` is packaged).
