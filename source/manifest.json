@@ -290,10 +290,10 @@
       "size": 25756979,
       "category": "manuals",
       "location": "basic",
-      "title": "Read this information first",
+      "title": "Yaesu FT1XDR-DE Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ft-250r-2c8b530d": {
       "id": "nav-comms_manual_yaesu_ft-250r-2c8b530d",
@@ -706,10 +706,10 @@
       "size": 5933565,
       "category": "manuals",
       "location": "basic",
-      "title": "[SMART FUNCTION] KEY",
+      "title": "Yaesu FTM-350 Series Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ftm-400dr-de-fa511c29": {
       "id": "nav-comms_manual_yaesu_ftm-400dr-de-fa511c29",
@@ -1044,10 +1044,10 @@
       "size": 1588320,
       "category": "reference",
       "location": "basic",
-      "title": "Federal Usage",
+      "title": "Federal Spectrum Use Summary - 30Mhz-3000Ghz June 21 2010",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_beyond-the-ht-0e9f35f3": {
       "id": "nav-comms_tutorial_beyond-the-ht-0e9f35f3",
