@@ -8,18 +8,56 @@
 <meta name="source" content="pdfs/public/basic/nav-comms_manual_atas-120.pdf">
 <meta name="sha256" content="57a0096618f9">
 <meta name="pipeline" content="pymupdf4llm-poster">
-<meta name="generated" content="2026-11-15T13:41:10.615520Z">
+<meta name="generated" content="2026-11-16T17:22:56.362606Z">
   <style>
     :root { color-scheme: light; }
 body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
-.layout { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
-.layout:has(nav.toc) { grid-template-columns: 16rem minmax(0, 1fr); }
-nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
+.layout { display: block; max-width: none; margin: 0; padding: 0; }
+/* Fixed sidebar: Back to index + Contents always stay visible */
+nav.toc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16rem;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  padding: 1rem 0.75rem;
+  box-sizing: border-box;
+  font-size: 0.85rem;
+}
+nav.toc .back { margin: 0 0 0.75rem; font-weight: 600; font-size: 0.95rem; }
+nav.toc .back a { color: #0b57d0; text-decoration: none; }
+nav.toc .back a:hover { text-decoration: underline; }
 nav.toc .toc-title { color: #1a1a1a; font-weight: 600; margin: 0 0 0.5rem; }
 nav.toc ul { list-style: none; padding: 0; margin: 0; }
 nav.toc li { margin: 0.25rem 0; }
 nav.toc a { color: #0b57d0; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
+/* Main content shifted right of the fixed sidebar */
+.layout:has(nav.toc) main {
+  margin-left: 16rem;
+  padding: 1.5rem 2rem;
+  max-width: calc(100vw - 16rem);
+  min-width: 0;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+/* Sticky back bar for pages without a TOC (scans, posters) */
+.back-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  padding: 0.6rem 1rem;
+  margin: -1.5rem -1.5rem 1.25rem -1.5rem;
+  border-bottom: 1px solid #eee;
+  font-weight: 500;
+}
+.back-bar a { color: #0b57d0; text-decoration: none; }
+.back-bar a:hover { text-decoration: underline; }
 main { max-width: none; min-width: 0; overflow-x: auto; }
 h1 { font-size: 1.8rem; color: #1a1a1a; margin: 0 0 0.5rem; }
 h2, h3, h4, h5, h6 { color: #1a1a1a; margin-top: 1.8rem; font-size: 1.15rem; }
@@ -37,14 +75,33 @@ table { border-collapse: collapse; width: 100%; max-width: 100%; margin: 1rem 0;
 th, td { border: 1px solid #bbb; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
 th { background: #f0f0f0; font-weight: 600; }
 @media (max-width: 800px) {
-  .layout { grid-template-columns: 1fr; }
-  nav.toc { position: static; max-height: 16rem; }
+  nav.toc {
+    position: sticky;
+    top: 0;
+    left: auto;
+    width: 100%;
+    height: auto;
+    max-height: 45vh;
+    border-right: 0;
+    border-bottom: 1px solid #ddd;
+  }
+  .layout:has(nav.toc) main {
+    margin-left: 0;
+    padding: 1rem;
+    max-width: none;
+  }
+  .back-bar { margin: -1rem -1rem 1rem -1rem; }
 }
+    body { background: #fff; }
+    .poster-page { max-width: 90rem; margin: 0 auto; padding: 1.5rem; }
+    .poster-page h1 { font-size: 2rem; }
+    .poster img { width: 100%; height: auto; }
+    .poster-text { margin-top: 1.5rem; }
   </style>
 </head>
 <body>
   <div class="poster-page">
-    <p><a href="../../index.html">← Back to index</a></p>
+    <div class="back-bar"><a href="../../index.html">← Back to index</a></div>
     <h1>Yaesu ATAS-120 Active Tuning Antenna System</h1>
     <p class="meta">Category: manuals · Source: pdfs/public/basic/nav-comms_manual_atas-120.pdf · SHA: 57a0096618f9</p>
     <figure class="poster"><button aria-label="Enlarge Yaesu ATAS-120 Active Tuning Antenna System" class="zoom" data-dialog="fig-1" type="button"><img alt="Yaesu ATAS-120 Active Tuning Antenna System" src="nav-comms_manual_atas-120-57a00966/nav-comms_manual_atas-120-57a00966-page.png"/></button><figcaption>Yaesu ATAS-120 Active Tuning Antenna System</figcaption><dialog id="fig-1"><img alt="Yaesu ATAS-120 Active Tuning Antenna System" src="nav-comms_manual_atas-120-57a00966/nav-comms_manual_atas-120-57a00966-page.png"/><p>Yaesu ATAS-120 Active Tuning Antenna System</p><form method="dialog"><button>Close</button></form></dialog></figure>

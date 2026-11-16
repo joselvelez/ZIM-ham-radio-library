@@ -134,7 +134,7 @@
       "size": 3316992,
       "category": "reference",
       "location": "basic",
-      "title": "License",
+      "title": "Contributors",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -979,7 +979,7 @@
       "size": 50048,
       "category": "reference",
       "location": "basic",
-      "title": "TM QUICK-FIX for NVIS",
+      "title": "THE BUDDIPOLE",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -992,7 +992,7 @@
       "size": 806514,
       "category": "reference",
       "location": "basic",
-      "title": "Copyright \u00a9 2016 Buddipole, Inc. All rights reserved.",
+      "title": "\uf097 Phone: 503-691 8001 \uf097 Email: info@buddipole.com",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1057,7 +1057,7 @@
       "size": 323660,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (nav-comms_tutorial_beyond-the-ht)",
+      "title": "How do I? (nav-comms_tutorial_beyond-the-ht)",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1070,7 +1070,7 @@
       "size": 343457,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (nav-comms_tutorial_beyond-the-rubber-duck)",
+      "title": "How do I? (nav-comms_tutorial_beyond-the-rubber-duck)",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1109,7 +1109,7 @@
       "size": 146006,
       "category": "operating",
       "location": "basic",
-      "title": "This week: Making the leap to HF. Creating a base station",
+      "title": "How do I? (nav-comms_tutorial_hf-base-station)",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1122,7 +1122,7 @@
       "size": 35012,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (nav-comms_tutorial_how-do-i-antenna-discussion)",
+      "title": "How do I? (nav-comms_tutorial_how-do-i-antenna-discussion)",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1135,7 +1135,7 @@
       "size": 137575,
       "category": "operating",
       "location": "basic",
-      "title": "An Occasional Series",
+      "title": "Gain. What is it? Why does it matter?",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1161,7 +1161,7 @@
       "size": 523895,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (nav-comms_tutorial_how-do-i-bandpass-filters)",
+      "title": "How do I? (nav-comms_tutorial_how-do-i-bandpass-filters)",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1174,7 +1174,7 @@
       "size": 241983,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (nav-comms_tutorial_how-do-i-computer-cables)",
+      "title": "This week: Computers and Radio - sometimes it\u2019s all about the cable!",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1187,7 +1187,7 @@
       "size": 42935,
       "category": "operating",
       "location": "basic",
-      "title": "4800",
+      "title": "Others",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1200,7 +1200,7 @@
       "size": 746883,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (ftdx1200)",
+      "title": "How do I? (ftdx1200)",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1226,7 +1226,7 @@
       "size": 302193,
       "category": "operating",
       "location": "basic",
-      "title": "How do I? (nav-comms_tutorial_how-do-i-hf)",
+      "title": "An occasional series (nav-comms_tutorial_how-do-i-hf)",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1239,7 +1239,7 @@
       "size": 226223,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (nav-comms_tutorial_how-do-i-intro-to-antenna-analyzers)",
+      "title": "How do I? (nav-comms_tutorial_how-do-i-intro-to-antenna-analyzers)",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1252,7 +1252,7 @@
       "size": 366287,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (nav-comms_tutorial_how-do-i-psk31-intro)",
+      "title": "This week: PSK31/BPSK31/QPSK31",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1265,7 +1265,7 @@
       "size": 146254,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (nav-comms_tutorial_how-do-i-select-coax-cable)",
+      "title": "This week: Choosing the \u201cright\u201d coax for your station",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1291,7 +1291,7 @@
       "size": 129398,
       "category": "operating",
       "location": "basic",
-      "title": "The really amazing thing about QRP levels is that 1 watt (30 dBm) is only 20 dB below",
+      "title": "That means, while it's a shock to think you could possibly pick up a signal as seemingly",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1304,7 +1304,7 @@
       "size": 176384,
       "category": "operating",
       "location": "basic",
-      "title": "This week: Intro to Radio Repeaters",
+      "title": "An occasional series (nav-comms_tutorial_intro-to-radio-repeaters)",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1317,7 +1317,7 @@
       "size": 241639,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (nav-comms_tutorial_keeping-time)",
+      "title": "This week: Keeping Time",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1343,7 +1343,7 @@
       "size": 299675,
       "category": "operating",
       "location": "basic",
-      "title": "This week: Rig Control with FLRIG",
+      "title": "How do I? (nav-comms_tutorial_rig-control-with-flrig)",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1356,7 +1356,7 @@
       "size": 3473860,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (nav-comms_tutorial_using-fm-repeaters)",
+      "title": "How do I? (nav-comms_tutorial_using-fm-repeaters)",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"
@@ -1369,7 +1369,7 @@
       "size": 38729,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (nav-comms_tutorial_vhf-mobile)",
+      "title": "How do I? (nav-comms_tutorial_vhf-mobile)",
       "status": "ingested",
       "canonical": true,
       "title_source": "resolved"

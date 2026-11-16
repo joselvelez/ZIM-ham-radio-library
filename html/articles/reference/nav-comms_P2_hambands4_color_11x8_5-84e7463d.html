@@ -8,18 +8,56 @@
 <meta name="source" content="pdfs/public/basic/nav-comms_P2_hambands4_color_11x8_5.pdf">
 <meta name="sha256" content="84e7463d932d">
 <meta name="pipeline" content="pymupdf4llm-poster">
-<meta name="generated" content="2026-11-15T14:32:04.524467Z">
+<meta name="generated" content="2026-11-16T18:13:50.043056Z">
   <style>
     :root { color-scheme: light; }
 body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
-.layout { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
-.layout:has(nav.toc) { grid-template-columns: 16rem minmax(0, 1fr); }
-nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
+.layout { display: block; max-width: none; margin: 0; padding: 0; }
+/* Fixed sidebar: Back to index + Contents always stay visible */
+nav.toc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16rem;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  padding: 1rem 0.75rem;
+  box-sizing: border-box;
+  font-size: 0.85rem;
+}
+nav.toc .back { margin: 0 0 0.75rem; font-weight: 600; font-size: 0.95rem; }
+nav.toc .back a { color: #0b57d0; text-decoration: none; }
+nav.toc .back a:hover { text-decoration: underline; }
 nav.toc .toc-title { color: #1a1a1a; font-weight: 600; margin: 0 0 0.5rem; }
 nav.toc ul { list-style: none; padding: 0; margin: 0; }
 nav.toc li { margin: 0.25rem 0; }
 nav.toc a { color: #0b57d0; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
+/* Main content shifted right of the fixed sidebar */
+.layout:has(nav.toc) main {
+  margin-left: 16rem;
+  padding: 1.5rem 2rem;
+  max-width: calc(100vw - 16rem);
+  min-width: 0;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+/* Sticky back bar for pages without a TOC (scans, posters) */
+.back-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  padding: 0.6rem 1rem;
+  margin: -1.5rem -1.5rem 1.25rem -1.5rem;
+  border-bottom: 1px solid #eee;
+  font-weight: 500;
+}
+.back-bar a { color: #0b57d0; text-decoration: none; }
+.back-bar a:hover { text-decoration: underline; }
 main { max-width: none; min-width: 0; overflow-x: auto; }
 h1 { font-size: 1.8rem; color: #1a1a1a; margin: 0 0 0.5rem; }
 h2, h3, h4, h5, h6 { color: #1a1a1a; margin-top: 1.8rem; font-size: 1.15rem; }
@@ -37,14 +75,33 @@ table { border-collapse: collapse; width: 100%; max-width: 100%; margin: 1rem 0;
 th, td { border: 1px solid #bbb; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
 th { background: #f0f0f0; font-weight: 600; }
 @media (max-width: 800px) {
-  .layout { grid-template-columns: 1fr; }
-  nav.toc { position: static; max-height: 16rem; }
+  nav.toc {
+    position: sticky;
+    top: 0;
+    left: auto;
+    width: 100%;
+    height: auto;
+    max-height: 45vh;
+    border-right: 0;
+    border-bottom: 1px solid #ddd;
+  }
+  .layout:has(nav.toc) main {
+    margin-left: 0;
+    padding: 1rem;
+    max-width: none;
+  }
+  .back-bar { margin: -1rem -1rem 1rem -1rem; }
 }
+    body { background: #fff; }
+    .poster-page { max-width: 90rem; margin: 0 auto; padding: 1.5rem; }
+    .poster-page h1 { font-size: 2rem; }
+    .poster img { width: 100%; height: auto; }
+    .poster-text { margin-top: 1.5rem; }
   </style>
 </head>
 <body>
   <div class="poster-page">
-    <p><a href="../../index.html">← Back to index</a></p>
+    <div class="back-bar"><a href="../../index.html">← Back to index</a></div>
     <h1>US Amateur Radio Bands (color, 11x8)</h1>
     <p class="meta">Category: reference · Source: pdfs/public/basic/nav-comms_P2_hambands4_color_11x8_5.pdf · SHA: 84e7463d932d</p>
     <figure class="poster"><button aria-label="Enlarge US Amateur Radio Bands (color, 11x8)" class="zoom" data-dialog="fig-1" type="button"><img alt="US Amateur Radio Bands (color, 11x8)" src="nav-comms_P2_hambands4_color_11x8_5-84e7463d/nav-comms_P2_hambands4_color_11x8_5-84e7463d-page.png"/></button><figcaption>US Amateur Radio Bands (color, 11x8)</figcaption><dialog id="fig-1"><img alt="US Amateur Radio Bands (color, 11x8)" src="nav-comms_P2_hambands4_color_11x8_5-84e7463d/nav-comms_P2_hambands4_color_11x8_5-84e7463d-page.png"/><p>US Amateur Radio Bands (color, 11x8)</p><form method="dialog"><button>Close</button></form></dialog></figure>
@@ -74,13 +131,13 @@ from 1.900 to 2.000 MHz</p>
 <p>222.0 225.0</p>
 <p><strong>10 Meters (28 MHz)</strong></p>
 <p>MHz</p>
-<p>28.000</p>
-<p>50.1</p>
-<p>28.500</p>
-<p><strong>6 Meters (50 MHz)</strong></p>
 <p>E</p>
 <p>A
 G</p>
+<p>28.500</p>
+<p><strong>6 Meters (50 MHz)</strong></p>
+<p>28.000</p>
+<p>50.1</p>
 <p>N,T</p>
 <p>See Sections 97.305(c), 97.307(f)(11) and
 97.301(e).These exemptions do not apply to
@@ -94,10 +151,6 @@ stations in the continental US.</p>
 <p>E,A,G</p>
 <p>E,A,G,T</p>
 <p>N ( <em>25 W</em> )</p>
-<p>See <em>www.arrl.org/band-plan</em> for</p>
-<p>See <em>www.arrl.org/band-plan</em> for</p>
-<p>detailed band plans.</p>
-<p>detailed band plans.</p>
 <p>E
 A
 G</p>
@@ -112,6 +165,10 @@ G</p>
 bands above 420 MHz. For information about your area,
 See <em>FCC</em> <em><strong>97.303</strong></em> <em>Frequency sharing requirements.</em></li>
 </ul>
+<p>See <em>www.arrl.org/band-plan</em> for</p>
+<p>See <em>www.arrl.org/band-plan</em> for</p>
+<p>detailed band plans.</p>
+<p>detailed band plans.</p>
 <p>E,A,G,T</p>
 <h3>ARRL [®]</h3>
 <h3>ARRLWe’re At Your Service</h3>
