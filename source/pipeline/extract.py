@@ -226,3 +226,59 @@ def extract_diagram_pngs(page: fitz.Page, out_dir: Path, stem: str) -> list[dict
             "labels": labels,
         })
     return written
+
+
+# Minimum area fraction of the page for an embedded image to be treated as a figure.
+# Filters out tiny icons, logos, and decorative marks.
+MIN_RASTER_AREA_FRACTION = 0.02
+# Minimum pixel area (width * height) to ignore low-res decorative images.
+MIN_RASTER_PIXELS = 40_000
+
+
+def extract_raster_figures(page: fitz.Page, out_dir: Path, stem: str, existing_regions: list | None = None) -> list[dict]:
+    """Extract significant embedded raster images as PNG figures.
+
+    Complements vector-cluster diagrams. Many manuals store schematics,
+    panel drawings, and charts as embedded images rather than pure vectors.
+    Skips images that substantially overlap an already-accepted vector region.
+    Fail Fast if a pixmap cannot be written.
+    """
+    existing = existing_regions or []
+    written: list[dict] = []
+    page_area = page.rect.width * page.rect.height
+    if page_area <= 0:
+        return written
+
+    infos = page.get_image_info(xrefs=True) or []
+    for n, info in enumerate(infos):
+        bbox = info.get("bbox")
+        if not bbox or len(bbox) < 4:
+            continue
+        region = fitz.Rect(bbox)
+        if region.is_empty or region.width < 20 or region.height < 12:
+            continue
+        area = region.get_area()
+        if area / page_area < MIN_RASTER_AREA_FRACTION:
+            continue
+        w = info.get("width") or 0
+        h = info.get("height") or 0
+        if w * h < MIN_RASTER_PIXELS:
+            continue
+        # Skip if this image substantially overlaps an already-accepted vector diagram
+        if any(not (region & fitz.Rect(r)).is_empty and
+               (region & fitz.Rect(r)).get_area() / area > 0.6 for r in existing):
+            continue
+        clip = (region + (-4, -4, 4, 4)) & page.rect
+        pix = page.get_pixmap(clip=clip, dpi=FIGURE_DPI)
+        out = out_dir / f"{stem}-raster{n}.png"
+        pix.save(str(out))
+        if not out.exists() or out.stat().st_size == 0:
+            raise SystemExit(f"PNG write failed for {out}")
+        written.append({
+            "path": str(out),
+            "page": page.number,
+            "bbox": [region.x0, region.y0, region.x1, region.y1],
+            "labels": [],
+            "kind": "raster",
+        })
+    return written

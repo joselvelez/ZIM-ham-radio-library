@@ -54,7 +54,7 @@ def check_pipeline_deps() -> None:
 check_pipeline_deps()
 
 from source.pipeline.ingest import ingest_pdf, load_manifest, save_manifest
-from source.pipeline.extract import extract_pdf, extract_diagram_pngs, is_poster, is_scan, is_page_image_document, extract_scan, render_page_png
+from source.pipeline.extract import extract_pdf, extract_diagram_pngs, extract_raster_figures, is_poster, is_scan, is_page_image_document, extract_scan, render_page_png
 from source.pipeline.figures import figure_regions
 from source.pipeline.assemble import write_article, retire_other_copies
 from source.pipeline.quality import score_document, enqueue_if_low
@@ -159,16 +159,23 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
     figures: list[dict] = []
     doc = fitz.open(pdf)
     # Figures are scanned across the whole document.
-    print(f"Scanning {doc.page_count} pages for diagrams...")
+    print(f"Scanning {doc.page_count} pages for diagrams and embedded images...")
     for i in range(doc.page_count):
-        regions = figure_regions(doc[i])
-        if not regions:
-            continue
-        results = extract_diagram_pngs(doc[i], notes, f"{record['id']}-page{i}")
+        page = doc[i]
+        stem = f"{record['id']}-page{i}"
+        # Vector clusters first
+        results = extract_diagram_pngs(page, notes, stem)
+        accepted_regions = []
         if results:
             for r in results:
                 figures.append(r)
+                accepted_regions.append(r["bbox"])
                 print(f"  diagram on page {i + 1}: {r['path']}")
+        # Then significant embedded raster images not already covered
+        rasters = extract_raster_figures(page, notes, stem, existing_regions=accepted_regions)
+        for r in rasters:
+            figures.append(r)
+            print(f"  raster figure on page {i + 1}: {r['path']}")
     doc.close()
     print(f"Diagrams: {len(figures)}")
 

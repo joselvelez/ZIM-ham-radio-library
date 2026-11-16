@@ -7,6 +7,7 @@ logic lives here.
 from pathlib import Path
 from typing import Dict, Any, List
 import html
+import base64
 import re
 from datetime import datetime
 
@@ -65,10 +66,17 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
         if text:
             body_parts.append(md_lib.markdown(text, extensions=["extra", "sane_lists"]))
         for fig in by_page.get(page_idx, []):
-            rel = f"{slug}/{Path(fig['path']).name}"
+            # Embed as data URI so the HTML is self-contained.
+            # Relative paths break when NOMAD ingests a single HTML entry
+            # without the sibling asset directory.
+            img_path = Path(fig["path"])
+            if not img_path.exists():
+                raise SystemExit(f"Figure file missing at assembly time: {img_path}")
+            data = base64.b64encode(img_path.read_bytes()).decode("ascii")
+            src = f"data:image/png;base64,{data}"
             cap = _caption(fig["page"], fig.get("labels") or [])
             body_parts.append(
-                f'<figure><img src="{html.escape(rel)}" alt="{html.escape(cap)}">'
+                f'<figure><img src="{src}" alt="{html.escape(cap)}">'
                 f"<figcaption>{html.escape(cap)}</figcaption></figure>"
             )
 
