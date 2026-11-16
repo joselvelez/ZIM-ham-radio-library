@@ -97,6 +97,12 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
         f'<meta name="generated" content="{datetime.utcnow().isoformat()}Z">'
     )
 
+    # Back link lives in the fixed sidebar when a TOC exists.
+    # Otherwise a sticky bar keeps it visible while scrolling.
+    back_in_main = ""
+    if not nav:
+        back_in_main = '<div class="back-bar"><a href="../../index.html">← Back to index</a></div>\n      '
+
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,8 +117,7 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
   <div class="layout">
     {nav}
     <main>
-      <p><a href="../../index.html">← Back to index</a></p>
-      <h1>{html.escape(title)}</h1>
+      {back_in_main}<h1>{html.escape(title)}</h1>
       <p class="meta">Category: {html.escape(category)} · Source: {html.escape(source_pdf)} · SHA: {sha}</p>
       {body}
     </main>
@@ -186,7 +191,7 @@ def make_scan_html(record: Dict[str, Any], extracted: Dict[str, Any], figures: l
 </head>
 <body>
   <div class="scan-page">
-    <p><a href="../../index.html">← Back to index</a></p>
+    <div class="back-bar"><a href="../../index.html">← Back to index</a></div>
     <h1>{html.escape(title)}</h1>
     <p class="meta">Category: {html.escape(category)} · Source: {html.escape(source_pdf)} · SHA: {sha}</p>
     {str(body.decode_contents())}
@@ -247,7 +252,7 @@ def make_poster_html(record: Dict[str, Any], extracted: Dict[str, Any], page_ima
 </head>
 <body>
   <div class="poster-page">
-    <p><a href="../../index.html">← Back to index</a></p>
+    <div class="back-bar"><a href="../../index.html">← Back to index</a></div>
     <h1>{html.escape(title)}</h1>
     <p class="meta">Category: {html.escape(category)} · Source: {html.escape(source_pdf)} · SHA: {sha}</p>
     {figure}

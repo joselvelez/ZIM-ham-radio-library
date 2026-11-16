@@ -2,6 +2,8 @@
 
 Rebuilds the Articles section of html/index.html from the files that actually
 exist under html/articles/. No string-replace hacks, no duplicates.
+
+Articles are sorted alphabetically by title (case-insensitive).
 """
 from __future__ import annotations
 from pathlib import Path
@@ -17,13 +19,16 @@ def rebuild_index(html_root: Path) -> None:
     articles_dir = html_root / "articles"
     entries = []
     if articles_dir.exists():
-        for html in sorted(articles_dir.rglob("*.html")):
+        for html in articles_dir.rglob("*.html"):
             rel = html.relative_to(html_root).as_posix()
             # title from <h1> or filename
             text = html.read_text(errors="ignore")
             m = re.search(r"<h1>(.*?)</h1>", text)
             title = m.group(1).strip() if m else html.stem.replace("-", " ").title()
-            entries.append(f'    <li><a href="{rel}">{title}</a></li>')
+            entries.append((title, rel))
+        # Alphabetical by title (case-insensitive)
+        entries.sort(key=lambda t: t[0].lower())
+        entries = [f'    <li><a href="{rel}">{title}</a></li>' for title, rel in entries]
 
     content = index.read_text()
     new_ul = "<h2>Articles</h2>\n  <ul>\n" + "\n".join(entries) + "\n  </ul>"

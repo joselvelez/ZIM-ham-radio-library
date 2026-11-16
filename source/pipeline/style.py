@@ -5,7 +5,8 @@ readers do (mdBook, MkDocs):
 
 - Stable ids on headings
 - TOC list items become links to those ids
-- Sticky sidebar nav built from the TOC
+- Fixed sidebar nav (Back to index + Contents) that always stays visible
+- Sticky back bar for pages without a TOC
 - Figures open in a native dialog lightbox
 
 No external CSS or JS. Body text stays in the main flow so Kiwix and the
@@ -76,7 +77,10 @@ def link_toc(soup: BeautifulSoup, index: Dict[str, str]) -> int:
 
 
 def toc_nav_html(soup: BeautifulSoup) -> str:
-    """Sidebar nav from the list with the most TOC links."""
+    """Sidebar nav from the list with the most TOC links.
+
+    Includes the always-visible Back to index link at the top of the fixed sidebar.
+    """
     best = None
     best_links = []
     for ul in soup.find_all("ul"):
@@ -90,10 +94,12 @@ def toc_nav_html(soup: BeautifulSoup) -> str:
         f'<li><a href="{html.escape(a["href"])}">{html.escape(a.get_text())}</a></li>'
         for a in best_links
     ]
+    back = '<p class="back"><a href="../../index.html">← Back to index</a></p>'
     return (
         '<nav class="toc" aria-label="Contents">'
-        '<p class="toc-title">Contents</p>'
-        f"<ul>{''.join(items)}</ul></nav>"
+        + back
+        + '<p class="toc-title">Contents</p>'
+        + f"<ul>{''.join(items)}</ul></nav>"
     )
 
 
@@ -148,14 +154,52 @@ document.querySelectorAll('button.zoom').forEach(function (b) {
 STYLE_CSS = """
 :root { color-scheme: light; }
 body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #1a1a1a; line-height: 1.6; }
-.layout { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 1.5rem; }
-.layout:has(nav.toc) { grid-template-columns: 16rem minmax(0, 1fr); }
-nav.toc { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; font-size: 0.85rem; }
+.layout { display: block; max-width: none; margin: 0; padding: 0; }
+/* Fixed sidebar: Back to index + Contents always stay visible */
+nav.toc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16rem;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  padding: 1rem 0.75rem;
+  box-sizing: border-box;
+  font-size: 0.85rem;
+}
+nav.toc .back { margin: 0 0 0.75rem; font-weight: 600; font-size: 0.95rem; }
+nav.toc .back a { color: #0b57d0; text-decoration: none; }
+nav.toc .back a:hover { text-decoration: underline; }
 nav.toc .toc-title { color: #1a1a1a; font-weight: 600; margin: 0 0 0.5rem; }
 nav.toc ul { list-style: none; padding: 0; margin: 0; }
 nav.toc li { margin: 0.25rem 0; }
 nav.toc a { color: #0b57d0; text-decoration: none; }
 nav.toc a:hover { text-decoration: underline; }
+/* Main content shifted right of the fixed sidebar */
+.layout:has(nav.toc) main {
+  margin-left: 16rem;
+  padding: 1.5rem 2rem;
+  max-width: calc(100vw - 16rem);
+  min-width: 0;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+/* Sticky back bar for pages without a TOC (scans, posters) */
+.back-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  padding: 0.6rem 1rem;
+  margin: -1.5rem -1.5rem 1.25rem -1.5rem;
+  border-bottom: 1px solid #eee;
+  font-weight: 500;
+}
+.back-bar a { color: #0b57d0; text-decoration: none; }
+.back-bar a:hover { text-decoration: underline; }
 main { max-width: none; min-width: 0; overflow-x: auto; }
 h1 { font-size: 1.8rem; color: #1a1a1a; margin: 0 0 0.5rem; }
 h2, h3, h4, h5, h6 { color: #1a1a1a; margin-top: 1.8rem; font-size: 1.15rem; }
@@ -173,7 +217,21 @@ table { border-collapse: collapse; width: 100%; max-width: 100%; margin: 1rem 0;
 th, td { border: 1px solid #bbb; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
 th { background: #f0f0f0; font-weight: 600; }
 @media (max-width: 800px) {
-  .layout { grid-template-columns: 1fr; }
-  nav.toc { position: static; max-height: 16rem; }
+  nav.toc {
+    position: sticky;
+    top: 0;
+    left: auto;
+    width: 100%;
+    height: auto;
+    max-height: 45vh;
+    border-right: 0;
+    border-bottom: 1px solid #ddd;
+  }
+  .layout:has(nav.toc) main {
+    margin-left: 0;
+    padding: 1rem;
+    max-width: none;
+  }
+  .back-bar { margin: -1rem -1rem 1rem -1rem; }
 }
 """.strip()
