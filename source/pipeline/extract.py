@@ -268,7 +268,16 @@ def extract_raster_figures(page: fitz.Page, out_dir: Path, stem: str, existing_r
         if any(not (region & fitz.Rect(r)).is_empty and
                (region & fitz.Rect(r)).get_area() / area > 0.6 for r in existing):
             continue
-        clip = (region + (-4, -4, 4, 4)) & page.rect
+        # get_image_info bbox is in unrotated space on rotated pages.
+        # page.get_pixmap(clip=) expects visual (rotated) coordinates.
+        # Transform with the page rotation matrix so the clip matches the page.
+        # This is the pattern from PyMuPDF discussions #1721 and the maintainer.
+        visual = region * page.rotation_matrix if page.rotation else region
+        visual = visual & page.rect
+        if visual.is_empty or visual.width < 10 or visual.height < 10:
+            continue
+        # Small pad so anti-aliased edges are not clipped.
+        clip = (visual + (-2, -2, 2, 2)) & page.rect
         pix = page.get_pixmap(clip=clip, dpi=FIGURE_DPI)
         out = out_dir / f"{stem}-raster{n}.png"
         pix.save(str(out))
