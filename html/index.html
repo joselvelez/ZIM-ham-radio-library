@@ -5,11 +5,25 @@
   <title>Ham Radio Library</title>
   <style>
     :root { color-scheme: light; }
-    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; background: #fff; color: #1a1a1a; line-height: 1.6; }
+    body { font-family: system-ui, sans-serif; max-width: 1100px; margin: 2rem auto; padding: 0 1rem; background: #fff; color: #1a1a1a; line-height: 1.6; }
     h1 { color: #1a1a1a; }
     h2 { color: #1a1a1a; }
     a { color: #0b57d0; }
     .note { color: #555; font-size: 0.9rem; }
+    ul.articles-list {
+      column-count: 2;
+      column-gap: 2.5rem;
+      list-style-position: outside;
+      padding-left: 1.2rem;
+      margin: 0.5rem 0 1.5rem;
+    }
+    ul.articles-list li {
+      break-inside: avoid;
+      margin-bottom: 0.35rem;
+    }
+    @media (max-width: 720px) {
+      ul.articles-list { column-count: 1; }
+    }
   </style>
 </head>
 <body>
@@ -18,7 +32,7 @@
   <p class="note">HTML-first so NOMAD’s RAG system can index the content. Figures prefer SVG/vector.</p>
 
   <h2>Articles</h2>
-  <ul>
+  <ul class="articles-list">
     <li><a href="articles/reference/nav-comms_book_1996-fiedler-near-vertical-incidence-skywave-communication-73e30aa6.html">1996 Fiedler Near Vertical Incidence Skywave Communication</a></li>
     <li><a href="articles/manuals/nav-comms_manual_baofeng-uv5ra-05001258.html">Baofeng UV5RA Operating Manual</a></li>
     <li><a href="articles/reference/nav-comms_reference_buddipole_6myagi2element-b7f05571.html">Buddipole: 6 Meter 2 Element Vertical Beam</a></li>
