@@ -134,10 +134,10 @@
       "size": 3316992,
       "category": "reference",
       "location": "basic",
-      "title": "Contributors",
+      "title": "Noel Martin F4JJD: Amateur Radio Booklet 2024",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_book_us-special-forces-antenna-manual-b6563234": {
       "id": "nav-comms_book_us-special-forces-antenna-manual-b6563234",
@@ -199,7 +199,7 @@
       "size": 35564,
       "category": "manuals",
       "location": "basic",
-      "title": "Buddipole Triple Ratio Switch Balun",
+      "title": "Buddipole: Triple Ratio Switch Balun",
       "status": "ingested",
       "canonical": true,
       "title_source": "manual"
@@ -381,10 +381,10 @@
       "size": 40870893,
       "category": "manuals",
       "location": "basic",
-      "title": "Before Using the Transceiver",
+      "title": "Yaesu FT2DR/DE Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ft-411-mkii-3d9f40bd": {
       "id": "nav-comms_manual_yaesu_ft-411-mkii-3d9f40bd",
@@ -641,10 +641,10 @@
       "size": 24299411,
       "category": "manuals",
       "location": "basic",
-      "title": "BEFORE YOU BEGIN. . . (dx9000d)",
+      "title": "Yaesu FT DX 9000D Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ft-dx9000mp-1c5d59c8": {
       "id": "nav-comms_manual_yaesu_ft-dx9000mp-1c5d59c8",
@@ -654,10 +654,10 @@
       "size": 25976244,
       "category": "manuals",
       "location": "basic",
-      "title": "BEFORE YOU BEGIN. . . (dx9000mp)",
+      "title": "Yaesu FT DX 9000MP",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ftm-100dr-de-96842507": {
       "id": "nav-comms_manual_yaesu_ftm-100dr-de-96842507",
@@ -667,10 +667,10 @@
       "size": 52255407,
       "category": "manuals",
       "location": "basic",
-      "title": "Before Use",
+      "title": "Yaesu FTM-100DR/DE Opertaing Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ftm-3100r-0307dd1a": {
       "id": "nav-comms_manual_yaesu_ftm-3100r-0307dd1a",
@@ -719,10 +719,10 @@
       "size": 78081086,
       "category": "manuals",
       "location": "basic",
-      "title": "Before Using",
+      "title": "Yaesu FTM400DR/DE Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_vl-1000-amp-operators-manual-0a23abaf": {
       "id": "nav-comms_manual_yaesu_vl-1000-amp-operators-manual-0a23abaf",
@@ -758,10 +758,10 @@
       "size": 2002582,
       "category": "manuals",
       "location": "basic",
-      "title": "CONTROL & CONNECTIONS (nav-comms_manual_yaesu_vr-160)",
+      "title": "Yaesu VR 160 Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_vr-500-c37badd3": {
       "id": "nav-comms_manual_yaesu_vr-500-c37badd3",
@@ -940,10 +940,10 @@
       "size": 2891308,
       "category": "reference",
       "location": "basic",
-      "title": "BUDDIPOLE 6 M VERTICAL BEAM",
+      "title": "Buddipole: 6 Meter 2 Element Vertical Beam",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_reference_buddipole_6myagi3element-1fc4f103": {
       "id": "nav-comms_reference_buddipole_6myagi3element-1fc4f103",
@@ -953,10 +953,10 @@
       "size": 620838,
       "category": "reference",
       "location": "basic",
-      "title": "BUDDIPOLE",
+      "title": "Buddipole: 6 Meter 3 Element Yagi",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_reference_buddipole_buddihexqs_guidev2-a0a9ea0a": {
       "id": "nav-comms_reference_buddipole_buddihexqs_guidev2-a0a9ea0a",
@@ -992,10 +992,10 @@
       "size": 806514,
       "category": "reference",
       "location": "basic",
-      "title": "\uf097 Phone: 503-691 8001 \uf097 Email: info@buddipole.com",
+      "title": "Buddipole: Guide to EMCOMM",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_reference_buddipole_versatee2008-7fa3816b": {
       "id": "nav-comms_reference_buddipole_versatee2008-7fa3816b",
@@ -1083,10 +1083,10 @@
       "size": 155462,
       "category": "operating",
       "location": "basic",
-      "title": "contacts.",
+      "title": "Buddipole: Effective Use of Buddipole Configurations",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_fun-with-antennas-85fd769f": {
       "id": "nav-comms_tutorial_fun-with-antennas-85fd769f",
@@ -1148,10 +1148,10 @@
       "size": 95700,
       "category": "operating",
       "location": "basic",
-      "title": "100th Article",
+      "title": "How Do I? Antenna SWR",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-do-i-bandpass-filters-3e0239e9": {
       "id": "nav-comms_tutorial_how-do-i-bandpass-filters-3e0239e9",
@@ -1226,10 +1226,10 @@
       "size": 302193,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (nav-comms_tutorial_how-do-i-hf)",
+      "title": "How Do I? Do HF Portable",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-do-i-intro-to-antenna-analyzers-265e04d6": {
       "id": "nav-comms_tutorial_how-do-i-intro-to-antenna-analyzers-265e04d6",
@@ -1304,10 +1304,10 @@
       "size": 176384,
       "category": "operating",
       "location": "basic",
-      "title": "An occasional series (nav-comms_tutorial_intro-to-radio-repeaters)",
+      "title": "How Do I? Intro to Radio Repeaters",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_keeping-time-bfd81b98": {
       "id": "nav-comms_tutorial_keeping-time-bfd81b98",
