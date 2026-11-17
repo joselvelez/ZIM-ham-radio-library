@@ -121,10 +121,10 @@
       "size": 3378378,
       "category": "reference",
       "location": "basic",
-      "title": "I n t e r n a t i o n a l T e l e c o m m u n i c a t i o n U n i o n",
+      "title": "ITU: Handbook on Emergency Telecommunications - 2005",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_book_the_global_amateur_radio_booklet-a119689d": {
       "id": "nav-comms_book_the_global_amateur_radio_booklet-a119689d",
@@ -147,10 +147,10 @@
       "size": 72237823,
       "category": "reference",
       "location": "basic",
-      "title": "DEPARTMENT OF ARMY WIDE TRAINING SUPPORT",
+      "title": "US Army: Airborne Sepcial Forces Radio Antenna Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_army_sf-radio-training-stp31_18e34-c178e5f0": {
       "id": "nav-comms_manual_army_sf-radio-training-stp31_18e34-c178e5f0",
@@ -407,10 +407,10 @@
       "size": 8854979,
       "category": "manuals",
       "location": "basic",
-      "title": "FRONT PANEL SWITCHES AND KNOBS",
+      "title": "Yaesu FT-450 Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ft-450d-5ec6097a": {
       "id": "nav-comms_manual_yaesu_ft-450d-5ec6097a",
@@ -420,10 +420,10 @@
       "size": 7160365,
       "category": "manuals",
       "location": "basic",
-      "title": "FRONT PANEL BUTTONS AND KNOBS",
+      "title": "Yaesu FT-450D Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ft-51-d0be2de5": {
       "id": "nav-comms_manual_yaesu_ft-51-d0be2de5",
@@ -433,10 +433,10 @@
       "size": 5810848,
       "category": "manuals",
       "location": "basic",
-      "title": "FT-51R",
+      "title": "Yaesu: FT-51 Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ft-60r-f832b03a": {
       "id": "nav-comms_manual_yaesu_ft-60r-f832b03a",
@@ -680,10 +680,10 @@
       "size": 2328960,
       "category": "manuals",
       "location": "basic",
-      "title": "Microphone (nav-comms_manual_yaesu_ftm-3100r)",
+      "title": "Yaesu: FTM-3100R Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ftm-3200dr-112dd297": {
       "id": "nav-comms_manual_yaesu_ftm-3200dr-112dd297",
@@ -771,10 +771,10 @@
       "size": 2256579,
       "category": "manuals",
       "location": "basic",
-      "title": "Front Panel Controls & Switches",
+      "title": "Yaesu VR 5000 Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_vx-110-4ef1b58c": {
       "id": "nav-comms_manual_yaesu_vx-110-4ef1b58c",
@@ -836,10 +836,10 @@
       "size": 1451331,
       "category": "manuals",
       "location": "basic",
-      "title": "CONTROL & CONNECTIONS (nav-comms_manual_yaesu_vx-2r)",
+      "title": "Yaesu VX 2R Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_vx-3r-e-7bbcf3c6": {
       "id": "nav-comms_manual_yaesu_vx-3r-e-7bbcf3c6",
@@ -849,10 +849,10 @@
       "size": 2915818,
       "category": "manuals",
       "location": "basic",
-      "title": "CONTROL & CONNECTIONS (nav-comms_manual_yaesu_vx-3r-e)",
+      "title": "Yaesu VX 3R/E Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_vx-5r-c6b66583": {
       "id": "nav-comms_manual_yaesu_vx-5r-c6b66583",
@@ -914,10 +914,10 @@
       "size": 12174678,
       "category": "reference",
       "location": "basic",
-      "title": "WWW.SURVIVALEBOOKS.COM",
+      "title": "US Army: Radio Wave Propagation and Antennas - 1986",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_reference_Beverage_Antenna_1991-12-b4a212ae": {
       "id": "nav-comms_reference_Beverage_Antenna_1991-12-b4a212ae",
@@ -979,10 +979,10 @@
       "size": 50048,
       "category": "reference",
       "location": "basic",
-      "title": "THE BUDDIPOLE",
+      "title": "Buddipole: Quick Fix for NVIS",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_reference_buddipole_nvisguide_to_emcomm-9221699e": {
       "id": "nav-comms_reference_buddipole_nvisguide_to_emcomm-9221699e",
@@ -1005,10 +1005,10 @@
       "size": 91183,
       "category": "reference",
       "location": "basic",
-      "title": "THE VERSATEE",
+      "title": "Buddipole: The Versatee",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_reference_fcc-january_2016_spectrum_wall_chart-83992f8b": {
       "id": "nav-comms_reference_fcc-january_2016_spectrum_wall_chart-83992f8b",
@@ -1057,10 +1057,10 @@
       "size": 323660,
       "category": "operating",
       "location": "basic",
-      "title": "How do I? (nav-comms_tutorial_beyond-the-ht)",
+      "title": "How Do I? Moving Beyond the HT",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_beyond-the-rubber-duck-d4de5fb0": {
       "id": "nav-comms_tutorial_beyond-the-rubber-duck-d4de5fb0",
@@ -1070,10 +1070,10 @@
       "size": 343457,
       "category": "operating",
       "location": "basic",
-      "title": "How do I? (nav-comms_tutorial_beyond-the-rubber-duck)",
+      "title": "How Do I? HT Antennas, Beyond the Rubber Duck",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_buddipole_configurations2008-12a526a3": {
       "id": "nav-comms_tutorial_buddipole_configurations2008-12a526a3",
@@ -1096,10 +1096,10 @@
       "size": 561683,
       "category": "operating",
       "location": "basic",
-      "title": "Cumberland Amateur Radio Club -- 2021",
+      "title": "Cumberland Amateur Radio Club 2021 - Fun with Antennas",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_hf-base-station-9f8c5b29": {
       "id": "nav-comms_tutorial_hf-base-station-9f8c5b29",
@@ -1109,10 +1109,10 @@
       "size": 146006,
       "category": "operating",
       "location": "basic",
-      "title": "How do I? (nav-comms_tutorial_hf-base-station)",
+      "title": "How Do I? Making the Leap to HF. Creating a Base Station",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-do-i-antenna-discussion-9eba30e5": {
       "id": "nav-comms_tutorial_how-do-i-antenna-discussion-9eba30e5",
@@ -1122,10 +1122,10 @@
       "size": 35012,
       "category": "operating",
       "location": "basic",
-      "title": "How do I? (nav-comms_tutorial_how-do-i-antenna-discussion)",
+      "title": "How Do I? A Chat about Antennas",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-do-i-antenna-topics-gain-d8cb461b": {
       "id": "nav-comms_tutorial_how-do-i-antenna-topics-gain-d8cb461b",
@@ -1135,10 +1135,10 @@
       "size": 137575,
       "category": "operating",
       "location": "basic",
-      "title": "Gain. What is it? Why does it matter?",
+      "title": "How Do I? Antenna Topics - Gain",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-do-i-antenna-topics-swr-f42341e4": {
       "id": "nav-comms_tutorial_how-do-i-antenna-topics-swr-f42341e4",
@@ -1161,10 +1161,10 @@
       "size": 523895,
       "category": "operating",
       "location": "basic",
-      "title": "How do I? (nav-comms_tutorial_how-do-i-bandpass-filters)",
+      "title": "How Do I? Bandpass Filters",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-do-i-computer-cables-b3b8c2fb": {
       "id": "nav-comms_tutorial_how-do-i-computer-cables-b3b8c2fb",
@@ -1174,10 +1174,10 @@
       "size": 241983,
       "category": "operating",
       "location": "basic",
-      "title": "This week: Computers and Radio - sometimes it\u2019s all about the cable!",
+      "title": "How Do I? Computers and Radio - Sometimes its all about the cable",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-do-i-ft991a-for-digital-5fb5b861": {
       "id": "nav-comms_tutorial_how-do-i-ft991a-for-digital-5fb5b861",
@@ -1187,10 +1187,10 @@
       "size": 42935,
       "category": "operating",
       "location": "basic",
-      "title": "Others",
+      "title": "How Do I? Yaesu FT991A Ready for the Digital Modes",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-do-i-ftdx1200-cat-controlv2-625b9100": {
       "id": "nav-comms_tutorial_how-do-i-ftdx1200-cat-controlv2-625b9100",
@@ -1200,10 +1200,10 @@
       "size": 746883,
       "category": "operating",
       "location": "basic",
-      "title": "How do I? (ftdx1200)",
+      "title": "How Do I? Yaesu FT DX1200 and WSJT-X, N3FJP and flrig",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-do-i-fun-with-vhf-2-meter-simplex-b42691bd": {
       "id": "nav-comms_tutorial_how-do-i-fun-with-vhf-2-meter-simplex-b42691bd",
@@ -1213,10 +1213,10 @@
       "size": 63998,
       "category": "operating",
       "location": "basic",
-      "title": "This week: Fun with VHF: 2 Meter FM Simplex",
+      "title": "How Do I? Fun with VHF: 2 Meter FM Simplex - Another Cool Tool",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-do-i-hf-e81a78ff": {
       "id": "nav-comms_tutorial_how-do-i-hf-e81a78ff",
@@ -1239,10 +1239,10 @@
       "size": 226223,
       "category": "operating",
       "location": "basic",
-      "title": "How do I? (nav-comms_tutorial_how-do-i-intro-to-antenna-analyzers)",
+      "title": "How Do I? Antenna Analyzers. What are they? What do they do?",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-do-i-psk31-intro-0fd88702": {
       "id": "nav-comms_tutorial_how-do-i-psk31-intro-0fd88702",
@@ -1252,10 +1252,10 @@
       "size": 366287,
       "category": "operating",
       "location": "basic",
-      "title": "This week: PSK31/BPSK31/QPSK31",
+      "title": "How Do I? PSK31/BPSK31/QPSK31",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-do-i-select-coax-cable-1dcda1a6": {
       "id": "nav-comms_tutorial_how-do-i-select-coax-cable-1dcda1a6",
@@ -1265,10 +1265,10 @@
       "size": 146254,
       "category": "operating",
       "location": "basic",
-      "title": "This week: Choosing the \u201cright\u201d coax for your station",
+      "title": "How Do I? Choosing the right coax for your station",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-do-i-wsjt-x-waterfall-1d17ecd2": {
       "id": "nav-comms_tutorial_how-do-i-wsjt-x-waterfall-1d17ecd2",
@@ -1278,10 +1278,10 @@
       "size": 311509,
       "category": "operating",
       "location": "basic",
-      "title": "This week: WSJT-X -Waterfall and other tricks.",
+      "title": "How Do I? WSJT-X -Waterfall and Other Tricks",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_how-much-power-do-i-need-b3e74904": {
       "id": "nav-comms_tutorial_how-much-power-do-i-need-b3e74904",
@@ -1317,10 +1317,10 @@
       "size": 241639,
       "category": "operating",
       "location": "basic",
-      "title": "This week: Keeping Time",
+      "title": "How Do I? Keeping Time",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_nbems-rsid-and-some-digital-modes-0e7251b1": {
       "id": "nav-comms_tutorial_nbems-rsid-and-some-digital-modes-0e7251b1",
@@ -1330,10 +1330,10 @@
       "size": 8203007,
       "category": "operating",
       "location": "basic",
-      "title": "This week: ....A Glance At Some other Digital Modes and RSID and NBEMS",
+      "title": "How Do I? Digital Modes and RSID and NBEMS",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_rig-control-with-flrig-8fdd3937": {
       "id": "nav-comms_tutorial_rig-control-with-flrig-8fdd3937",
@@ -1343,10 +1343,10 @@
       "size": 299675,
       "category": "operating",
       "location": "basic",
-      "title": "How do I? (nav-comms_tutorial_rig-control-with-flrig)",
+      "title": "How Do I? Rig Control with FLRIG",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_using-fm-repeaters-4214daa9": {
       "id": "nav-comms_tutorial_using-fm-repeaters-4214daa9",
@@ -1356,10 +1356,10 @@
       "size": 3473860,
       "category": "operating",
       "location": "basic",
-      "title": "How do I? (nav-comms_tutorial_using-fm-repeaters)",
+      "title": "How Do I? Using FM Repeaters",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_vhf-mobile-d722bf79": {
       "id": "nav-comms_tutorial_vhf-mobile-d722bf79",
@@ -1369,10 +1369,10 @@
       "size": 38729,
       "category": "operating",
       "location": "basic",
-      "title": "How do I? (nav-comms_tutorial_vhf-mobile)",
+      "title": "How Do I? VHF Mobile",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_what-is-winlink-14c7f62e": {
       "id": "nav-comms_tutorial_what-is-winlink-14c7f62e",
@@ -1382,10 +1382,10 @@
       "size": 1232301,
       "category": "operating",
       "location": "basic",
-      "title": "How does CARC use Winlink?",
+      "title": "WinLink: What is it?",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_book_itu-NIFOG_2.02_508_FINAL_VERSION_12_03 2024-45c2f5d9": {
       "id": "nav-comms_book_itu-NIFOG_2.02_508_FINAL_VERSION_12_03 2024-45c2f5d9",
@@ -1395,10 +1395,10 @@
       "size": 6735362,
       "category": "reference",
       "location": "basic",
-      "title": "Cybersecurity and Infrastructure Security Agency",
+      "title": "CISA National Interoperability Field Operations Guide",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_furman_PL-PLUS-DMC-4268a4ad": {
       "id": "nav-comms_manual_furman_PL-PLUS-DMC-4268a4ad",
