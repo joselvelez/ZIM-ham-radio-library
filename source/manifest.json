@@ -95,10 +95,10 @@
       "size": 140065,
       "category": "reference",
       "location": "basic",
-      "title": "Perspective",
+      "title": "Article: SIGINT for Anyone",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_book_1996-fiedler-near-vertical-incidence-skywave-communication-73e30aa6": {
       "id": "nav-comms_book_1996-fiedler-near-vertical-incidence-skywave-communication-73e30aa6",
@@ -238,10 +238,10 @@
       "size": 4522793,
       "category": "manuals",
       "location": "basic",
-      "title": "MARK-V FT-1000MP Operating Manual",
+      "title": "Yaesu: Mark-V FT-1000MP Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ft-1802m-196653c0": {
       "id": "nav-comms_manual_yaesu_ft-1802m-196653c0",
@@ -693,10 +693,10 @@
       "size": 2545298,
       "category": "manuals",
       "location": "basic",
-      "title": "Microphone (nav-comms_manual_yaesu_ftm-3200dr)",
+      "title": "Yaesu: FTM-3200DR Operating Manual",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_manual_yaesu_ftm-350-e7b6c352": {
       "id": "nav-comms_manual_yaesu_ftm-350-e7b6c352",
@@ -927,10 +927,10 @@
       "size": 977125,
       "category": "reference",
       "location": "basic",
-      "title": "THE BEVERAGE ANTENNA:",
+      "title": "The Beverage Antenna: A Practical Way of Assessing the Radiation Pattern Using Off-Air Signals",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_reference_buddipole_6myagi2element-b7f05571": {
       "id": "nav-comms_reference_buddipole_6myagi2element-b7f05571",
@@ -966,10 +966,10 @@
       "size": 1027146,
       "category": "reference",
       "location": "basic",
-      "title": "Phone: 503-591 8001 Email: info@buddipole.com",
+      "title": "Buddipole: BuddiHEX Guide",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_reference_buddipole_nvis2008-843d9008": {
       "id": "nav-comms_reference_buddipole_nvis2008-843d9008",
@@ -1018,10 +1018,10 @@
       "size": 975052,
       "category": "reference",
       "location": "basic",
-      "title": "STATES",
+      "title": "US FCC: Spectrum Wall Chart - 2016",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_reference_nagoya-na-771-data-sheet-c67d8d82": {
       "id": "nav-comms_reference_nagoya-na-771-data-sheet-c67d8d82",
@@ -1031,10 +1031,10 @@
       "size": 440578,
       "category": "reference",
       "location": "basic",
-      "title": "REUEX INDUSTRIAL CO., LTD.",
+      "title": "Nagoya: NA-771 Data Sheet",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_reference_spectrum_use_summary_master-06212010-66dcbf34": {
       "id": "nav-comms_reference_spectrum_use_summary_master-06212010-66dcbf34",
@@ -1291,10 +1291,10 @@
       "size": 129398,
       "category": "operating",
       "location": "basic",
-      "title": "That means, while it's a shock to think you could possibly pick up a signal as seemingly",
+      "title": "How Do I? How Much Power Do I Really Need?",
       "status": "ingested",
       "canonical": true,
-      "title_source": "resolved"
+      "title_source": "manual"
     },
     "nav-comms_tutorial_intro-to-radio-repeaters-f174a2a0": {
       "id": "nav-comms_tutorial_intro-to-radio-repeaters-f174a2a0",
