@@ -64,6 +64,8 @@ zimwriterfs \
   --name="$ZIM_NAME" \
   --title="$ZIM_TITLE" \
   --description="$ZIM_DESC" \
+  --creator="Jose Velez" \
+  --publisher="Jose Velez" \
   --longDescription="Exhaustive offline ham radio reference. HTML-first so NOMAD RAG can index it. Figures prefer SVG/vector." \
   "$HTML_DIR" \
   "$OUTPUT"
