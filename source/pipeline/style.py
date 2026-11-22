@@ -8,6 +8,7 @@ readers do (mdBook, MkDocs):
 - Fixed sidebar nav (Back to index + Contents) that always stays visible
 - Sticky back bar for pages without a TOC
 - Figures open in a native dialog lightbox
+- Stray links from key labels like "[B](AGC)" become plain text
 
 No external CSS or JS. Body text stays in the main flow so Kiwix and the
 NOMAD extractor still see the full article.
@@ -22,6 +23,47 @@ from bs4 import BeautifulSoup
 
 _SLUG = re.compile(r"[^a-z0-9]+")
 _TOC_ITEM = re.compile(r"^(.+?)\s+[—–-]\s+\d{1,3}\s*$")
+# Real link targets: a URL scheme, an in-page anchor, or a file with an extension.
+_REAL_HREF = re.compile(r"^(?:[a-z][a-z0-9+.-]*:|#)|\.[A-Za-z0-9]{2,5}(?:[#?].*)?$", re.I)
+
+
+def key_label_text(href: str) -> tuple[str, bool]:
+    """Readable label for a bogus href such as '] **AGC** [' -> ('AGC', True)."""
+    bold = "**" in href
+    label = href.replace("**", "").strip().strip("[]").strip()
+    return label, bold
+
+
+def unwrap_key_label_links(soup: BeautifulSoup) -> int:
+    """Turn bogus links into text.
+
+    Manuals print multi-function keys as "[B](AGC)". The markdown step reads
+    that as a link to a page called "AGC", which does not exist. Keep the key
+    text and show the second label in parentheses instead.
+    """
+    count = 0
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        if not href or _REAL_HREF.search(href):
+            continue
+        label, bold = key_label_text(href)
+        parts = []
+        if a.get_text(strip=True):
+            parts.extend(a.contents[:])
+            if label:
+                parts.append(" (")
+        if label:
+            if bold:
+                strong = soup.new_tag("strong")
+                strong.string = label
+                parts.append(strong)
+            else:
+                parts.append(label)
+            if a.get_text(strip=True):
+                parts.append(")")
+        a.replace_with(*parts) if parts else a.decompose()
+        count += 1
+    return count
 
 
 def slugify(text: str) -> str:

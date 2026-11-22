@@ -16,7 +16,7 @@ from bs4 import BeautifulSoup
 
 from .structure import clean_caption_labels
 from .toc import toc_to_markdown
-from .style import add_heading_ids, link_toc, toc_nav_html, wrap_figures, LIGHTBOX_JS, STYLE_CSS
+from .style import add_heading_ids, link_toc, toc_nav_html, unwrap_key_label_links, wrap_figures, LIGHTBOX_JS, STYLE_CSS
 
 
 def _title_from_markdown(chunks: List[dict], fallback: str) -> str:
@@ -82,6 +82,7 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
 
     body_html = "".join(body_parts)
     soup = BeautifulSoup(f"<div id=\"body\">{body_html}</div>", "html.parser")
+    unwrap_key_label_links(soup)
     index = add_heading_ids(soup)
     link_toc(soup, index)
     wrap_figures(soup)
