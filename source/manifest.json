@@ -1412,6 +1412,19 @@
       "status": "ingested",
       "canonical": true,
       "title_source": "manual"
+    },
+    "nav-comms_book_Intro_to_EMP_Jerry_Emanuelson_FutureScienceDotCom-31705f52": {
+      "id": "nav-comms_book_Intro_to_EMP_Jerry_Emanuelson_FutureScienceDotCom-31705f52",
+      "path": "pdfs/public/basic/nav-comms_book_Intro_to_EMP_Jerry_Emanuelson_FutureScienceDotCom.pdf",
+      "sha256": "31705f5275d4f475db085824f675321fc733a897a0b07bd11462a5673e59f456",
+      "fingerprint": "sz90380143-h5e5315582a6fe51f",
+      "size": 90380143,
+      "category": "reference",
+      "location": "basic",
+      "title": "Intro to EMP - Jerry Emanuelson / FutureScience.com",
+      "status": "ingested",
+      "canonical": true,
+      "title_source": "manual"
     }
   },
   "version": 1
