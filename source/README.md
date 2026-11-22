@@ -66,4 +66,4 @@ graphify extract source/pipeline
 
 `.venv/` is gitignored. Re-run `./source/setup.sh` after pulling if `source/requirements.txt` changes.
 
-See CONVERSION.md for the public source list (`html/sources.html`) and the locked decisions (title, category from filename, posters, scans, figures as PNG, `--force`).
+See CONVERSION.md for the public source list (`html/sources.html`) and the locked decisions (title, category from filename, posters, scans, figures as WebP/JPEG files referenced by relative path, `--force`).

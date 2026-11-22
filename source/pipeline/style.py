@@ -148,7 +148,9 @@ def toc_nav_html(soup: BeautifulSoup) -> str:
 def wrap_figures(soup: BeautifulSoup) -> int:
     """Make each figure open a native dialog. Returns how many were wrapped.
 
-    The image stays in the main flow. The dialog reuses the same src.
+    The image stays in the main flow. The dialog points at the same file
+    (a short relative URL, not a second copy of the image bytes), so the
+    browser fetches it once and the ZIM stores it once.
     """
     count = 0
     for fig in soup.find_all("figure"):
@@ -166,7 +168,15 @@ def wrap_figures(soup: BeautifulSoup) -> int:
         img.replace_with(btn)
         btn.append(img)
         dlg = soup.new_tag("dialog", id=dlg_id)
-        big = soup.new_tag("img", src=img["src"], alt=img.get("alt", ""))
+        if img["src"].startswith("data:"):
+            raise ValueError("figure images must be files referenced by relative path, not data URIs")
+        attrs = {"src": img["src"], "alt": img.get("alt", "")}
+        for k in ("width", "height"):
+            if img.get(k):
+                attrs[k] = img[k]
+        attrs["loading"] = "lazy"
+        attrs["decoding"] = "async"
+        big = soup.new_tag("img", attrs=attrs)
         dlg.append(big)
         if caption:
             p = soup.new_tag("p")

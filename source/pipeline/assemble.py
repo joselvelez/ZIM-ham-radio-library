@@ -1,15 +1,20 @@
-"""Assemble semantic HTML from pymupdf4llm markdown and PNG figures.
+"""Assemble semantic HTML from pymupdf4llm markdown and figure images.
 
 Markdown is converted with the standard `markdown` library. Figures for a
 page are placed after that page's HTML. No custom heading or reading-order
 logic lives here.
+
+Figures are separate files in the article's asset directory
+(``{slug}/{file}``) and are referenced by relative path, as CONVERSION.md
+specifies. zimwriterfs packs them as their own ZIM entries; Kiwix serves
+them like any other ZIM image. Images are never inlined as data URIs.
 """
 from pathlib import Path
 from typing import Dict, Any, List
 import html
-import base64
 import re
 from datetime import datetime
+from urllib.parse import quote
 
 import markdown as md_lib
 from bs4 import BeautifulSoup
@@ -39,6 +44,27 @@ def _caption(page_no: int, labels: List[str]) -> str:
     return base
 
 
+def figure_src(slug: str, fig: Dict[str, Any]) -> str:
+    """Relative URL of a figure file from its article (same directory level)."""
+    return quote(f"{slug}/{Path(fig['path']).name}")
+
+
+def _size_attrs(fig: Dict[str, Any]) -> Dict[str, str]:
+    """width/height so the browser reserves space for lazy-loaded images."""
+    w, h = fig.get("width"), fig.get("height")
+    if isinstance(w, int) and isinstance(h, int) and w > 0 and h > 0:
+        return {"width": str(w), "height": str(h)}
+    return {}
+
+
+def _img_tag(src: str, alt: str, fig: Dict[str, Any], lazy: bool = True) -> str:
+    attrs = {"src": src, "alt": alt, **_size_attrs(fig)}
+    if lazy:
+        attrs["loading"] = "lazy"
+    attrs["decoding"] = "async"
+    return "<img " + " ".join(f'{k}="{html.escape(v)}"' for k, v in attrs.items()) + ">"
+
+
 def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures: list | None = None) -> str:
     chunks = extracted.get("chunks") or []
     # Title is resolved before assembly and stored on the record.
@@ -66,17 +92,17 @@ def make_article_html(record: Dict[str, Any], extracted: Dict[str, Any], figures
         if text:
             body_parts.append(md_lib.markdown(text, extensions=["extra", "sane_lists"]))
         for fig in by_page.get(page_idx, []):
-            # Embed as data URI so the HTML is self-contained.
-            # Relative paths break when NOMAD ingests a single HTML entry
-            # without the sibling asset directory.
+            # Relative path to the sibling asset directory. Not a data URI:
+            # NOMAD's extractor only reads text tags (h2-h4, p, lists,
+            # tables) and never loads <img>, and Kiwix resolves relative
+            # image entries natively. Inlining base64 made articles 30x
+            # larger and stored every figure three times in the ZIM.
             img_path = Path(fig["path"])
             if not img_path.exists():
                 raise SystemExit(f"Figure file missing at assembly time: {img_path}")
-            data = base64.b64encode(img_path.read_bytes()).decode("ascii")
-            src = f"data:image/png;base64,{data}"
             cap = _caption(fig["page"], fig.get("labels") or [])
             body_parts.append(
-                f'<figure><img src="{src}" alt="{html.escape(cap)}">'
+                f"<figure>{_img_tag(figure_src(slug, fig), cap, fig)}"
                 f"<figcaption>{html.escape(cap)}</figcaption></figure>"
             )
 
@@ -147,10 +173,12 @@ def make_scan_html(record: Dict[str, Any], extracted: Dict[str, Any], figures: l
     soup = BeautifulSoup('<div id="body"></div>', "html.parser")
     body = soup.find(id="body")
     for i, fig in enumerate(figures):
-        rel = f"{slug}/{Path(fig['path']).name}"
         page_no = fig.get("page", i) + 1
         figure = soup.new_tag("figure", attrs={"class": "scan-page"})
-        img = soup.new_tag("img", src=rel, alt=f"Page {page_no}")
+        img = soup.new_tag("img", attrs={
+            "src": figure_src(slug, fig), "alt": f"Page {page_no}",
+            **_size_attrs(fig), "loading": "lazy", "decoding": "async",
+        })
         figure.append(img)
         cap = soup.new_tag("figcaption")
         cap.string = f"Page {page_no}"
@@ -216,12 +244,11 @@ def make_poster_html(record: Dict[str, Any], extracted: Dict[str, Any], page_ima
     source_pdf = record.get("path", "unknown")
     sha = record.get("sha256", "")[:12]
     slug = record["id"]
-    rel = f"{slug}/{Path(page_image['path']).name}"
     text = "\n".join(c.get("text", "") for c in extracted.get("chunks") or []).strip()
     text_html = md_lib.markdown(text, extensions=["extra"]) if text else ""
     soup = BeautifulSoup(
         f'<div id="body"><figure class="poster">'
-        f'<img src="{html.escape(rel)}" alt="{html.escape(title)}">'
+        f'{_img_tag(figure_src(slug, page_image), title, page_image, lazy=False)}'
         f'<figcaption>{html.escape(title)}</figcaption></figure></div>',
         "html.parser",
     )
@@ -296,6 +323,11 @@ def retire_other_copies(record: Dict[str, Any], html_root: Path) -> None:
 
 
 def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: Path, figures: list | None = None, page_image: dict | None = None) -> Path:
+    """Write the article HTML and copy its figure files into ``{slug}/``.
+
+    Files in the asset directory that the new HTML does not reference
+    (for example PNGs from an older pipeline run) are removed.
+    """
     import shutil
     category = record["category"]
     art_dir = html_root / "articles" / category
@@ -305,25 +337,20 @@ def write_article(record: Dict[str, Any], extracted: Dict[str, Any], html_root: 
     asset_dir = art_dir / slug
     asset_dir.mkdir(parents=True, exist_ok=True)
     if page_image is not None:
+        figs = [page_image]
         out.write_text(make_poster_html(record, extracted, page_image))
-        dest = asset_dir / Path(page_image["path"]).name
-        shutil.copy(page_image["path"], dest)
-        return out
-    if extracted.get("scan"):
+    elif extracted.get("scan"):
         figs = [f for f in (figures or []) if Path(f["path"]).exists()]
         out.write_text(make_scan_html(record, extracted, figs))
-        for fig in figs:
-            shutil.copy(fig["path"], asset_dir / Path(fig["path"]).name)
-        return out
-    figs = [f for f in (figures or []) if Path(f["path"]).exists()]
-    out.write_text(make_article_html(record, extracted, figs))
+    else:
+        figs = [f for f in (figures or []) if Path(f["path"]).exists()]
+        out.write_text(make_article_html(record, extracted, figs))
     kept = set()
     for fig in figs:
         path = Path(fig["path"])
-        dest = asset_dir / path.name
-        shutil.copy(path, dest)
-        kept.add(dest.name)
-    for leftover in list(asset_dir.glob("*.svg")) + list(asset_dir.glob("*.png")):
+        shutil.copy(path, asset_dir / path.name)
+        kept.add(path.name)
+    for leftover in [p for ext in ("svg", "png", "webp", "jpg") for p in asset_dir.glob(f"*.{ext}")]:
         if leftover.name not in kept:
             leftover.unlink()
     for leftover in art_dir.glob(f"{slug}*.svg"):

@@ -1,12 +1,15 @@
-"""Extract text via pymupdf4llm (with layout) and figures as high-DPI PNG.
+"""Extract text via pymupdf4llm (with layout) and figures as web images.
 
 Body text, headings, reading order, and tables come from pymupdf4llm with
 the pymupdf-layout engine activated. That is the maintained path; we do not
 reimplement layout or table detection.
 
-Figures are clipped regions rasterized at high DPI. Clipped SVG from
-get_svg_image is incomplete (MuPDF maintainer guidance); a pixmap of the
-region is the usable output.
+Vector figures are clipped regions rasterized at FIGURE_DPI. Clipped SVG
+from get_svg_image is incomplete (MuPDF maintainer guidance); a pixmap of
+the region is the usable output. When a figure is a single embedded image
+(a photo, a scanned page), the original image stream is reused instead of
+re-rendering it. Encoding (WebP q80, original JPEGs kept) lives in
+images.py.
 """
 from __future__ import annotations
 import pymupdf as fitz
@@ -18,6 +21,7 @@ from pathlib import Path
 from typing import Dict, Any, List
 
 from .figures import figure_regions, is_diagram, is_rule, is_barcode, is_path_art
+from .images import extract_original, render_region
 
 # Strip repeating page chrome. pymupdf4llm applies these as margins.
 PAGE_MARGINS = (0, 50, 0, 50)
@@ -96,7 +100,10 @@ def _require_tessdata() -> None:
 
 
 def extract_scan(pdf_path: Path, out_dir: Path, stem: str, max_pages: int | None = None) -> Dict[str, Any]:
-    """A scanned or page-image document. Each page is rendered as a PNG.
+    """A scanned or page-image document. Each page becomes one image.
+
+    The page's own scan image is reused when it is the whole page
+    (render_page_image); otherwise the page is rendered.
 
     Prefer the existing text layer when it is present (OCR already done by
     the producer). Fall back to Tesseract OCR only when a page has no text.
@@ -113,7 +120,7 @@ def extract_scan(pdf_path: Path, out_dir: Path, stem: str, max_pages: int | None
         if i == 0 or (i + 1) % 10 == 0 or i + 1 == limit:
             print(f"  page {i + 1}/{limit}")
         page = doc[i]
-        image = render_page_png(page, out_dir, f"{stem}-page{i}")
+        image = render_page_image(page, out_dir, f"{stem}-page{i}")
         figures.append(image)
         text = page.get_text().strip()
         if not text:
@@ -140,14 +147,39 @@ def is_poster(page_count: int) -> bool:
     return page_count == 1
 
 
-def render_page_png(page: fitz.Page, out_dir: Path, stem: str) -> dict:
-    """High-DPI render of the whole page. Fail Fast if the write fails."""
-    pix = page.get_pixmap(dpi=FIGURE_DPI)
-    out = out_dir / f"{stem}-page.png"
-    pix.save(str(out))
-    if not out.exists() or out.stat().st_size == 0:
-        raise SystemExit(f"Page PNG write failed for {out}")
-    return {"path": str(out), "page": page.number, "labels": []}
+def render_page_image(page: fitz.Page, out_dir: Path, stem: str) -> dict:
+    """The whole page as one image. Fail Fast if the write fails.
+
+    A scanned page is usually one image XObject covering the page. When it
+    is, and nothing visible is drawn over it, that original image is reused
+    (JPEG kept as-is, other encodings as WebP). Otherwise the page is
+    rendered at FIGURE_DPI and written as WebP.
+    """
+    _clear_outputs(out_dir, f"{stem}-page")
+    out_base = out_dir / f"{stem}-page"
+    area = page.rect.width * page.rect.height
+    info = None
+    if area > 0:
+        for img in page.get_image_info(xrefs=True) or []:
+            # bbox is in unrotated space; measure coverage in visual space.
+            b = fitz.Rect(img.get("bbox") or (0, 0, 0, 0))
+            visual = b * page.rotation_matrix if page.rotation else b
+            if (visual & page.rect).get_area() / area >= 0.85:
+                info = extract_original(page, img.get("xref") or 0, b, out_base, FIGURE_DPI,
+                                        transform=img.get("transform"))
+                break
+    if info is None:
+        info = render_region(page, page.rect, out_base, FIGURE_DPI)
+    info.update({"page": page.number, "labels": []})
+    return info
+
+
+def _clear_outputs(out_dir: Path, base: str) -> None:
+    """Remove a previous run's image for this figure, whatever its format."""
+    for ext in (".png", ".webp", ".jpg"):
+        old = out_dir / f"{base}{ext}"
+        if old.exists():
+            old.unlink()
 
 
 def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:
@@ -187,11 +219,11 @@ def extract_pdf(pdf_path: Path, max_pages: int | None = None) -> Dict[str, Any]:
     }
 
 
-def extract_diagram_pngs(page: fitz.Page, out_dir: Path, stem: str) -> list[dict]:
-    """High-DPI PNG of every diagram region on the page.
+def extract_diagram_figures(page: fitz.Page, out_dir: Path, stem: str) -> list[dict]:
+    """One rendered image (WebP) of every vector diagram region on the page.
 
-    Rejects rules, barcodes, path-art, and body text. One PNG per region.
-    Fail Fast if a pixmap cannot be written.
+    Rejects rules, barcodes, path-art, and body text. One image per region.
+    Fail Fast if an image cannot be written.
     """
     regions = figure_regions(page)
     if not regions:
@@ -209,22 +241,19 @@ def extract_diagram_pngs(page: fitz.Page, out_dir: Path, stem: str) -> list[dict
     written: list[dict] = []
     for n, region in enumerate(sorted(diagrams, key=lambda r: (r.y0, r.x0))):
         clip = fitz.Rect(region.x0 - 4, region.y0 - 4, region.x1 + 4, region.y1 + 4) & page.rect
-        pix = page.get_pixmap(clip=clip, dpi=FIGURE_DPI)
-        out = out_dir / f"{stem}-{n}.png"
-        pix.save(str(out))
-        if not out.exists() or out.stat().st_size == 0:
-            raise SystemExit(f"PNG write failed for {out}")
+        _clear_outputs(out_dir, f"{stem}-{n}")
+        image = render_region(page, clip, out_dir / f"{stem}-{n}", FIGURE_DPI)
         labels = []
         for tb in text_blocks:
             bb = fitz.Rect(tb["bbox"])
             if not (region & bb).is_empty and tb["text"]:
                 labels.append(tb["text"])
-        written.append({
-            "path": str(out),
+        image.update({
             "page": page.number,
             "bbox": [region.x0, region.y0, region.x1, region.y1],
             "labels": labels,
         })
+        written.append(image)
     return written
 
 
@@ -236,12 +265,17 @@ MIN_RASTER_PIXELS = 40_000
 
 
 def extract_raster_figures(page: fitz.Page, out_dir: Path, stem: str, existing_regions: list | None = None) -> list[dict]:
-    """Extract significant embedded raster images as PNG figures.
+    """Extract significant embedded raster images as figures.
 
     Complements vector-cluster diagrams. Many manuals store schematics,
     panel drawings, and charts as embedded images rather than pure vectors.
     Skips images that substantially overlap an already-accepted vector region.
-    Fail Fast if a pixmap cannot be written.
+
+    When the image is the whole figure (nothing drawn over it), the original
+    stream is reused via extract_image: JPEG kept byte-for-byte, other
+    encodings written as WebP. Composites, masked, skewed or flipped images
+    are rendered at FIGURE_DPI as before.
+    Fail Fast if an image cannot be written.
     """
     existing = existing_regions or []
     written: list[dict] = []
@@ -276,18 +310,20 @@ def extract_raster_figures(page: fitz.Page, out_dir: Path, stem: str, existing_r
         visual = visual & page.rect
         if visual.is_empty or visual.width < 10 or visual.height < 10:
             continue
-        # Small pad so anti-aliased edges are not clipped.
-        clip = (visual + (-2, -2, 2, 2)) & page.rect
-        pix = page.get_pixmap(clip=clip, dpi=FIGURE_DPI)
-        out = out_dir / f"{stem}-raster{n}.png"
-        pix.save(str(out))
-        if not out.exists() or out.stat().st_size == 0:
-            raise SystemExit(f"PNG write failed for {out}")
-        written.append({
-            "path": str(out),
+        base = f"{stem}-raster{n}"
+        _clear_outputs(out_dir, base)
+        image = None
+        image = extract_original(page, info.get("xref") or 0, region, out_dir / base, FIGURE_DPI,
+                                 transform=info.get("transform"))
+        if image is None:
+            # Small pad so anti-aliased edges are not clipped.
+            clip = (visual + (-2, -2, 2, 2)) & page.rect
+            image = render_region(page, clip, out_dir / base, FIGURE_DPI)
+        image.update({
             "page": page.number,
             "bbox": [region.x0, region.y0, region.x1, region.y1],
             "labels": [],
             "kind": "raster",
         })
+        written.append(image)
     return written

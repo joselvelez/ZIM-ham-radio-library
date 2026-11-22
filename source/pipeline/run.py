@@ -26,7 +26,7 @@ def check_pipeline_deps() -> None:
     activating the venv) produces an opaque ModuleNotFoundError. This check
     surfaces the fix immediately.
     """
-    required = ("pymupdf", "pymupdf4llm", "markdown", "bs4")
+    required = ("pymupdf", "pymupdf4llm", "markdown", "bs4", "PIL")
     missing = []
     for name in required:
         try:
@@ -54,7 +54,7 @@ def check_pipeline_deps() -> None:
 check_pipeline_deps()
 
 from source.pipeline.ingest import ingest_pdf, load_manifest, save_manifest
-from source.pipeline.extract import extract_pdf, extract_diagram_pngs, extract_raster_figures, is_poster, is_scan, is_page_image_document, extract_scan, render_page_png
+from source.pipeline.extract import extract_pdf, extract_diagram_figures, extract_raster_figures, is_poster, is_scan, is_page_image_document, extract_scan, render_page_image
 from source.pipeline.figures import figure_regions
 from source.pipeline.assemble import write_article, retire_other_copies
 from source.pipeline.quality import score_document, enqueue_if_low
@@ -148,7 +148,7 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
     if is_poster(extracted["page_count"]):
         print("Poster (one page): rendering the page, not reflowing.")
         doc = fitz.open(pdf)
-        page_image = render_page_png(doc[0], notes, record["id"])
+        page_image = render_page_image(doc[0], notes, record["id"])
         doc.close()
         print(f"  page: {page_image['path']}")
         retire_other_copies(record, html_root)
@@ -164,7 +164,7 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
         page = doc[i]
         stem = f"{record['id']}-page{i}"
         # Vector clusters first
-        results = extract_diagram_pngs(page, notes, stem)
+        results = extract_diagram_figures(page, notes, stem)
         accepted_regions = []
         if results:
             for r in results:
@@ -175,7 +175,7 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
         rasters = extract_raster_figures(page, notes, stem, existing_regions=accepted_regions)
         for r in rasters:
             figures.append(r)
-            print(f"  raster figure on page {i + 1}: {r['path']}")
+            print(f"  raster figure on page {i + 1} ({r.get('source', 'render')}): {r['path']}")
     doc.close()
     print(f"Diagrams: {len(figures)}")
 
