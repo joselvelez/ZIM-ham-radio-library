@@ -23,7 +23,7 @@ Equipment photos may stay optimized raster when pure vector adds no value.
 ### Processing model
 Default path is unattended batch:
 
-**Page-image documents.** A PDF is treated as a scan when at least 80% of its pages contain a single image covering ≥ 85% of the page area. Every page is examined. Each page is rendered as a high-DPI PNG and embedded in the HTML; the existing text layer is used for search/RAG when present. Pure scans with no text layer still OCR via Tesseract.
+**Page-image documents.** A PDF is treated as a scan when at least 80% of its pages contain a single image covering ≥ 85% of the page area. Every page is examined. Each page becomes one image file referenced from the HTML (the page's own scan image when it is the whole page, otherwise a 200 dpi render; see Figure images); the existing text layer is used for search/RAG when present. Pure scans with no text layer still OCR via Tesseract.
 
  extract → (OCR if needed) → AI vectorize figures → assemble semantic HTML → quality checks.  
 Emit confidence / quality scores at figure and document level.  
@@ -49,11 +49,11 @@ Filenames stable and descriptive. Index (and future category pages) provide navi
 html/articles/manuals/
   {slug}.html
   {slug}/
-    {slug}-page0-0.png
-    {slug}-page12-1.png
+    {slug}-page0-0.webp
+    {slug}-page12-raster0.jpg
 ```
 
-The HTML references them as `{slug}/filename.png`. This keeps the category folder flat (one HTML per source) and scales to thousands of documents × dozens of figures. A document id has exactly one article. On a category change the old article and its asset directory are deleted; the new ones are written in the new category. An empty old category directory is removed.
+The HTML references them by relative path, `{slug}/filename.webp` (URL-encoded). Images are never inlined as `data:` URIs: zimwriterfs stores each file as its own ZIM entry, Kiwix loads it like any other image, and NOMAD's extractor reads only text tags and ignores `<img>`. The lightbox dialog points at the same file. This keeps the category folder flat (one HTML per source) and scales to thousands of documents × dozens of figures. A document id has exactly one article. On a category change the old article and its asset directory are deleted; the new ones are written in the new category. An empty old category directory is removed.
 
 ### Deduplication
 Early, before expensive stages.  
@@ -118,10 +118,11 @@ Next concrete step: prototype the ingest → extract → one AI vectorization �
 Working path under `source/pipeline/`:
 
 - `ingest.py` — SHA-256 identifies a document. Category lives in the manifest. `--category` sets or changes it.
-- `extract.py` — body, headings, reading order, and tables from `pymupdf4llm` with the `pymupdf-layout` engine activated. Figures are high-DPI PNG clips of diagram regions.
+- `extract.py` — body, headings, reading order, and tables from `pymupdf4llm` with the `pymupdf-layout` engine activated. Figures are diagram regions rendered at 200 dpi, or the original embedded image when the figure is a single image (see Figure images).
 - `toc.py` — leader-dot TOC lines become Markdown list items.
 - `style.py` — heading ids, TOC links, sticky sidebar nav, native dialog lightbox.
-- `assemble.py` — Markdown to HTML, figures placed per page, style layer applied.
+- `images.py` — figure encoding: WebP q80 for renders, original JPEGs kept, 1-bit scans lossless.
+- `assemble.py` — Markdown to HTML, figures placed per page (relative `src`), style layer applied.
 - `run.py` — end-to-end entrypoint.
 
 **Python 3.10–3.13 is required.** `pymupdf-layout` depends on `onnxruntime`, which has no wheel for Python 3.14+. `setup.sh` fails fast outside that range.
@@ -140,7 +141,7 @@ python3 source/pipeline/run.py source/pdfs/public/basic/nav-comms_P2_ft-857-oper
 
 Outputs:
 - `source/manifest.json`
-- `html/articles/<category>/<id>.html` plus a sibling directory of PNG figures
+- `html/articles/<category>/<id>.html` plus a sibling directory of figure images (`.webp`, `.jpg`)
 - index and sources pages rebuilt
 
 Validated on the FT-857 operator manual: full extraction, TOC as linked lists, sticky sidebar, figure lightbox, Specifications as a heading and table.
@@ -285,7 +286,7 @@ Output: `source/pipeline/graphify-out/graph.json`.
 What the pipeline does today:
 
 - Body text, headings, reading order, and tables come from `pymupdf4llm` with the `pymupdf-layout` engine. We do not hand-roll layout.
-- Figures are high-DPI PNG of each diagram region. Clipped SVG is incomplete; a pixmap is the usable output. SVG remains the long-term preference; it is not the current output.
+- Figures are image files next to the article, referenced by relative path. Vector regions are rendered at 200 dpi and stored as WebP q80; a figure that is a single embedded image reuses the original (see Figure images). Clipped SVG is incomplete; a pixmap is the usable output for vectors. SVG remains the long-term preference; it is not the current output.
 - Category comes from the filename prefix. `--category` overrides. The manifest is the source of truth.
 - A directory run skips a file that already has an article. `--force` reruns it.
 - A one-page PDF is a poster: the page image is the article.
@@ -298,7 +299,21 @@ What the pipeline does today:
 
 Body text, headings, reading order, and tables come from `pymupdf4llm.to_markdown` with page margins to drop chrome. Markdown is converted to HTML with the standard `markdown` library. We do not hand-roll heading or reading-order logic.
 
-Figures are high-DPI PNG of each diagram region (`page.get_pixmap(clip=…, dpi=200)`). Clipped SVG from `get_svg_image` is incomplete; a pixmap of the region is the usable output. Region filters (rule, barcode, path-art, body text) are unchanged.
+Vector figures are rendered per diagram region (`page.get_pixmap(clip=…, dpi=200)`). Clipped SVG from `get_svg_image` is incomplete; a pixmap of the region is the usable output. Region filters (rule, barcode, path-art, body text) are unchanged.
+
+## Figure images (2026-11-22)
+
+Single source of truth: `source/pipeline/images.py`. This follows openZIM practice (mwoffliner `--webp`, zimscraperlib `optimize_image`) and the PDF tools' rule of reusing existing image streams (pdf2htmlEX, OCRmyPDF).
+
+- **Files, not data URIs.** Every figure is a file in `{slug}/`, referenced by relative URL. The lightbox reuses the same `src`. `style.wrap_figures` refuses `data:` URIs.
+- **Rendered regions** (vector diagrams, composites, posters, pages that are not one clean image): 200 dpi pixmap, encoded as **WebP quality 80** (`method=6`). Measured at 39–44 dB PSNR against the old PNGs, about a third of the size.
+- **A figure that is one embedded image** (photo, scanned page): the original is extracted with `Document.extract_image` instead of re-rendering it.
+  - JPEG (gray/RGB, ≤ 300 dpi as placed) is kept byte-for-byte as `.jpg`.
+  - 1-bit scans (CCITT, JBIG2, 1-bit Flate) become **lossless WebP** at their own resolution (≤ 400 dpi; finer scans are downscaled to 200 dpi WebP q80).
+  - Other encodings are decoded once and written as WebP q80, downscaled to 200 dpi when the original is finer than 300 dpi.
+- **Rotated pages** (`/Rotate`, common in scans): the original is turned losslessly to match what the reader sees; a JPEG is then re-encoded as WebP.
+- **When the original is not used** (the region is rendered instead): images drawn flipped, rotated or skewed, soft masks, CMYK JPEGs, images that run off the page, anything visible drawn over the image (other images, vector paths, visible text; invisible OCR text is fine), and any original that does not match a small render of its region. The render check catches colour spaces such as Separation /Black (stored as a negative), `Decode` arrays, and clipping.
+
 
 ## Article style (2026-11-09)
 

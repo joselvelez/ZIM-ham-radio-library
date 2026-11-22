@@ -11,3 +11,6 @@ markdown>=3.5
 beautifulsoup4>=4.12
 # Code knowledge graph for the pipeline.
 graphifyy>=0.1.0
+# Figure encoding: WebP q80 for rendered figures, original JPEGs kept.
+# Same encoder zimscraperlib's optimize_image wraps.
+pillow>=10.0
