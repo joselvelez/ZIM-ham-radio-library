@@ -55,7 +55,7 @@ check_pipeline_deps()
 
 from source.pipeline.ingest import ingest_pdf, load_manifest, save_manifest
 from source.pipeline.extract import extract_pdf, extract_diagram_figures, extract_raster_figures, is_poster, is_scan, is_page_image_document, extract_scan, render_page_image
-from source.pipeline.figures import figure_regions
+from source.pipeline.figures import figure_regions, is_color_coded_page
 from source.pipeline.assemble import write_article, retire_other_copies
 from source.pipeline.quality import score_document, enqueue_if_low
 from source.pipeline.index import rebuild_index
@@ -171,6 +171,12 @@ def process_one(pdf: Path, category: str, html_root: Path, max_pages: int | None
                 figures.append(r)
                 accepted_regions.append(r["bbox"])
                 print(f"  diagram on page {i + 1}: {r['path']}")
+        elif is_color_coded_page(page):
+            page_image = render_page_image(page, notes, stem)
+            figures.append(page_image)
+            unrotated = page.rect * page.derotation_matrix if page.rotation else page.rect
+            accepted_regions.append([unrotated.x0, unrotated.y0, unrotated.x1, unrotated.y1])
+            print(f"  color chart on page {i + 1}: {page_image['path']}")
         # Then significant embedded raster images not already covered
         rasters = extract_raster_figures(page, notes, stem, existing_regions=accepted_regions)
         for r in rasters:

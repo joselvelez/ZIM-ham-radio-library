@@ -164,3 +164,53 @@ def is_prose_svg(svg: str) -> bool:
     chunks = re.findall(r"<tspan[^>]*>([^<]*)</tspan>", svg)
     text = "".join(chunks)
     return len(text) > MAX_SVG_TEXT_CHARS
+# Color-coded chart/table detection (pages whose meaning depends on vector fill colors).
+MIN_FILL_CHROMA = 0.15
+MIN_COLOR_SWATCH_AREA = 400.0
+MIN_COLOR_CHART_COLORS = 6
+MIN_COLOR_CHART_AREA_FRACTION = 0.005
+
+
+def is_color_coded_page(page: fitz.Page) -> bool:
+    """True when the page uses many distinct chromatic vector fills over significant area.
+
+    Catches color-coded charts and tables (e.g. resistor color codes, fiber
+    color codes, multi-series charts) whose table/label text exceeds
+    TEXT_DOMINANCE in is_diagram() so their vector regions were skipped.
+    Neutral grays/whites/blacks and tiny icon details are ignored.
+    """
+    page_area = page.rect.get_area()
+    if page_area <= 0:
+        return False
+    try:
+        drawings = page.get_drawings()
+    except Exception:
+        return False
+    if not drawings:
+        return False
+
+    by_color_max: dict[tuple[float, float, float], float] = {}
+    by_color_sum: dict[tuple[float, float, float], float] = {}
+    for d in drawings:
+        fill = d.get("fill")
+        if not fill or len(fill) < 3:
+            continue
+        rgb = fill[:3]
+        if max(rgb) - min(rgb) < MIN_FILL_CHROMA:
+            continue
+        rect = d.get("rect")
+        if not rect:
+            continue
+        area = (fitz.Rect(rect) & page.rect).get_area()
+        if area <= 0:
+            continue
+        key = (round(rgb[0], 1), round(rgb[1], 1), round(rgb[2], 1))
+        if area > by_color_max.get(key, 0.0):
+            by_color_max[key] = area
+        by_color_sum[key] = by_color_sum.get(key, 0.0) + area
+
+    significant = [k for k, max_a in by_color_max.items() if max_a >= MIN_COLOR_SWATCH_AREA]
+    if len(significant) < MIN_COLOR_CHART_COLORS:
+        return False
+    total_area = sum(by_color_sum[k] for k in significant)
+    return (total_area / page_area) >= MIN_COLOR_CHART_AREA_FRACTION
