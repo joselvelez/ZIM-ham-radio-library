@@ -301,6 +301,8 @@ Body text, headings, reading order, and tables come from `pymupdf4llm.to_markdow
 
 Vector figures are rendered per diagram region (`page.get_pixmap(clip=…, dpi=200)`). Clipped SVG from `get_svg_image` is incomplete; a pixmap of the region is the usable output. Region filters (rule, barcode, path-art, body text) are unchanged.
 
+Color-coded charts and tables whose vector regions are skipped by text-dominance or path-art filters (pages with ≥ 6 distinct chromatic fill colors, each ≥ 400 sq pt and covering ≥ 0.5% of the page) also get a full-page WebP q80 figure (`is_color_coded_page` in `figures.py`), while keeping the extracted text and tables in the article body for search.
+
 ## Figure images (2026-11-22)
 
 Single source of truth: `source/pipeline/images.py`. This follows openZIM practice (mwoffliner `--webp`, zimscraperlib `optimize_image`) and the PDF tools' rule of reusing existing image streams (pdf2htmlEX, OCRmyPDF).
