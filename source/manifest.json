@@ -1425,6 +1425,58 @@
       "status": "ingested",
       "canonical": true,
       "title_source": "manual"
+    },
+    "nav-comms_manual_Powerwerx_SS30DV-SPS30DM-bc4531e6": {
+      "id": "nav-comms_manual_Powerwerx_SS30DV-SPS30DM-bc4531e6",
+      "path": "pdfs/public/basic/nav-comms_manual_Powerwerx_SS30DV-SPS30DM.pdf",
+      "sha256": "bc4531e67ac8f742dee6acfa53392b4695f8bf3c2e2ea9a65e9a42fe78150270",
+      "fingerprint": "sz270672-hb07d6cbcc489e229",
+      "size": 270672,
+      "category": "manuals",
+      "location": "basic",
+      "title": "Powerwerx SS-30DV & SPS-30DM User Manual",
+      "status": "ingested",
+      "canonical": true,
+      "title_source": "manual"
+    },
+    "nav-comms_manual_West_Moutain_Radio_PWRgate_PG40S-f3a49193": {
+      "id": "nav-comms_manual_West_Moutain_Radio_PWRgate_PG40S-f3a49193",
+      "path": "pdfs/public/basic/nav-comms_manual_West_Moutain_Radio_PWRgate_PG40S.pdf",
+      "sha256": "f3a49193e92a53182a844a41972826b4504c5ec356db1e953623cdc3bb5affb2",
+      "fingerprint": "sz522917-hccfea7ea9682ef2e",
+      "size": 522917,
+      "category": "manuals",
+      "location": "basic",
+      "title": "West Mountain Radio PWRgate PG40S Manual",
+      "status": "ingested",
+      "canonical": true,
+      "title_source": "manual"
+    },
+    "nav-comms_manual_West_Moutain_Radio_PWRgate_PG40S_schematic-a820ce01": {
+      "id": "nav-comms_manual_West_Moutain_Radio_PWRgate_PG40S_schematic-a820ce01",
+      "path": "pdfs/public/basic/nav-comms_manual_West_Moutain_Radio_PWRgate_PG40S_schematic.pdf",
+      "sha256": "a820ce0118f1f5e16a317ed8d7ba13722b8af9402bb694314d04eee634321153",
+      "fingerprint": "sz31562-he92e5bfe395ea60a",
+      "size": 31562,
+      "category": "manuals",
+      "location": "basic",
+      "title": "West Mountain Radio PWRgate PG40S Schematic",
+      "status": "ingested",
+      "canonical": true,
+      "title_source": "manual"
+    },
+    "nav-comms_reference_electronics_resistor_color_code_chart-ccbad4ed": {
+      "id": "nav-comms_reference_electronics_resistor_color_code_chart-ccbad4ed",
+      "path": "pdfs/public/basic/nav-comms_reference_electronics_resistor_color_code_chart.pdf",
+      "sha256": "ccbad4eda5c987c66bf474eea14a6eb14671e45ef82816d41ba6f412aa4871d4",
+      "fingerprint": "sz7718-h50d2eaaeb441571c",
+      "size": 7718,
+      "category": "reference",
+      "location": "basic",
+      "title": "Resistor Color Code Chart",
+      "status": "ingested",
+      "canonical": true,
+      "title_source": "manual"
     }
   },
   "version": 1
